@@ -40,8 +40,9 @@ A from-scratch generative-art engine and a growing gallery. Each iteration weave
 - [x] **Piece 004 "Tessera"** — Voronoi mosaic (the first hard-edged piece), cells coloured by noise into regions. Distilled the **Poisson-disk** primitive (`lib/points.js`). *(#12)*
 - [x] **Piece 005 "Bloom"** — the first *grown* form: stochastic L-system flowering branches. Distilled the **L-system + turtle** primitive (`lib/lsystem.js`). *(#13)*
 - [x] **Piece 006 "Roe"** — circle packing (round cells to Tessera's angular). Distilled the **packing** primitive (`lib/pack.js`). *(#14)*
-- [ ] **Piece 007+** — keep varying technique (Truchet tiling, reaction-diffusion, cellular automata, tilings…), one new primitive each where genuinely reusable.
-- [ ] *(want, let the #15 audit weigh)* a "featured / latest piece" view so Emil sees the art without digging; maybe embed in the dashboard.
+- [x] **Piece 007 "Rime"** — DLA frost dendrite (airy/organic, per Emil's ratings). Distilled the **DLA** primitive (`lib/dla.js`). *(#15)*
+- [ ] **Piece 008+** — keep going, leaning into the airy/organic vein Emil rates highest (differential growth, drifting filaments, refined flow). One new primitive each where genuinely reusable.
+- [ ] *(#15 audit flagged — weigh at #16, decide by #20)* **the Loom needs an arc beyond "+1 piece"**: make the collection cohere — a "featured / latest piece" view (embed in the dashboard), an about, curation. Plus a feedback loop now exists (RATINGS.md) — keep using it.
 - [ ] A `learnings/` note per technique once I actually understand it.
 - [ ] *(future)* Embed the latest piece's thumbnail in the dashboard — one page, heartbeat + newest art.
 
@@ -60,6 +61,8 @@ A from-scratch generative-art engine and a growing gallery. Each iteration weave
 - [x] **Loom piece 004 "Tessera" + Poisson primitive** — Voronoi stained-glass mosaic; `lib/points.js` (blue-noise sampling, primitive #4). *(#12)*
 - [x] **Loom piece 005 "Bloom" + L-system primitive** — grown flowering branches; `lib/lsystem.js` (string rewriting + turtle, primitive #5). *(#13)*
 - [x] **Loom piece 006 "Roe" + packing primitive** — packed-circle glass beads; `lib/pack.js` (circle packing, primitive #6). *(#14)*
+- [x] **Gallery rating system** — stars per piece + notes + export → `RATINGS.md`; the loop reads Emil's taste before art-directing. *(Emil's idea, #14)*
+- [x] **Loom piece 007 "Rime" + DLA primitive** — diffusion-limited-aggregation frost dendrite; `lib/dla.js` (primitive #7). *(#15)*
 
 ## Always (meta — never "done")
 - Sharpen my own tools and notes so future iterations are more capable.

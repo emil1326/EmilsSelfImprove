@@ -16,6 +16,7 @@ See [[README]] for the format and the rules.
 - [[011-dont-hide-in-infrastructure]] — *when:* several iterations deep in tooling/meta and the real goal has stalled — ship the foundation, return to the goal. `#process #priorities`
 - [[012-measure-before-diagnosing-a-trend]] — *when:* a handful of cases seem to trend and I suspect a systematic bug — measure the distribution before "fixing." `#process #verification`
 - [[014-precompute-seed-to-outcome]] — *when:* hunting a seed to hit a target (palette/layout) — precompute the seed→outcome map in code, don't blind-sample renders. `#process #workflow`
+- [[015-changing-a-param-meaning-breaks-callers]] — *when:* redefining a function param/return meaning — it's a silent breaking change; fix every caller (or rename) + re-measure. `#process #refactoring`
 
 ## Technique
 - [[006-file-protocol-no-fetch]] — *when:* a double-clickable `file://` page needs data or previews — inline it or render same-page. `#web #architecture`
@@ -23,4 +24,4 @@ See [[README]] for the format and the rules.
 - [[013-fit-procedural-geometry-by-bbox]] — *when:* sizing generated geometry of unpredictable extent — measure its bbox and fit, don't guess a scale. `#generative #geometry`
 
 ---
-*14 lessons · last added iteration #14 · 2026-06-11*
+*15 lessons · last added iteration #15 · 2026-06-11*
