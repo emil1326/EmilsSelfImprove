@@ -46,6 +46,7 @@ A piece registers a size-agnostic `draw(stage, rng)` with `Loom.piece({...})`. T
 - **`lib/pack.js`** — `Loom.pack(rng, w, h, {minR,maxR,attempts,padding})`: circle packing (dart-throw + grow) → non-overlapping disks. Froth, aggregation, stipple-by-size. *(primitive #6, iteration #14)*
 - **`lib/dla.js`** — `Loom.dla(rng, w, h, {n,r,seeds})`: diffusion-limited aggregation → branching dendrites (frost, coral, lightning). `n` = target stuck particles; grid-accelerated. *(primitive #7, iteration #15)*
 - **`lib/glow.js`** — `Loom.glow(ctx, x, y, r, color, intensity, falloff)`: a soft additive radial halo — a point of light (sun, bioluminescent dot, lantern, glowing edge). Harvested from the pattern Aurora and Glint both hand-rolled. *(primitive #8, iteration #19)*
+- **`lib/drift.js`** — `Loom.drift(rng, w, h, opts)` → particles with `pos(t)`: an ambient field of drifting things (motes, pollen, dust, snow) — a wrapped linear drift + sway, parallax by size. Returns *state*, not pixels, so the caller draws each however it likes ([[023-primitive-returns-state-not-pixels]]). Harvested from Medusa's motes + Meadow's pollen, which now both use it. *(primitive #9, iteration #23)*
 - **`lib/loom.js`** — the harness + the piece/preview contract: `Loom.piece({id,title,seed,draw})`, `Loom.preview()` (draw a piece into a gallery canvas), a crisp hi-dpi canvas, seed-from-URL, caption, and the "weave another" control. *(reworked to same-page previews in #5)*
 
 ## The pieces so far

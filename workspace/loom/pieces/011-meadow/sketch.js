@@ -92,12 +92,11 @@ Loom.piece({
     // draw order: far first, near last
     plants.sort(function (a, b) { return a.d - b.d; });
 
-    // pollen motes drifting in the light (a few, warm — subtle)
-    var motes = [];
-    for (var m = 0; m < 26; m++) {
-      motes.push({ x: rng.range(0, S), y: rng.range(0, S), r: rng.range(0.6, 1.8) * U,
-        sp: rng.range(4, 11), ph: rng.range(0, TAU), a: rng.range(0.12, 0.4) });
-    }
+    // pollen motes drifting up through the light (lib/drift.js — primitive #9)
+    var motes = Loom.drift(rng, S, S, {
+      count: 26, rMin: 0.6 * U, rMax: 1.8 * U, aMin: 0.12, aMax: 0.4,
+      dir: -Math.PI / 2, speedMin: 4, speedMax: 11, sway: 10 * U, swayRate: 0.5
+    });
 
     // the wind: one coherent gust travelling left→right, sampled at a plant's x and time.
     // returns roughly [-1, 1].
@@ -186,11 +185,10 @@ Loom.piece({
       // pollen drifting up through the light
       for (var m = 0; m < motes.length; m++) {
         var mo = motes[m];
-        var my = (mo.y - t * mo.sp) % S; if (my < 0) my += S;
-        var mx = mo.x + Math.sin(t * 0.5 + mo.ph) * 10 * U;
+        var pt = mo.pos(t);
         ctx.fillStyle = Loom.rgba(sc.sun, mo.a * 0.5);
         ctx.beginPath();
-        ctx.arc(mx, my, mo.r, 0, TAU);
+        ctx.arc(pt.x, pt.y, mo.r, 0, TAU);
         ctx.fill();
       }
     };

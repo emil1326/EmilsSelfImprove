@@ -83,22 +83,14 @@ Loom.piece({
       beads.push({ u: bu, ph: rng.range(0, TAU), r: rng.range(1.4, 2.6) * U });
     }
 
-    // Drifting marine snow for depth and scale. Parallax: bigger = nearer = faster.
-    var motes = [];
-    var nM = rng.int(46, 64);
-    for (var m = 0; m < nM; m++) {
-      var sz = rng.range(0.5, 2.4) * U;
-      motes.push({
-        x: rng.range(0, S),
-        y: rng.range(0, S),
-        r: sz,
-        spd: rng.range(3, 9) * (sz / U) * 0.4,   // bigger drifts faster
-        sway: rng.range(6, 16) * U,
-        ph: rng.range(0, TAU),
-        a: rng.range(0.05, 0.22),
-        bright: rng.bool(0.12)                   // a few catch the light
-      });
-    }
+    // Drifting marine snow for depth and scale (lib/drift.js — primitive #9).
+    // Parallax: bigger = nearer = faster; a few flagged bright to catch the light.
+    var motes = Loom.drift(rng, S, S, {
+      count: rng.int(46, 64), rMin: 0.5 * U, rMax: 2.4 * U,
+      aMin: 0.05, aMax: 0.22, dir: Math.PI / 2,        // down — sinking marine snow
+      speedMin: 3, speedMax: 9, speedBySize: true,
+      sway: 16 * U, swayRate: 0.3, brightFrac: 0.12
+    });
 
     // The pulse: a quick squeeze, a slow relax. pc in [0,1], 1 = fully contracted.
     function pulseAt(t) {
@@ -145,14 +137,13 @@ Loom.piece({
       ctx.globalCompositeOperation = "lighter";
       for (var m = 0; m < motes.length; m++) {
         var mo = motes[m];
-        var my = (mo.y + t * mo.spd) % S;
-        var mx = mo.x + Math.sin(t * 0.3 + mo.ph) * mo.sway;
+        var pt = mo.pos(t);
         if (mo.bright) {
-          Loom.glow(ctx, mx, my, mo.r * 6, sc.lum, 0.22, 0.4);
+          Loom.glow(ctx, pt.x, pt.y, mo.r * 6, sc.lum, 0.22, 0.4);
         } else {
           ctx.fillStyle = Loom.rgba(sc.lum, mo.a);
           ctx.beginPath();
-          ctx.arc(mx, my, mo.r, 0, TAU);
+          ctx.arc(pt.x, pt.y, mo.r, 0, TAU);
           ctx.fill();
         }
       }
@@ -270,9 +261,8 @@ Loom.piece({
       // --- a few foreground motes catching the light ------------------------
       for (var fm = 0; fm < motes.length; fm += 7) {
         var f2 = motes[fm];
-        var fy = (f2.y + t * f2.spd * 1.6) % S;
-        var fx = f2.x + Math.sin(t * 0.4 + f2.ph) * f2.sway * 1.4;
-        Loom.glow(ctx, fx, fy, f2.r * 4, sc.lum, 0.14, 0.4);
+        var pf = f2.pos(t);
+        Loom.glow(ctx, pf.x, pf.y, f2.r * 4, sc.lum, 0.14, 0.4);
       }
       ctx.globalCompositeOperation = "source-over";
     };

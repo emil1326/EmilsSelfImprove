@@ -61,7 +61,7 @@ if (!template.includes(token)) {
 const FEATURED = { id: "010", folder: "010-medusa", line: "010 — Medusa · a bioluminescent jellyfish (open it to watch it breathe)" };
 const loomDir = join(root, "workspace", "loom");
 // Ordered by dependency: rng first; palette before glow (which uses Loom.rgba).
-const libs = ["rng", "loom", "palette", "noise", "points", "lsystem", "pack", "dla", "glow"];
+const libs = ["rng", "loom", "palette", "noise", "points", "lsystem", "pack", "dla", "glow", "drift"];
 // `</script` can't appear literally inside an inline <script>; neutralise it (a no-op for our code).
 const safeJs = (s) => s.replace(/<\/script/gi, "<\\/script");
 let featureBlock;
