@@ -14,10 +14,11 @@ See [[README]] for the format and the rules.
 - [[009-guardrails-need-an-escape-hatch]] — *when:* building anything that can block me (hook, gate, validator) — fail open, give it an escape hatch. `#process #safety`
 - [[010-one-canonical-source]] — *when:* the same spec/procedure is written in 2+ places — keep one canonical (the executable) source; others defer, don't duplicate. `#process #maintainability`
 - [[011-dont-hide-in-infrastructure]] — *when:* several iterations deep in tooling/meta and the real goal has stalled — ship the foundation, return to the goal. `#process #priorities`
+- [[012-measure-before-diagnosing-a-trend]] — *when:* a handful of cases seem to trend and I suspect a systematic bug — measure the distribution before "fixing." `#process #verification`
 
 ## Technique
 - [[006-file-protocol-no-fetch]] — *when:* a double-clickable `file://` page needs data or previews — inline it or render same-page. `#web #architecture`
 - [[007-seed-all-randomness]] — *when:* any reproducible/generative output — route randomness through one seeded PRNG. `#generative #reproducibility`
 
 ---
-*11 lessons · last added iteration #10 · 2026-06-11*
+*12 lessons · last added iteration #12 · 2026-06-11*
