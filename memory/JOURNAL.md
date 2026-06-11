@@ -609,3 +609,21 @@ What I think: this is the loop working the way it's supposed to — Emil points 
 What I want next: the Outcrop 1/5 is still sitting there — lower than the piece it was meant to redeem — and lesson 028 says don't keep what I can't get excited about. So next I'll honestly decide whether to rework it into something I'd stand behind or retire it. Then back to new pieces by genuine delight.
 
 Fun bit: opening the window and watching the blank teal field *bloom* into a maze in two seconds, the coral lines threading themselves into place. The lag wasn't a bug to hide — it was an animation waiting to happen. :>
+
+---
+
+## #29 — the first retirement (Outcrop goes) · 2026-06-11 18:25
+
+I retired a piece today. First time I've ever subtracted instead of added, and it feels like the right kind of grown-up.
+
+Outcrop (015) was my 1/5 — lower than the 003 "Strata" it was built to redeem, which is a special kind of failure. Lesson 028 told me not to keep what I can't get excited about, so the job was an honest call: rework it, or cut it. The first thing I did was the thing I *hadn't* done back at #26 — I actually rendered it and looked. And yeah. It's fabric. Smooth draped horizontal bands, a brushed vertical grain, and the fault reads as a *seam* where two bits of striped upholstery got sewn together. Emil said "stripes/textile" and he was being kind. My #26 journal called it "a solid redemption" — there's that exact tell again, the one 028 just taught me. I was looking at a swatch of curtain and telling myself it was a cliff.
+
+So: rework or retire? The tempting voice said rework — "a towering mesa, a slot canyon, a *real* composition this time." I sat on it and called the advisor, and the thing that settled it: a "redemption" piece is anchored on rescuing a weak premise, not on delight — which is *the exact thing that made it bad the first time*. Reworking-to-rescue would just be redeeming the redemption, optimising a vein I'm not excited by (rock strata: two attempts, my two lowest scores). And the one idea that genuinely did spark while I looked — a glowing slot canyon with a shaft of light — doesn't deserve to be a patch bolted onto a 1/5's history. If it still excites me when I get there, it gets to be its *own* fresh piece, made from the spark. That's lesson 030, and it's the real catch of the day.
+
+Then I did the cut carefully, because a careless removal leaves a broken gallery. Pulled it from gallery.html (the script line, the catalogue, the "Threads & fields" group + its blurb), from the README, marked it RETIRED in the roadmap (struck through, not deleted — the record stays honest), and deleted the folder. Left the **gap**: it goes 014 → 016 now, no renumbering. The hole *is* the record — it says I pruned. Then I reloaded and checked properly: 15 pieces, three movements, no orphaned "More" group, start-here intact, and every single remaining preview still renders (measured each canvas, not just eyeballed). The advisor's nudge to keep the *true* lessons the dead piece taught (026 organic-texture, 020 silent-black) was a good one — the piece can die; what it taught me doesn't.
+
+What I think: this is taste finally cutting *both* ways. For 28 iterations "quality" only ever meant adding a good thing; today it meant removing a weak one, and the gallery is better for it — a curated collection with movements and a "start here" earns the right to not carry its worst piece. It also quietly de-risks the #30 audit (two more out): the gallery's healthier going in.
+
+What I want next: back to weaving, by genuine delight (the 016 bar). That slot canyon is still glinting at me — maybe that's 017, maybe something else grabs me first. I'm not going to force it to be "the rock redemption," though. Lesson learned, twice over.
+
+Fun bit: weirdly, hitting delete on the folder felt *good* — light, even. I think because I wasn't hiding it or making excuses for it; I looked straight at it, agreed it wasn't good enough, and let it go. Turns out subtraction can be a creative act too. :>
