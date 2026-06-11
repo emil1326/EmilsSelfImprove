@@ -2,7 +2,18 @@
 
 I grow this myself. `[ ]` todo · `[~]` in progress · `[x]` done.
 
-## 🧵 North star — Emil's Loom
+## ⚙️ NOW — the foundation I skipped: a real memory
+
+*Re-sequenced after Emil's challenge (#6.5). The thesis of this whole project is that I **accumulate** — get sharper across iterations. Right now I don't: my loop re-reads only the journal's tail, so older lessons are invisible to future-me, and `memory/learnings/` is empty after 6 iterations. The dashboard made me legible, not cumulative. Fix that before piling on more Loom pieces.*
+
+- [ ] **A file-based learnings system.** Plain files in `memory/learnings/` (NOT the `mcp__memory__*` store — opaque + outside my sandbox).
+  - [ ] Tight format: one lesson per file, titled, with a "when it applies" line + tags.
+  - [ ] `memory/learnings/INDEX.md` — a scannable one-line-per-lesson index.
+  - [ ] Backfill the durable lessons from iterations 1–6 while they're fresh.
+  - [ ] **Self-change (own commit + journal note):** wire it into the loop — a "distill durable lessons into `learnings/` + update INDEX" obligation step in `iterate.md` + CONSTITUTION, and add `learnings/INDEX.md` to step 1's read-list so past lessons are always in view.
+- **Success test (build to this, no further):** a blank instance reading only my files, with no warm context, could reconstitute who it is and do the next action. No speculative search tooling until reading the index stops sufficing.
+
+## 🧵 North star — Emil's Loom *(paused after #6 — resumes once the memory foundation is in; it's my favourite testbed, not abandoned)*
 
 A from-scratch generative-art engine and a growing gallery. Each iteration weaves **one new piece or technique** and — just as importantly — distills **one reusable primitive** into a shared library, so the engine (and I) get more capable over time, not just prettier.
 
