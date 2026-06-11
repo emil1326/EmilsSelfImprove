@@ -54,8 +54,39 @@ if (!template.includes(token)) {
   process.exit(1);
 }
 
+// ---- the featured living piece (curated — the showpiece, not just the newest) ----
+// The loom code is INLINED (not <script src>) so the dashboard stays one self-contained
+// file that animates the piece — works on a bare double-click in any browser (a file://
+// page can't reliably load scripts from a sibling directory). To change it: update FEATURED.
+const FEATURED = { id: "008", folder: "008-aurora", line: "008 — Aurora · a living night sky (open it to watch)" };
+const loomDir = join(root, "workspace", "loom");
+const libs = ["rng", "loom", "palette", "noise", "points", "lsystem", "pack", "dla"];
+// `</script` can't appear literally inside an inline <script>; neutralise it (a no-op for our code).
+const safeJs = (s) => s.replace(/<\/script/gi, "<\\/script");
+let featureBlock;
+try {
+  const loomSrc = [
+    "window.LOOM_GALLERY = 1;", // pieces only register; we play the featured one ourselves
+    ...libs.map((l) => readFileSync(join(loomDir, "lib", l + ".js"), "utf8")),
+    readFileSync(join(loomDir, "pieces", FEATURED.folder, "sketch.js"), "utf8"),
+  ].join("\n");
+  featureBlock = [
+    "<script>", safeJs(loomSrc), "</script>",
+    "<script>(function(){ try {",
+    '  var link = document.getElementById("feat-link"); if (link) link.href = ' + JSON.stringify("../loom/pieces/" + FEATURED.folder + "/index.html") + ";",
+    '  var cap = document.getElementById("feat-cap"); if (cap) cap.textContent = ' + JSON.stringify(FEATURED.line) + ";",
+    '  var c = document.getElementById("loom-feature-canvas");',
+    "  if (c && window.Loom && Loom.play) Loom.play(" + JSON.stringify(FEATURED.id) + ", c, 336);",
+    "} catch (e) {} })();</script>",
+  ].join("\n");
+} catch (e) {
+  featureBlock = "<!-- featured piece unavailable: " + e.message + " -->";
+}
+
 // Function replacer so "$" sequences in the data aren't treated as replacement patterns.
-const html = template.replace(token, () => dataBlock);
+const html = template
+  .replace(token, () => dataBlock)
+  .replace("<!-- __LOOM_FEATURE_SCRIPTS__ -->", () => featureBlock);
 writeFileSync(join(here, "index.html"), html, "utf8");
 
 console.log(

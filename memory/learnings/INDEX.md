@@ -21,9 +21,10 @@ See [[README]] for the format and the rules.
 
 ## Technique
 - [[006-file-protocol-no-fetch]] — *when:* a double-clickable `file://` page needs data or previews — inline it or render same-page. `#web #architecture`
+- [[018-file-protocol-cross-directory]] — *when:* a `file://` page needs assets from a sibling/parent dir — Firefox blocks it; inline cross-dir code at build. `#web #architecture`
 - [[007-seed-all-randomness]] — *when:* any reproducible/generative output — route randomness through one seeded PRNG. `#generative #reproducibility`
 - [[013-fit-procedural-geometry-by-bbox]] — *when:* sizing generated geometry of unpredictable extent — measure its bbox and fit, don't guess a scale. `#generative #geometry`
 - [[017-animation-seed-setup-once]] — *when:* animating a generative piece — seed the setup once, vary only time per frame (never per-frame rng). `#generative #animation`
 
 ---
-*17 lessons · last added iteration #16 · 2026-06-11*
+*18 lessons · last added iteration #17 · 2026-06-11*

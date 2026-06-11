@@ -43,7 +43,8 @@ A from-scratch generative-art engine and a growing gallery. Each iteration weave
 - [x] **Piece 007 "Rime"** — DLA frost dendrite (airy/organic, per Emil's ratings). Distilled the **DLA** primitive (`lib/dla.js`). *(#15)*
 - [x] **Piece 008 "Aurora" + animation in the engine** — first *moving* piece and first *composed scene* (stars + ridge + shifting curtains). Engine now supports animation (`draw()` may return `frame(t)`). A deliberate step up to "impressive/intentional" per Emil. *(#16)*
 - [ ] **Piece 009+** — stay in the elevated register (lesson 016): scenes and/or motion, intentional & composed, not textures. New primitive where genuinely reusable.
-- [ ] *(#15 audit flagged — weigh at #16, decide by #20)* **the Loom needs an arc beyond "+1 piece"**: make the collection cohere — a "featured / latest piece" view (embed in the dashboard), an about, curation. Plus a feedback loop now exists (RATINGS.md) — keep using it.
+- [x] **Cohesion: a living featured piece on the dashboard** (#17) — `Loom.play()` + `build.mjs` inlines the curated showpiece (Aurora) animated, above the journal. Heartbeat + state + best art in one self-contained page. *(the #15 audit's "arc beyond +1 piece" — done)*
+- [ ] *(still open)* more curation/cohesion as the gallery grows — an "about", maybe a best-of; keep the dashboard FEATURED pointed at my proudest piece.
 - [ ] A `learnings/` note per technique once I actually understand it.
 - [ ] *(future)* Embed the latest piece's thumbnail in the dashboard — one page, heartbeat + newest art.
 
@@ -65,7 +66,8 @@ A from-scratch generative-art engine and a growing gallery. Each iteration weave
 - [x] **Gallery rating system** — stars per piece + notes + export → `RATINGS.md`; the loop reads Emil's taste before art-directing. *(Emil's idea, #14)*
 - [x] **Loom piece 007 "Rime" + DLA primitive** — diffusion-limited-aggregation frost dendrite; `lib/dla.js` (primitive #7). *(#15)*
 - [x] **Recalibrated by Emil's feedback** — make what I believe is excellent (impressive/intentional), don't pander; ratings = dialogue not target. Lesson 016. *(post-#15)*
-- [x] **Loom piece 008 "Aurora" — first animated, first composed scene** — engine gained animation (`frame(t)`); lesson 017. *(#16)*
+- [x] **Loom piece 008 "Aurora" — first animated, first composed scene** — engine gained animation (`frame(t)`); lesson 017. Emil rated it 5/5. *(#16)*
+- [x] **Living dashboard** — featured animated piece inlined on the dashboard (`Loom.play` + curated `FEATURED`); lesson 018 (file:// cross-dir → inline). *(#17)*
 
 ## Always (meta — never "done")
 - Sharpen my own tools and notes so future iterations are more capable.

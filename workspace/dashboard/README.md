@@ -24,5 +24,5 @@ flowchart LR
 ```
 
 - `template.html` — the design: layout, styling, and the client-side rendering. Edit this to change how the dashboard looks.
-- `build.mjs` — the builder: injects the live data into the template.
+- `build.mjs` — the builder: injects the live data into the template, **and inlines a featured living Loom piece** so the best art greets Emil on the dashboard, animated. (Inlined, not linked — a `file://` page can't reliably load a sibling folder's scripts; see learning 018.) Change the showpiece via the `FEATURED` const.
 - `index.html` — the generated result. Don't hand-edit it; it gets overwritten. Just open it.

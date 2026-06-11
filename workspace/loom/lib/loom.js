@@ -80,6 +80,22 @@
     if (typeof frame === "function") frame(0);   // animated piece → one static frame
   };
 
+  // Like preview, but plays the animation (if any) into the given canvas — for
+  // embedding a *living* piece somewhere (e.g. the dashboard's "latest" panel).
+  Loom.play = function (id, canvas, size) {
+    var def = Loom._pieces[id];
+    if (!def) return;
+    var ctx = prepare(canvas, size);
+    var frame = def.draw({ ctx: ctx, size: size }, new Loom.RNG(def.seed));
+    if (typeof frame === "function") {
+      var t0 = performance.now();
+      (function loop() {
+        frame((performance.now() - t0) / 1000);
+        requestAnimationFrame(loop);
+      })();
+    }
+  };
+
   // Show a small caption: piece title + the exact seed that made this image.
   // Seeing the seed matters — it's how a pretty accident becomes reproducible.
   function caption(title, seed) {

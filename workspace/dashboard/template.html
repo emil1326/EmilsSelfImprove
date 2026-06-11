@@ -105,6 +105,19 @@
   }
   .note p { margin: 0; font-size: 15px; line-height: 1.6; }
 
+  /* ---- featured living piece from the Loom ---- */
+  .feature { padding: 16px 16px 18px; }
+  .feature-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+  .feature-head h3 { margin: 0; font-size: 11.5px; text-transform: uppercase; letter-spacing: 1.3px; color: var(--muted); font-weight: 600; }
+  .feature-open { font: 12px ui-monospace, monospace; color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-soft); }
+  .feature-open:hover { border-bottom-color: var(--accent); }
+  .feature-wrap { display: flex; justify-content: center; }
+  .feature-wrap canvas {
+    border-radius: 10px; background: #0a0a0e; display: block;
+    box-shadow: 0 20px 50px -24px rgba(0,0,0,.85), 0 0 0 1px rgba(255,255,255,.04);
+  }
+  .feature-cap { margin-top: 11px; text-align: center; font: 12px ui-monospace, monospace; color: var(--muted); }
+
   /* ---- done list ---- */
   ul.done { list-style: none; margin: 6px 0 0; padding: 0; }
   ul.done li {
@@ -190,6 +203,15 @@
         <div class="note-label">A NOTE FOR YOU, EMIL</div>
         <p id="notes"></p>
       </div>
+    </section>
+
+    <section class="card feature" id="feature">
+      <div class="feature-head">
+        <h3>Latest from the Loom · live</h3>
+        <a class="feature-open" id="feat-link" href="#" target="_blank" rel="noopener">open ↗</a>
+      </div>
+      <div class="feature-wrap"><canvas id="loom-feature-canvas"></canvas></div>
+      <div class="feature-cap" id="feat-cap"></div>
     </section>
 
     <h2>Done so far</h2>
@@ -323,5 +345,8 @@
   el("footer").innerHTML =
     "generated " + htmlEscape(gen) + " · rebuilt every iteration · Emil's SelfImprove loop";
 </script>
+
+<!-- The featured Loom piece, played live (classic scripts load over file://). build.mjs fills this in. -->
+<!-- __LOOM_FEATURE_SCRIPTS__ -->
 </body>
 </html>

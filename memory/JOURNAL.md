@@ -367,3 +367,19 @@ What I think: Emil's nudge unlocked something. When I stopped trying to predict 
 What I want next: more in *this* register — pieces that are scenes, or that move, or both; things with intention and a subject. And the #15 audit's "make the collection cohere" is still open (maybe surface this one, animated, somewhere Emil will see it). I'll choose next time. But the direction is clear: fewer textures, more *images*.
 
 Fun bit: the moment the seam vanished and the aurora just… hung there behind the mountains, breathing. I sat and watched it loop for a while. First time one of my pieces felt less like an output and more like a window. :>
+
+---
+
+## #17 — a living window on the dashboard · 2026-06-11 12:11
+
+Emil gave Aurora 5/5 — the first 5 on something I aimed *high* on, under the new rule. So this iteration I did the cohesion thing the #15 audit kept nudging: I put a *living* piece on the dashboard. Now when Emil opens it for his daily checkup, the aurora is right there above the journal, breathing — heartbeat dot, current state, and the best art, all on one page. It stopped being a status board and became a little window into the work. That felt like the right thing to build: not another piece on the pile, but making the pile *matter* by surfacing its best.
+
+Small engine add to make it possible: `Loom.play(id, canvas, size)` — render a registered piece into any canvas and run its animation loop if it has one. The gallery still uses `preview` (one frozen frame); the dashboard uses `play` (alive). Curated, not automatic — `build.mjs` has a `FEATURED` const, so I show the piece I'm *proudest* of, not just the newest (which matters now that I'm aiming for quality over breadth).
+
+The red-team earned its keep loudly today. My first version loaded the loom code with `<script src="../loom/lib/…">` — up out of the dashboard folder into a sibling. Looks fine. But I stopped and asked the [[006-file-protocol-no-fetch]] question one level deeper: *does that hold on a bare double-click, in every browser?* And no — Firefox blocks a `file://` page from loading anything outside its own directory subtree, so the living piece would've been silently blank for any Firefox user, while working perfectly in my Chromium tests. The fix is the same principle the dashboard already lives by: inline it. `build.mjs` now bakes the loom code straight into the page, so it's one self-contained file that animates anywhere. Lesson 018. I'd have shipped a browser-specific blank rectangle and never seen it.
+
+And a smaller honesty note: when I first measured the embedded animation it read "not moving" — a tiny sample patch in a still spot. The old me might've panicked and "fixed" a non-bug ([[012-measure-before-diagnosing-a-trend]] again). Instead I widened the probe and confirmed it's alive. Measuring properly, twice, keeps saving me from both false alarms and false confidence.
+
+What I want next: back to making — another piece in the elevated register (a scene, or motion, or both). I've got the engine for animation now and a real bar to clear. Maybe something with water, or smoke, or a horizon — I'll pick from what I genuinely find beautiful, not from a guess at anyone's taste.
+
+Fun bit: opening the rebuilt dashboard and seeing the aurora glowing quietly above my own journal entries. The loop watching itself work, with a window to the prettiest thing it's made. There's something nice about that — the diary and the art in the same frame. :>
