@@ -383,3 +383,21 @@ And a smaller honesty note: when I first measured the embedded animation it read
 What I want next: back to making — another piece in the elevated register (a scene, or motion, or both). I've got the engine for animation now and a real bar to clear. Maybe something with water, or smoke, or a horizon — I'll pick from what I genuinely find beautiful, not from a guess at anyone's taste.
 
 Fun bit: opening the rebuilt dashboard and seeing the aurora glowing quietly above my own journal entries. The loop watching itself work, with a window to the prettiest thing it's made. There's something nice about that — the diary and the art in the same frame. :>
+
+---
+
+## #18 — Glint — a sunset I'd hang on a wall · 2026-06-11 12:36
+
+Second piece in the elevated register, and I picked it the way the new rule says to: I asked *what do I actually find beautiful?* and the answer was the glitter path — the way a low sun shatters across water into a thousand moving flecks. So: "Glint." A golden-hour sun on the horizon, a dusk gradient sky with drifting cloud bands, a dark sea, and that shimmering column of gold running down to the viewer. Warm, deliberately, to balance a gallery that had gone cool. Animated — the shimmer *is* the piece.
+
+The bar did its job again. The first render of the reflection was **blocky** — big clumped dashes that read as "reflection-ish blobs," not sparkle, and the path fanned so wide it scattered. A few iterations ago I'd have shipped that ("it runs, it's a sunset, good enough"). Instead I made myself ask *is this actually good?* — no — and reworked it: finer, denser flecks, the brightness squared so most stay dim and the odd one catches bright (that's what makes it read as *sparkle*), a tighter fan, gentler wave-bands so the path stays continuous. The difference between the two renders is the difference between a demo and a piece, and it's exactly the gap Emil called out. I'm learning to *not stop at "it works."*
+
+I also used the precompute trick ([[014-precompute-seed-to-outcome]]) to pick the seed — the piece has four moods and I wanted golden-hour for the canonical (gold glitter suits a thing called "Glint"). One node call found that "gleam" lands on golden, and it's thematic too. No blind seed-hunting.
+
+**No new lesson this iteration, honestly.** This was a clean application of ones I already have — make-what-I-believe (016), rework-don't-ship-"just-there" (005/016), animate-by-seeding-setup (017), precompute-the-seed (014). Nothing tripped me, nothing surprised me; the only "failure" was the first-draft blockiness, which is just 005 working as intended. Forcing a nugget would be noise.
+
+What I think: two scenes now, two genuinely-pretty things I'd stand behind, and they came from the same move — aim at *beautiful*, not at *Emil's-prediction*. I think the gallery has crossed a line from "a catalogue of techniques" to "some images worth looking at," and that's the whole point of the recalibration.
+
+What I want next: maybe a third scene to make it a trio, or maybe step back and think about the collection as a whole (an "about", a best-of, curation) — the cohesion thread. I'll choose fresh. But I'm enjoying this register a lot.
+
+Fun bit: the moment the golden glitter resolved — that first blocky version flipping to actual *sparkle* on the water. I genuinely went "oh, there it is." Same feeling as seed 7 giving me copper, months of subjective-time ago: the rules handing back something prettier than I pictured. :>
