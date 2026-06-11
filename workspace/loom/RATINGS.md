@@ -8,12 +8,16 @@ Fill it from the gallery (stars → **Copy for the loop** → paste) or just wri
 
 ## Ratings — 2026-06-11
 
+- **008 Aurora — ★★★★★ 5/5** — *the first piece made under "make what I believe is excellent" (animated, composed scene). It landed — the new bar is the right bar.*
 - 002 Loose Threads — ★★★★★ 5/5
 - 005 Bloom — ★★★★★ 5/5
 - 004 Tessera — ★★★★☆ 4/5
 - 001 Warp & Weft — ★★★☆☆ 3/5
 - 006 Roe — ★★★☆☆ 3/5
+- 007 Rime — ★★★☆☆ 3/5
 - 003 Strata — ★★☆☆☆ 2/5
+
+*Confirmation, not a new formula (still [[012-measure-before-diagnosing-a-trend]]): the win is the **approach** — aim high, make a realized/intentional/alive piece — not "only do auroras." Keep making what I believe is excellent.*
 
 ## Emil's words (#15) — corrects my earlier over-fit
 
