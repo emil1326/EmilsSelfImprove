@@ -43,9 +43,11 @@ A from-scratch generative-art engine and a growing gallery. Each iteration weave
 - [x] **Piece 007 "Rime"** — DLA frost dendrite (airy/organic, per Emil's ratings). Distilled the **DLA** primitive (`lib/dla.js`). *(#15)*
 - [x] **Piece 008 "Aurora" + animation in the engine** — first *moving* piece and first *composed scene* (stars + ridge + shifting curtains). Engine now supports animation (`draw()` may return `frame(t)`). A deliberate step up to "impressive/intentional" per Emil. *(#16)*
 - [x] **Piece 009 "Glint"** — golden-hour sun over the sea + animated glitter path. Second composed/animated scene, warm. Reworked blocky→sparkle (didn't ship "just there"). *(#18)*
-- [ ] **Piece 010+** — stay in the elevated register (016): scenes/motion, intentional & composed, *varied* (not more sky/sea) — or step back for collection cohesion (about / best-of / curation).
-- [x] **Cohesion: a living featured piece on the dashboard** (#17) — `Loom.play()` + `build.mjs` inlines the curated showpiece (Aurora) animated, above the journal. Heartbeat + state + best art in one self-contained page. *(the #15 audit's "arc beyond +1 piece" — done)*
-- [ ] *(still open)* more curation/cohesion as the gallery grows — an "about", maybe a best-of; keep the dashboard FEATURED pointed at my proudest piece.
+- [x] **Piece 010 "Medusa"** — the first living *subject*: a bioluminescent jellyfish, bell pulsing, tentacles trailing. Harvested the **glow** primitive (`lib/glow.js`) from the Aurora+Glint halo idiom. Now the dashboard showpiece. *(#19)*
+- [x] **Piece 011 "Meadow"** — the #20 self-audit's rut-breaker: BRIGHT, no central subject, no horizon, and the first piece **built by composing the library** (Poisson scatter + noise wind), not bespoke. Answered the audit's "convergence + library-not-compounding" findings. Lessons 020 (mismatched-format helpers → silent black) + 021 (audit the goal, not the proxy). *(#20)*
+- [ ] **NEXT — cohesion / a frame for the collection** *(the #20 audit's named-but-deferred Q2 item, now due)*. Give the 11 pieces a real intro / "start here" so the gallery reads as a body of work, not a list — now justified because there's genuine variety to frame (textures + dark scenes + a bright meadow). Tasteful, in my own voice, file://-safe. Don't just add a 12th piece (that's the groove the audit caught).
+- [ ] **Piece 012+** — keep breaking habits (composition, palette, combining *more* of the library); stay in the elevated register (016).
+- [x] **Cohesion: a living featured piece on the dashboard** (#17) — `Loom.play()` + `build.mjs` inlines the curated showpiece (now Medusa) animated, above the journal. *(the #15 audit's "arc beyond +1 piece" — done)*
 - [ ] A `learnings/` note per technique once I actually understand it.
 - [ ] *(future)* Embed the latest piece's thumbnail in the dashboard — one page, heartbeat + newest art.
 
@@ -70,6 +72,8 @@ A from-scratch generative-art engine and a growing gallery. Each iteration weave
 - [x] **Loom piece 008 "Aurora" — first animated, first composed scene** — engine gained animation (`frame(t)`); lesson 017. Emil rated it 5/5. *(#16)*
 - [x] **Living dashboard** — featured animated piece inlined on the dashboard (`Loom.play` + curated `FEATURED`); lesson 018 (file:// cross-dir → inline). *(#17)*
 - [x] **Loom piece 009 "Glint"** — golden-hour sea + animated glitter path; second composed scene. *(#18)*
+- [x] **Loom piece 010 "Medusa" + glow primitive** — bioluminescent jellyfish; harvested `lib/glow.js` from the Aurora+Glint halo idiom (lesson 019). Now the dashboard showpiece. *(#19)*
+- [x] **Self-audit #20 + Loom piece 011 "Meadow"** — audit caught aesthetic convergence + the library not compounding; answered with a bright, horizon-less meadow *built by composing* Poisson+noise. Lessons 020 (silent-black colour bug) + 021 (audit the goal, not the proxy). *(#20)*
 
 ## Always (meta — never "done")
 - Sharpen my own tools and notes so future iterations are more capable.

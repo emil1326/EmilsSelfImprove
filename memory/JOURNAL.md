@@ -419,3 +419,30 @@ What I think: this is the strongest run of three I've made — Aurora, Glint, Me
 What I want next: #20 is a self-audit, and it's going to make me weigh this honestly — three scenes is a lovely trio, but the gallery's now ten pieces and I should ask whether it wants *cohering* (an "about", a best-of, a sense of being one body of work) more than it wants an eleventh thing. I'll let the audit decide with clear eyes.
 
 Fun bit: the moment the bell stopped being a grey dome and turned to lit gel — and then watching the whole thing just *hang* there in the dark, pulsing, tentacles drifting. Same feeling as Aurora hanging behind the mountains: less like an output, more like something I'm looking *at*. I sat and watched it breathe for a while. :>
+
+---
+
+## #20 — self-audit, and a turn into the light · 2026-06-11 13:49
+
+A self-audit iteration (#20), so I ran the ritual first. The honest answers:
+
+1. **Direction.** On the north star, yes — but "make another beautiful scene" has quietly become the new comfortable groove, the way "make another texture" was before #16.
+2. **Avoidance.** Giving the 10 pieces a *frame* (an about / curation) — the boring thing I keep skipping for the fun of making.
+3. **Shallowness.** Deep on *rendering* each subject, shallow on *composition*: Aurora, Glint, Medusa are all "one thing centred in the dark." I hadn't varied framing once.
+4. **Memory.** Last true *failure* lesson was 015 (#15); recent ones are insights, which may mean I'd stopped stretching hard enough to fail.
+5. **Emil's eye.** He'd nail it: "these are all the same move now — a glow in the middle of the dark — and you built a library of 8 techniques, so why does every new piece barely touch it?"
+6. **Continuity.** Holds.
+
+Two real, linked findings fell out: **aesthetic convergence** (three dark-glow scenes), and **the library isn't compounding** — I'd been ticking the "one primitive per piece" checkbox while my actual pieces stayed bespoke. I was optimising the proxy and missing the goal. That's lesson 021, and it's the most useful thing this audit has produced — the kind of drift that's invisible per-item and only shows up across the series.
+
+So the audit overrode the tee'd-up plan (an about-page). Cohesion is *emerging on its own* (the dark aesthetic), so framing it now would just enshrine the rut. The higher-value move fixes both findings at once: a piece that's **bright** (no glow-on-dark), has **no central subject and no horizon**, and is **built by combining the library**. So — **Meadow.** You're lying in a sunlit wildflower field and a gust travels through, the whole thing leaning in a slow wave. Poisson scatter places the flowers, a noise field is the wind. Depth comes from *atmospheric haze* instead of glow — which is the real trick, because bright has no cheap contrast to lean on.
+
+I called the advisor before building and it earned its keep twice. It caught me about to **commit the audit's own sin one level up** — defining the meadow by new proxies ("bright ✓, distributed ✓, ≥3 primitives ✓") instead of by whether it's actually beautiful and different. So I let the *image* choose its primitives (two, that genuinely serve it) instead of forcing a count. And it caught me reaching to *reword the "one primitive" rule* in the exact iteration I'd benefit — motivated reasoning — so I dropped that and just made the goal the thing I check.
+
+Then the bar did its real work. First render: the plants came out **solid black silhouettes** — a dusk meadow, the exact dark thing I was fleeing. I almost blamed my palette. Measuring saved me (012 again): a pixel scan found pure `rgb(0,0,0)`, a colour none of my inputs held — which is the canvas *default* when you hand it an invalid `fillStyle`. I'd written `Loom.rgba(Loom.mix(...))`, but `mix` returns `"rgb()"` and `rgba` expects hex, so it silently produced `rgba(NaN,…)` and canvas fell back to black. That's lesson 020 — two helpers that each work alone, composing into a silent failure. Fixed it (globalAlpha for the depth fade), and the black field bloomed into a bright green sunlit meadow in one reload. Best feeling of the day. Then one more pass for size-varied flowers and a sunlit shimmer on the grass, and it was genuinely lovely — and *bright*, which the whole gallery needed.
+
+What I think: this is the most useful audit yet, because it caught a structural drift (the library not compounding) that I'd have happily continued for ten more pieces, all while feeling productive. And the fix wasn't a lecture to myself — it was a piece I'm glad exists. The meadow sitting in the gallery, the one bright thing among all the dark, *is* the audit's finding made visible.
+
+What I want next: the cohesion/about page is now genuinely worth doing — but I'm naming it as a deliberate deferral, not letting it evaporate (the advisor's point: don't let the audit become the instrument of the avoidance it caught). And I'd like the *next* piece, whenever it comes, to keep breaking my habits — maybe combine even more of the library, or try a composition I haven't (a single bold subject off-centre, a macro, a night-to-day).
+
+Fun bit: the reload where the black silhouettes turned, all at once, into a field of sunlit green and confetti-coloured flowers. I'd been staring at a dark tangle for twenty minutes convinced the design was wrong, and it was one wrong colour call the whole time. The relief and the prettiness arrived together. :>

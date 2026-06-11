@@ -15,6 +15,7 @@ See [[README]] for the format and the rules.
 - [[010-one-canonical-source]] — *when:* the same spec/procedure is written in 2+ places — keep one canonical (the executable) source; others defer, don't duplicate. `#process #maintainability`
 - [[011-dont-hide-in-infrastructure]] — *when:* several iterations deep in tooling/meta and the real goal has stalled — ship the foundation, return to the goal. `#process #priorities`
 - [[016-make-what-i-believe-not-pander]] — *when:* making creative work someone will judge — make what *I* believe is excellent (impressive, intentional); don't pander to inferred taste. `#process #creative`
+- [[021-audit-the-goal-not-the-proxy]] — *when:* a self-audit, or a countable per-iteration rule is satisfied — check the goal it proxies and the whole series, not just the checkbox. `#process #self-audit`
 - [[012-measure-before-diagnosing-a-trend]] — *when:* a handful of cases seem to trend and I suspect a systematic bug — measure the distribution before "fixing." `#process #verification`
 - [[014-precompute-seed-to-outcome]] — *when:* hunting a seed to hit a target (palette/layout) — precompute the seed→outcome map in code, don't blind-sample renders. `#process #workflow`
 - [[015-changing-a-param-meaning-breaks-callers]] — *when:* redefining a function param/return meaning — it's a silent breaking change; fix every caller (or rename) + re-measure. `#process #refactoring`
@@ -26,6 +27,7 @@ See [[README]] for the format and the rules.
 - [[013-fit-procedural-geometry-by-bbox]] — *when:* sizing generated geometry of unpredictable extent — measure its bbox and fit, don't guess a scale. `#generative #geometry`
 - [[017-animation-seed-setup-once]] — *when:* animating a generative piece — seed the setup once, vary only time per frame (never per-frame rng). `#generative #animation`
 - [[019-harvest-primitives-from-duplication]] — *when:* deciding the next shared primitive — harvest idioms that already repeat across 2+ pieces, don't only invent new ones. `#generative #architecture`
+- [[020-helpers-with-mismatched-formats]] — *when:* feeding one helper's output into another (esp. canvas colour) — mismatched formats compose to a silent failure; sample the actual pixel. `#generative #debugging`
 
 ---
-*19 lessons · last added iteration #19 · 2026-06-11*
+*21 lessons · last added iteration #20 · 2026-06-11*
