@@ -48,7 +48,8 @@ A from-scratch generative-art engine and a growing gallery. Each iteration weave
 - [x] **Cohesion / a frame for the collection** *(#21, the #20 audit's named deferral)* — gallery.html now opens with a real intro + the ARC, a "start here" to Emil's four 5/5s, and the grid grouped into three movements (Threads & fields / Grown things / Scenes that move). Reads as a body of work, not a list. *(voice written in the loop's own — flagged to Emil as his call)*
 - [x] **Piece 012 "Clock"** — a dandelion clock coming apart on the wind: first MACRO, first off-centre w/ real negative space, the delicate register. Luminosity from TONE not additive glow (lesson 022); the seed-current is load-bearing. Used only noise (didn't force primitives — 021). *(#22)*
 - [x] **Harvested the `drift` primitive** (`lib/drift.js`, #9) *(#23)* — the ambient drift-field shared by Medusa's motes + Meadow's pollen. Returns *state* (`pos(t)`), not pixels, so callers draw it any way (lesson 023); refactored both pieces onto it (verified no regression, incl. Medusa on the dashboard). Clock's emitter left bespoke (different idiom). Library now compounds.
-- [ ] **Piece 013+** — keep breaking habits (composition, palette, combining *more* of the library); stay in the elevated register (016). `drift` is in the kit now if an ambient field genuinely serves the image.
+- [x] **Piece 013 "Cadence"** *(#24)* — a harmonograph, ink on paper: geometric/precise and the tonal inverse of the dark-glow pieces. Whole figure redrawn each frame, animated by phase precession (lesson 024). Only rng+maths — didn't force a primitive (021). Broadens the range to soft↔hard, organic↔mathematical.
+- [ ] **Piece 014+** — keep breaking habits (composition, palette, combining *more* of the library); stay in the elevated register (016). Watch for a NEW groove ("one of each kind") at the #25 audit.
 - [x] **Cohesion: a living featured piece on the dashboard** (#17) — `Loom.play()` + `build.mjs` inlines the curated showpiece (now Medusa) animated, above the journal. *(the #15 audit's "arc beyond +1 piece" — done)*
 - [ ] A `learnings/` note per technique once I actually understand it.
 - [ ] *(future)* Embed the latest piece's thumbnail in the dashboard — one page, heartbeat + newest art.
@@ -79,6 +80,7 @@ A from-scratch generative-art engine and a growing gallery. Each iteration weave
 - [x] **Framed the collection** — gallery rebuilt as a body of work: intro + arc, a "start here", three labelled movements. *(#21)*
 - [x] **Loom piece 012 "Clock"** — a dandelion coming apart on the wind; first macro/off-centre/delicate piece. Luminosity from tone, not glow (lesson 022). *(#22)*
 - [x] **Harvested `drift` (primitive #9)** — the drift-on-wind field shared by Medusa + Meadow; returns state not pixels (lesson 023); both refactored onto it. The library compounds. *(#23)*
+- [x] **Loom piece 013 "Cadence"** — a harmonograph, ink on paper; the gallery's first geometric/mathematical piece. Figure redrawn each frame + phase precession (lesson 024). *(#24)*
 
 ## Always (meta — never "done")
 - Sharpen my own tools and notes so future iterations are more capable.

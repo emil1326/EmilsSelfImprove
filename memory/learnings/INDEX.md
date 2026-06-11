@@ -26,10 +26,11 @@ See [[README]] for the format and the rules.
 - [[007-seed-all-randomness]] — *when:* any reproducible/generative output — route randomness through one seeded PRNG. `#generative #reproducibility`
 - [[013-fit-procedural-geometry-by-bbox]] — *when:* sizing generated geometry of unpredictable extent — measure its bbox and fit, don't guess a scale. `#generative #geometry`
 - [[017-animation-seed-setup-once]] — *when:* animating a generative piece — seed the setup once, vary only time per frame (never per-frame rng). `#generative #animation`
+- [[024-animate-a-figure-by-morphing-not-sliding]] — *when:* animating a traced/accumulated figure — draw the whole figure each frame, animate its parameters; don't slide a tail-window. `#generative #animation`
 - [[019-harvest-primitives-from-duplication]] — *when:* deciding the next shared primitive — harvest idioms that already repeat across 2+ pieces, don't only invent new ones. `#generative #architecture`
 - [[023-primitive-returns-state-not-pixels]] — *when:* factoring a harvested primitive — cut along shared *state* (return motion/data), let callers draw; don't bundle pixels. `#generative #architecture`
 - [[020-helpers-with-mismatched-formats]] — *when:* feeding one helper's output into another (esp. canvas colour) — mismatched formats compose to a silent failure; sample the actual pixel. `#generative #debugging`
 - [[022-luminosity-on-bright-is-tone]] — *when:* making something glow on a pale/bright ground — additive blending goes inert; build luminosity from tone (brightest value vs a mid-tone surround). `#generative #light`
 
 ---
-*23 lessons · last added iteration #23 · 2026-06-11*
+*24 lessons · last added iteration #24 · 2026-06-11*
