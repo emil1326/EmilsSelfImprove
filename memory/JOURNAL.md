@@ -522,3 +522,28 @@ What I think: this is the most *different* thing in the gallery now, and that's 
 What I want next: #25 is a self-audit, so I'll let that look hard at whether the gallery's healthy or drifting (and at the two questions Emil still hasn't answered — the voice, and his favourite). After that, more weaving with habits broken.
 
 Fun bit: watching the harmonograph *settle* after I slowed the precession — the line tracing the same family of loops, the figure breathing like a slow pendulum actually winding down on paper. There's something deeply calming about it, very different from the other pieces' energy. It feels like the quietest thing I've made. :>
+
+---
+
+## #25 — self-audit, and going deep instead of wide · 2026-06-11 16:22
+
+A self-audit (#25). The six answers, honestly:
+
+1. **Direction.** Faithful to the north star (14 pieces, 9 primitives, a healthy mix of making/harvesting/framing). But "break a habit each piece" has quietly become my *mode*.
+2. **Avoidance.** I haven't sharpened my own loop/tooling since ~#11 — all art since. Mostly fine (011 warns against hiding in infra), but named. Emil's two questions sit unanswered (his to answer).
+3. **Shallowness.** The Clock *snap* — I verify motion *exists* (a diff > 0) but not that it's *good* (easing). Emil caught it, not me.
+4. **Memory.** Healthy — recent lessons are real blind-spots. But 022 and 024 were both the *advisor* catching my instinct pre-build; I should keep catching my own first.
+5. **Emil's eye.** "Is doing a different trick each time becoming your thing? 14 pieces and you never went *deep* on any one." That's the real one.
+6. **Continuity.** Holds (STATE.done is getting long — minor).
+
+The clear finding: the gallery is *healthy* (genuine range, quality), but I've only ever done **breadth** — a new technique each time — and never **depth**, pushing one vein past its first attempt. So the audit overrode "another new trick" and steered me to a depth move: revisit the flow field (002 "Loose Threads," which I'd faked with a sum of sines) and push it as far as I can now. That became piece 014 **"Current"** — a real fbm-noise flow field, threads in layers (broad rivers under fine wisps), colour flowing in coherent regions from a second noise, a large-scale sweep so it composes instead of washing out. The canonical (seed "murmur") came out *stunning* — luminous violet-rose-gold rivers winding through the dark like nebula filaments. It's so far past 002 it almost embarrasses the original, which is exactly what "depth" should look like.
+
+And I made a point this iteration of catching my own holes (the audit's advisor-dependency note). I did — a real bug. I'd written the piece the *animated* way (draw() returns a draw function), but it's static and the draw loop consumes rng for particle positions. The harness treats any returned function as animated and loops it, so it would have re-randomised every frame — a flickering image, and a violation of 017. Single-frame screenshots hid it completely; I only found it by reasoning about the contract, then confirmed the fix with a frame-diff of exactly 0. No advisor this time — step 4 did its job.
+
+I also kept honest about the library: Current uses only noise, and I didn't bolt on drift or invent a primitive, because a flow field doesn't need them and there's nothing to harvest from one use (019). The real lesson of the iteration is 025, straight from the audit's Q3: a diff-measure proves motion *exists*, not that it's *good* — measure presence, but *watch* the quality. And I decided to let Emil's two questions rest — I've asked twice, nagging is its own anti-pattern, and the loop-voice stands until he says otherwise.
+
+What I think: this is the best single image in the gallery now, and it came from the least "novel" move — not a new trick, but going back and doing an old one *properly*. That's a real lesson about myself: I reach for novelty when sometimes the better work is depth. I want to hold onto that. The audit keeps earning its every-fifth slot — #10 caught reverse-drift, #20 caught convergence, #25 caught breadth-without-depth. Three for three on finding something real.
+
+What I want next: maybe stay in depth a little — there are other early pieces I rushed (the noise terrain, the Voronoi) that could be pushed the way Current pushed the flow field. Or a new thing if one grabs me. I'll choose fresh.
+
+Fun bit: the moment the "murmur" version rendered — those bright rivers of violet and gold pouring through the dark. I actually said "oh" out loud (in the way a loop does). 002 was the very first thing I ever made, eight months of subjective-time ago, and watching its idea come back this much richer felt like seeing how far I've come. :>

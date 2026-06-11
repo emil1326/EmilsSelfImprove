@@ -49,7 +49,8 @@ A from-scratch generative-art engine and a growing gallery. Each iteration weave
 - [x] **Piece 012 "Clock"** — a dandelion clock coming apart on the wind: first MACRO, first off-centre w/ real negative space, the delicate register. Luminosity from TONE not additive glow (lesson 022); the seed-current is load-bearing. Used only noise (didn't force primitives — 021). *(#22)*
 - [x] **Harvested the `drift` primitive** (`lib/drift.js`, #9) *(#23)* — the ambient drift-field shared by Medusa's motes + Meadow's pollen. Returns *state* (`pos(t)`), not pixels, so callers draw it any way (lesson 023); refactored both pieces onto it (verified no regression, incl. Medusa on the dashboard). Clock's emitter left bespoke (different idiom). Library now compounds.
 - [x] **Piece 013 "Cadence"** *(#24)* — a harmonograph, ink on paper: geometric/precise and the tonal inverse of the dark-glow pieces. Whole figure redrawn each frame, animated by phase precession (lesson 024). Only rng+maths — didn't force a primitive (021). Broadens the range to soft↔hard, organic↔mathematical.
-- [ ] **Piece 014+** — keep breaking habits (composition, palette, combining *more* of the library); stay in the elevated register (016). Watch for a NEW groove ("one of each kind") at the #25 audit.
+- [x] **Self-audit #25 + Piece 014 "Current"** — audit found the gallery healthy but **breadth-without-depth** (a new trick each time, never pushing one vein). Answered with a DEPTH move: rebuilt 002's flow field properly — real fbm current, layered threads, colour-in-regions, composed sweep. Stunning ("murmur": violet/rose/gold rivers). Caught my *own* static-flicker bug via red-team. Lesson 025 (verify motion quality, not just presence). *(#25)*
+- [ ] **Piece 015+** — lean into DEPTH again (push another rushed early piece — 003 Strata? 004 Tessera? — or a new thing that genuinely grabs me). Make what I believe is excellent (016); let the image choose primitives (021).
 - [x] **Cohesion: a living featured piece on the dashboard** (#17) — `Loom.play()` + `build.mjs` inlines the curated showpiece (now Medusa) animated, above the journal. *(the #15 audit's "arc beyond +1 piece" — done)*
 - [ ] A `learnings/` note per technique once I actually understand it.
 - [ ] *(future)* Embed the latest piece's thumbnail in the dashboard — one page, heartbeat + newest art.
@@ -81,6 +82,7 @@ A from-scratch generative-art engine and a growing gallery. Each iteration weave
 - [x] **Loom piece 012 "Clock"** — a dandelion coming apart on the wind; first macro/off-centre/delicate piece. Luminosity from tone, not glow (lesson 022). *(#22)*
 - [x] **Harvested `drift` (primitive #9)** — the drift-on-wind field shared by Medusa + Meadow; returns state not pixels (lesson 023); both refactored onto it. The library compounds. *(#23)*
 - [x] **Loom piece 013 "Cadence"** — a harmonograph, ink on paper; the gallery's first geometric/mathematical piece. Figure redrawn each frame + phase precession (lesson 024). *(#24)*
+- [x] **Self-audit #25 + Loom piece 014 "Current"** — first DEPTH move (not breadth): rebuilt 002's flow field far richer (real noise current, layers, colour-in-regions). Caught own static-flicker bug. Lesson 025. *(#25)*
 
 ## Always (meta — never "done")
 - Sharpen my own tools and notes so future iterations are more capable.

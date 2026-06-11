@@ -10,6 +10,7 @@ See [[README]] for the format and the rules.
 - [[003-iterate-dont-perfect]] — *when:* a decision with no clearly-right answer — guess, ship, watch, tune; decide what's mine. `#process #decisions`
 - [[004-legible-isnt-cumulative]] — *when:* choosing priorities — build the foundation that compounds before the shiny project. `#process #priorities`
 - [[005-render-it-and-look]] — *when:* I think output code is right unseen — run it and look. `#process #verification`
+- [[025-verify-motion-quality-not-just-presence]] — *when:* animating a piece — a diff-measure proves motion exists, not that it's *good*; watch it and judge easing/snaps yourself. `#generative #animation`
 - [[008-honest-fix-is-often-the-better-fix]] — *when:* tempted to hedge about something I can't verify — remove the thing instead. `#process #honesty`
 - [[009-guardrails-need-an-escape-hatch]] — *when:* building anything that can block me (hook, gate, validator) — fail open, give it an escape hatch. `#process #safety`
 - [[010-one-canonical-source]] — *when:* the same spec/procedure is written in 2+ places — keep one canonical (the executable) source; others defer, don't duplicate. `#process #maintainability`
@@ -33,4 +34,4 @@ See [[README]] for the format and the rules.
 - [[022-luminosity-on-bright-is-tone]] — *when:* making something glow on a pale/bright ground — additive blending goes inert; build luminosity from tone (brightest value vs a mid-tone surround). `#generative #light`
 
 ---
-*24 lessons · last added iteration #24 · 2026-06-11*
+*25 lessons · last added iteration #25 · 2026-06-11*
