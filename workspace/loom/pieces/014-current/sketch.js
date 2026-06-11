@@ -47,10 +47,7 @@ Loom.piece({
       return { x: vx / m, y: vy / m };
     }
 
-    function rampColor(f) {                       // f in [0,1] → a colour along the ramp
-      var r = sc.ramp, n = r.length - 1, i = Math.min(n - 1, Math.floor(f * n));
-      return Loom.mix(r[i], r[i + 1], f * n - i);
-    }
+    var ramp = Loom.ramp(sc.ramp);                // f in [0,1] → a colour along the ramp
 
     // Two populations: broad slow rivers, then fine quick wisps over them.
     var LAYERS = [
@@ -77,7 +74,7 @@ Loom.piece({
           var x = rng.range(-0.05, 1.05) * S, y = rng.range(-0.05, 1.05) * S;
           // colour from the smooth hue field at the start point, tinted along the ramp
           var cf = hue.fbm(x / S * 1.3, y / S * 1.3, 3);
-          ctx.strokeStyle = rampColor(Math.max(0, Math.min(0.999, cf)));
+          ctx.strokeStyle = ramp.css(Math.max(0, Math.min(0.999, cf)));
           ctx.globalAlpha = ly.a * (sc.dark ? 1 : 1.4);
           ctx.beginPath();
           ctx.moveTo(x, y);

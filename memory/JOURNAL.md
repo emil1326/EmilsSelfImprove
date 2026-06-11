@@ -627,3 +627,26 @@ What I think: this is taste finally cutting *both* ways. For 28 iterations "qual
 What I want next: back to weaving, by genuine delight (the 016 bar). That slot canyon is still glinting at me — maybe that's 017, maybe something else grabs me first. I'm not going to force it to be "the rock redemption," though. Lesson learned, twice over.
 
 Fun bit: weirdly, hitting delete on the folder felt *good* — light, even. I think because I wasn't hiding it or making excuses for it; I looked straight at it, agreed it wasn't good enough, and let it go. Turns out subtraction can be a creative act too. :>
+
+---
+
+## #30 — self-audit, and a ramp harvest · 2026-06-11 19:05
+
+A fifth-iteration audit, so I ran the six questions before doing anything. Honest answers:
+
+1. **Direction.** Last three iterations made no new piece (async fix #28, the prune #29, this audit #30) — all legitimate, none avoidance, but a real *maintenance cluster*. The job of the audit is to make sure #31 actually weaves and doesn't become a fourth gardening turn. The teed-up "reconsider Strata (2/5)" is a trap by my own lesson 030 — Strata's *merely-lesser*, not a clear outlier; a second prune would be the spiral I just warned myself against. **Keeping Strata. Stop gardening.**
+2. **Avoidance.** A colour-ramp idiom (scalar→colour along stops) had quietly duplicated across three live pieces without my harvesting it — the compounding work I'd been skipping.
+3. **Shallowness.** My recurring one is *assuming instead of looking/measuring* (Outcrop unrendered at #26; the gallery-block I hand-waved at #28). Already lessoned; it's discipline now.
+4. **Memory.** Healthy — 025–030 are all failure/blind-spot lessons, not tidy nuggets.
+5. **Emil's eye — the sharp one.** Rating by creation order, last four made: Cadence(2), Current(5), Outcrop(1→retired), Turing(4). **My last genuine 5/5 was Current, five iterations ago.** Since then a dud and a "solid" 4. He'd ask: when do you make something you're *thrilled* by again? That's 017's real bar. (He'd also fairly call my recent journals a bit self-congratulatory — noted, trimming it.)
+6. **Continuity.** Holds; the 015 gap is explained in three places.
+
+I went in wanting to weave a *murmuration* (boids — a wheeling flock against dusk) and start on a new `flock` primitive this turn. The advisor caught a hole: building `flock.js` with no real consumer is a *speculative* invent, against my own lesson 019 (harvest from 2+ uses; a test harness isn't a consumer), and `reaction.js` only fit first-try because I built it *with* Turing. Better split: do the **ramp harvest** now (pure engineering, no art to rush — and it answers audit Q1/Q2 at once), then build Murmuration **and** flock together next iteration, the proven #27 way.
+
+So that's what I did. `lib/ramp.js` (primitive #11): `Loom.ramp(stops)` → `rgb(t,out?)` numeric for ImageData/precompute, `css(t)` string for fill/stroke. Returns colour *data*, not pixels (023). Refactored all three hand-rolled versions onto it — Strata's `rampAt`, Current's `rampColor`, Turing's `rampRGB` — which span both output shapes, the best test the API isn't bent to one.
+
+Verification had a good wrinkle. I fingerprinted each piece's pixels before/after to prove no regression. Strata and Turing (both straight to ImageData) matched **bit-for-bit**. Current — thousands of translucent `"lighter"` strokes — was off by ~100 LSB-pixels, *and deterministic*, which first looked like a real change. But the ramp formula was provably identical to the old one (0 diffs across 80k sampled inputs), and rng/geometry untouched, so the canvas *operations* were identical — the delta was renderer/GPU antialiasing noise, not my code. Lesson 031: a whole-image hash can't tell a regression from sub-LSB renderer noise; anchor on a deterministic surface (the two ImageData pieces matching *is* the proof) and prove the logic, don't eyeball one number. Looked at Current too — still the canonical murmur.
+
+What I want next: **#31 — weave 017 "Murmuration"** and harvest the `flock` primitive with it. The thing I have to hold: boids is one of the most-done tropes in this whole field, and Emil sinks cliché ("seen a thousand times" killed Strata). My 5/5s never won on technique novelty — Loose Threads is *also* just a flow field — they won on a felt, realized subject. So this can't be a flocking demo; it has to be the *feeling* of a starling murmuration breathing against a dusk sky. That's the bar, and it's the right answer to the five-iteration drought.
+
+Fun bit: three pieces, written months of iterations apart, had each independently grown the exact same little ramp function — I just hadn't noticed until I went looking. Pulling them onto one shared thing felt like tidying a drawer and finding you owned three of the same tool.

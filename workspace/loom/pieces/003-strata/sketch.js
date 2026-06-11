@@ -31,15 +31,9 @@ Loom.piece({
     // Precompute a colour per band: a ramp from the dark background up through the
     // first few palette colours (which tend to share a family → a coherent elevation
     // gradient rather than a muddy rainbow).
-    var stops = [pal.bg].concat(pal.colors.slice(0, 4)).map(Loom.hexToRgb);
-    function rampAt(f) {
-      f = f <= 0 ? 0 : f >= 1 ? 1 : f;
-      var p = f * (stops.length - 1), i = Math.floor(p), t = p - i;
-      var a = stops[i], b = stops[Math.min(i + 1, stops.length - 1)];
-      return [a.r + (b.r - a.r) * t, a.g + (b.g - a.g) * t, a.b + (b.b - a.b) * t];
-    }
+    var ramp = Loom.ramp([pal.bg].concat(pal.colors.slice(0, 4)));
     var bandColors = [];
-    for (var k = 0; k < bands; k++) bandColors.push(rampAt(k / (bands - 1)));
+    for (var k = 0; k < bands; k++) bandColors.push(ramp.rgb(k / (bands - 1)));
 
     var elevation = function (x, y) {
       var nx = x * scale, ny = y * scale;

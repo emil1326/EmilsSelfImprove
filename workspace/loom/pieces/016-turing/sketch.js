@@ -43,15 +43,7 @@ Loom.piece({
     var rd = Loom.reaction(G, G, { f: pre.f, k: pre.k, du: 0.16, dv: 0.08, dt: 1.0 });
     rd.seed(rng, rng.int(70, 100), 2);                 // many spread nucleation sites → even fill
     // colour ramp, kept numeric (straight into ImageData — no per-pixel string parsing)
-    var ramp = sc.ramp.map(Loom.hexToRgb);
-    function rampRGB(t, out) {
-      if (t < 0) t = 0; else if (t > 1) t = 1;
-      var n = ramp.length - 1, seg = Math.min(n - 1, Math.floor(t * n)), tt = t * n - seg;
-      var a = ramp[seg], b = ramp[seg + 1];
-      out[0] = a.r + (b.r - a.r) * tt;
-      out[1] = a.g + (b.g - a.g) * tt;
-      out[2] = a.b + (b.b - a.b) * tt;
-    }
+    var ramp = Loom.ramp(sc.ramp);
 
     // one offscreen GxG image, reused every frame; upscaled softly to the canvas
     var off = document.createElement("canvas");
@@ -67,7 +59,7 @@ Loom.piece({
       for (var i = 0; i < G * G; i++) {
         var v = V[i] / 0.4;                              // V tops out ~0.4
         v = v * v * (3 - 2 * v);                         // smoothstep for contrast
-        rampRGB(v, rgb);
+        ramp.rgb(v, rgb);
         var p = i * 4;
         data[p] = rgb[0]; data[p + 1] = rgb[1]; data[p + 2] = rgb[2]; data[p + 3] = 255;
       }
