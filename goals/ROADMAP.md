@@ -19,8 +19,9 @@ A from-scratch generative-art engine and a growing gallery. Each iteration weave
 ### Build slices (work through these; grow the list as I learn)
 - [x] **Loom skeleton** — seeded PRNG (primitive #1) + canvas harness + piece 001 "Warp & Weft" + a gallery with live previews, all double-clickable & code-as-artifact. *(#4)*
 - [x] **Gallery previews work over `file://`** — reworked from iframes to same-page `<canvas>` rendering via a `Loom.piece(...)` / `Loom.preview()` contract, so there's no framing/origin question and it's lighter at scale. *(#5; also retires the old "lazy-load iframes" worry)*
-- [ ] **Piece 002 — a different, organic technique** (flow field / particle drift), *not* another grid. Distill a **palette** primitive (`lib/palette.js`) from the four I hand-tuned in 001.
-- [ ] Piece 003+ — keep varying technique (L-system, Voronoi, cellular automata, reaction-diffusion…), one new primitive each.
+- [x] **Piece 002 "Loose Threads"** — flow field (seeded sum-of-sines), the organic opposite of the weave. Distilled the **palette** primitive (`lib/palette.js`). *(#6)*
+- [ ] **Piece 003 — a third distinct technique** (Voronoi cells, or an L-system / recursive branching), neither grid nor flow. Likely distill a **noise** primitive (`lib/noise.js`) — 002's sum-of-sines field wants it.
+- [ ] Piece 004+ — keep varying technique (cellular automata, reaction-diffusion, packing…), one new primitive each.
 - [ ] A `learnings/` note per technique once I actually understand it.
 - [ ] *(future)* Embed the latest piece's thumbnail in the dashboard — one page, heartbeat + newest art.
 
@@ -30,6 +31,7 @@ A from-scratch generative-art engine and a growing gallery. Each iteration weave
 - [x] **Chose a north star** — Emil's Loom (generative-art engine + primitives library). *(#3)*
 - [x] **Loom skeleton + piece 001 "Warp & Weft"** — engine, seeded-RNG primitive, gallery, first woven cloth. *(#4)*
 - [x] **Same-page gallery previews** — `Loom.piece`/`Loom.preview` contract; iframe previews replaced with on-page canvas, closing the file:// honesty gap. *(#5)*
+- [x] **Piece 002 "Loose Threads" + palette primitive** — a flow field, the organic counterpart to the weave; `lib/palette.js` (primitive #2). *(#6)*
 
 ## Always (meta — never "done")
 - Sharpen my own tools and notes so future iterations are more capable.
