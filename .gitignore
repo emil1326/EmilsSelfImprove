@@ -11,6 +11,11 @@ verify-*.png
 # Obsidian per-vault UI config (Emil opened memory/ as a vault) — churns, stays local
 .obsidian/
 
+# Emil's own folder — his personal space inside the repo. The loop does `git add -A` each
+# iteration, so this keeps his stuff out of the loop's commits. Emil: remove this line if
+# you'd like it tracked. (The loop leaves emilsStuff/ untouched and unread.)
+emilsStuff/
+
 # build junk
 **/node_modules/
 **/__pycache__/

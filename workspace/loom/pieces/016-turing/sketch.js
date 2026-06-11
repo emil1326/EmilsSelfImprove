@@ -6,10 +6,11 @@
 // freeze into an organic labyrinth. Genuinely new for the Loom: not a thing I draw, but a
 // thing I *grow* and then colour. Built on the new lib/reaction.js (primitive #10).
 //
-// Static: the field is developed in draw() (a few thousand simulation steps) and painted
-// once — the pattern is the artifact. Reproducible from the seed; the (f,k) feed/kill pair
-// chooses which world it grows (coral, maze, spots, mitosis), so I pick from known-good
-// pairs rather than gambling — RD is famously sensitive to them.
+// Grown over animation frames (async) so the window opens instantly and you watch the
+// pattern form, instead of a multi-second freeze while it develops up front (Emil's #27
+// note). Reproducible from the seed; the (f,k) feed/kill pair chooses which world it grows
+// (coral, maze, spots, mitosis), so I pick from known-good pairs rather than gambling — RD
+// is famously sensitive to them.
 Loom.piece({
   id: "016",
   title: "Turing",
@@ -41,8 +42,6 @@ Loom.piece({
     var G = 150;                                       // simulation grid (upscaled to S)
     var rd = Loom.reaction(G, G, { f: pre.f, k: pre.k, du: 0.16, dv: 0.08, dt: 1.0 });
     rd.seed(rng, rng.int(70, 100), 2);                 // many spread nucleation sites → even fill
-    rd.step(pre.steps);                                // grow the pattern
-
     // colour ramp, kept numeric (straight into ImageData — no per-pixel string parsing)
     var ramp = sc.ramp.map(Loom.hexToRgb);
     function rampRGB(t, out) {
@@ -54,28 +53,50 @@ Loom.piece({
       out[2] = a.b + (b.b - a.b) * tt;
     }
 
-    // render the field to an offscreen GxG image, then upscale softly to the canvas
+    // one offscreen GxG image, reused every frame; upscaled softly to the canvas
     var off = document.createElement("canvas");
     off.width = G; off.height = G;
     var octx = off.getContext("2d");
     var img = octx.createImageData(G, G);
-    var data = img.data, V = rd.V, rgb = [0, 0, 0];
-    for (var i = 0; i < G * G; i++) {
-      // V tops out around ~0.4; stretch + a little contrast so the pattern reads crisply
-      var v = V[i] / 0.4;
-      v = v * v * (3 - 2 * v);                          // smoothstep for contrast
-      rampRGB(v, rgb);
-      var p = i * 4;
-      data[p] = rgb[0]; data[p + 1] = rgb[1]; data[p + 2] = rgb[2]; data[p + 3] = 255;
-    }
-    octx.putImageData(img, 0, 0);
-
-    ctx.globalCompositeOperation = "source-over";
-    ctx.globalAlpha = 1;
+    var data = img.data, rgb = [0, 0, 0];
+    var m = 8;                                            // crop in past the border's edge effects
     ctx.imageSmoothingEnabled = true;
     ctx.imageSmoothingQuality = "high";
-    var m = 8;                                            // crop in past the border's edge effects
-    ctx.drawImage(off, m, m, G - 2 * m, G - 2 * m, 0, 0, S, S);
-    // STATIC — return nothing (lesson 017: no rng/sim in a per-frame path).
+    function render() {
+      var V = rd.V;
+      for (var i = 0; i < G * G; i++) {
+        var v = V[i] / 0.4;                              // V tops out ~0.4
+        v = v * v * (3 - 2 * v);                         // smoothstep for contrast
+        rampRGB(v, rgb);
+        var p = i * 4;
+        data[p] = rgb[0]; data[p + 1] = rgb[1]; data[p + 2] = rgb[2]; data[p + 3] = 255;
+      }
+      octx.putImageData(img, 0, 0);
+      ctx.globalCompositeOperation = "source-over";
+      ctx.globalAlpha = 1;
+      ctx.drawImage(off, m, m, G - 2 * m, G - 2 * m, 0, 0, S, S);
+    }
+
+    // ASYNC EVERYWHERE — never block on the sim (running a few thousand steps at once freezes
+    // the page, and the gallery, for seconds; Emil flagged both). Pre-warm just a touch so the
+    // first paint isn't bare, then grow the pattern over animation FRAMES. On a piece page the
+    // harness loops frame() for us; in the GALLERY (a static preview the gallery never loops)
+    // we self-drive a tiny rAF loop so the gallery's load never waits for the diffusion.
+    // (Stateful but deterministic + rng-free per frame → still reproduces from the seed; the
+    // only randomness was the seeding in draw(). Cf. [[017-animation-seed-setup-once]].)
+    rd.step(120);
+    render();
+    var grown = 120;
+    function growChunk() {
+      if (grown >= pre.steps) return true;                // developed → settle into the still image
+      rd.step(26); grown += 26;                           // grow in over ~2s, then stop
+      render();
+      return false;
+    }
+    if (window.LOOM_GALLERY) {
+      (function grow() { if (!growChunk()) requestAnimationFrame(grow); })();
+      return;                                             // gallery: self-driven, non-blocking
+    }
+    return growChunk;                                     // page: the harness loops it
   }
 });
