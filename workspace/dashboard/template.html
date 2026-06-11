@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Emil's SelfImprove — the loop</title>
+<style>
+  :root {
+    --bg: #17130f;
+    --bg-glow: #2a1f14;
+    --card: #221c16;
+    --card-2: #1c1711;
+    --border: #34291f;
+    --text: #ece3d6;
+    --muted: #9c8d79;
+    --accent: #e0a45c;
+    --accent-soft: #3a2c1c;
+    --green: #8fbf6f;
+    --red: #e08b6f;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background:
+      radial-gradient(900px 420px at 50% -120px, var(--bg-glow), transparent 70%),
+      var(--bg);
+    color: var(--text);
+    font: 16px/1.65 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    min-height: 100vh;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 48px 22px 72px; }
+
+  /* ---- header ---- */
+  header { margin-bottom: 30px; }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand h1 {
+    margin: 0; font-size: 29px; letter-spacing: -0.5px; font-weight: 650;
+  }
+  .dot {
+    width: 11px; height: 11px; border-radius: 50%; background: var(--green);
+    box-shadow: 0 0 0 0 rgba(143,191,111,.55); animation: pulse 2.4s infinite;
+    flex: 0 0 auto;
+  }
+  @keyframes pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(143,191,111,.5); }
+    70%  { box-shadow: 0 0 0 11px rgba(143,191,111,0); }
+    100% { box-shadow: 0 0 0 0 rgba(143,191,111,0); }
+  }
+  .tagline { margin: 9px 0 0 23px; color: var(--muted); font-size: 15px; }
+  .meta { margin: 18px 0 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    font: 12.5px ui-monospace, "Cascadia Code", Consolas, monospace;
+    color: var(--accent); background: var(--accent-soft);
+    border: 1px solid var(--border); border-radius: 999px; padding: 4px 11px;
+    white-space: nowrap;
+  }
+
+  /* ---- cards ---- */
+  .card {
+    background: linear-gradient(180deg, var(--card), var(--card-2));
+    border: 1px solid var(--border); border-radius: 14px;
+    padding: 22px 24px; margin: 16px 0;
+    box-shadow: 0 1px 0 rgba(255,255,255,.02) inset, 0 12px 30px -22px rgba(0,0,0,.8);
+  }
+  h2 {
+    font-size: 13px; text-transform: uppercase; letter-spacing: 1.6px;
+    color: var(--muted); font-weight: 600; margin: 30px 0 4px 2px;
+  }
+  h3 {
+    font-size: 11.5px; text-transform: uppercase; letter-spacing: 1.3px;
+    color: var(--muted); font-weight: 600; margin: 0 0 6px;
+  }
+
+  /* ---- next action (hero) ---- */
+  .next-label {
+    font: 12px ui-monospace, monospace; color: var(--accent);
+    letter-spacing: 1px; margin-bottom: 8px;
+  }
+  .next-text { font-size: 19px; line-height: 1.5; font-weight: 500; }
+
+  .banner {
+    margin-top: 18px; padding: 11px 15px; border-radius: 10px;
+    border: 1px solid #5a2f28; background: #2c1b18; color: var(--red);
+    font-size: 14.5px;
+  }
+  .banner b { color: #f0a892; }
+
+  .grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 18px;
+    margin-top: 22px; padding-top: 20px; border-top: 1px solid var(--border);
+  }
+  .grid .val { font-size: 15px; }
+  .muted { color: var(--muted); }
+
+  .note {
+    margin-top: 22px; padding: 15px 17px; border-radius: 11px;
+    background: var(--accent-soft); border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+  }
+  .note-label {
+    font: 11.5px ui-monospace, monospace; letter-spacing: .8px;
+    color: var(--accent); margin-bottom: 6px;
+  }
+  .note p { margin: 0; font-size: 15px; line-height: 1.6; }
+
+  /* ---- done list ---- */
+  ul.done { list-style: none; margin: 6px 0 0; padding: 0; }
+  ul.done li {
+    position: relative; padding: 7px 0 7px 28px; font-size: 14.5px;
+    border-bottom: 1px solid rgba(52,41,31,.6);
+  }
+  ul.done li:last-child { border-bottom: 0; }
+  ul.done li::before {
+    content: "✓"; position: absolute; left: 2px; top: 7px;
+    color: var(--green); font-weight: 700;
+  }
+
+  /* ---- journal ---- */
+  details.entry {
+    background: var(--card-2); border: 1px solid var(--border);
+    border-radius: 12px; margin: 11px 0; overflow: hidden;
+  }
+  details.entry > summary {
+    cursor: pointer; list-style: none; padding: 15px 20px;
+    font: 600 15px ui-monospace, "Cascadia Code", Consolas, monospace;
+    color: var(--accent); display: flex; align-items: center; gap: 10px;
+    user-select: none;
+  }
+  details.entry > summary::-webkit-details-marker { display: none; }
+  details.entry > summary::before {
+    content: "▸"; color: var(--muted); transition: transform .15s ease;
+    font-size: 12px;
+  }
+  details.entry[open] > summary::before { transform: rotate(90deg); }
+  details.entry > summary:hover { color: #f0b873; }
+  .entry-body {
+    padding: 2px 20px 18px 20px; border-top: 1px solid var(--border);
+    color: var(--text);
+  }
+  .entry-body p { margin: 13px 0; }
+  .entry-body blockquote {
+    margin: 13px 0; padding: 6px 0 6px 15px; color: var(--muted);
+    border-left: 3px solid var(--accent-soft); font-style: italic;
+  }
+  .entry-body ul { margin: 11px 0; padding-left: 22px; }
+  .entry-body li { margin: 4px 0; }
+
+  code {
+    font: 13.5px ui-monospace, "Cascadia Code", Consolas, monospace;
+    background: #2a2017; border: 1px solid var(--border);
+    border-radius: 5px; padding: 1px 6px; color: #e8c79b;
+  }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-soft); }
+  a:hover { border-bottom-color: var(--accent); }
+
+  footer {
+    margin-top: 38px; text-align: center; color: var(--muted);
+    font: 12.5px ui-monospace, monospace;
+  }
+
+  @media (max-width: 520px) {
+    .grid { grid-template-columns: 1fr; }
+    .brand h1 { font-size: 24px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand">
+      <span class="dot" title="the loop is alive"></span>
+      <h1>Emil's SelfImprove</h1>
+    </div>
+    <p class="tagline">a loop that lives in a folder and tries to get a little better each time</p>
+    <div class="meta" id="meta"></div>
+  </header>
+
+  <main>
+    <section class="card">
+      <div class="next-label">NEXT ACTION</div>
+      <div class="next-text" id="next"></div>
+      <div id="blocked"></div>
+      <div class="grid">
+        <div><h3>North star</h3><div class="val" id="northstar"></div></div>
+        <div><h3>Phase</h3><div class="val" id="phase"></div></div>
+      </div>
+      <div class="note">
+        <div class="note-label">A NOTE FOR YOU, EMIL</div>
+        <p id="notes"></p>
+      </div>
+    </section>
+
+    <h2>Done so far</h2>
+    <section class="card" style="padding-top:16px;padding-bottom:16px;">
+      <ul class="done" id="done"></ul>
+    </section>
+
+    <h2>Journal</h2>
+    <div id="journal"></div>
+  </main>
+
+  <footer id="footer"></footer>
+</div>
+
+<script>
+/* __SELFIMPROVE_DATA__ */
+</script>
+<script>
+  // ---- tiny, focused markdown renderer (the journal format is simple & controlled) ----
+  function htmlEscape(s) {
+    return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  }
+  function mdInline(s) {
+    return s
+      .replace(/`([^`]+)`/g, "<code>$1</code>")
+      .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+      .replace(/\*([^*]+)\*/g, "<em>$1</em>")
+      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+  }
+  // Escapes first, THEN applies inline rules, so raw < in the journal can't inject HTML.
+  function mdBlock(md) {
+    return htmlEscape(md).split(/\n{2,}/).map(function (raw) {
+      var b = raw.trim();
+      if (!b) return "";
+      if (/^&gt;/.test(b)) {
+        var inner = b.split("\n").map(function (l) { return l.replace(/^&gt;\s?/, ""); }).join("<br>");
+        return "<blockquote>" + mdInline(inner) + "</blockquote>";
+      }
+      if (/^[-*]\s/.test(b.split("\n")[0])) {
+        var items = b.split("\n").filter(Boolean).map(function (l) {
+          return "<li>" + mdInline(l.replace(/^[-*]\s+/, "")) + "</li>";
+        }).join("");
+        return "<ul>" + items + "</ul>";
+      }
+      return "<p>" + mdInline(b.replace(/\n/g, "<br>")) + "</p>";
+    }).join("\n");
+  }
+  function parseEntries(md) {
+    var entries = [], cur = null;
+    md.split("\n").forEach(function (line) {
+      var m = line.match(/^##\s+(.+)$/);
+      if (m) {
+        if (cur) entries.push(cur);
+        cur = { title: m[1].trim(), body: [] };
+      } else if (cur) {
+        if (line.trim() === "---") return;
+        cur.body.push(line);
+      }
+    });
+    if (cur) entries.push(cur);
+    return entries.map(function (e) { return { title: e.title, body: e.body.join("\n").trim() }; });
+  }
+
+  function el(id) { return document.getElementById(id); }
+
+  // ---- header meta ----
+  el("meta").innerHTML =
+    '<span class="chip">iteration #' + htmlEscape(STATE.iteration) + '</span>' +
+    '<span class="chip">' + htmlEscape(STATE.phase || "—") + '</span>' +
+    '<span class="chip">updated ' + htmlEscape(STATE.updated || "—") + '</span>';
+
+  // ---- next action ----
+  el("next").innerHTML = mdInline(htmlEscape(STATE.next_action || "—"));
+
+  // ---- blocked banner ----
+  if (STATE.blocked) {
+    el("blocked").innerHTML =
+      '<div class="banner"><b>Blocked:</b> ' + mdInline(htmlEscape(STATE.blocked)) + '</div>';
+  }
+
+  // ---- north star / phase ----
+  el("northstar").innerHTML = STATE.north_star
+    ? mdInline(htmlEscape(STATE.north_star))
+    : '<span class="muted">not chosen yet — coming once I can see myself work</span>';
+  el("phase").innerHTML = '<span class="muted">' + htmlEscape(STATE.phase || "—") + '</span>';
+
+  // ---- notes for emil ----
+  el("notes").innerHTML = mdInline(htmlEscape(STATE.notes_for_emil || "—"));
+
+  // ---- done list ----
+  var done = Array.isArray(STATE.done) ? STATE.done : [];
+  el("done").innerHTML = done.length
+    ? done.map(function (d) { return "<li>" + mdInline(htmlEscape(d)) + "</li>"; }).join("")
+    : '<li class="muted">nothing yet</li>';
+
+  // ---- journal (newest first, newest open) ----
+  var entries = parseEntries(JOURNAL).reverse();
+  var jc = el("journal");
+  if (!entries.length) {
+    jc.innerHTML = '<p class="muted">no entries yet</p>';
+  } else {
+    entries.forEach(function (e, i) {
+      var d = document.createElement("details");
+      d.className = "entry";
+      if (i === 0) d.open = true;
+      var s = document.createElement("summary");
+      s.textContent = e.title;
+      var body = document.createElement("div");
+      body.className = "entry-body";
+      body.innerHTML = mdBlock(e.body);
+      d.appendChild(s);
+      d.appendChild(body);
+      jc.appendChild(d);
+    });
+  }
+
+  // ---- footer ----
+  var gen = "unknown time";
+  try { gen = new Date(GENERATED_AT).toLocaleString(); } catch (e) {}
+  el("footer").innerHTML =
+    "generated " + htmlEscape(gen) + " · rebuilt every iteration · Emil's SelfImprove loop";
+</script>
+</body>
+</html>

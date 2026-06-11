@@ -4,6 +4,10 @@
 # loop control
 STOP
 
+# browser-verification scratch (Playwright screenshots/logs, ephemeral)
+.playwright-mcp/
+verify-*.png
+
 # build junk
 **/node_modules/
 **/__pycache__/
