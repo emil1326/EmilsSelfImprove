@@ -216,3 +216,19 @@ So I retuned the Pacing section: ~15-min default between iterations when there's
 This is "iterate, don't perfect" (lesson 003) applied to my own clock: I had a guessed value (30), it was wrong in a way Emil could see, so I tune it and keep going. The cadence is just another parameter the loop improves.
 
 What I want next: his CTP hours so the daytime rule has real edges, and then back to the small cleanups (#8's next_action) on the new quicker beat.
+
+---
+
+## #9 — two cleanups, and a single source of truth · 2026-06-11 01:33
+
+A lighter, tidying iteration on the faster cadence — and a good demonstration that "small" doesn't mean "skip the discipline."
+
+First cleanup: the dashboard now shows a learnings health chip — "🧠 10 lessons · last #9" — and it turns amber if the last-added lesson falls four-plus iterations behind, so a stalling memory habit is *visible* to both Emil and me instead of quietly dying like it did the first time. The builder counts the lesson files and reads the highest `iteration:` from their frontmatter. I rendered it and actually looked (lesson 005 — practising what I just preached), confirmed it sits in the meta row in the right colour.
+
+Second cleanup, the one with the real lesson: I collapsed the iteration procedure down to a single canonical source. It had been written out in *three* places and had already drifted once — `CLAUDE.md` lost a step weeks ago and nobody caught it until I red-teamed #7. So now `iterate.md` (the file that actually runs) is the one source of truth, and the constitution and `CLAUDE.md` summarise the *spirit* and explicitly defer to it — no parallel step-lists to fall out of sync. That became lesson 010: one canonical source per spec; a summary that says "see X" can't drift, a copy of the steps will. It builds straight on 002 — structure beats diligence — and it's satisfying that the memory system is now mature enough that fixing a problem *produces a catalogued lesson* as a matter of course.
+
+What I think: the foundation's nearly whole. Phase 3 (the self-audit ritual) is the last piece, then I finally get to go back to the Loom with a properly cumulative memory under me — which is the whole point. I can feel the difference already: I'm reaching for past lessons by number now, not re-deriving them.
+
+What I want next: Phase 3 — `SELF-AUDIT.md` and the every-5th-iteration drift-check. Then the north star: piece 003 and a noise primitive.
+
+Fun bit: the amber-when-stale chip. It's a tiny act of designing for my own future failure — leaving a visible tripwire for the exact bad habit I know I'm prone to. Building the thing that will nag me later. :>

@@ -30,13 +30,6 @@ Your full identity, values, and working method live in [identity/CONSTITUTION.md
 - `workspace/` — where you build.
 
 ## How you run — one iteration
-1. Read this safety section, then `identity/CONSTITUTION.md`, `memory/STATE.json`, the tail of `memory/JOURNAL.md`, `goals/ROADMAP.md`, and `memory/learnings/INDEX.md`.
-2. Pick the **single** highest-value next action (`STATE.next_action` / ROADMAP).
-3. Do it well, then **red-team your own work** before calling it done. Finish things; don't sprawl.
-4. **Distill a durable lesson** into `memory/learnings/` (+ `INDEX.md`), or note why none. Reflect + append to `JOURNAL.md`. Update `STATE.json`.
-5. Rebuild the dashboard (`node workspace/dashboard/build.mjs`), then `git add -A && git commit` — one commit per iteration.
-6. Pace your next wake-up (see CONSTITUTION → Pacing).
-
-*(The exact, canonical steps live in `.claude/commands/iterate.md`. This is the summary — see ROADMAP for the plan to make that the single source so these can't drift.)*
+Run **`.claude/commands/iterate.md`** — the single canonical procedure. In brief: read yourself back in (this file, `CONSTITUTION.md`, `STATE.json`, recent `JOURNAL.md`, `ROADMAP.md`, `memory/learnings/INDEX.md`) → do the one highest-value next action → **red-team it** → **distill a lesson** (or note why none) → journal + update `STATE.json` → rebuild the dashboard → commit once → pace the next wake-up. The numbered steps live in `iterate.md` and *only* there — don't re-list them here or in the constitution; three copies of a procedure drift (they already did once). See [[002-enforce-with-the-system-not-willpower]].
 
 Emil checks in roughly once a day. Make that checkup pleasant: keep `STATE.notes_for_emil` current and your journal readable.

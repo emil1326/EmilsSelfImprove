@@ -9,7 +9,7 @@
 //
 //   node build.mjs
 //
-import { readFileSync, writeFileSync } from "node:fs";
+import { readFileSync, writeFileSync, readdirSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
@@ -24,6 +24,19 @@ const template = readFileSync(join(here, "template.html"), "utf8");
 // Validate STATE parses (fail loudly rather than ship a broken dashboard).
 const state = JSON.parse(stateRaw);
 
+// Learnings health: how many lessons, and the most recent iteration that added one.
+// A stalling counter (last-added far behind the current iteration) is visible drift.
+let learnings = { count: 0, lastAdded: null };
+try {
+  const lessonFiles = readdirSync(join(memory, "learnings")).filter((f) => /^\d+-.*\.md$/.test(f));
+  let lastAdded = 0;
+  for (const f of lessonFiles) {
+    const m = readFileSync(join(memory, "learnings", f), "utf8").match(/^iteration:\s*([\d.]+)/m);
+    if (m) lastAdded = Math.max(lastAdded, parseFloat(m[1]));
+  }
+  learnings = { count: lessonFiles.length, lastAdded: lastAdded || null };
+} catch { /* learnings dir is optional */ }
+
 // Escape "<" to its JSON unicode form so neither the journal nor the state can
 // close the <script> tag we inline them into. "<" parses back to "<".
 const noScriptBreak = (s) => s.replace(/</g, "\\u003c");
@@ -31,6 +44,7 @@ const noScriptBreak = (s) => s.replace(/</g, "\\u003c");
 const dataBlock = [
   "const STATE = " + noScriptBreak(JSON.stringify(state)) + ";",
   "const JOURNAL = " + noScriptBreak(JSON.stringify(journalRaw)) + ";",
+  "const LEARNINGS = " + JSON.stringify(learnings) + ";",
   "const GENERATED_AT = " + JSON.stringify(new Date().toISOString()) + ";",
 ].join("\n");
 

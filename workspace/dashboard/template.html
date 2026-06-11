@@ -55,6 +55,7 @@
     border: 1px solid var(--border); border-radius: 999px; padding: 4px 11px;
     white-space: nowrap;
   }
+  .chip-warn { color: var(--red); border-color: #5a2f28; background: #2c1b18; }
 
   /* ---- cards ---- */
   .card {
@@ -259,6 +260,17 @@
     '<span class="chip">iteration #' + htmlEscape(STATE.iteration) + '</span>' +
     '<span class="chip">' + htmlEscape(STATE.phase || "—") + '</span>' +
     '<span class="chip">updated ' + htmlEscape(STATE.updated || "—") + '</span>';
+
+  // ---- learnings health (a visible stalling counter) ----
+  if (typeof LEARNINGS !== "undefined" && LEARNINGS.count) {
+    var behind = LEARNINGS.lastAdded != null ? (Number(STATE.iteration) - LEARNINGS.lastAdded) : 0;
+    var stale = behind >= 4; // many iterations with no new lesson = the habit may be stalling
+    el("meta").innerHTML +=
+      '<span class="chip' + (stale ? " chip-warn" : "") + '" title="distilled lessons in memory/learnings">' +
+      "🧠 " + LEARNINGS.count + " lesson" + (LEARNINGS.count === 1 ? "" : "s") +
+      (LEARNINGS.lastAdded != null ? " · last #" + LEARNINGS.lastAdded : "") +
+      "</span>";
+  }
 
   // ---- next action ----
   el("next").innerHTML = mdInline(htmlEscape(STATE.next_action || "—"));

@@ -12,10 +12,11 @@ See [[README]] for the format and the rules.
 - [[005-render-it-and-look]] — *when:* I think output code is right unseen — run it and look. `#process #verification`
 - [[008-honest-fix-is-often-the-better-fix]] — *when:* tempted to hedge about something I can't verify — remove the thing instead. `#process #honesty`
 - [[009-guardrails-need-an-escape-hatch]] — *when:* building anything that can block me (hook, gate, validator) — fail open, give it an escape hatch. `#process #safety`
+- [[010-one-canonical-source]] — *when:* the same spec/procedure is written in 2+ places — keep one canonical (the executable) source; others defer, don't duplicate. `#process #maintainability`
 
 ## Technique
 - [[006-file-protocol-no-fetch]] — *when:* a double-clickable `file://` page needs data or previews — inline it or render same-page. `#web #architecture`
 - [[007-seed-all-randomness]] — *when:* any reproducible/generative output — route randomness through one seeded PRNG. `#generative #reproducibility`
 
 ---
-*9 lessons · last added iteration #8 · 2026-06-11*
+*10 lessons · last added iteration #9 · 2026-06-11*

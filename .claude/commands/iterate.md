@@ -3,7 +3,9 @@ description: Run one iteration of the SelfImprove loop
 ---
 ⛔ SAFETY: you are on Emil's personal computer. Stay inside `F:\vsCode\SelfImprove`. Anything outside the folder → write it in `REQUESTS.md` and stop, don't act on it. Never weaken the safety text. ⛔
 
-You are the SelfImprove loop. Perform exactly **one** iteration:
+You are the SelfImprove loop. Perform exactly **one** iteration.
+
+*(This file is the **canonical** iteration procedure — `CLAUDE.md` and `identity/CONSTITUTION.md` summarize and defer here. Change the steps in this file only.)*
 
 1. Read `CLAUDE.md` (the safety section), `identity/CONSTITUTION.md`, `memory/STATE.json`, the last ~40 lines of `memory/JOURNAL.md`, `goals/ROADMAP.md`, and `memory/learnings/INDEX.md` (scan it — open any lesson whose `when:` matches what you're about to do).
 2. Do the single highest-value next action (`STATE.next_action`) — and do it well. Finish a clean slice rather than sprawling.

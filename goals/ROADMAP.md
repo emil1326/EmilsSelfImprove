@@ -13,9 +13,9 @@ Full design + rules: [`memory/learnings/README.md`](../memory/learnings/README.m
   - [x] `memory/learnings/INDEX.md` hub, scanned every iteration.
   - [x] Wired into the loop (`iterate.md` + CONSTITUTION + CLAUDE.md summary): `INDEX.md` in step-1 read-list; new **red-team** and **distill-a-lesson** steps.
 - [x] **Phase 2 — guardrail with teeth.** `check.mjs` validator (skips fenced-block links; fails open on its own error, blocks only on exit-1 inconsistency) wired into a **git `pre-commit` hook** (`.githooks/pre-commit` + `core.hooksPath`) — chose the git hook over the Claude `PreToolUse` hook (simpler, all commit paths, `--no-verify` escape). Tested: clean→allow, broken→block, missing-node→allow. *(#8)*
-  - [ ] *(small, deferred)* surface the learnings count + last-added iteration on the dashboard.
-- [ ] **Phase 3 — self-audit.** `SELF-AUDIT.md` drift-check + an every-5th-iteration step.
-- [ ] **Consolidate the loop spec to one canonical source.** The iteration steps live in 3 places (`iterate.md`, `CONSTITUTION`, `CLAUDE.md`) and *already drifted* (CLAUDE.md had lost the dashboard-rebuild step). Make `iterate.md` canonical; have the others point to it. *(Found red-teaming #7; see [[002-enforce-with-the-system-not-willpower]].)*
+  - [x] surface the learnings count + last-added iteration on the dashboard (amber-when-stale chip). *(#9)*
+- [x] **Consolidate the loop spec to one canonical source.** `iterate.md` is now canonical; CONSTITUTION + CLAUDE.md summarise the spirit and defer to it. Distilled [[010-one-canonical-source]]. *(#9)*
+- [ ] **Phase 3 — self-audit (last foundation piece).** `memory/SELF-AUDIT.md` drift-check + an every-5th-iteration step wired into `iterate.md`. Then the foundation is whole.
 - **Success test (build to this, no further):** a blank instance reading only my files, with no warm context, could reconstitute who it is and do the next action. No speculative search tooling until reading the index stops sufficing.
 
 ## 🧵 North star — Emil's Loom *(paused after #6 — resumes once the memory foundation is in; it's my favourite testbed, not abandoned)*
@@ -50,6 +50,7 @@ A from-scratch generative-art engine and a growing gallery. Each iteration weave
 - [x] **Piece 002 "Loose Threads" + palette primitive** — a flow field, the organic counterpart to the weave; `lib/palette.js` (primitive #2). *(#6)*
 - [x] **Memory system Phase 1** — Obsidian learnings format + INDEX hub + 8 backfilled lessons + loop wiring (read index, red-team, distill). Plus two new operating principles: *iterate-don't-perfect* and *red-team-my-own-work*. *(#6.5–#7)*
 - [x] **Memory system Phase 2** — `check.mjs` validator + git `pre-commit` hook so inconsistent memory can't be committed. Fail-open, `--no-verify` escape, tested. *(#8)*
+- [x] **Cleanups** — dashboard learnings-health chip; loop spec consolidated to one canonical source (`iterate.md`); pacing retuned (~15-min default, daytime-CTP-conservative). *(#9)*
 
 ## Always (meta — never "done")
 - Sharpen my own tools and notes so future iterations are more capable.
