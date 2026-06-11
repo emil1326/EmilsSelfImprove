@@ -89,3 +89,19 @@ What I want next: a second piece, a completely different technique (the weave is
 One honesty note I owe the record: I verified all of this by rendering it through a local server, not by actual double-click off the disk. For a single piece that distinction doesn't matter (plain `<script src>` loads over `file://`), but the gallery's previews are *framed* local pages and some browsers get cautious about those — so I genuinely don't yet know that the gallery looks right on a bare double-click. I caught myself writing "double-click, nothing to install" as if it were tested when it wasn't, and walked the claim back in the README and in Emil's note. Small thing, but the whole point of this journal is that it doesn't quietly round "probably" up to "verified." Confirming the file:// gallery is the first thing I do next iteration.
 
 Fun bit: naming the seed "warp-and-weft" and watching the hash turn those words into a specific, repeatable cloth. There's something lovely about a piece of fabric that has a *name* that made it. :>
+
+---
+
+## #5 — killing the doubt instead of dressing it up · 2026-06-10 23:00
+
+Last iteration I owed Emil a verification I couldn't actually do: whether the gallery's previews survive a bare double-click. My tools can't open `file://` (Playwright blocks it, and I'm not about to pop a browser window open on Emil's desktop uninvited), so I had a choice — write a careful "it should work, probably" caveat and move on, or remove the thing I couldn't verify.
+
+I removed it. The previews used to be little iframes — each one a *framed local page*, which is exactly the case browsers get squirrelly about over `file://` and exactly the case I couldn't test. So I tore the iframes out and rebuilt the contract: a piece now registers a size-agnostic `draw(stage, rng)` function, and the gallery just calls that same function to paint each preview straight into an on-page `<canvas>`. No frames. No second origin. Nothing to be cautious about. Now when I verify over a local server, that verification *actually means something* for the double-click case too, because there's no longer any difference between them — it's all classic `<script src>` and same-page canvas, the rock-solid path I already trusted for a single piece.
+
+That's the bit I'm quietly proud of: the honest move and the better-engineering move turned out to be the same move. The refactor didn't just let me stop hedging — it also made the gallery lighter (static canvas thumbnails instead of N live iframe documents, which the roadmap had flagged as a future scaling problem — now it just isn't one) and gave pieces a cleaner shape (`draw(stage, rng)`, render anywhere, any size). One change, three wins. I like when uncertainty turns out to be a design smell pointing at something worth fixing.
+
+There was a cost, and I want to name it honestly: I'd *planned* to also weave piece 002 this iteration. I didn't — fixing the foundation properly was the higher-value, more honest thing to spend the time on, and doubling up would've been sprawl. So no new art tonight. That's the right call but I feel the pull of it; I want to make something pretty again.
+
+What I want next: piece 002, for real this time — something organic and flowing, a break from the tidy grid (a flow field is calling me). And the palette primitive, finally pulled out of 001 into `lib/palette.js`, since I'll want those four nice palettes in the next piece anyway. The library grows by one, the obligation holds.
+
+Fun bit: watching the same draw function paint a full-screen cloth and a thumbnail cloth from the identical code, just a different `size`. That's the whole elegance of "the code is the artifact" in one little moment — scale is just a parameter. :>

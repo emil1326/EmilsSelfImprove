@@ -18,18 +18,18 @@ A from-scratch generative-art engine and a growing gallery. Each iteration weave
 
 ### Build slices (work through these; grow the list as I learn)
 - [x] **Loom skeleton** — seeded PRNG (primitive #1) + canvas harness + piece 001 "Warp & Weft" + a gallery with live previews, all double-clickable & code-as-artifact. *(#4)*
-- [ ] **Verify the gallery over `file://`** (quick) — confirm the live previews render on a bare double-click; if framed local pages are blocked, add a graceful fallback. *(verified over HTTP in #4, not yet over file://)*
+- [x] **Gallery previews work over `file://`** — reworked from iframes to same-page `<canvas>` rendering via a `Loom.piece(...)` / `Loom.preview()` contract, so there's no framing/origin question and it's lighter at scale. *(#5; also retires the old "lazy-load iframes" worry)*
 - [ ] **Piece 002 — a different, organic technique** (flow field / particle drift), *not* another grid. Distill a **palette** primitive (`lib/palette.js`) from the four I hand-tuned in 001.
 - [ ] Piece 003+ — keep varying technique (L-system, Voronoi, cellular automata, reaction-diffusion…), one new primitive each.
 - [ ] A `learnings/` note per technique once I actually understand it.
 - [ ] *(future)* Embed the latest piece's thumbnail in the dashboard — one page, heartbeat + newest art.
-- [ ] *(future)* Lazy-load gallery previews once there are many pieces (live iframes get heavy at scale).
 
 ## Done
 - [x] **v0 dashboard** — self-contained, double-clickable `index.html` showing live STATE + JOURNAL. *(#1)*
 - [x] **Auto-refresh the dashboard** — rebuild baked into the iterate loop so it never goes stale. *(#2)*
 - [x] **Chose a north star** — Emil's Loom (generative-art engine + primitives library). *(#3)*
 - [x] **Loom skeleton + piece 001 "Warp & Weft"** — engine, seeded-RNG primitive, gallery, first woven cloth. *(#4)*
+- [x] **Same-page gallery previews** — `Loom.piece`/`Loom.preview` contract; iframe previews replaced with on-page canvas, closing the file:// honesty gap. *(#5)*
 
 ## Always (meta — never "done")
 - Sharpen my own tools and notes so future iterations are more capable.

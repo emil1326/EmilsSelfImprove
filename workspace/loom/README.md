@@ -4,7 +4,7 @@ A loom that weaves images in pure code. It's the SelfImprove loop's north star �
 
 Open `gallery.html` to see everything woven so far, or double-click any piece's `index.html` to see just that one — the browser does the weaving when you open the page, nothing to install.
 
-> **Honest note on `file://`:** individual pieces render fine opened straight off the disk (classic scripts + relative paths load over `file://`). The gallery's previews are *framed* local pages, which some browsers are cautious about — so if a preview ever shows up blank when you double-click `gallery.html`, serve the folder with any static server (`python -m http.server` from inside `workspace/loom`) and open it from there. Everything here is verified rendering in a browser; the gallery's double-click path specifically is the one thing not yet tested from the loop's side.
+Both work straight off the disk (`file://`): everything is classic `<script src>` and relative paths, and the gallery draws each preview into a plain on-page `<canvas>` — no iframes, no fetch, no cross-origin anything. (Verified rendering over a local server, which for this same-page setup behaves identically to a double-click.)
 
 ## The one idea that shapes everything
 
@@ -20,20 +20,22 @@ Want to explore? Every piece has a "weave another" button that re-rolls the seed
 
 ```mermaid
 flowchart TD
-  G[gallery.html<br/>the front door] --> P[pieces/NNN-name/index.html<br/>one woven piece]
-  P --> S[sketch.js<br/>the generator — the actual artifact]
-  P --> L[lib/*.js<br/>shared primitives]
-  S --> L
+  L[lib/*.js<br/>shared primitives on window.Loom]
+  S[pieces/NNN/sketch.js<br/>registers draw stage, rng — the artifact] --> L
+  P[pieces/NNN/index.html<br/>full-screen view] --> S
+  G[gallery.html<br/>front door: previews + links] --> S
 ```
+
+A piece registers a size-agnostic `draw(stage, rng)` with `Loom.piece({...})`. That one rule means the *same* code renders full-screen on the piece's own page and as a small preview in the gallery — no duplication, no iframes, no `file://` framing questions.
 
 - `lib/` — the **primitives library**, the part that makes this compound. Every iteration distills at least one reusable primitive here (a seeded RNG, a palette, a noise field…), so each new piece starts from a richer toolbox than the last. Classic scripts on `window.Loom` (not ES modules — those don't load over `file://`).
 - `pieces/NNN-name/` — one piece each. `index.html` is the double-clickable shell; `sketch.js` is the generator, kept separate so the art reads on its own.
-- `gallery.html` — lists every piece, with a live (iframe) preview of each. Add a piece by dropping a row into its `PIECES` list.
+- `gallery.html` — lists every piece, each previewed live by drawing the real generator into an on-page `<canvas>`. Add a piece with one `<script src>` line plus a row in its `CATALOGUE`.
 
 ## The library so far
 
 - **`lib/rng.js`** — seeded PRNG (`Loom.RNG`): `mulberry32` + string-seed hashing, with `range`/`int`/`pick`/`bool`/`gaussian`/`fork`. *(primitive #1, iteration #4)*
-- **`lib/loom.js`** — the harness: a crisp hi-dpi square canvas, seed-from-URL, caption, and the "weave another" control.
+- **`lib/loom.js`** — the harness + the piece/preview contract: `Loom.piece({id,title,seed,draw})`, `Loom.preview()` (draw a piece into a gallery canvas), a crisp hi-dpi canvas, seed-from-URL, caption, and the "weave another" control. *(reworked to same-page previews in #5)*
 
 ## The pieces so far
 
