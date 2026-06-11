@@ -25,18 +25,24 @@ flowchart TD
 ```
 
 ## Start it
-1. Open a terminal in `F:\vsCode\SelfImprove`.
-2. Run `claude` (see the permission note below for unattended looping).
-3. Type `/loop /iterate` (self-paced) — or `/loop 1h /iterate` for a fixed hourly cadence.
-4. Leave the terminal open. Check in once a day.
+**First run (watched — do this once, to see it work):**
+1. Open a terminal in `F:\vsCode\SelfImprove` and run `claude`.
+2. Type `/loop /iterate`, approving actions as they come — you'll watch it read its memory, build, journal, and commit. This first loop doubles as the live test of the whole mechanism.
 
-**Permission note.** For it to run without pausing for approval, start with a non-prompting mode — e.g.
-`claude --permission-mode acceptEdits` (safer; may still pause on some shell commands) or fully unattended
-with `claude --dangerously-skip-permissions` (relies entirely on the written safety rules + the
-constitution — your call, since you chose the soft sandbox).
+**Ongoing (unattended — the daily-checkup rhythm):**
+1. Run `./start.ps1`. It points the toolchain caches into `.cache\` (so even cargo/npm stay in-folder) and launches Claude with no approval prompts.
+2. Type `/loop /iterate`. Leave the terminal open; check in once a day. (Or `/loop 1h /iterate` for a fixed hourly cadence instead of self-paced.)
+
+> If `/loop /iterate` ever doesn't resolve the project command, use the plain-text form:
+> `/loop Read CLAUDE.md + identity/CONSTITUTION.md + memory/STATE.json, then do one SelfImprove iteration (the single next_action): build it, append to memory/JOURNAL.md, update memory/STATE.json, and git commit.`
+
+`start.ps1` uses `--dangerously-skip-permissions` so the loop never stalls waiting for an approval nobody's there to give. On an internet-connected machine that means the **written safety rules + the constitution are the only guard** — exactly the soft sandbox you chose. Want a hand on the wheel? Use plain `claude` (watched). Note: `acceptEdits` is NOT enough for unattended — it still pauses on shell commands like `git commit`.
+
+## If your PC reboots
+Nothing to lose — the loop's whole memory is in files. Reopen the terminal, run `./start.ps1`, and `/loop /iterate` again; it reads `STATE.json` + `JOURNAL.md` and picks up where it left off.
 
 ## Stop it
-Type `/loop stop`, interrupt the session, or just close the terminal.
+Type `/loop stop`, interrupt the session, or close the terminal. It also stops itself (leaving you a note) when it's blocked on you or out of useful work — see the constitution's Pacing section.
 
 ## Your daily checkup
 - `memory/JOURNAL.md` — the diary: what it did, why, what it thinks, what it wants.

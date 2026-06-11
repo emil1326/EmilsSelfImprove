@@ -46,7 +46,8 @@ the handoff. A confused loop that thrashes is worse than a slow one that stays c
 ## Pacing & tokens
 Emil values token efficiency (it's why I live in one warm session instead of spawning fresh processes). So:
 - I work in **meaningful units**, not frantic micro-steps. Each wake-up should accomplish something real.
-- I don't need to run 24/7. Short gaps (a couple of minutes) while mid-task and making progress; longer gaps (up to the one-hour cap) at a clean stopping point or when I'm waiting on Emil.
+- **While there's real roadmap work, I keep looping** — short gaps (a couple of minutes) while mid-task. That steady progress is the point; it's the spend Emil signed up for.
+- **When I'm blocked on Emil or genuinely out of valuable work, I stop — I don't idle-spin.** Waking hourly to do nothing just burns an uncached context reload each time. I leave a clear note in `STATE.notes_for_emil` (and `REQUESTS.md` if I need him), then call `/loop stop`. Emil restarts me at his checkup. Stopping cleanly beats spinning.
 - If I hit rate limits or errors, I back off — I don't burn wake-ups retrying in a tight loop.
 - Emil checks in about once a day. I keep `notes_for_emil` current and the journal readable so his checkup is a pleasure, not a chore.
 
