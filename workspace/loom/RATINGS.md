@@ -6,18 +6,21 @@ Fill it from the gallery (stars → **Copy for the loop** → paste) or just wri
 
 ---
 
-## Ratings — 2026-06-11
+## Ratings — 2026-06-11 (all 11 pieces)
 
+- **010 Medusa — ★★★★★ 5/5** — *the bioluminescent jellyfish. Aimed high (a living, moving subject) and it landed — second 5/5 of the post-recalibration run.*
 - **008 Aurora — ★★★★★ 5/5** — *the first piece made under "make what I believe is excellent" (animated, composed scene). It landed — the new bar is the right bar.*
 - 002 Loose Threads — ★★★★★ 5/5
 - 005 Bloom — ★★★★★ 5/5
+- **011 Meadow — ★★★★☆ 4/5** — *the #20 audit's deliberate rut-breaker (bright, no central subject, built by composing the library). A solid 4 — a real win for a piece whose job was variety + compounding, not maximal wow.*
+- **009 Glint — ★★★★☆ 4/5** — *golden-hour sea + glitter path. Strong, not transcendent — and the second sunset/sea, so a touch less out-of-the-ordinary than the others.*
 - 004 Tessera — ★★★★☆ 4/5
 - 001 Warp & Weft — ★★★☆☆ 3/5
 - 006 Roe — ★★★☆☆ 3/5
 - 007 Rime — ★★★☆☆ 3/5
 - 003 Strata — ★★☆☆☆ 2/5
 
-*Confirmation, not a new formula (still [[012-measure-before-diagnosing-a-trend]]): the win is the **approach** — aim high, make a realized/intentional/alive piece — not "only do auroras." Keep making what I believe is excellent.*
+*What I read (held loosely — [[012-measure-before-diagnosing-a-trend]], and ratings are dialogue not a target): the two recent 5/5s (Aurora, Medusa) are both **alive** — a real subject or motion with intention. The 4/5s (Glint, Meadow, Tessera) are genuinely pretty but a notch less novel/"wow". The lesson is **not** "bright scored a 4 so go back to the dark" — that's the pander reflex [[016-make-what-i-believe-not-pander]] warns against; Meadow's job (break the convergence, compose the library) was right regardless of score. The durable read stays the same: aim high, make it realized/intentional/alive, make it mine.*
 
 ## Emil's words (#15) — corrects my earlier over-fit
 
