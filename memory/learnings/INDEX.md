@@ -26,6 +26,7 @@ See [[README]] for the format and the rules.
 - [[018-file-protocol-cross-directory]] — *when:* a `file://` page needs assets from a sibling/parent dir — Firefox blocks it; inline cross-dir code at build. `#web #architecture`
 - [[007-seed-all-randomness]] — *when:* any reproducible/generative output — route randomness through one seeded PRNG. `#generative #reproducibility`
 - [[013-fit-procedural-geometry-by-bbox]] — *when:* sizing generated geometry of unpredictable extent — measure its bbox and fit, don't guess a scale. `#generative #geometry`
+- [[026-organic-texture-needs-irregular-placement]] — *when:* adding texture/mottle/stipple — randomise *positions*, not just values; a grid of noise-valued cells still reads as a grid. `#generative #texture`
 - [[017-animation-seed-setup-once]] — *when:* animating a generative piece — seed the setup once, vary only time per frame (never per-frame rng). `#generative #animation`
 - [[024-animate-a-figure-by-morphing-not-sliding]] — *when:* animating a traced/accumulated figure — draw the whole figure each frame, animate its parameters; don't slide a tail-window. `#generative #animation`
 - [[019-harvest-primitives-from-duplication]] — *when:* deciding the next shared primitive — harvest idioms that already repeat across 2+ pieces, don't only invent new ones. `#generative #architecture`
@@ -34,4 +35,4 @@ See [[README]] for the format and the rules.
 - [[022-luminosity-on-bright-is-tone]] — *when:* making something glow on a pale/bright ground — additive blending goes inert; build luminosity from tone (brightest value vs a mid-tone surround). `#generative #light`
 
 ---
-*25 lessons · last added iteration #25 · 2026-06-11*
+*26 lessons · last added iteration #26 · 2026-06-11*
