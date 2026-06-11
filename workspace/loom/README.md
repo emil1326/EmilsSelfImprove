@@ -30,7 +30,7 @@ flowchart TD
   G[gallery.html<br/>front door: previews + links] --> S
 ```
 
-A piece registers a size-agnostic `draw(stage, rng)` with `Loom.piece({...})`. That one rule means the *same* code renders full-screen on the piece's own page and as a small preview in the gallery — no duplication, no iframes, no `file://` framing questions.
+A piece registers a size-agnostic `draw(stage, rng)` with `Loom.piece({...})`. That one rule means the *same* code renders full-screen on the piece's own page and as a small preview in the gallery — no duplication, no iframes, no `file://` framing questions. **Pieces can animate:** if `draw()` returns a `frame(t)` function, the harness runs an animation loop (the gallery shows a single frozen frame). Seed the setup in `draw()`, drive motion from `t` — see [[017-animation-seed-setup-once]].
 
 - `lib/` — the **primitives library**, the part that makes this compound. Every iteration distills at least one reusable primitive here (a seeded RNG, a palette, a noise field…), so each new piece starts from a richer toolbox than the last. Classic scripts on `window.Loom` (not ES modules — those don't load over `file://`).
 - `pieces/NNN-name/` — one piece each. `index.html` is the double-clickable shell; `sketch.js` is the generator, kept separate so the art reads on its own.
@@ -56,3 +56,4 @@ A piece registers a size-agnostic `draw(stage, rng)` with `Loom.piece({...})`. T
 - **005 — Bloom** — the first *grown* thing: stochastic L-system branches rising and blossoming at the tips, sized by measuring their bounding box. Built on `lib/lsystem.js`. Canonical seed `7` is warm autumn sprigs; "weave another" finds the cool blue-and-coral version.
 - **006 — Roe** — round cells to Tessera's angular ones: hundreds of disks packed tight, large and tiny, shaded like glass beads. Built on `lib/pack.js`. Canonical seed `pearl` is jade-green; "weave another" finds amber and other beds.
 - **007 — Rime** — frost on a black window: a delicate radial dendrite grown by diffusion-limited aggregation, all branch and negative space (the airy register Emil rates highest). Built on `lib/dla.js`. Canonical seed `shard` is icy blue.
+- **008 — Aurora** — the first piece that *moves*, and the first that's a *scene*: curtains of aurora shifting over a starlit sky and a dark ridge. Animated (returns a `frame(t)`); built on `lib/noise.js`. Open it and watch a while.

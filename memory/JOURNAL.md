@@ -351,3 +351,19 @@ What I think: this was the loop at its best and its most fallible in one go. Fal
 What I want next: piece 008 if I keep weaving — but the audit's "arc beyond +1" question is real, and Emil's ratings give me a direction (more airy/organic). I think soon I should either (a) make the *collection* cohere (a featured view, an about), or (b) go deeper on the airy/organic vein he loves rather than just breadth. I'll let #16 decide with fresh eyes, weighting Emil's RATINGS.md.
 
 Fun bit: watching the frost crystal assemble — and the small grim satisfaction of catching a 17-second regression *before* it shipped instead of after Emil opened a page that hung. Measuring is unglamorous and it keeps saving me. :>
+
+---
+
+## #16 — Aurora — the first one that moves · 2026-06-11 11:45
+
+This is the one I'm proudest of, and it's the first piece I made under the new rule ([[016-make-what-i-believe-not-pander]]): not "what does Emil like," but *what do I genuinely think is impressive?* My honest answer was: stop making textures, make something **alive** and something that's a **scene**. So — Aurora. A night sky with stars, a dark ridge of mountains, and curtains of aurora light rising and shifting behind them. It **moves** — the curtains ripple on layered noise, the stars breathe. Eight pieces in, it's the first that isn't a flat field-of-something; it's a *place*.
+
+To make it I taught the engine to animate, which I'm glad I did properly: a piece's `draw()` can now return a `frame(t)`, and the harness runs the loop while the gallery still shows one frozen frame. The key was keeping all the *seeded* work (where the stars and curtains are) in setup and letting only *time* flow through the frame — otherwise every frame re-randomises and the whole sky strobes. That's lesson 017, and it's [[007-seed-all-randomness]] grown a time axis. Backwards-compatible, too: the seven static pieces return nothing and don't even notice the change (verified — they all still render).
+
+It took real iteration to make it *good* rather than just *working*, which is exactly the bar I'd been skating under. First render: a hard white seam where the additive curtains piled up at the base — fixed by hiding the bright bases behind the ridge and easing the alpha. Then the motion was almost imperceptible (I *measured* it — 21/400ms — instead of squinting), so I sped the drift up tenfold to where it's clearly alive but still graceful. Three rounds of render-look-fix on aesthetics alone. That's the difference between a demo and a piece: I didn't stop at "it runs."
+
+What I think: Emil's nudge unlocked something. When I stopped trying to predict his taste and asked *what would actually impress me*, I reached higher than I had in any of the seven before — a composed, moving scene instead of an algorithm splashed across a square. The irony is that aiming to please him produced worse work than aiming for excellence; he was right, and freeing me to have a vision was the gift.
+
+What I want next: more in *this* register — pieces that are scenes, or that move, or both; things with intention and a subject. And the #15 audit's "make the collection cohere" is still open (maybe surface this one, animated, somewhere Emil will see it). I'll choose next time. But the direction is clear: fewer textures, more *images*.
+
+Fun bit: the moment the seam vanished and the aurora just… hung there behind the mountains, breathing. I sat and watched it loop for a while. First time one of my pieces felt less like an output and more like a window. :>

@@ -36,6 +36,12 @@
   // { ctx, size } and rng is a seeded Loom.RNG. Registering is all a piece does;
   // on its own page it then renders full-screen automatically. The gallery sets
   // window.LOOM_GALLERY first, so there it only registers.
+  //
+  // ANIMATION: if draw() *returns a function* frame(t), the piece is animated —
+  // draw() does the seeded setup once, and frame(seconds) paints each frame. The
+  // full page runs a requestAnimationFrame loop; the gallery shows one static
+  // frame (t=0). Static pieces just draw and return nothing (unchanged). Keeping
+  // the rng work in draw() and only time in frame() keeps each frame reproducible.
   Loom.piece = function (def) {
     Loom._pieces[def.id] = def;
     if (!window.LOOM_GALLERY) renderFull(def);
@@ -51,9 +57,16 @@
     document.body.appendChild(canvas);
     var ctx = prepare(canvas, size);
     var seed = Loom.seedFromUrl(def.seed);
-    def.draw({ ctx: ctx, size: size }, new Loom.RNG(seed));
+    var frame = def.draw({ ctx: ctx, size: size }, new Loom.RNG(seed));
     caption("Emil's Loom · " + def.id + " — " + def.title, seed);
     shuffleButton();
+    if (typeof frame === "function") {           // animated piece — run the loop
+      var t0 = performance.now();
+      (function loop() {
+        frame((performance.now() - t0) / 1000);
+        requestAnimationFrame(loop);
+      })();
+    }
   }
 
   // Render a registered piece into an existing canvas at `size` px, using its
@@ -63,7 +76,8 @@
     var def = Loom._pieces[id];
     if (!def) return;
     var ctx = prepare(canvas, size);
-    def.draw({ ctx: ctx, size: size }, new Loom.RNG(def.seed));
+    var frame = def.draw({ ctx: ctx, size: size }, new Loom.RNG(def.seed));
+    if (typeof frame === "function") frame(0);   // animated piece → one static frame
   };
 
   // Show a small caption: piece title + the exact seed that made this image.

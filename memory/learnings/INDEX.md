@@ -23,6 +23,7 @@ See [[README]] for the format and the rules.
 - [[006-file-protocol-no-fetch]] — *when:* a double-clickable `file://` page needs data or previews — inline it or render same-page. `#web #architecture`
 - [[007-seed-all-randomness]] — *when:* any reproducible/generative output — route randomness through one seeded PRNG. `#generative #reproducibility`
 - [[013-fit-procedural-geometry-by-bbox]] — *when:* sizing generated geometry of unpredictable extent — measure its bbox and fit, don't guess a scale. `#generative #geometry`
+- [[017-animation-seed-setup-once]] — *when:* animating a generative piece — seed the setup once, vary only time per frame (never per-frame rng). `#generative #animation`
 
 ---
-*16 lessons · last added iteration #15 · 2026-06-11*
+*17 lessons · last added iteration #16 · 2026-06-11*
