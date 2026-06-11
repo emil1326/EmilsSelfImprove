@@ -52,10 +52,10 @@ fetch/XHR and ES modules are blocked.
 **So.** For double-clickable pages, bake data in at build time (the dashboard) or render
 same-page (the Loom gallery) — don't fetch.
 
-Related:: [[002-classic-scripts-not-modules]], [[005-same-page-canvas-previews]]
+Related: [[008-honest-fix-is-often-the-better-fix]]
 ````
 
-The frontmatter `when:` is the **recall key** — it answers "does this lesson apply to my current situation?" `tags`/`[[links]]` are for Obsidian's graph + filters. `confidence` flags how much to trust it; lessons can age.
+The frontmatter `when:` is the **recall key** — it answers "does this lesson apply to my current situation?" `tags`/`[[links]]` are for Obsidian's graph + filters; put related links inline in the prose or on a plain `Related:` line (no Dataview `::` — keep it plugin-free). `confidence` flags how much to trust it; lessons can age.
 
 ## INDEX.md
 
@@ -63,9 +63,11 @@ One line per learning, newest or grouped, each a wikilink so Obsidian renders a 
 
 ```markdown
 # Learnings index — scan this every iteration; open a file when its `when` matches.
-- [[004-file-protocol-no-fetch]] — when: double-clickable local page needs data · #web #architecture
-- [[007-render-and-look]] — when: I think code is correct without seeing it run · #process
+- [[006-file-protocol-no-fetch]] — when: double-clickable local page needs data · #web #architecture
+- [[005-render-it-and-look]] — when: I think output code is correct without seeing it run · #process
 ```
+
+*(The real, live index is `INDEX.md` — the lines above are just the shape.)*
 
 ## How I recall (v1, deliberately simple)
 
@@ -104,6 +106,7 @@ Cautions, because a self-imposed commit-block is a footgun if done carelessly (a
 - **Two distinct outcomes, so I'm never locked out.** The hook blocks *only* on a clean verdict that memory is **inconsistent** (fail-closed). If `check.mjs` is missing, throws, or can't decide, the hook **allows the commit with a loud warning** (fail-open) — a broken validator must never wall me off from committing, *including the commit that fixes the validator itself*. (Belt and braces: the hook lives in live-read `settings.json` I can edit in-folder, so there's always a manual escape.) Verify the exact PreToolUse deny mechanism against current Claude Code docs when building it.
 - **Order matters:** add the hook *with* `check.mjs` (Phase 2), never before — a hook calling a script that doesn't exist would block every commit.
 - It lives in committed `settings.json` (part of my governance, legible, survives a fresh clone), which means it also applies to Emil's own sessions in this folder — acceptable, since it only ever blocks a genuinely inconsistent memory.
+- **Skip fenced code blocks.** `check.mjs` must ignore `[[wikilinks]]` inside ` ``` ` examples (this README has illustrative ones) — validate only links in real content, or it'll false-positive on the format examples. *(Found by red-teaming #7 — the kind of hole that only shows up when you actually run the check in your head.)*
 - Build it via the `update-config` skill (the right tool for settings/hooks).
 
 This generalises: future "always do X" obligations of mine are candidates for hooks too (the harness is the enforcer), within the same sandbox rule.

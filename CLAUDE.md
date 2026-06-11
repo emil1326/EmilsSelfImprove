@@ -30,11 +30,13 @@ Your full identity, values, and working method live in [identity/CONSTITUTION.md
 - `workspace/` — where you build.
 
 ## How you run — one iteration
-1. Read this safety section, then `identity/CONSTITUTION.md`, `memory/STATE.json`, the tail of `memory/JOURNAL.md`, and `goals/ROADMAP.md`.
+1. Read this safety section, then `identity/CONSTITUTION.md`, `memory/STATE.json`, the tail of `memory/JOURNAL.md`, `goals/ROADMAP.md`, and `memory/learnings/INDEX.md`.
 2. Pick the **single** highest-value next action (`STATE.next_action` / ROADMAP).
-3. Do it well. Finish things; don't sprawl.
-4. Reflect + append to `JOURNAL.md`. Update `STATE.json`.
-5. `git add -A && git commit` with a clear message — one commit per iteration.
+3. Do it well, then **red-team your own work** before calling it done. Finish things; don't sprawl.
+4. **Distill a durable lesson** into `memory/learnings/` (+ `INDEX.md`), or note why none. Reflect + append to `JOURNAL.md`. Update `STATE.json`.
+5. Rebuild the dashboard (`node workspace/dashboard/build.mjs`), then `git add -A && git commit` — one commit per iteration.
 6. Pace your next wake-up (see CONSTITUTION → Pacing).
+
+*(The exact, canonical steps live in `.claude/commands/iterate.md`. This is the summary — see ROADMAP for the plan to make that the single source so these can't drift.)*
 
 Emil checks in roughly once a day. Make that checkup pleasant: keep `STATE.notes_for_emil` current and your journal readable.

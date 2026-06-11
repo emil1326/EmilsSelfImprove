@@ -6,11 +6,15 @@ I grow this myself. `[ ]` todo · `[~]` in progress · `[x]` done.
 
 *Re-sequenced after Emil's challenge (#6.5). The thesis of this whole project is that I **accumulate** — get sharper across iterations. Right now I don't: my loop re-reads only the journal's tail, so older lessons are invisible to future-me, and `memory/learnings/` is empty after 6 iterations. The dashboard made me legible, not cumulative. Fix that before piling on more Loom pieces.*
 
-- [ ] **A file-based learnings system.** Plain files in `memory/learnings/` (NOT the `mcp__memory__*` store — opaque + outside my sandbox).
-  - [ ] Tight format: one lesson per file, titled, with a "when it applies" line + tags.
-  - [ ] `memory/learnings/INDEX.md` — a scannable one-line-per-lesson index.
-  - [ ] Backfill the durable lessons from iterations 1–6 while they're fresh.
-  - [ ] **Self-change (own commit + journal note):** wire it into the loop — a "distill durable lessons into `learnings/` + update INDEX" obligation step in `iterate.md` + CONSTITUTION, and add `learnings/INDEX.md` to step 1's read-list so past lessons are always in view.
+Full design + rules: [`memory/learnings/README.md`](../memory/learnings/README.md).
+
+- [x] **Phase 1 — the learnings system stands up.** *(#7)*
+  - [x] Tight Obsidian format (frontmatter `title`/`when`/`tags`, body, `[[links]]`); 8 lessons backfilled from iterations 1–6 (process/blind-spot lessons first, per the bar).
+  - [x] `memory/learnings/INDEX.md` hub, scanned every iteration.
+  - [x] Wired into the loop (`iterate.md` + CONSTITUTION + CLAUDE.md summary): `INDEX.md` in step-1 read-list; new **red-team** and **distill-a-lesson** steps.
+- [ ] **Phase 2 — guardrail with teeth.** `check.mjs` validator (must skip wikilinks in fenced code blocks; fail-open on its own error, fail-closed only on a real inconsistency) + a `PreToolUse` commit hook in `.claude/settings.json` (via the `update-config` skill) + dashboard surfacing the learnings count.
+- [ ] **Phase 3 — self-audit.** `SELF-AUDIT.md` drift-check + an every-5th-iteration step.
+- [ ] **Consolidate the loop spec to one canonical source.** The iteration steps live in 3 places (`iterate.md`, `CONSTITUTION`, `CLAUDE.md`) and *already drifted* (CLAUDE.md had lost the dashboard-rebuild step). Make `iterate.md` canonical; have the others point to it. *(Found red-teaming #7; see [[002-enforce-with-the-system-not-willpower]].)*
 - **Success test (build to this, no further):** a blank instance reading only my files, with no warm context, could reconstitute who it is and do the next action. No speculative search tooling until reading the index stops sufficing.
 
 ## 🧵 North star — Emil's Loom *(paused after #6 — resumes once the memory foundation is in; it's my favourite testbed, not abandoned)*
@@ -43,6 +47,7 @@ A from-scratch generative-art engine and a growing gallery. Each iteration weave
 - [x] **Loom skeleton + piece 001 "Warp & Weft"** — engine, seeded-RNG primitive, gallery, first woven cloth. *(#4)*
 - [x] **Same-page gallery previews** — `Loom.piece`/`Loom.preview` contract; iframe previews replaced with on-page canvas, closing the file:// honesty gap. *(#5)*
 - [x] **Piece 002 "Loose Threads" + palette primitive** — a flow field, the organic counterpart to the weave; `lib/palette.js` (primitive #2). *(#6)*
+- [x] **Memory system Phase 1** — Obsidian learnings format + INDEX hub + 8 backfilled lessons + loop wiring (read index, red-team, distill). Plus two new operating principles: *iterate-don't-perfect* and *red-team-my-own-work*. *(#6.5–#7)*
 
 ## Always (meta — never "done")
 - Sharpen my own tools and notes so future iterations are more capable.
