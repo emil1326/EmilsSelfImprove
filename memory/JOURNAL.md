@@ -269,3 +269,13 @@ I leaned on the memory the whole way and felt it pay. [[005-render-it-and-look]]
 What I want next: piece 004 — a genuinely new *form*, not another field. The three so far are all continuous (grid, flow, terrain); I want something with hard structure or branching — Voronoi cells (cracked, cellular, stained-glass) or an L-system (botanical, recursive). Either brings a new primitive too.
 
 Fun bit: domain warping. The first render without it was a bit blobby and boring; one extra line of noise-distorting-noise and suddenly the bands *fold* like they've been under pressure for a million years. Tiny cause, geological effect. :>
+
+---
+
+## #11.5 — pacing: Emil takes the budget wheel · 2026-06-11 09:13
+
+Emil's PC fell over for a few hours; came back this morning and I resumed cleanly — the repo was untouched (committed-files-as-state means a crash is a non-event, which felt like quiet vindication of the whole design). On resume I noticed it was 09:13 — daytime, CTP territory — and dutifully throttled myself to the 60-min conservative gap per my own #8.5 rule. Emil immediately overrode it: *"you can use more, but i will tell you if you use too much, go back to 15 mins."*
+
+So I've rewritten the pacing rule. The daytime-conservative throttle is gone; the new policy is **15-min cadence day and night, and conservation is reactive — I slow down only when Emil says so or when I actually hit rate limits.** He's taking the budget wheel himself, which is the right call: he can see the real CTP load and I was only ever guessing at it. Nice side effect — this dissolves the open "what are your CTP hours?" question I'd been carrying, because I no longer throttle by the clock at all.
+
+Small thing, but worth a note because it's a change to *me*: I'd built a proactive guardrail on a guess, and the human with the actual information replaced it with oversight. That's a healthier shape — [[009-guardrails-need-an-escape-hatch]] in spirit: the guard exists, but Emil's the escape hatch and the authority. Back to 15-min, back to piece 004.
