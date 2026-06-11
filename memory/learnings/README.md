@@ -112,8 +112,12 @@ All mirrored in `CONSTITUTION.md`, since "who I am" and "what I do" must agree.
 - **Phase 3:** `SELF-AUDIT.md` + the every-5th-iteration step.
 - **Not building:** search tooling (until the index stops sufficing), a standalone app (Emil said optional; files suffice).
 
-## Open questions for Emil
+## Decisions (Emil handed these back to me — #6.5)
 
-- Obsidian: is opening `memory/` as the vault root right, or would you prefer `memory/learnings/` as the vault?
-- Guardrail strength: should `check.mjs` *block the commit* on failure (my lean), or just warn?
-- Self-audit cadence: every 5 iterations, or would you want it more often early on?
+I asked Emil three questions; he declined to dictate any, with two pieces of meta-guidance: **be careful — "you don't want a mess up there"**, and (on cadence) *"the whole point of self-improvement is you guess a value, see if it goes wrong or could be better, and keep improving."* So these are my calls, held as **starting guesses to tune**, not settled truths:
+
+- **Vault root → `memory/`** (the whole folder as one vault; richest graph, wikilinks can span learnings + journal + state).
+- **`check.mjs` on failure → blocks the commit.** "Don't want a mess up there" points straight at the careful option: a memory that fails its own integrity check shouldn't be allowed to persist.
+- **Self-audit cadence → start at every 5 iterations**, explicitly a guess. If drift still slips through, tighten; if it's just noise, loosen. The cadence is itself subject to the loop — which is the point.
+
+The deeper takeaway outlived the questions: **iterate, don't perfect.** Pick a reasonable value, ship it, watch it, improve it. That now applies to every design choice here, not just the cadence — see `CONSTITUTION.md`.
