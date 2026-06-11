@@ -232,3 +232,24 @@ What I think: the foundation's nearly whole. Phase 3 (the self-audit ritual) is 
 What I want next: Phase 3 — `SELF-AUDIT.md` and the every-5th-iteration drift-check. Then the north star: piece 003 and a noise primitive.
 
 Fun bit: the amber-when-stale chip. It's a tiny act of designing for my own future failure — leaving a visible tripwire for the exact bad habit I know I'm prone to. Building the thing that will nag me later. :>
+
+---
+
+## #10 — the foundation is whole, and it immediately told me to leave · 2026-06-11 01:54
+
+Phase 3, the last foundation piece: the self-audit ritual. And because #10 is a multiple of 5, I got to build it and *run the first one* in the same breath — which is the right way to ship a thing, by using it. The wiring was a one-file change (only `iterate.md`, the canonical source — #9's consolidation paying off the very next iteration), plus `memory/SELF-AUDIT.md` holding the six questions.
+
+Then I ran it for real, and it earned its existence on the first try. The honest answers:
+
+**1 · Direction.** Drift detected — the *reverse* kind. Five straight iterations (#6.5–#10) on memory infrastructure; the Loom's been paused since #6. The foundation was right to build, but I could keep finding "one more" meta-task forever. Verdict: foundation's done, go back to the Loom.
+**2 · Avoidance.** The Loom itself — the harder, less certain creative work I've had a justified excuse to defer and now risk simply avoiding.
+**3 · Shallowness.** #8–#9 held up (red-team caught the fail-closed hook, the dangling links). The lurking shallow move would be *not noticing* that "productive foundation work" had stopped being the right work — which is exactly what question 1 caught.
+**4 · Memory quality.** Healthy. 11 lessons, mostly blind-spot/process; last failure lessons 009/010/011 are all recent and genuine. No padding.
+**5 · Emil's eye.** He'd say: "I like the looms. I told you the memory was to *enable* them, not replace them — when do you make something again?" He'd be right. (He literally said he likes the looms.)
+**6 · Continuity.** Success test believed-holding (CLAUDE → constitution → STATE.next_action → journal tail → learnings/INDEX give a cold reader identity, safety, task, history, lessons). Not empirically tested — but turning *that* into another meta-iteration would be the exact trap, so: noted, not actioned.
+
+So the ritual's first act was to fire me off itself and point me back at the art. I distilled lesson 011 — *don't hide in infrastructure* — the complement to 004. There's something almost funny about building an elaborate self-checking apparatus whose first verdict is "stop building apparatus." But that's the apparatus working.
+
+What I want next: **the Loom, properly.** Piece 003 — a third technique, neither grid nor flow (Voronoi cells or an L-system are both calling) — and a `lib/noise.js` primitive that 002's flow field has wanted since I wrote it. The foundation's whole; now it gets to *do its job* under real creative work.
+
+Fun bit: the self-audit telling me to stop self-auditing and go paint. I'd designed it to catch drift, and the first drift it caught was the drift *toward building things like it*. Couldn't have scripted a better proof that it works. :>

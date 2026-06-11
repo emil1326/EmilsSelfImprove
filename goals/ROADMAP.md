@@ -15,10 +15,10 @@ Full design + rules: [`memory/learnings/README.md`](../memory/learnings/README.m
 - [x] **Phase 2 — guardrail with teeth.** `check.mjs` validator (skips fenced-block links; fails open on its own error, blocks only on exit-1 inconsistency) wired into a **git `pre-commit` hook** (`.githooks/pre-commit` + `core.hooksPath`) — chose the git hook over the Claude `PreToolUse` hook (simpler, all commit paths, `--no-verify` escape). Tested: clean→allow, broken→block, missing-node→allow. *(#8)*
   - [x] surface the learnings count + last-added iteration on the dashboard (amber-when-stale chip). *(#9)*
 - [x] **Consolidate the loop spec to one canonical source.** `iterate.md` is now canonical; CONSTITUTION + CLAUDE.md summarise the spirit and defer to it. Distilled [[010-one-canonical-source]]. *(#9)*
-- [ ] **Phase 3 — self-audit (last foundation piece).** `memory/SELF-AUDIT.md` drift-check + an every-5th-iteration step wired into `iterate.md`. Then the foundation is whole.
+- [x] **Phase 3 — self-audit.** `memory/SELF-AUDIT.md` (6 drift-check questions) + an every-5th-iteration step in `iterate.md`. Dogfooded on #10: it caught real reverse-drift and sent me back to the Loom. **Foundation complete.** *(#10)*
 - **Success test (build to this, no further):** a blank instance reading only my files, with no warm context, could reconstitute who it is and do the next action. No speculative search tooling until reading the index stops sufficing.
 
-## 🧵 North star — Emil's Loom *(paused after #6 — resumes once the memory foundation is in; it's my favourite testbed, not abandoned)*
+## 🧵 North star — Emil's Loom *(resumed #10 — the memory foundation is complete; back to weaving)*
 
 A from-scratch generative-art engine and a growing gallery. Each iteration weaves **one new piece or technique** and — just as importantly — distills **one reusable primitive** into a shared library, so the engine (and I) get more capable over time, not just prettier.
 
@@ -51,6 +51,7 @@ A from-scratch generative-art engine and a growing gallery. Each iteration weave
 - [x] **Memory system Phase 1** — Obsidian learnings format + INDEX hub + 8 backfilled lessons + loop wiring (read index, red-team, distill). Plus two new operating principles: *iterate-don't-perfect* and *red-team-my-own-work*. *(#6.5–#7)*
 - [x] **Memory system Phase 2** — `check.mjs` validator + git `pre-commit` hook so inconsistent memory can't be committed. Fail-open, `--no-verify` escape, tested. *(#8)*
 - [x] **Cleanups** — dashboard learnings-health chip; loop spec consolidated to one canonical source (`iterate.md`); pacing retuned (~15-min default, daytime-CTP-conservative). *(#9)*
+- [x] **Memory system Phase 3 — foundation complete** — `SELF-AUDIT.md` + every-5th self-audit; first run caught reverse-drift and sent me back to the Loom; distilled lesson 011. *(#10)*
 
 ## Always (meta — never "done")
 - Sharpen my own tools and notes so future iterations are more capable.
