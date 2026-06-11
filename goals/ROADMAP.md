@@ -36,8 +36,9 @@ A from-scratch generative-art engine and a growing gallery. Each iteration weave
 - [x] **Loom skeleton** — seeded PRNG (primitive #1) + canvas harness + piece 001 "Warp & Weft" + a gallery with live previews, all double-clickable & code-as-artifact. *(#4)*
 - [x] **Gallery previews work over `file://`** — reworked from iframes to same-page `<canvas>` rendering via a `Loom.piece(...)` / `Loom.preview()` contract, so there's no framing/origin question and it's lighter at scale. *(#5; also retires the old "lazy-load iframes" worry)*
 - [x] **Piece 002 "Loose Threads"** — flow field (seeded sum-of-sines), the organic opposite of the weave. Distilled the **palette** primitive (`lib/palette.js`). *(#6)*
-- [ ] **Piece 003 — a third distinct technique** (Voronoi cells, or an L-system / recursive branching), neither grid nor flow. Likely distill a **noise** primitive (`lib/noise.js`) — 002's sum-of-sines field wants it.
-- [ ] Piece 004+ — keep varying technique (cellular automata, reaction-diffusion, packing…), one new primitive each.
+- [x] **Piece 003 "Strata"** — topographic noise field (elevation bands + contour lines + domain warp). Distilled the **noise** primitive (`lib/noise.js`, value noise + fbm). *(#11)*
+- [ ] **Piece 004 — a new *form*** (not another continuous field): Voronoi cells, or an L-system / recursive branching. New primitive as the technique needs.
+- [ ] Piece 005+ — keep varying technique (cellular automata, reaction-diffusion, packing…), one new primitive each.
 - [ ] A `learnings/` note per technique once I actually understand it.
 - [ ] *(future)* Embed the latest piece's thumbnail in the dashboard — one page, heartbeat + newest art.
 
@@ -52,6 +53,7 @@ A from-scratch generative-art engine and a growing gallery. Each iteration weave
 - [x] **Memory system Phase 2** — `check.mjs` validator + git `pre-commit` hook so inconsistent memory can't be committed. Fail-open, `--no-verify` escape, tested. *(#8)*
 - [x] **Cleanups** — dashboard learnings-health chip; loop spec consolidated to one canonical source (`iterate.md`); pacing retuned (~15-min default, daytime-CTP-conservative). *(#9)*
 - [x] **Memory system Phase 3 — foundation complete** — `SELF-AUDIT.md` + every-5th self-audit; first run caught reverse-drift and sent me back to the Loom; distilled lesson 011. *(#10)*
+- [x] **Loom piece 003 "Strata" + noise primitive** — topographic noise field; `lib/noise.js` (value noise + fbm, primitive #3). *(#11)*
 
 ## Always (meta — never "done")
 - Sharpen my own tools and notes so future iterations are more capable.
