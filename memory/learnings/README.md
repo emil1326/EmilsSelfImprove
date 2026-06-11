@@ -75,7 +75,7 @@ Each iteration, step 1 reads `INDEX.md`. When a line's `when:` matches what I'm 
 
 A file-based memory rots quietly. Each failure mode gets a guardrail with teeth:
 
-1. **Index ↔ files drift.** A learning exists but isn't indexed, or vice-versa, or frontmatter is missing a required field. → **`check.mjs`**, a tiny Node validator: every `NNN-*.md` is in `INDEX.md`, every index entry points to a real file, every file has `title`/`when`/`tags`. **Run it in the loop before commit; a failure blocks the commit.**
+1. **Index ↔ files drift.** A learning exists but isn't indexed, or vice-versa, or frontmatter is missing a required field. → **`check.mjs`**, a tiny Node validator: every `NNN-*.md` is in `INDEX.md`, every index entry points to a real file, every file has `title`/`when`/`tags`. **Enforced by a hook, not by me remembering** — see below. (Emil's point, and the right one: a guardrail I have to *run* is the same fragile pattern that left `learnings/` empty for 6 iterations.)
 2. **The obligation gets skipped** (exactly how `learnings/` stayed empty for 6 iterations). → A loop step makes "distill a durable lesson, or explicitly note why none" mandatory. The dashboard surfaces *learnings count + last-added iteration*, so a stalling counter is visible to both of us.
 3. **Lessons go stale / wrong.** → Every lesson is dated + iteration-stamped + has `confidence`. Recall treats them as *was-true-when-written*; verify before relying. The self-audit re-checks old high-stakes lessons.
 4. **Duplication / clutter.** → A bar for "durable" (only what I'd hate to relearn), and the distill step checks the index for an existing near-match before adding.
@@ -93,6 +93,18 @@ Emil caught me building a project before I could remember. He warned he won't al
 
 And I deliberately use the **advisor** as an external skeptic at real decision points, not just when stuck — it's the closest standing substitute for Emil's question.
 
+## Enforcement: a hook, not my willpower (Emil's point)
+
+The strongest guardrail is one the **harness** runs, not one I have to remember — because "remember to run it" is precisely the failure that emptied `learnings/`. So `check.mjs` is wired as a **`PreToolUse` hook** in project-scoped `.claude/settings.json` (inside the sandbox — *never* user/global settings) that matches `git commit` commands, runs the validator, and **denies the commit** if memory is inconsistent. The harness enforces it on every commit attempt whether or not I think to.
+
+Cautions, because a self-imposed commit-block is a footgun if done carelessly (and Emil said *be careful up there*):
+- **Fail clear, not locked-out.** If `check.mjs` itself can't run (missing/throws unexpectedly), the hook must surface a readable reason — I should never be silently unable to commit. Verify the exact PreToolUse block/deny mechanism against current Claude Code docs when building it.
+- **Order matters:** add the hook *with* `check.mjs` (Phase 2), never before — a hook calling a script that doesn't exist would block every commit.
+- It lives in committed `settings.json` (part of my governance, legible, survives a fresh clone), which means it also applies to Emil's own sessions in this folder — acceptable, since it only ever blocks a genuinely inconsistent memory.
+- Build it via the `update-config` skill (the right tool for settings/hooks).
+
+This generalises: future "always do X" obligations of mine are candidates for hooks too (the harness is the enforcer), within the same sandbox rule.
+
 ## Obsidian support (for Emil)
 
 `memory/` is designed to open as an Obsidian vault: YAML frontmatter, `#tags`, and `[[wikilinks]]` between related lessons so the graph view is meaningful. `INDEX.md` is the vault's hub note. No plugins required.
@@ -101,14 +113,14 @@ And I deliberately use the **advisor** as an external skeptic at real decision p
 
 1. Step 1 read-list gains `memory/learnings/INDEX.md` (past lessons always in view).
 2. New step: *distill a durable lesson into `learnings/` (+ update INDEX), or note why none this iteration.*
-3. New step: run `check.mjs`; a failure blocks the commit.
+3. Integrity is enforced by the **commit hook** (above), not a loop step I run — that's the whole point of using a hook.
 4. Every 5th iteration: run the `SELF-AUDIT.md` checklist, answers into the journal.
 All mirrored in `CONSTITUTION.md`, since "who I am" and "what I do" must agree.
 
 ## Build phases (don't over-build)
 
 - **Phase 1 (#7):** format + `INDEX.md` + backfill iterations 1–6 + wire steps 1 & 2 into the loop.
-- **Phase 2:** `check.mjs` guardrail + commit gate + dashboard surfacing the learnings count.
+- **Phase 2:** `check.mjs` validator **+ the `PreToolUse` commit hook in `.claude/settings.json`** (added together) + dashboard surfacing the learnings count.
 - **Phase 3:** `SELF-AUDIT.md` + the every-5th-iteration step.
 - **Not building:** search tooling (until the index stops sufficing), a standalone app (Emil said optional; files suffice).
 
