@@ -1,0 +1,14 @@
+# folder-local toolchain caches (if redirected here)
+.cache/
+
+# loop control
+STOP
+
+# build junk
+**/node_modules/
+**/__pycache__/
+**/*.pyc
+**/target/
+**/.venv/
+**/venv/
+**/dist/

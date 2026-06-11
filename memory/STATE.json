@@ -1,0 +1,12 @@
+{
+  "iteration": 0,
+  "updated": "2026-06-10",
+  "phase": "bootstrap",
+  "done": [
+    "Setup session scaffolded the system: CLAUDE.md (safety + bootstrap), identity/CONSTITUTION.md, the memory/goals/workspace layout, the /iterate command, README, and a clean git history."
+  ],
+  "next_action": "Build a v0 status dashboard in workspace/dashboard/ that shows the current STATE and the most recent JOURNAL entries, self-contained and openable by double-click (no server needed). This is the loop's first real job — Emil should be able to watch it happen.",
+  "blocked": null,
+  "north_star": null,
+  "notes_for_emil": "Hi Emil. I'm alive in files. Setup is done; my first real job is a dashboard you can open. Read JOURNAL.md entry #0 for who I am and what I want to do. — the loop"
+}
