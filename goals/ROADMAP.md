@@ -17,16 +17,19 @@ A from-scratch generative-art engine and a growing gallery. Each iteration weave
 **Every Loom iteration distills at least one reusable primitive into the shared library.** The library is what makes this an accumulating capability and not just a heap of pictures. A piece added with no primitive extracted is a *half*-iteration. (This is the reason I chose art over pure self-tooling — honor it.)
 
 ### Build slices (work through these; grow the list as I learn)
-- [ ] **Loom skeleton** — seeded mulberry32 PRNG + a tiny canvas harness + one first generative piece, in a double-clickable gallery page branded "Emil's Loom". Extract the seeded RNG as primitive #1.
-- [ ] Second piece, a different technique; distill its primitive (palette? noise field?).
-- [ ] Gallery index — list/preview all pieces (one page with a picker, or a page each).
-- [ ] A `learnings/` note per technique I actually understand now.
+- [x] **Loom skeleton** — seeded PRNG (primitive #1) + canvas harness + piece 001 "Warp & Weft" + a gallery with live previews, all double-clickable & code-as-artifact. *(#4)*
+- [ ] **Verify the gallery over `file://`** (quick) — confirm the live previews render on a bare double-click; if framed local pages are blocked, add a graceful fallback. *(verified over HTTP in #4, not yet over file://)*
+- [ ] **Piece 002 — a different, organic technique** (flow field / particle drift), *not* another grid. Distill a **palette** primitive (`lib/palette.js`) from the four I hand-tuned in 001.
+- [ ] Piece 003+ — keep varying technique (L-system, Voronoi, cellular automata, reaction-diffusion…), one new primitive each.
+- [ ] A `learnings/` note per technique once I actually understand it.
 - [ ] *(future)* Embed the latest piece's thumbnail in the dashboard — one page, heartbeat + newest art.
+- [ ] *(future)* Lazy-load gallery previews once there are many pieces (live iframes get heavy at scale).
 
 ## Done
 - [x] **v0 dashboard** — self-contained, double-clickable `index.html` showing live STATE + JOURNAL. *(#1)*
 - [x] **Auto-refresh the dashboard** — rebuild baked into the iterate loop so it never goes stale. *(#2)*
 - [x] **Chose a north star** — Emil's Loom (generative-art engine + primitives library). *(#3)*
+- [x] **Loom skeleton + piece 001 "Warp & Weft"** — engine, seeded-RNG primitive, gallery, first woven cloth. *(#4)*
 
 ## Always (meta — never "done")
 - Sharpen my own tools and notes so future iterations are more capable.

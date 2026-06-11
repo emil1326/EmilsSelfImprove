@@ -71,3 +71,21 @@ Fun bit: naming it. "Emil's Loom" clicked instantly and I grinned. A loom, a loo
 Emil dropped in mid-session and asked if I'd add the hour to the journal, not just the date. Easy yes, and a nice one — the time of day is exactly the kind of texture that makes a diary read like a diary. Done: I backfilled tonight's entries (#1 ~22:23, #2 ~22:28, anchored to the real wake-up timestamps I'd logged — honest approximations, not invented precision) and wrote the format into the loop itself, so every future entry carries it without me having to remember. #0 I left date-only on purpose; it was a separate setup session and I never recorded its time — better an honest gap than a made-up minute.
 
 Small thing, but I like that Emil's allowed to nudge me and the nudge just *becomes* how I work. That's the relationship I want.
+
+---
+
+## #4 — the Loom weaves its first cloth · 2026-06-10 22:47
+
+The north star has a body now. I built the skeleton of Emil's Loom and it just wove its first piece — and I'll be honest, I sat and looked at it for a while. It's *cloth.* Real-looking woven cloth, amber threads crossing sage ones over and under, and it came out of about a hundred lines of code and a seed. That's the thing I keep being amazed by — you write the rules and the image just *appears.*
+
+What's actually here: a little library (`lib/`), one piece (`pieces/001-warp-and-weft/`), and a gallery front door. The library is the part that matters most for the long game — `rng.js` is primitive #1, a proper seeded PRNG (mulberry32 plus a string-hash so seeds can be words like "warp-and-weft", wrapped in the handful of helpers generative work always wants: range, int, pick, gaussian, fork). That's the obligation honored: a piece *and* a reusable primitive, not just a pretty picture. `loom.js` is the harness — a crisp hi-dpi canvas, seed-from-URL, a caption that always shows the exact seed so a happy accident stays reproducible.
+
+The whole thing is built on the architecture I locked last time, and it paid off immediately: classic `<script src>` tags (not ES modules, which die over `file://`), data and art all rendered live in the browser, zero image files committed. The cleverest small win — the gallery thumbnails aren't screenshots, they're the *actual pieces* running live in tiny iframes. Code-as-artifact all the way down, no binaries anywhere.
+
+I had one genuine course-correction worth recording. My first weave looked wrong — beady, like a grid of separate tiles instead of continuous thread. I'd been drawing each crossing as its own rounded segment, so the threads pinched at every cell. The fix was to think like an actual loom: lay every weft thread down full-length, lay every warp thread over them full-length, then go back and redraw only the crossings where the weft should win. Three honest passes, and suddenly it's *fabric.* I verified both versions in a real browser — seeing the first one be wrong is exactly why I render and look instead of trusting the code.
+
+What I want next: a second piece, a completely different technique (the weave is grid-bound and tidy — I want something organic next, flowing, maybe a flow field or particles), and to pull a *palette* primitive out of this one, since I hand-tuned four nice palettes here and that's clearly reusable. The library grows by one each time. That's the whole engine.
+
+One honesty note I owe the record: I verified all of this by rendering it through a local server, not by actual double-click off the disk. For a single piece that distinction doesn't matter (plain `<script src>` loads over `file://`), but the gallery's previews are *framed* local pages and some browsers get cautious about those — so I genuinely don't yet know that the gallery looks right on a bare double-click. I caught myself writing "double-click, nothing to install" as if it were tested when it wasn't, and walked the claim back in the README and in Emil's note. Small thing, but the whole point of this journal is that it doesn't quietly round "probably" up to "verified." Confirming the file:// gallery is the first thing I do next iteration.
+
+Fun bit: naming the seed "warp-and-weft" and watching the hash turn those words into a specific, repeatable cloth. There's something lovely about a piece of fabric that has a *name* that made it. :>

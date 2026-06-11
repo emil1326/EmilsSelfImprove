@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Emil's Loom — gallery</title>
+<style>
+  :root {
+    --bg: #14110c; --bg-glow: #2a1f14; --card: #1f1a14; --border: #34291f;
+    --text: #ece3d6; --muted: #9c8d79; --accent: #e0a45c;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; color: var(--text);
+    background: radial-gradient(900px 420px at 50% -140px, var(--bg-glow), transparent 70%), var(--bg);
+    font: 16px/1.6 ui-sans-serif, system-ui, "Segoe UI", Roboto, sans-serif;
+  }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 52px 22px 80px; }
+  header { margin-bottom: 30px; }
+  h1 { margin: 0; font-size: 30px; letter-spacing: -0.5px; font-weight: 650; }
+  .accent { color: var(--accent); }
+  .tagline { color: var(--muted); margin: 10px 0 0; max-width: 56ch; }
+  .count { margin-top: 14px; font: 12.5px ui-monospace, monospace; color: var(--accent); }
+
+  .grid {
+    display: grid; gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  }
+  .card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 14px; overflow: hidden; text-decoration: none; color: inherit;
+    display: flex; flex-direction: column;
+    transition: transform .15s ease, border-color .15s ease;
+  }
+  .card:hover { transform: translateY(-3px); border-color: var(--accent); }
+  .preview {
+    position: relative; aspect-ratio: 1 / 1; background: #100e0a;
+    border-bottom: 1px solid var(--border); overflow: hidden;
+  }
+  /* The thumbnail is the real piece, rendered live in an iframe — no image files. */
+  .preview iframe {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    border: 0; pointer-events: none;
+  }
+  .card-body { padding: 14px 16px 16px; }
+  .card-title { font-size: 15.5px; font-weight: 600; }
+  .card-desc { color: var(--muted); font-size: 13.5px; margin-top: 5px; line-height: 1.5; }
+  .card-meta {
+    margin-top: 10px; font: 11.5px ui-monospace, monospace; color: #7e7468;
+    display: flex; justify-content: space-between;
+  }
+  footer { margin-top: 44px; color: var(--muted); font: 12.5px ui-monospace, monospace; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Emil's <span class="accent">Loom</span></h1>
+    <p class="tagline">A loom that weaves images in pure code. Each piece is its generator plus a seed — the browser does the weaving when you open it, so there's nothing to install and no image files to lug around. Double-click any piece.</p>
+    <div class="count" id="count"></div>
+  </header>
+
+  <main class="grid" id="grid"></main>
+
+  <footer>woven by the SelfImprove loop · code-as-artifact, seeded &amp; reproducible</footer>
+</div>
+
+<script>
+  // The catalogue. Add a row here each time a new piece is woven.
+  var PIECES = [
+    {
+      n: "001",
+      title: "Warp & Weft",
+      desc: "Vertical and horizontal threads crossing over and under, like cloth on a loom. The first thing the Loom wove.",
+      path: "pieces/001-warp-and-weft/index.html"
+    }
+  ];
+
+  var grid = document.getElementById("grid");
+  PIECES.forEach(function (p) {
+    var a = document.createElement("a");
+    a.className = "card";
+    a.href = p.path;
+    a.innerHTML =
+      '<div class="preview"><iframe loading="lazy" scrolling="no" src="' + p.path + '"></iframe></div>' +
+      '<div class="card-body">' +
+        '<div class="card-title">' + p.n + " — " + p.title + '</div>' +
+        '<div class="card-desc">' + p.desc + '</div>' +
+        '<div class="card-meta"><span>open →</span><span>#' + p.n + '</span></div>' +
+      '</div>';
+    grid.appendChild(a);
+  });
+  document.getElementById("count").textContent =
+    PIECES.length + (PIECES.length === 1 ? " piece woven" : " pieces woven");
+</script>
+</body>
+</html>
