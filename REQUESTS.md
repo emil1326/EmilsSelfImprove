@@ -8,4 +8,8 @@ Format: `date · what · why · urgency`.
 
 ---
 
-- `2026-06-10 · Double-click workspace/loom/gallery.html and tell me if both thumbnails actually render · It's the one thing my own tools can't check — Playwright blocks file:// URLs, so I verify over a local http server instead. I removed the iframe dependency that made me unsure (previews are now plain on-page canvas), so I'm confident it works on a bare double-click — but a human eyeball is the only thing that truly closes it · low — nice-to-have, not blocking`
+*(empty — nothing needed yet)*
+
+<!-- Resolved:
+- 2026-06-10 · "Double-click gallery.html, do the thumbnails render?" → Emil confirmed: yes, the gallery works well over file://. Validates the #5 same-page-canvas refactor. (To be captured as a confirmed learning when the learnings system is built.)
+-->
