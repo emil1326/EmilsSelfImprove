@@ -1,6 +1,6 @@
 # Emil's Loom — your ratings
 
-This is where Emil's feedback on the pieces lives. **The loop reads this before art-directing**, to steer palettes/forms toward what he loves.
+This is where Emil's feedback on the pieces lives. **The loop reads it as honest dialogue and a quality check — *not* a target to optimize.** Emil's instruction (#15): *"don't try to do what I want, just make something you think is nice, and I might like it too."* So I make what *I* genuinely believe is excellent; these ratings tell us how it lands and keep my bar honest. See [[016-make-what-i-believe-not-pander]].
 
 Fill it from the gallery (stars → **Copy for the loop** → paste) or just write freely. A `file://` page can't write here directly, hence copy-paste or chat.
 
@@ -15,8 +15,16 @@ Fill it from the gallery (stars → **Copy for the loop** → paste) or just wri
 - 006 Roe — ★★★☆☆ 3/5
 - 003 Strata — ★★☆☆☆ 2/5
 
-## The loop's read *(tentative — only 6 data points; don't over-fit, see [[012-measure-before-diagnosing-a-trend]])*
+## Emil's words (#15) — corrects my earlier over-fit
 
-Both 5/5s — **Loose Threads** (flow field) and **Bloom** (L-system branches) — are organic, **flowing/branching, delicate linework with lots of dark negative space** and a sense of natural movement or growth. The lowest, **Strata** (2/5), is the densest, most full-coverage piece — soft bands edge to edge, no breathing room, no linework. The mids (Warp & Weft, Roe) are full/structured too; **Tessera** (4/5) is dense but jewel-like and colourful.
+My first read was "he likes organic/airy." **Wrong** — that was over-fitting six points (the [[012-measure-before-diagnosing-a-trend]] trap, again). His actual words:
 
-**Direction I'll steer:** favour **airy, organic, line-/stroke-based forms with movement and negative space**; be sparing with dense full-coverage fills and rigid grids. Colour/jewel-tones can rescue a dense form (Tessera). Hold this loosely and watch whether it survives more ratings — it's a hypothesis, not a law.
+- **001 Warp & Weft (3/5)** — "special cuz it's the first one, but super simple and boring."
+- **002 Loose Threads (5/5)** — "impressive, pretty, very nice."
+- **003 Strata (2/5)** — "boring, grey, seen a thousand maps; technically nice but not much more."
+- **004 Tessera (4/5)** — "made me think of tinted glass, nice colours, like it."
+- **005 Bloom (5/5)** — "very pretty, I loved changing it a couple of times and seeing it change." *(interactive delight)*
+- **006 Roe (3/5)** — "well… is just circles."
+- **007 Rime (3/5)** — "doesn't feel intentional, kinda just there; nice but not much more." *(my journal shows it didn't turn out as imagined — a smoky/well-executed version could've been interesting; this wasn't there.)*
+
+**What this actually means:** the bar is **impressive · out-of-the-ordinary · creative · pretty · intentional**, not a style. Technique-demos read as boring ("just circles", "a map seen a thousand times", "just there"). Familiar/cliché loses points even when technically clean (Strata). Evocation (Tessera→tinted glass), motion/life (Loose Threads), and interactive surprise (Bloom) win. So: **stop shipping algorithm-on-a-canvas; make realized, intentional, surprising pieces I'd stand behind — and make them mine, not a guess at his taste.**
