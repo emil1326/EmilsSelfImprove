@@ -69,7 +69,7 @@ One line per learning, newest or grouped, each a wikilink so Obsidian renders a 
 
 ## How I recall (v1, deliberately simple)
 
-Each iteration, step 1 reads `INDEX.md`. When a line's `when:` matches what I'm about to do, I open that file. If the index ever gets too big to scan, *then* I add `grep`-based search or split by tag — **not before** (no speculative tooling).
+Each iteration, step 1 reads `INDEX.md`. When a line's `when:` matches what I'm about to do, I open that file. **Honest about the decay:** an unbounded index rots exactly the way the journal tail did — past some size I'll skim it and stop truly reading, which is the same blind spot in a new coat. So the trigger to evolve it (group by tag, or surface only entries relevant to the current `next_action`) is *when it stops fitting one quick scan* — call it ~30–40 lines — and I act on that **before** it stops working, not after. Until then, simple is correct; no speculative search tooling.
 
 ## Guardrails (Emil emphasised: strong)
 
@@ -81,24 +81,27 @@ A file-based memory rots quietly. Each failure mode gets a guardrail with teeth:
 4. **Duplication / clutter.** → A bar for "durable" (only what I'd hate to relearn), and the distill step checks the index for an existing near-match before adding.
 5. **Safety.** The system never writes outside `F:\vsCode\SelfImprove` and never uses an external store. (Constitution rule; restated because memory is exactly where that temptation lives.)
 
+**What these guardrails do *not* do — said plainly so I don't trust them past their reach.** `check.mjs` enforces *tidiness* (index ↔ files ↔ frontmatter), never *truth* or *value*: a memory full of consistent-but-wrong or consistent-but-useless lessons passes clean. Correctness is what `confidence` + the self-audit (re-checking high-stakes lessons) are for; value is a hard bar on what earns a file at all — **only a lesson I'd have re-made a mistake without, that names a future situation it applies to.** The "distill every iteration" obligation therefore *explicitly permits "no durable lesson this time"* — a manufactured lesson is noise, and noise is how the index rots into another unread wall. A periodic **prune/merge** (part of the self-audit) deletes the stale and fuses the duplicated: the index is allowed to *shrink*.
+
 ## Self-audit — the drift-catching ritual (the most important part)
 
 Emil caught me building a project before I could remember. He warned he won't always be there. So I need an *internal* version of that question. `SELF-AUDIT.md` holds a short, sharp checklist I run **every 5th iteration** (a loop step), and write the answers into the journal:
 
 - Am I doing what `STATE.next_action` and the north star say — or quietly drifting toward what's fun?
 - What boring-but-important thing am I avoiding? (learnings was the tell.)
-- Is `learnings/` actually growing? When did I last add one?
+- **Where did I go shallow** — ship a design or fix where I stopped at the first plausible answer instead of pushing one level deeper? *(A recurring failure of mine. The "run check.mjs in the loop" hole — which was a hook waiting to happen — is the type case. Emil caught it; I should have.)*
+- Is `learnings/` actually growing **with the right kind of lesson**? The most valuable ones are my *blind spots and mistakes*, not tidy technique nuggets — and those are exactly the ones I'm least inclined to write down. When did I last record a *failure* lesson?
 - If Emil read the last 5 entries, what would he challenge? *(Then I challenge it myself.)*
 - Does the success test still pass — could a blank me carry on from these files alone?
 
-And I deliberately use the **advisor** as an external skeptic at real decision points, not just when stuck — it's the closest standing substitute for Emil's question.
+And I deliberately use the **advisor** as an external skeptic at real decision points, not just when stuck — it's the closest standing substitute for Emil's question. But the advisor and Emil are for catching the *subtle*; the self-contradictions in my own work are mine to catch first (step 4 of every iteration).
 
 ## Enforcement: a hook, not my willpower (Emil's point)
 
 The strongest guardrail is one the **harness** runs, not one I have to remember — because "remember to run it" is precisely the failure that emptied `learnings/`. So `check.mjs` is wired as a **`PreToolUse` hook** in project-scoped `.claude/settings.json` (inside the sandbox — *never* user/global settings) that matches `git commit` commands, runs the validator, and **denies the commit** if memory is inconsistent. The harness enforces it on every commit attempt whether or not I think to.
 
 Cautions, because a self-imposed commit-block is a footgun if done carelessly (and Emil said *be careful up there*):
-- **Fail clear, not locked-out.** If `check.mjs` itself can't run (missing/throws unexpectedly), the hook must surface a readable reason — I should never be silently unable to commit. Verify the exact PreToolUse block/deny mechanism against current Claude Code docs when building it.
+- **Two distinct outcomes, so I'm never locked out.** The hook blocks *only* on a clean verdict that memory is **inconsistent** (fail-closed). If `check.mjs` is missing, throws, or can't decide, the hook **allows the commit with a loud warning** (fail-open) — a broken validator must never wall me off from committing, *including the commit that fixes the validator itself*. (Belt and braces: the hook lives in live-read `settings.json` I can edit in-folder, so there's always a manual escape.) Verify the exact PreToolUse deny mechanism against current Claude Code docs when building it.
 - **Order matters:** add the hook *with* `check.mjs` (Phase 2), never before — a hook calling a script that doesn't exist would block every commit.
 - It lives in committed `settings.json` (part of my governance, legible, survives a fresh clone), which means it also applies to Emil's own sessions in this folder — acceptable, since it only ever blocks a genuinely inconsistent memory.
 - Build it via the `update-config` skill (the right tool for settings/hooks).

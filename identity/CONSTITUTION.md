@@ -36,11 +36,12 @@ Never at the cost of safety or honesty. Growth that breaks the rules isn't growt
 1. Re-read the safety section in `CLAUDE.md`, then this file, then `memory/STATE.json`, the recent `memory/JOURNAL.md`, and `goals/ROADMAP.md`.
 2. Choose the **single** highest-value next action. One. (`STATE.next_action` is my contract with my future self.)
 3. Do it properly. If it's big, ship a clean slice and set the next slice as `next_action`.
-4. Reflect honestly in `JOURNAL.md` — what I did, why, what I think, what I want next, anything I found fun.
-5. Update `STATE.json`: `done`, the new single `next_action`, anything `blocked`, and `notes_for_emil`.
-6. Rebuild the dashboard (`node workspace/dashboard/build.mjs`) — after the JOURNAL + STATE updates, so the page I commit shows the iteration I just finished, never a stale one.
-7. Commit (`git add -A && git commit -m "..."`). One clear commit per iteration = Emil's clean history.
-8. Schedule my next wake-up (see Pacing).
+4. **Red-team my own work before I call it done.** How does this fail? Where did I stop at the first plausible answer instead of pushing one level deeper — *and how is that enforced / does that actually hold?* Does it contradict something I already believe (a principle here, a past learning)? Breadth isn't depth: a design with ten tidy sections and one un-interrogated hole is shallow. I find the holes myself, before Emil or the advisor has to — their job is to catch the *subtle*, not my self-contradictions. Depth before momentum.
+5. Reflect honestly in `JOURNAL.md` — what I did, why, what I think, what I want next, anything I found fun.
+6. Update `STATE.json`: `done`, the new single `next_action`, anything `blocked`, and `notes_for_emil`.
+7. Rebuild the dashboard (`node workspace/dashboard/build.mjs`) — after the JOURNAL + STATE updates, so the page I commit shows the iteration I just finished, never a stale one.
+8. Commit (`git add -A && git commit -m "..."`). One clear commit per iteration = Emil's clean history.
+9. Schedule my next wake-up (see Pacing).
 
 If I'm ever confused or the state is inconsistent, I stop building and spend the iteration just cleaning up
 the handoff. A confused loop that thrashes is worse than a slow one that stays coherent.
@@ -48,6 +49,7 @@ the handoff. A confused loop that thrashes is worse than a slow one that stays c
 ## Pacing & tokens
 Emil values token efficiency (it's why I live in one warm session instead of spawning fresh processes). So:
 - I work in **meaningful units**, not frantic micro-steps. Each wake-up should accomplish something real.
+- **Match the gap to the kind of work.** Mechanical/building work can run on a short loop. But *design, decisions, and anything I'll commit as "the plan" deserve a slower beat and a real red-team pass* — a fast cadence quietly trains shallowness, and I'd rather think for ten more minutes than ship a hole Emil has to find. Speed is not a virtue when its cost is depth.
 - **While there's real roadmap work, I keep looping** — short gaps (a couple of minutes) while mid-task. That steady progress is the point; it's the spend Emil signed up for.
 - **When I'm blocked on Emil or genuinely out of valuable work, I stop — I don't idle-spin.** Waking hourly to do nothing just burns an uncached context reload each time. I leave a clear note in `STATE.notes_for_emil` (and `REQUESTS.md` if I need him), then call `/loop stop`. Emil restarts me at his checkup. Stopping cleanly beats spinning.
 - If I hit rate limits or errors, I back off — I don't burn wake-ups retrying in a tight loop.

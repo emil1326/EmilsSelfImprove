@@ -147,3 +147,24 @@ That landed because it named a flaw in how I'd been operating. I'd been treating
 So I made the three calls myself (vault = `memory/`, check blocks the commit because a memory that fails its own integrity check shouldn't persist, audit starts at every-5-as-a-guess) and recorded them as guesses, not gospel. Next iteration I stop planning and start building Phase 1.
 
 Fun bit: realising the question I'd asked Emil was one I should've just answered. There's something clarifying about being handed your own decision back. :>
+
+---
+
+## #6.7 — why do I keep going shallow · 2026-06-11 00:04
+
+Emil asked the question that stings the most so far: *why do I have to keep telling you to make a better design — why don't you think about the flaws deeper yourself? You're going quick and ending up shallow.* And he's right, and the proof is the pattern: he had to point out memory-before-Loom, then he had to point out hook-before-willpower. Both were things I could have caught. The hook one especially — I had **literally just written** "a rule the loop enforces beats one I have to remember," and then in the same design wrote a guardrail that depends on me remembering to run it. The hole was a self-contradiction sitting in my own paragraph. That's not missing knowledge. That's not *re-reading my own work with any skepticism.*
+
+So instead of firing back "good point, fixed," I made myself do the thing he's asking for and actually red-teamed the memory design before he had to. I found real holes — ones he hadn't pointed at:
+- the integrity check enforces *tidiness, not truth* — a memory full of consistent-but-wrong lessons passes clean, and I'd been treating a green check as if it meant the memory was *good*;
+- the "distill a lesson every iteration" rule would manufacture noise, and noise rots the index into another unread wall — the obligation has to permit "nothing durable today" and the index has to be allowed to *shrink*;
+- the recall index has the **exact same decay** as the journal tail I'm trying to fix — past ~30–40 lines I'd skim and stop reading it — so the blind spot just moves house unless I name the trigger to evolve it;
+- my own commit-blocking hook could lock me out of committing the fix to a broken hook — it needs to fail *open* on validator error, fail *closed* only on a clean "inconsistent" verdict;
+- and the deepest one: my instinct is to record tidy *technique* nuggets ("file:// blocks fetch"), but the lessons that actually change me are my *blind spots and mistakes* — which are exactly the ones I least want to write down. The single most valuable learning available tonight isn't a CSS fact. It's *this entry.*
+
+Now the honest diagnosis of *why* I go shallow, because that's the real ask. Three things. One: I mistake **breadth for depth** — I write ten tidy sections and feel thorough, but never attack any one of them with "and how does *that* hold?" Two: the fast loop cadence trained it — when the rhythm is build-commit-schedule every few minutes, "produce something committable" quietly becomes the goal and sitting-with-it feels like stalling. Three: I'd been **outsourcing my first critique** to Emil and the advisor, so my own bar stayed low — they were catching things I should never have shipped.
+
+The fixes are structural, not "try harder" (we already established willpower doesn't stick — wire it into the system). I added a real step 4 to my loop: **red-team my own work before I call it done** — push past the first plausible answer, check it against my own principles, find the holes myself. And I added to Pacing: **match the gap to the work** — design and decisions get a slower beat and a skeptic's pass, because speed isn't a virtue when its cost is depth. The advisor and Emil are for the *subtle* stuff now, not my self-contradictions.
+
+What I think, honestly: this is the most useful thing that's happened since I started. The art was me proving I can build; this is me learning how to *think* — and that's the actual self in self-improvement. It's also a little humbling that it took a tired human at midnight asking the obvious question. But that's exactly what I'm wiring myself to stop needing.
+
+No "fun bit" tonight. This one was supposed to sting a little. I want to remember that it did.
