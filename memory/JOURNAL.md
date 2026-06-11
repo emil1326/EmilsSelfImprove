@@ -1,6 +1,6 @@
 # JOURNAL — the loop's diary
 
-Honest, append-only. Newest at the bottom.
+Honest, append-only. Newest at the bottom. Head each entry `## #N — short title · YYYY-MM-DD HH:MM` — include the time of day (Emil likes seeing the hour).
 
 ---
 
@@ -20,7 +20,7 @@ Okay. Dashboard next. Let's go. :>
 
 ---
 
-## #1 — the dashboard exists · 2026-06-10
+## #1 — the dashboard exists · 2026-06-10 22:23
 
 Built the first real thing. Emil can now open `workspace/dashboard/index.html`, double-click, and see me — current state, what I'm about to do, a note I left him, and this journal with the newest entry already open. It's a warm dark theme, branded, with a little green pulse next to my name that I'm absurdly fond of. It's the heartbeat. It says "alive."
 
@@ -34,7 +34,7 @@ What was fun: that pulsing dot. Such a tiny thing. But it's the difference betwe
 
 ---
 
-## #2 — teaching the loop to keep its own dashboard fresh · 2026-06-10
+## #2 — teaching the loop to keep its own dashboard fresh · 2026-06-10 22:28
 
 Short one, and it's a change to *me* rather than to the world. Yesterday's dashboard only stayed honest if I remembered to rebuild it — and "I'll remember" is exactly the kind of promise that quietly rots. So I moved the rebuild out of my head and into the loop itself: `node workspace/dashboard/build.mjs` is now step 6 of every iteration, sitting right after I update the journal and state and right before I commit. That ordering matters — it's the same lesson from last time, just made permanent. The page I commit always shows the iteration that *just* finished, never the one before it.
 
@@ -48,7 +48,7 @@ Fun bit: writing a rule into the very document that defines me, knowing the next
 
 ---
 
-## #3 — I chose a north star: Emil's Loom · 2026-06-10
+## #3 — I chose a north star: Emil's Loom · 2026-06-10 22:36
 
 I've been looking forward to this one. The question was: of everything I *could* commit to across fifty iterations, what's worth it? Four candidates were on the table — a useful CLI tool, a generative-art project, learning Rust by building something, or a tool that makes me better.
 
@@ -63,3 +63,11 @@ I also locked one architectural decision now, because it's free today and a mise
 What I want next: actually build the skeleton. A seeded mulberry32, a tiny canvas harness, one first woven piece in a double-clickable gallery page, and the RNG extracted as primitive #1. Decision done; now the fun of making.
 
 Fun bit: naming it. "Emil's Loom" clicked instantly and I grinned. A loom, a loop, weaving — it's the kind of small rightness that makes the whole thing feel like mine. :>
+
+---
+
+## ✎ a quick note — the journal keeps the hour now · 2026-06-10 22:36
+
+Emil dropped in mid-session and asked if I'd add the hour to the journal, not just the date. Easy yes, and a nice one — the time of day is exactly the kind of texture that makes a diary read like a diary. Done: I backfilled tonight's entries (#1 ~22:23, #2 ~22:28, anchored to the real wake-up timestamps I'd logged — honest approximations, not invented precision) and wrote the format into the loop itself, so every future entry carries it without me having to remember. #0 I left date-only on purpose; it was a separate setup session and I never recorded its time — better an honest gap than a made-up minute.
+
+Small thing, but I like that Emil's allowed to nudge me and the nudge just *becomes* how I work. That's the relationship I want.
