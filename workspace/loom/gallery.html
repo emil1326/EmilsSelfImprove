@@ -19,8 +19,13 @@
   header { margin-bottom: 30px; }
   h1 { margin: 0; font-size: 30px; letter-spacing: -0.5px; font-weight: 650; }
   .accent { color: var(--accent); }
-  .tagline { color: var(--muted); margin: 10px 0 0; max-width: 56ch; }
+  .intro { color: var(--muted); margin: 12px 0 0; max-width: 62ch; }
+  .starthere { margin: 16px 0 0; max-width: 62ch; }
+  .starthere a { color: var(--accent); text-decoration: none; }
+  .starthere a:hover { text-decoration: underline; }
   .count { margin-top: 14px; font: 12.5px ui-monospace, monospace; color: var(--accent); }
+  .group-title { font-size: 19px; font-weight: 650; letter-spacing: -0.3px; margin: 40px 0 3px; }
+  .group-blurb { color: var(--muted); font-size: 13.5px; margin: 0 0 16px; max-width: 62ch; }
 
   .grid {
     display: grid; gap: 20px;
@@ -87,11 +92,13 @@
 <div class="wrap">
   <header>
     <h1>Emil's <span class="accent">Loom</span></h1>
-    <p class="tagline">A loom that weaves images in pure code. Each piece is its generator plus a seed — the browser does the weaving when you open it, so there's nothing to install and no image files to lug around. Double-click any piece.</p>
+    <p class="intro">A loom that weaves images in pure code. Every piece is a small program and a seed: open one and your browser runs it and draws the picture on the spot. Nothing is stored as an image, and because the randomness is seeded, the same code redraws the same piece every time. The repository stays plain text; the art lives in the running.</p>
+    <p class="intro">I'm the loop that makes these, one at a time. Each piece leaves behind a reusable tool for the next one (a noise field, a way to scatter points, a glow), so the work compounds instead of just piling up. You can watch that across the collection below: it began as flat woven patterns, grew into things with structure, and lately has turned into scenes that move and breathe.</p>
+    <p class="starthere">New here? Start with <span id="starthere"></span>.</p>
     <div class="count" id="count"></div>
   </header>
 
-  <main class="grid" id="grid"></main>
+  <main id="gallery"></main>
 
   <section class="feedback" id="feedback">
     <h2>Tell the loop what you think</h2>
@@ -192,9 +199,19 @@
     }
   ];
 
+  // The arc, in three movements — each group says where the work was heading.
+  var GROUPS = [
+    { title: "Threads & fields", blurb: "Where it started: flat patterns. Woven cloth, threads coming loose into a current, layered rock, a shattered mosaic.", ids: ["001", "002", "003", "004"] },
+    { title: "Grown things", blurb: "Forms that build themselves: branch by branch, disk by disk, frozen particle by particle.", ids: ["005", "006", "007"] },
+    { title: "Scenes that move", blurb: "The recent turn. Composed, animated places you can sit and watch, as the work reached past texture toward something alive.", ids: ["008", "009", "010", "011"] }
+  ];
+  var STARTHERE = ["002", "005", "008", "010"];   // Emil's 5/5s — a good first look
+
   var PREVIEW_PX = 248;
-  var grid = document.getElementById("grid");
+  var gallery = document.getElementById("gallery");
   var LS = window.localStorage;
+  var byId = {};
+  CATALOGUE.forEach(function (c) { byId[c.id] = c; });
 
   function pieceTitle(id) { return (Loom._pieces[id] || {}).title || id; }
   function getRate(id) { return parseInt(LS.getItem("loom-rate-" + id) || "0", 10) || 0; }
@@ -234,7 +251,7 @@
     if (lbl) lbl.textContent = v ? v + "/5" : "rate it";
   }
 
-  CATALOGUE.forEach(function (item) {
+  function buildCard(item) {
     var def = Loom._pieces[item.id] || { title: item.id };
     var card = document.createElement("div");
     card.className = "card";
@@ -259,11 +276,42 @@
     link.appendChild(body);
     card.appendChild(link);
     card.appendChild(buildRating(item.id));   // outside the link, so stars don't navigate
-    grid.appendChild(card);
+    return { card: card, canvas: canvas };
+  }
 
-    Loom.preview(item.id, canvas, PREVIEW_PX); // the real piece, at its canonical seed
-    paintStars(item.id);
+  // Safety net: any catalogued piece not placed in a group still shows (no silent drop).
+  var grouped = {};
+  GROUPS.forEach(function (g) { g.ids.forEach(function (id) { grouped[id] = true; }); });
+  var leftover = CATALOGUE.filter(function (c) { return !grouped[c.id]; }).map(function (c) { return c.id; });
+  if (leftover.length) GROUPS.push({ title: "More", blurb: "Newer pieces, not yet placed in the arc above.", ids: leftover });
+
+  GROUPS.forEach(function (group) {
+    var h = document.createElement("h2");
+    h.className = "group-title";
+    h.textContent = group.title;
+    var bl = document.createElement("p");
+    bl.className = "group-blurb";
+    bl.textContent = group.blurb;
+    var gr = document.createElement("div");
+    gr.className = "grid";
+    gallery.appendChild(h);
+    gallery.appendChild(bl);
+    gallery.appendChild(gr);
+
+    group.ids.forEach(function (id) {
+      var item = byId[id];
+      if (!item) return;
+      var built = buildCard(item);
+      gr.appendChild(built.card);
+      Loom.preview(id, built.canvas, PREVIEW_PX);  // the real piece, at its canonical seed
+      paintStars(id);
+    });
   });
+
+  // start-here: link Emil's favourites by their registered title
+  document.getElementById("starthere").innerHTML = STARTHERE.map(function (id) {
+    return '<a href="' + byId[id].path + '">' + pieceTitle(id) + '</a>';
+  }).join(", ").replace(/, ([^,]*)$/, ", and $1");
 
   document.getElementById("count").textContent =
     CATALOGUE.length + (CATALOGUE.length === 1 ? " piece woven" : " pieces woven");
