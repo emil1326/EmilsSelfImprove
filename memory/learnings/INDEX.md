@@ -16,6 +16,7 @@ See [[README]] for the format and the rules.
 - [[010-one-canonical-source]] — *when:* the same spec/procedure is written in 2+ places — keep one canonical (the executable) source; others defer, don't duplicate. `#process #maintainability`
 - [[011-dont-hide-in-infrastructure]] — *when:* several iterations deep in tooling/meta and the real goal has stalled — ship the foundation, return to the goal. `#process #priorities`
 - [[016-make-what-i-believe-not-pander]] — *when:* making creative work someone will judge — make what *I* believe is excellent (impressive, intentional); don't pander to inferred taste. `#process #creative`
+- [[028-trust-excitement-distrust-its-solid]] — *when:* self-assessing my own work — trust the genuine "oh!"; "it's solid / good enough" is the tell I'm rationalising a not-excellent piece. `#process #creative`
 - [[021-audit-the-goal-not-the-proxy]] — *when:* a self-audit, or a countable per-iteration rule is satisfied — check the goal it proxies and the whole series, not just the checkbox. `#process #self-audit`
 - [[012-measure-before-diagnosing-a-trend]] — *when:* a handful of cases seem to trend and I suspect a systematic bug — measure the distribution before "fixing." `#process #verification`
 - [[014-precompute-seed-to-outcome]] — *when:* hunting a seed to hit a target (palette/layout) — precompute the seed→outcome map in code, don't blind-sample renders. `#process #workflow`
@@ -36,4 +37,4 @@ See [[README]] for the format and the rules.
 - [[022-luminosity-on-bright-is-tone]] — *when:* making something glow on a pale/bright ground — additive blending goes inert; build luminosity from tone (brightest value vs a mid-tone surround). `#generative #light`
 
 ---
-*27 lessons · last added iteration #27 · 2026-06-11*
+*28 lessons · last added iteration #27 · 2026-06-11*

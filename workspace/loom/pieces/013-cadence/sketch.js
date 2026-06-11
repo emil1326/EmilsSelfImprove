@@ -49,12 +49,12 @@ Loom.piece({
       A3: rng.range(0.40, 0.54), A4: rng.range(0.12, 0.28),
       p1: rng.range(0, TAU), p2: rng.range(0, TAU),
       p3: rng.range(0, TAU), p4: rng.range(0, TAU),
-      // a slow, mostly-coherent precession of the phases → the plate breathes & turns,
-      // gently enough that each figure settles before it shifts (not a restless writhe)
-      w1: rng.range(0.004, 0.010) * (rng.bool() ? 1 : -1),
-      w2: rng.range(0.004, 0.010) * (rng.bool() ? 1 : -1),
-      w3: rng.range(0.004, 0.010) * (rng.bool() ? 1 : -1),
-      w4: rng.range(0.004, 0.010) * (rng.bool() ? 1 : -1)
+      // a precession of the phases → the plate visibly turns and re-weaves as it draws.
+      // (Sped up after #27 — Emil found my over-slowed version "boring"; lesson 025.)
+      w1: rng.range(0.016, 0.034) * (rng.bool() ? 1 : -1),
+      w2: rng.range(0.016, 0.034) * (rng.bool() ? 1 : -1),
+      w3: rng.range(0.016, 0.034) * (rng.bool() ? 1 : -1),
+      w4: rng.range(0.016, 0.034) * (rng.bool() ? 1 : -1)
     };
     var Smax = rng.range(155, 230);                 // how long the pendulums swing (→ loop density)
     var damp = rng.range(2.4, 3.4) / Smax;          // decay so e^(-damp*Smax) ≈ 0.03–0.09

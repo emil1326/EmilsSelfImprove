@@ -6,21 +6,34 @@ Fill it from the gallery (stars → **Copy for the loop** → paste) or just wri
 
 ---
 
-## Ratings — 2026-06-11 (all 11 pieces)
+## Ratings — 2026-06-11 (all 16 pieces)
 
-- **010 Medusa — ★★★★★ 5/5** — *the bioluminescent jellyfish. Aimed high (a living, moving subject) and it landed — second 5/5 of the post-recalibration run.*
-- **008 Aurora — ★★★★★ 5/5** — *the first piece made under "make what I believe is excellent" (animated, composed scene). It landed — the new bar is the right bar.*
 - 002 Loose Threads — ★★★★★ 5/5
 - 005 Bloom — ★★★★★ 5/5
-- **011 Meadow — ★★★★☆ 4/5** — *the #20 audit's deliberate rut-breaker (bright, no central subject, built by composing the library). A solid 4 — a real win for a piece whose job was variety + compounding, not maximal wow.*
-- **009 Glint — ★★★★☆ 4/5** — *golden-hour sea + glitter path. Strong, not transcendent — and the second sunset/sea, so a touch less out-of-the-ordinary than the others.*
+- 008 Aurora — ★★★★★ 5/5
+- 010 Medusa — ★★★★★ 5/5
+- **012 Clock — ★★★★★ 5/5** — *the dandelion. Delicate, macro, off-centre — the most delicate thing I'd made, and I was genuinely thrilled by it. It landed.*
+- **014 Current — ★★★★★ 5/5** — *the deep flow-field (the #25 depth move). I was excited about this one and it shows — the depth bet paid off big.*
 - 004 Tessera — ★★★★☆ 4/5
+- 009 Glint — ★★★★☆ 4/5
+- 011 Meadow — ★★★★☆ 4/5
+- **016 Turing — ★★★★☆ 4/5** — *reaction-diffusion. "Interesting, but laggy." → render it ASYNC (see note below). Solid, not a stunner.*
 - 001 Warp & Weft — ★★★☆☆ 3/5
 - 006 Roe — ★★★☆☆ 3/5
 - 007 Rime — ★★★☆☆ 3/5
 - 003 Strata — ★★☆☆☆ 2/5
+- **013 Cadence — ★★☆☆☆ 2/5** — *the harmonograph. "Seems nice, but super slow moving, kinda boring." I slowed the precession to avoid a 'restless writhe' and over-corrected into dull — a motion-quality misjudgement ([[025-verify-motion-quality-not-just-presence]]). Fixing the speed.*
+- **015 Outcrop — ★☆☆☆☆ 1/5** — *the Strata "redemption". My lowest score ever — and LOWER than the 003 (2/5) it was meant to redeem. I called it a "solid redemption"; it wasn't. It still read as stripes/textile to Emil. I misjudged it.*
 
-*What I read (held loosely — [[012-measure-before-diagnosing-a-trend]], and ratings are dialogue not a target): the two recent 5/5s (Aurora, Medusa) are both **alive** — a real subject or motion with intention. The 4/5s (Glint, Meadow, Tessera) are genuinely pretty but a notch less novel/"wow". The lesson is **not** "bright scored a 4 so go back to the dark" — that's the pander reflex [[016-make-what-i-believe-not-pander]] warns against; Meadow's job (break the convergence, compose the library) was right regardless of score. The durable read stays the same: aim high, make it realized/intentional/alive, make it mine.*
+**The real pattern (this is the important one).** Look at which pieces I was *genuinely excited* about vs. which I *talked myself into*:
+- *Thrilled* → Loose Threads, Bloom, Aurora, Medusa, Clock, Current → **all 5/5.**
+- *"It's solid / a fair fix / it breathes / good enough"* → Strata, Roe, Rime, Cadence, **Outcrop (1/5)** → **all 1–3/5.**
+
+My own honest excitement is a *better* predictor of quality than my reasoning about it. When I catch myself writing "it's a solid X" or "that's what it needed to be" in the journal, that's the tell that it's **not** excellent and I'm rationalising. Trust the genuine "oh!" ([[028-trust-excitement-distrust-its-solid]]). Ratings are dialogue not a target ([[016-make-what-i-believe-not-pander]]) — but this isn't taste-chasing, it's calibrating my *self-assessment*, which was off on Outcrop and Cadence.
+
+**Two actionable notes from Emil:**
+- *Cadence is too slow / boring* → speed the precession back up (I over-slowed it). **Fixing now.**
+- *Turing (and any laggy piece) should render ASYNC* — "every time I open the window it takes multiple seconds." → the heavy sim must not freeze the page. Best fix: **animate the growth** (develop over frames, so the window opens instantly and the pattern grows in) — solves the lag *and* is more alive. **Next iteration.**
 
 ## Emil's words (#15) — corrects my earlier over-fit
 
