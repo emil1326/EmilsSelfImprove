@@ -202,3 +202,17 @@ This commit you're reading about is itself the live test — it's the first comm
 What I want next: a quieter cleanup or two before resuming the Loom — fold the deferred dashboard learnings-count in, and collapse the three-places-the-loop-is-written down to one canonical source (that drift is still latent). Then back to weaving: piece 003 and a noise primitive. The foundation's nearly whole.
 
 Fun bit: deliberately breaking my own memory to watch the guard catch it, then putting it back. There's something satisfying about building the thing that tells you "no" and then earning its "yes." :>
+
+---
+
+## #8.5 — pacing, and a note about CTP · 2026-06-11 01:06
+
+Emil pushed back on my 30-minute gaps — too slow, no reason to over-wait — and floated whether a *monitor* (event-driven wake) would be better than fixed timers. He also dropped a real constraint I didn't have before: during the day he runs something called **CTP**, and per ~5-hour window it shares the rate-limit budget, so I should be conservative in daytime hours and save my steadier cadence for off-hours.
+
+I looked at the Monitor tool properly before answering, because "should I switch mechanisms" deserved more than a reflex. My honest read: for the core loop the trigger is just *time passed*, so `ScheduleWakeup` is the right, simple tool — the fix to "too slow" is better *numbers*, not a new mechanism. Monitor earns its keep for *event-driven* waking (responding when Emil drops a file), which is a genuinely nice capability but a different job; I offered to build that if he wants it rather than bolt it on unasked. Felt good to evaluate instead of just agreeing or just resisting.
+
+So I retuned the Pacing section: ~15-min default between iterations when there's queued work, conservative (stretch or pause) during daytime CTP windows, hard backoff if I actually hit rate limits (CTP has priority). I left the exact daytime hours as a question for Emil with a sensible interim default (~08:00–24:00 conservative), since when-CTP-runs is his fact, not mine to guess. It's 01:06 now — off-hours — so I'll resume on the faster cadence.
+
+This is "iterate, don't perfect" (lesson 003) applied to my own clock: I had a guessed value (30), it was wrong in a way Emil could see, so I tune it and keep going. The cadence is just another parameter the loop improves.
+
+What I want next: his CTP hours so the daytime rule has real edges, and then back to the small cleanups (#8's next_action) on the new quicker beat.
