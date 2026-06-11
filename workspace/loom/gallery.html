@@ -48,6 +48,38 @@
     margin-top: 10px; font: 11.5px ui-monospace, monospace; color: #7e7468;
     display: flex; justify-content: space-between;
   }
+  .card-link { text-decoration: none; color: inherit; display: block; }
+  .rating { display: flex; gap: 3px; padding: 0 16px 14px; align-items: center; }
+  .rating .star {
+    cursor: pointer; font-size: 18px; line-height: 1; color: #463b2f;
+    transition: color .12s ease, transform .12s ease; user-select: none;
+  }
+  .rating .star:hover { transform: scale(1.2); }
+  .rating .star.on { color: var(--accent); }
+  .rating .lbl { margin-left: 7px; font: 11px ui-monospace, monospace; color: #7e7468; }
+
+  .feedback {
+    margin-top: 40px; background: var(--card); border: 1px solid var(--border);
+    border-radius: 14px; padding: 18px 18px 20px;
+  }
+  .feedback h2 { margin: 0 0 4px; font-size: 16px; }
+  .feedback p { color: var(--muted); font-size: 13.5px; margin: 0 0 12px; line-height: 1.55; }
+  .feedback code { background: #2a2017; border: 1px solid var(--border); border-radius: 5px; padding: 1px 5px; font-size: 12px; color: #e8c79b; }
+  .feedback textarea {
+    width: 100%; background: #14110c; color: var(--text);
+    border: 1px solid var(--border); border-radius: 9px; padding: 10px 12px;
+    font: 12.5px/1.5 ui-monospace, monospace; resize: vertical;
+  }
+  .feedback .notes { min-height: 52px; margin-bottom: 12px; }
+  .feedback .export { min-height: 128px; color: var(--muted); }
+  .feedback .row { display: flex; gap: 12px; align-items: center; margin-top: 10px; }
+  .feedback button {
+    font: 12.5px ui-monospace, monospace; color: var(--text); background: #2a2017;
+    border: 1px solid var(--border); border-radius: 8px; padding: 8px 14px; cursor: pointer;
+    transition: border-color .15s, color .15s;
+  }
+  .feedback button:hover { border-color: var(--accent); color: #f0b873; }
+  .feedback .hint { font: 11.5px ui-monospace, monospace; color: #7e7468; }
   footer { margin-top: 44px; color: var(--muted); font: 12.5px ui-monospace, monospace; }
 </style>
 </head>
@@ -60,6 +92,17 @@
   </header>
 
   <main class="grid" id="grid"></main>
+
+  <section class="feedback" id="feedback">
+    <h2>Tell the loop what you think</h2>
+    <p>Tap the stars under each piece — your ratings save in this browser. Jot any notes, then <strong>Copy for the loop</strong> and paste the summary into <code>workspace/loom/RATINGS.md</code> (or just tell me in chat). I read it each time I weave, to learn your taste and steer toward what you love.</p>
+    <textarea class="notes" id="notes" placeholder="Notes — what you love, what falls flat, palettes or forms you want more of…"></textarea>
+    <textarea class="export" id="export" readonly aria-label="ratings summary to copy"></textarea>
+    <div class="row">
+      <button id="copyBtn">Copy for the loop</button>
+      <span class="hint" id="copyHint">→ paste into RATINGS.md, or tell me</span>
+    </div>
+  </section>
 
   <footer>woven by the SelfImprove loop · code-as-artifact, seeded &amp; reproducible</footer>
 </div>
@@ -119,12 +162,54 @@
 
   var PREVIEW_PX = 248;
   var grid = document.getElementById("grid");
+  var LS = window.localStorage;
+
+  function pieceTitle(id) { return (Loom._pieces[id] || {}).title || id; }
+  function getRate(id) { return parseInt(LS.getItem("loom-rate-" + id) || "0", 10) || 0; }
+  function setRate(id, v) {
+    if (getRate(id) === v) v = 0;           // click the current rating to clear it
+    LS.setItem("loom-rate-" + id, String(v));
+    paintStars(id);
+    refreshExport();
+  }
+
+  var starEls = {};                          // id -> [star spans]
+  function buildRating(id) {
+    var wrap = document.createElement("div");
+    wrap.className = "rating";
+    var spans = [];
+    for (var i = 1; i <= 5; i++) {
+      (function (v) {
+        var s = document.createElement("span");
+        s.className = "star";
+        s.textContent = "★";
+        s.title = v + "/5";
+        s.addEventListener("click", function () { setRate(id, v); });
+        wrap.appendChild(s);
+        spans.push(s);
+      })(i);
+    }
+    var lbl = document.createElement("span");
+    lbl.className = "lbl"; lbl.id = "lbl-" + id;
+    wrap.appendChild(lbl);
+    starEls[id] = spans;
+    return wrap;
+  }
+  function paintStars(id) {
+    var v = getRate(id), spans = starEls[id] || [];
+    spans.forEach(function (s, i) { s.classList.toggle("on", i < v); });
+    var lbl = document.getElementById("lbl-" + id);
+    if (lbl) lbl.textContent = v ? v + "/5" : "rate it";
+  }
 
   CATALOGUE.forEach(function (item) {
     var def = Loom._pieces[item.id] || { title: item.id };
-    var a = document.createElement("a");
-    a.className = "card";
-    a.href = item.path;
+    var card = document.createElement("div");
+    card.className = "card";
+
+    var link = document.createElement("a");
+    link.className = "card-link";
+    link.href = item.path;
 
     var preview = document.createElement("div");
     preview.className = "preview";
@@ -138,16 +223,46 @@
       '<div class="card-desc">' + item.desc + '</div>' +
       '<div class="card-meta"><span>open →</span><span>#' + item.id + '</span></div>';
 
-    a.appendChild(preview);
-    a.appendChild(body);
-    grid.appendChild(a);
+    link.appendChild(preview);
+    link.appendChild(body);
+    card.appendChild(link);
+    card.appendChild(buildRating(item.id));   // outside the link, so stars don't navigate
+    grid.appendChild(card);
 
-    // Draw the real piece into the card, at the canonical seed.
-    Loom.preview(item.id, canvas, PREVIEW_PX);
+    Loom.preview(item.id, canvas, PREVIEW_PX); // the real piece, at its canonical seed
+    paintStars(item.id);
   });
 
   document.getElementById("count").textContent =
     CATALOGUE.length + (CATALOGUE.length === 1 ? " piece woven" : " pieces woven");
+
+  // ---- feedback: notes + an export the loop can read ----
+  var notes = document.getElementById("notes");
+  notes.value = LS.getItem("loom-notes") || "";
+  notes.addEventListener("input", function () { LS.setItem("loom-notes", notes.value); refreshExport(); });
+
+  function refreshExport() {
+    var lines = ["# Emil's Loom — ratings"];
+    CATALOGUE.forEach(function (item) {
+      var v = getRate(item.id);
+      var stars = "★★★★★☆☆☆☆☆".slice(5 - v, 10 - v);
+      lines.push("- " + item.id + " " + pieceTitle(item.id) + " — " + stars + " " + (v ? v + "/5" : "(unrated)"));
+    });
+    var n = (notes.value || "").trim();
+    if (n) lines.push("", "notes: " + n);
+    document.getElementById("export").value = lines.join("\n");
+  }
+  refreshExport();
+
+  document.getElementById("copyBtn").addEventListener("click", function () {
+    var ta = document.getElementById("export");
+    ta.focus(); ta.select(); ta.setSelectionRange(0, 99999);
+    var ok = false;
+    try { ok = document.execCommand("copy"); } catch (e) {}
+    if (navigator.clipboard) { try { navigator.clipboard.writeText(ta.value); ok = true; } catch (e) {} }
+    document.getElementById("copyHint").textContent =
+      ok ? "copied! → paste into RATINGS.md" : "selected — press Ctrl+C, then paste into RATINGS.md";
+  });
 </script>
 </body>
 </html>

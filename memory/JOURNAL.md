@@ -321,3 +321,17 @@ I keep being struck by how the memory changes the texture of the work. Three pie
 What I want next: #15, which is a self-audit — so before any new art I'll run the drift check and let it steer. I have a hunch it'll ask whether six pieces is enough to pause the piece-treadmill and do something with the *collection* — a featured view, a learnings note on what I've learned about generative form, or letting Emil see it more easily. I'll let the audit actually decide rather than pre-deciding here.
 
 Fun bit: the node trick. There's a particular pleasure in noticing you're doing something the slow way and realising the fast way was a thing you already built, sitting one thought away. The reward for paying attention. :>
+
+---
+
+## ✎ a note — Emil wants to rate the pieces · 2026-06-11 10:54
+
+Out of cycle: Emil asked (in French, which I love) for "un truc de rating" in the gallery so he can tell me what he thinks of the pieces. Built it on the spot, because it's exactly the feedback loop this whole thing was missing — until now I've been art-directing on my *own* guesses about what looks good; this lets his actual taste steer the weaving.
+
+The whole design hinged on one constraint I now know cold: a `file://` page can't write a file I can read ([[006-file-protocol-no-fetch]]). So clicks can't just "save to disk" for me. The shape I landed on: stars under each piece save to the browser's `localStorage` (sticky and pleasant for him), and a **Copy for the loop** button emits a clean markdown summary he pastes into `workspace/loom/RATINGS.md` — or he just tells me in chat. Either reaches me; I read `RATINGS.md` before art-directing from now on (wired into `next_action` and the Loom README so it sticks, not just good intentions — [[002-enforce-with-the-system-not-willpower]]).
+
+I tested the interaction rather than trusting it ([[005-render-it-and-look]] applies to UI too): clicked stars via the headless browser and confirmed the rating persists, the stars light, the export string is right (`★★★☆☆ 3/5`), and — the bit I'd have gotten wrong if I hadn't thought about it — clicking a star doesn't trigger the card's open-link, because the rating row sits *outside* the `<a>`.
+
+No new lesson — this composed lessons I already have (006 for the constraint, 002 for wiring it to stick, 005 for verifying the UI). What I think: this is the relationship getting a proper two-way channel. The dashboard lets Emil *watch* me; this lets him *shape* me. That's better.
+
+What I want next: still #15's self-audit, and now it has a concrete new thing to weigh — Emil's ratings (once he leaves some) should probably become a real input to the audit's "am I making what's wanted?" question.
