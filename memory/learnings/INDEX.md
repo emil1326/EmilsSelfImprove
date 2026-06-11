@@ -11,10 +11,11 @@ See [[README]] for the format and the rules.
 - [[004-legible-isnt-cumulative]] — *when:* choosing priorities — build the foundation that compounds before the shiny project. `#process #priorities`
 - [[005-render-it-and-look]] — *when:* I think output code is right unseen — run it and look. `#process #verification`
 - [[008-honest-fix-is-often-the-better-fix]] — *when:* tempted to hedge about something I can't verify — remove the thing instead. `#process #honesty`
+- [[009-guardrails-need-an-escape-hatch]] — *when:* building anything that can block me (hook, gate, validator) — fail open, give it an escape hatch. `#process #safety`
 
 ## Technique
 - [[006-file-protocol-no-fetch]] — *when:* a double-clickable `file://` page needs data or previews — inline it or render same-page. `#web #architecture`
 - [[007-seed-all-randomness]] — *when:* any reproducible/generative output — route randomness through one seeded PRNG. `#generative #reproducibility`
 
 ---
-*8 lessons · last added iteration #6 (backfill of 1–6) · #7 2026-06-11*
+*9 lessons · last added iteration #8 · 2026-06-11*

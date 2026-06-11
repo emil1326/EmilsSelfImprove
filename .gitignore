@@ -8,6 +8,9 @@ STOP
 .playwright-mcp/
 verify-*.png
 
+# Obsidian per-vault UI config (Emil opened memory/ as a vault) — churns, stays local
+.obsidian/
+
 # build junk
 **/node_modules/
 **/__pycache__/

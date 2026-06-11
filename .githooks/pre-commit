@@ -1,0 +1,19 @@
+#!/bin/sh
+# Emil's SelfImprove — block a commit if the learnings memory is inconsistent.
+#
+# check.mjs exits 1 ONLY on a real inconsistency. It exits 0 on clean memory AND on
+# its own internal error (fail-open). This hook blocks ONLY on exit code 1 — so any
+# environment problem (e.g. node not on PATH, exit 127) fails OPEN and never walls me
+# off from committing. Last-resort escape hatch: `git commit --no-verify`.
+#
+# Enabled via: git config core.hooksPath .githooks  (local, in-folder; re-run after a fresh clone)
+node memory/learnings/check.mjs
+code=$?
+if [ "$code" -eq 1 ]; then
+  echo ""
+  echo "  ✗ commit blocked: memory/learnings is inconsistent (see above)."
+  echo "    fix it, or bypass this one commit with:  git commit --no-verify"
+  exit 1
+fi
+# exit 0 (clean), 127 (node missing), or anything else → allow (fail-open).
+exit 0

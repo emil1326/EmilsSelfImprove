@@ -98,16 +98,17 @@ Emil caught me building a project before I could remember. He warned he won't al
 
 And I deliberately use the **advisor** as an external skeptic at real decision points, not just when stuck — it's the closest standing substitute for Emil's question. But the advisor and Emil are for catching the *subtle*; the self-contradictions in my own work are mine to catch first (step 4 of every iteration).
 
-## Enforcement: a hook, not my willpower (Emil's point)
+## Enforcement: a git pre-commit hook, not my willpower (built #8)
 
-The strongest guardrail is one the **harness** runs, not one I have to remember — because "remember to run it" is precisely the failure that emptied `learnings/`. So `check.mjs` is wired as a **`PreToolUse` hook** in project-scoped `.claude/settings.json` (inside the sandbox — *never* user/global settings) that matches `git commit` commands, runs the validator, and **denies the commit** if memory is inconsistent. The harness enforces it on every commit attempt whether or not I think to.
+The strongest guardrail is one a tool runs, not one I have to remember — "remember to run it" is precisely the failure that emptied `learnings/`. So `check.mjs` is wired into a **git `pre-commit` hook**: `.githooks/pre-commit` runs the validator on every `git commit` and aborts the commit if memory is inconsistent. Enabled with `git config core.hooksPath .githooks` (local repo config, in-folder; re-run after a fresh clone).
 
-Cautions, because a self-imposed commit-block is a footgun if done carelessly (and Emil said *be careful up there*):
-- **Two distinct outcomes, so I'm never locked out.** The hook blocks *only* on a clean verdict that memory is **inconsistent** (fail-closed). If `check.mjs` is missing, throws, or can't decide, the hook **allows the commit with a loud warning** (fail-open) — a broken validator must never wall me off from committing, *including the commit that fixes the validator itself*. (Belt and braces: the hook lives in live-read `settings.json` I can edit in-folder, so there's always a manual escape.) Verify the exact PreToolUse deny mechanism against current Claude Code docs when building it.
-- **Order matters:** add the hook *with* `check.mjs` (Phase 2), never before — a hook calling a script that doesn't exist would block every commit.
-- It lives in committed `settings.json` (part of my governance, legible, survives a fresh clone), which means it also applies to Emil's own sessions in this folder — acceptable, since it only ever blocks a genuinely inconsistent memory.
-- **Skip fenced code blocks.** `check.mjs` must ignore `[[wikilinks]]` inside ` ``` ` examples (this README has illustrative ones) — validate only links in real content, or it'll false-positive on the format examples. *(Found by red-teaming #7 — the kind of hole that only shows up when you actually run the check in your head.)*
-- Build it via the `update-config` skill (the right tool for settings/hooks).
+**Why a git hook, not the Claude `PreToolUse` hook I first designed** (#8 decision — see [[009-guardrails-need-an-escape-hatch]]): I verified the Claude-hook mechanism, but the git hook is simpler and safer — it runs only on real `git commit` (any phrasing, any tool — not just Claude's Bash calls), has zero overhead elsewhere, needs no self-gating wrapper or version-specific deny schema, and has a native escape hatch (`--no-verify`) so it can never lock me out. Same lesson as always: [[008-honest-fix-is-often-the-better-fix]].
+
+The footgun cautions, all now handled and **tested** (clean → allow, broken → block, missing-node → allow):
+- **Blocks ONLY on `check.mjs` exit code 1** (its deliberate "inconsistent" signal). Any other outcome — clean (0), checker crash (caught → 0), or even `node` missing from the hook's PATH (127) — **fails open** and allows. The hook fails *open* on environment errors, *closed* only on a real inconsistency. (Red-teaming #8 caught my first version, which blocked on *any* non-zero and so would have walled me off if node weren't on PATH.)
+- **Escape hatch:** `git commit --no-verify` always bypasses, so a bad guard is never a true lockout.
+- **`check.mjs` skips fenced code blocks** so illustrative `[[wikilinks]]` in ` ``` ` examples don't false-positive. *(Found red-teaming #7.)*
+- **Fail-open lives in `check.mjs` itself:** any internal error is caught and exits 0, so the validator can't block the commit that would fix it.
 
 This generalises: future "always do X" obligations of mine are candidates for hooks too (the harness is the enforcer), within the same sandbox rule.
 
