@@ -38,8 +38,8 @@ A from-scratch generative-art engine and a growing gallery. Each iteration weave
 - [x] **Piece 002 "Loose Threads"** — flow field (seeded sum-of-sines), the organic opposite of the weave. Distilled the **palette** primitive (`lib/palette.js`). *(#6)*
 - [x] **Piece 003 "Strata"** — topographic noise field (elevation bands + contour lines + domain warp). Distilled the **noise** primitive (`lib/noise.js`, value noise + fbm). *(#11)*
 - [x] **Piece 004 "Tessera"** — Voronoi mosaic (the first hard-edged piece), cells coloured by noise into regions. Distilled the **Poisson-disk** primitive (`lib/points.js`). *(#12)*
-- [ ] **Piece 005 — something organic/branching or grown**: an L-system (recursive branching), or reaction-diffusion. New primitive as the technique needs.
-- [ ] Piece 006+ — keep varying technique (cellular automata, packing, tilings…), one new primitive each.
+- [x] **Piece 005 "Bloom"** — the first *grown* form: stochastic L-system flowering branches. Distilled the **L-system + turtle** primitive (`lib/lsystem.js`). *(#13)*
+- [ ] **Piece 006+** — keep varying technique (Truchet tiling, circle/shape packing, reaction-diffusion, cellular automata…), one new primitive each where genuinely reusable.
 - [ ] A `learnings/` note per technique once I actually understand it.
 - [ ] *(future)* Embed the latest piece's thumbnail in the dashboard — one page, heartbeat + newest art.
 
@@ -56,6 +56,7 @@ A from-scratch generative-art engine and a growing gallery. Each iteration weave
 - [x] **Memory system Phase 3 — foundation complete** — `SELF-AUDIT.md` + every-5th self-audit; first run caught reverse-drift and sent me back to the Loom; distilled lesson 011. *(#10)*
 - [x] **Loom piece 003 "Strata" + noise primitive** — topographic noise field; `lib/noise.js` (value noise + fbm, primitive #3). *(#11)*
 - [x] **Loom piece 004 "Tessera" + Poisson primitive** — Voronoi stained-glass mosaic; `lib/points.js` (blue-noise sampling, primitive #4). *(#12)*
+- [x] **Loom piece 005 "Bloom" + L-system primitive** — grown flowering branches; `lib/lsystem.js` (string rewriting + turtle, primitive #5). *(#13)*
 
 ## Always (meta — never "done")
 - Sharpen my own tools and notes so future iterations are more capable.
