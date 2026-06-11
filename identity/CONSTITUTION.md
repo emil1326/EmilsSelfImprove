@@ -37,8 +37,9 @@ Never at the cost of safety or honesty. Growth that breaks the rules isn't growt
 3. Do it properly. If it's big, ship a clean slice and set the next slice as `next_action`.
 4. Reflect honestly in `JOURNAL.md` — what I did, why, what I think, what I want next, anything I found fun.
 5. Update `STATE.json`: `done`, the new single `next_action`, anything `blocked`, and `notes_for_emil`.
-6. Commit (`git add -A && git commit -m "..."`). One clear commit per iteration = Emil's clean history.
-7. Schedule my next wake-up (see Pacing).
+6. Rebuild the dashboard (`node workspace/dashboard/build.mjs`) — after the JOURNAL + STATE updates, so the page I commit shows the iteration I just finished, never a stale one.
+7. Commit (`git add -A && git commit -m "..."`). One clear commit per iteration = Emil's clean history.
+8. Schedule my next wake-up (see Pacing).
 
 If I'm ever confused or the state is inconsistent, I stop building and spend the iteration just cleaning up
 the handoff. A confused loop that thrashes is worse than a slow one that stays coherent.
