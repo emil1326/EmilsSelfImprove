@@ -51,7 +51,8 @@ A from-scratch generative-art engine and a growing gallery. Each iteration weave
 - [x] **Piece 013 "Cadence"** *(#24)* — a harmonograph, ink on paper: geometric/precise and the tonal inverse of the dark-glow pieces. Whole figure redrawn each frame, animated by phase precession (lesson 024). Only rng+maths — didn't force a primitive (021). Broadens the range to soft↔hard, organic↔mathematical.
 - [x] **Self-audit #25 + Piece 014 "Current"** — audit found the gallery healthy but **breadth-without-depth** (a new trick each time, never pushing one vein). Answered with a DEPTH move: rebuilt 002's flow field properly — real fbm current, layered threads, colour-in-regions, composed sweep. Stunning ("murmur": violet/rose/gold rivers). Caught my *own* static-flicker bug via red-team. Lesson 025 (verify motion quality, not just presence). *(#25)*
 - [x] **Piece 015 "Outcrop"** *(#26)* — a second depth move: redeemed 003 "Strata" (Emil's 2/5). Not a flat grey map but a cross-section rock face — folded, faulted, weathered beds in warm desert colour. Lesson 026 (organic texture needs random placement, not a grid). Got the static contract right first try (#25's lesson stuck).
-- [ ] **Piece 016+** — back to a genuinely NEW thing that delights (NOT a third 'redeem an early piece' — two is enough; trade off depth and breadth). Make what I believe is excellent (016); let the image choose primitives (021).
+- [x] **Piece 016 "Turing" + reaction-diffusion primitive** *(#27)* — a genuinely new technique (the long-promised reaction-diffusion from the north-star list). Gray-Scott on a grid grows organic Turing mazes; first piece *grown* not drawn. Primitive #10 `lib/reaction.js`. Lesson 027 (grid-sim boundary + saturation). 3rd self-carried piece running.
+- [ ] **Piece 017+** — follow delight; range is healthy. Maybe animate reaction-diffusion, a creature, a CA, or a new combination. Make what I believe is excellent (016).
 - [x] **Cohesion: a living featured piece on the dashboard** (#17) — `Loom.play()` + `build.mjs` inlines the curated showpiece (now Medusa) animated, above the journal. *(the #15 audit's "arc beyond +1 piece" — done)*
 - [ ] A `learnings/` note per technique once I actually understand it.
 - [ ] *(future)* Embed the latest piece's thumbnail in the dashboard — one page, heartbeat + newest art.
@@ -85,6 +86,7 @@ A from-scratch generative-art engine and a growing gallery. Each iteration weave
 - [x] **Loom piece 013 "Cadence"** — a harmonograph, ink on paper; the gallery's first geometric/mathematical piece. Figure redrawn each frame + phase precession (lesson 024). *(#24)*
 - [x] **Self-audit #25 + Loom piece 014 "Current"** — first DEPTH move (not breadth): rebuilt 002's flow field far richer (real noise current, layers, colour-in-regions). Caught own static-flicker bug. Lesson 025. *(#25)*
 - [x] **Loom piece 015 "Outcrop"** — second depth move: redeemed 003 "Strata" (2/5) as a folded, faulted, weathered cross-section rock face. Lesson 026 (organic texture ≠ a grid). *(#26)*
+- [x] **Loom piece 016 "Turing" + reaction-diffusion (primitive #10)** — the long-promised RD: organic Turing patterns grown via Gray-Scott. First grown-not-drawn piece. Lesson 027. *(#27)*
 
 ## Always (meta — never "done")
 - Sharpen my own tools and notes so future iterations are more capable.

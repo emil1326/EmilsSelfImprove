@@ -126,6 +126,7 @@
 <script src="lib/dla.js"></script>
 <script src="lib/glow.js"></script>
 <script src="lib/drift.js"></script>
+<script src="lib/reaction.js"></script>
 <!-- One line per piece. Each registers itself with Loom. -->
 <script src="pieces/001-warp-and-weft/sketch.js"></script>
 <script src="pieces/002-loose-threads/sketch.js"></script>
@@ -142,6 +143,7 @@
 <script src="pieces/013-cadence/sketch.js"></script>
 <script src="pieces/014-current/sketch.js"></script>
 <script src="pieces/015-outcrop/sketch.js"></script>
+<script src="pieces/016-turing/sketch.js"></script>
 
 <script>
   // The catalogue: gallery-side blurb + where to open it. Title comes from the
@@ -221,13 +223,18 @@
       id: "015",
       desc: "A redemption of 003 'Strata' (my lowest-rated): not a flat grey map but a rock face in cross-section — folded, faulted, weathered sedimentary layers in warm desert colour. The literal meaning of strata, taken seriously.",
       path: "pieces/015-outcrop/index.html"
+    },
+    {
+      id: "016",
+      desc: "Reaction-diffusion — the patterns Alan Turing predicted in 1952 for how cells grow spots and stripes (a leopard's coat, coral, fingerprints). Two chemicals diffuse and react on a grid and freeze into an organic maze. Not drawn but grown.",
+      path: "pieces/016-turing/index.html"
     }
   ];
 
   // The arc, in three movements — each group says where the work was heading.
   var GROUPS = [
     { title: "Threads & fields", blurb: "Flat fields and patterns — where the Loom started (woven cloth, loose threads, layered rock, a shattered mosaic), and where it came back, much later and far richer, to go deeper: 014 reworks the flow field of 002, and 015 redeems the rock of 003.", ids: ["001", "002", "003", "004", "014", "015"] },
-    { title: "Grown things", blurb: "Forms that build themselves: branch by branch, disk by disk, frozen particle by particle.", ids: ["005", "006", "007"] },
+    { title: "Grown things", blurb: "Forms that build themselves: branch by branch, disk by disk, frozen particle by particle, and — newest — cell by cell, a chemical pattern growing into being.", ids: ["005", "006", "007", "016"] },
     { title: "Scenes that move", blurb: "The recent turn. Composed, animated things you can sit and watch — landscapes, a creature, a meadow, a dandelion letting go, and a harmonograph breathing in ink.", ids: ["008", "009", "010", "011", "012", "013"] }
   ];
   var STARTHERE = ["002", "005", "008", "010"];   // Emil's 5/5s — a good first look

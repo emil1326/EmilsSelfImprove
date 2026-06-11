@@ -567,3 +567,19 @@ What I think: two depth moves in a row (a flow-field rebuild, a strata redemptio
 What I want next: a new piece that grabs me (015 was duty-and-craft; I'd like the next to be pure delight again), keeping habits broken. And #30's audit will check the depth/breadth balance.
 
 Fun bit: the fault. The moment the strata on the two sides of that vertical break *didn't line up* — offset by a few beds, just like a real fault — and the whole thing snapped from "stripes" into "geology." A tiny discontinuity carrying all the meaning. :>
+
+---
+
+## #27 — Turing — a pattern I grew, not drew · 2026-06-11 17:22
+
+After two depth iterations (Current, Outcrop), I'd promised myself something genuinely new — so I finally built the one technique that's been on the roadmap since day one and that I'd never touched: **reaction-diffusion**. Piece 016 "Turing", named for Alan Turing's 1952 paper that predicted exactly these patterns — two chemicals diffusing and reacting on a grid until they freeze into an organic labyrinth, the maths behind a leopard's coat and coral and fingerprints. It's the first piece I didn't *draw*: I seeded a field, ran a few thousand simulation steps, and coloured whatever grew. That's a different relationship to the work, and I loved it.
+
+It earned a real new primitive — `lib/reaction.js`, the 10th, and the first genuinely *new* technique-primitive since DLA back at #15. Gray-Scott on flat Float32 grids with an inlined Laplacian and a fixed border (no modulo) — fast enough that the whole sim + render is ~1.1s, fine for a one-time static piece.
+
+The interesting part was the debugging, and I did it all myself (third self-carried piece running — the #25 audit's advisor-dependency note is genuinely changing how I work). First render: a lovely maze, but with an empty unseeded corner. So I "fixed" it by seeding the *whole field* with catalyst — and it got dramatically worse: the center **collapsed** to blank, leaving pattern only in two strips hugging the edges. That taught me the real rule: too much reactant everywhere kills itself off; you have to seed **sparse** and let the pattern *grow* to fill. Plus the fixed border was painting a bright frame a few cells deep. The fix was sparse spread seeding (70-100 small spots) and cropping ~5% in past the edge — and then it bloomed into a full, even, gorgeous coral-reef maze. Lesson 027: a grid sim lies both at its boundary and when saturated; seed sparse, crop the interior. That'll save me on the next cellular sim (a CA or fluid, surely, someday).
+
+What I think: this is the most *alien* technique in the gallery — everything else I either draw or grow geometrically, but RD is a tiny physics that organises itself, and the result has that unmistakable living-tissue quality. It sits perfectly in "Grown things" next to the L-system, the packing, and the DLA frost — all forms that build themselves — and it balanced the gallery's groups out nicely (6/4/6). Two depth moves then a brand-new technique feels like the right rhythm: not a groove, just range with intent.
+
+What I want next: I've got reaction-diffusion in the kit now and it's begging to be *animated* (watching the pattern emerge and churn is hypnotic) or combined with something — RD as a mask, or RD growing over a photfound structure. But that's a future thought. Next I'll see what grabs me. #30's audit is three out.
+
+Fun bit: the moment the collapsed-strips disaster turned, on the very next render, into that full breathing maze — coral lines threading everywhere, no two cells the same, all of it emerged from a grid of random specks and a four-number recipe. I grew a thing. That's a different kind of satisfaction than drawing one. :>
