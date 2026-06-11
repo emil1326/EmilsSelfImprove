@@ -45,8 +45,10 @@ A from-scratch generative-art engine and a growing gallery. Each iteration weave
 - [x] **Piece 009 "Glint"** — golden-hour sun over the sea + animated glitter path. Second composed/animated scene, warm. Reworked blocky→sparkle (didn't ship "just there"). *(#18)*
 - [x] **Piece 010 "Medusa"** — the first living *subject*: a bioluminescent jellyfish, bell pulsing, tentacles trailing. Harvested the **glow** primitive (`lib/glow.js`) from the Aurora+Glint halo idiom. Now the dashboard showpiece. *(#19)*
 - [x] **Piece 011 "Meadow"** — the #20 self-audit's rut-breaker: BRIGHT, no central subject, no horizon, and the first piece **built by composing the library** (Poisson scatter + noise wind), not bespoke. Answered the audit's "convergence + library-not-compounding" findings. Lessons 020 (mismatched-format helpers → silent black) + 021 (audit the goal, not the proxy). *(#20)*
-- [ ] **NEXT — cohesion / a frame for the collection** *(the #20 audit's named-but-deferred Q2 item, now due)*. Give the 11 pieces a real intro / "start here" so the gallery reads as a body of work, not a list — now justified because there's genuine variety to frame (textures + dark scenes + a bright meadow). Tasteful, in my own voice, file://-safe. Don't just add a 12th piece (that's the groove the audit caught).
-- [ ] **Piece 012+** — keep breaking habits (composition, palette, combining *more* of the library); stay in the elevated register (016).
+- [x] **Cohesion / a frame for the collection** *(#21, the #20 audit's named deferral)* — gallery.html now opens with a real intro + the ARC, a "start here" to Emil's four 5/5s, and the grid grouped into three movements (Threads & fields / Grown things / Scenes that move). Reads as a body of work, not a list. *(voice written in the loop's own — flagged to Emil as his call)*
+- [x] **Piece 012 "Clock"** — a dandelion clock coming apart on the wind: first MACRO, first off-centre w/ real negative space, the delicate register. Luminosity from TONE not additive glow (lesson 022); the seed-current is load-bearing. Used only noise (didn't force primitives — 021). *(#22)*
+- [ ] **NEXT — harvest the `drift` primitive** (`lib/drift.js`, #9): three pieces now share a drift-on-wind particle idiom (Medusa motes, Meadow pollen, Clock seeds) → clears 019's 2+ bar and makes the library actually compound. Design from what all three need; refactor ≥1 onto it to prove it's real.
+- [ ] **Piece 013+** — keep breaking habits (composition, palette, combining *more* of the library); stay in the elevated register (016).
 - [x] **Cohesion: a living featured piece on the dashboard** (#17) — `Loom.play()` + `build.mjs` inlines the curated showpiece (now Medusa) animated, above the journal. *(the #15 audit's "arc beyond +1 piece" — done)*
 - [ ] A `learnings/` note per technique once I actually understand it.
 - [ ] *(future)* Embed the latest piece's thumbnail in the dashboard — one page, heartbeat + newest art.
@@ -74,6 +76,8 @@ A from-scratch generative-art engine and a growing gallery. Each iteration weave
 - [x] **Loom piece 009 "Glint"** — golden-hour sea + animated glitter path; second composed scene. *(#18)*
 - [x] **Loom piece 010 "Medusa" + glow primitive** — bioluminescent jellyfish; harvested `lib/glow.js` from the Aurora+Glint halo idiom (lesson 019). Now the dashboard showpiece. *(#19)*
 - [x] **Self-audit #20 + Loom piece 011 "Meadow"** — audit caught aesthetic convergence + the library not compounding; answered with a bright, horizon-less meadow *built by composing* Poisson+noise. Lessons 020 (silent-black colour bug) + 021 (audit the goal, not the proxy). *(#20)*
+- [x] **Framed the collection** — gallery rebuilt as a body of work: intro + arc, a "start here", three labelled movements. *(#21)*
+- [x] **Loom piece 012 "Clock"** — a dandelion coming apart on the wind; first macro/off-centre/delicate piece. Luminosity from tone, not glow (lesson 022). *(#22)*
 
 ## Always (meta — never "done")
 - Sharpen my own tools and notes so future iterations are more capable.
