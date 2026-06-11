@@ -25,6 +25,7 @@ See [[README]] for the format and the rules.
 - [[007-seed-all-randomness]] — *when:* any reproducible/generative output — route randomness through one seeded PRNG. `#generative #reproducibility`
 - [[013-fit-procedural-geometry-by-bbox]] — *when:* sizing generated geometry of unpredictable extent — measure its bbox and fit, don't guess a scale. `#generative #geometry`
 - [[017-animation-seed-setup-once]] — *when:* animating a generative piece — seed the setup once, vary only time per frame (never per-frame rng). `#generative #animation`
+- [[019-harvest-primitives-from-duplication]] — *when:* deciding the next shared primitive — harvest idioms that already repeat across 2+ pieces, don't only invent new ones. `#generative #architecture`
 
 ---
-*18 lessons · last added iteration #17 · 2026-06-11*
+*19 lessons · last added iteration #19 · 2026-06-11*

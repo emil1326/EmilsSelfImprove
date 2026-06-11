@@ -58,9 +58,10 @@ if (!template.includes(token)) {
 // The loom code is INLINED (not <script src>) so the dashboard stays one self-contained
 // file that animates the piece — works on a bare double-click in any browser (a file://
 // page can't reliably load scripts from a sibling directory). To change it: update FEATURED.
-const FEATURED = { id: "008", folder: "008-aurora", line: "008 — Aurora · a living night sky (open it to watch)" };
+const FEATURED = { id: "010", folder: "010-medusa", line: "010 — Medusa · a bioluminescent jellyfish (open it to watch it breathe)" };
 const loomDir = join(root, "workspace", "loom");
-const libs = ["rng", "loom", "palette", "noise", "points", "lsystem", "pack", "dla"];
+// Ordered by dependency: rng first; palette before glow (which uses Loom.rgba).
+const libs = ["rng", "loom", "palette", "noise", "points", "lsystem", "pack", "dla", "glow"];
 // `</script` can't appear literally inside an inline <script>; neutralise it (a no-op for our code).
 const safeJs = (s) => s.replace(/<\/script/gi, "<\\/script");
 let featureBlock;

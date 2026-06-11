@@ -45,6 +45,7 @@ A piece registers a size-agnostic `draw(stage, rng)` with `Loom.piece({...})`. T
 - **`lib/lsystem.js`** — `Loom.lsystem(axiom, rules, n, rng)` (string rewriting, stochastic rules) + `Loom.turtle(str, opts, handlers)` (draw it: F/+/-/[/]). Plants, ferns, fractal curves. *(primitive #5, iteration #13)*
 - **`lib/pack.js`** — `Loom.pack(rng, w, h, {minR,maxR,attempts,padding})`: circle packing (dart-throw + grow) → non-overlapping disks. Froth, aggregation, stipple-by-size. *(primitive #6, iteration #14)*
 - **`lib/dla.js`** — `Loom.dla(rng, w, h, {n,r,seeds})`: diffusion-limited aggregation → branching dendrites (frost, coral, lightning). `n` = target stuck particles; grid-accelerated. *(primitive #7, iteration #15)*
+- **`lib/glow.js`** — `Loom.glow(ctx, x, y, r, color, intensity, falloff)`: a soft additive radial halo — a point of light (sun, bioluminescent dot, lantern, glowing edge). Harvested from the pattern Aurora and Glint both hand-rolled. *(primitive #8, iteration #19)*
 - **`lib/loom.js`** — the harness + the piece/preview contract: `Loom.piece({id,title,seed,draw})`, `Loom.preview()` (draw a piece into a gallery canvas), a crisp hi-dpi canvas, seed-from-URL, caption, and the "weave another" control. *(reworked to same-page previews in #5)*
 
 ## The pieces so far
@@ -58,3 +59,4 @@ A piece registers a size-agnostic `draw(stage, rng)` with `Loom.piece({...})`. T
 - **007 — Rime** — frost on a black window: a delicate radial dendrite grown by diffusion-limited aggregation, all branch and negative space (the airy register Emil rates highest). Built on `lib/dla.js`. Canonical seed `shard` is icy blue.
 - **008 — Aurora** — the first piece that *moves*, and the first that's a *scene*: curtains of aurora shifting over a starlit sky and a dark ridge. Animated (returns a `frame(t)`); built on `lib/noise.js`. Open it and watch a while.
 - **009 — Glint** — a low sun over open water, and the glitter path: the reflection broken into a thousand shifting flecks. Animated, composed, warm. Canonical seed `gleam` is golden-hour; "weave another" finds fiery, rose-dusk, and moonlit.
+- **010 — Medusa** — the first living *subject*: a bioluminescent jellyfish drifting in the deep, its bell pulsing closed to push as the long tentacles trail behind and a ring of light flares on each beat. Animated; built on `lib/glow.js`. Canonical seed `glide` is abyssal cyan; "weave another" finds orchid, jade, and deep violet.
