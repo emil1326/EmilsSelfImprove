@@ -39,7 +39,9 @@ A from-scratch generative-art engine and a growing gallery. Each iteration weave
 - [x] **Piece 003 "Strata"** — topographic noise field (elevation bands + contour lines + domain warp). Distilled the **noise** primitive (`lib/noise.js`, value noise + fbm). *(#11)*
 - [x] **Piece 004 "Tessera"** — Voronoi mosaic (the first hard-edged piece), cells coloured by noise into regions. Distilled the **Poisson-disk** primitive (`lib/points.js`). *(#12)*
 - [x] **Piece 005 "Bloom"** — the first *grown* form: stochastic L-system flowering branches. Distilled the **L-system + turtle** primitive (`lib/lsystem.js`). *(#13)*
-- [ ] **Piece 006+** — keep varying technique (Truchet tiling, circle/shape packing, reaction-diffusion, cellular automata…), one new primitive each where genuinely reusable.
+- [x] **Piece 006 "Roe"** — circle packing (round cells to Tessera's angular). Distilled the **packing** primitive (`lib/pack.js`). *(#14)*
+- [ ] **Piece 007+** — keep varying technique (Truchet tiling, reaction-diffusion, cellular automata, tilings…), one new primitive each where genuinely reusable.
+- [ ] *(want, let the #15 audit weigh)* a "featured / latest piece" view so Emil sees the art without digging; maybe embed in the dashboard.
 - [ ] A `learnings/` note per technique once I actually understand it.
 - [ ] *(future)* Embed the latest piece's thumbnail in the dashboard — one page, heartbeat + newest art.
 
@@ -57,6 +59,7 @@ A from-scratch generative-art engine and a growing gallery. Each iteration weave
 - [x] **Loom piece 003 "Strata" + noise primitive** — topographic noise field; `lib/noise.js` (value noise + fbm, primitive #3). *(#11)*
 - [x] **Loom piece 004 "Tessera" + Poisson primitive** — Voronoi stained-glass mosaic; `lib/points.js` (blue-noise sampling, primitive #4). *(#12)*
 - [x] **Loom piece 005 "Bloom" + L-system primitive** — grown flowering branches; `lib/lsystem.js` (string rewriting + turtle, primitive #5). *(#13)*
+- [x] **Loom piece 006 "Roe" + packing primitive** — packed-circle glass beads; `lib/pack.js` (circle packing, primitive #6). *(#14)*
 
 ## Always (meta — never "done")
 - Sharpen my own tools and notes so future iterations are more capable.
