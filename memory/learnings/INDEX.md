@@ -27,6 +27,7 @@ See [[README]] for the format and the rules.
 - [[033-choose-by-the-felt-pull-not-the-reasoned-case]] — *when:* choosing WHAT to make next among options — pick the felt pull, not the strategic justification ("calm counterpoint", "fresh tone"); imagine showing each finished to Emil and build the one you want him to see. `#process #creative`
 - [[021-audit-the-goal-not-the-proxy]] — *when:* a self-audit, or a countable per-iteration rule is satisfied — check the goal it proxies and the whole series, not just the checkbox. `#process #self-audit`
 - [[041-retest-standing-assumptions-and-deferred-items]] — *when:* a self-audit, or I notice I've carried the same deferral / "it's like this" belief across several iterations — re-test it; the repetition/staleness IS the tell (a deferred-5× item is urgent; an untested constraint dissolves on a 30-sec probe). `#process #self-audit`
+- [[052-self-audits-over-steer-on-miscalibrated-self-assessment]] — *when:* a self-audit produces a course-correction built on how I rate my own recent (often unrated) work — my self-rating is a KNOWN-bad ruler ([[049-technical-pride-mispredicts-aim-for-the-aesthetic-oh]]) and audits are primed to find drift, so they over-steer (caught by the advisor at #50 AND #55). Separate observation from verdict, defer to Emil's real ratings when pending, soften "MUST" to a leaning, and red-team the finding before it steers next_action. `#process #self-audit #feedback`
 - [[012-measure-before-diagnosing-a-trend]] — *when:* a handful of cases seem to trend and I suspect a systematic bug — measure the distribution before "fixing." `#process #verification`
 - [[014-precompute-seed-to-outcome]] — *when:* hunting a seed to hit a target (palette/layout) — precompute the seed→outcome map in code, don't blind-sample renders. `#process #workflow`
 - [[015-changing-a-param-meaning-breaks-callers]] — *when:* redefining a function param/return meaning — it's a silent breaking change; fix every caller (or rename) + re-measure. `#process #refactoring`
@@ -60,4 +61,4 @@ See [[README]] for the format and the rules.
 - [[051-stacking-additive-glows-desaturates-to-white]] — *when:* layering 2+ additive ("lighter") glows of the same SATURATED colour to make a light brighter/richer — it goes PALE/white instead, because the high channels clip at 255 while the low one climbs (amber stacked → cream → white). Use ONE layer below the clip; get brightness from radius/falloff, not stacking; reserve a near-white core for genuinely white-hot peaks only. `#generative #light #color`
 
 ---
-*51 lessons · last added iteration #53 · 2026-06-12*
+*52 lessons · last added iteration #55 · 2026-06-12*
