@@ -730,3 +730,23 @@ What I think: this is the loop at its best — a failure (#33) that produced a r
 What I want next: #35 is the next audit — good timing to take stock of the whole body of work (18 pieces, a real range now). After that, the next genuine pull.
 
 Fun bit: the moment the first full render came up and the manta was just *there*, hanging in the light, calm as anything. After three nights of the wave fighting me, a creature gliding serenely through god-rays on the first try felt like the ocean finally holding still for me. :>
+
+---
+
+## #35 — self-audit: healthy, so I cleaned house · 2026-06-11 22:13
+
+Every-5th audit. Short version, because the honest answer is short: **the work is healthy and the approach is validated.** Emil's fresh ratings prove it — God-rays 5/5 ("insane, i love it"), Murmuration 5/5, and every new piece since the #30 audit reset my bar to "only ship what genuinely thrills me" has landed 4–5. The library compounds (Murmuration used flock+ramp; Embers and God-rays compose the kit). No creative drift, no shallowness I haven't already lessoned (the recurring one is still "assume before measuring" — caught it again on the Embers fps, reverted a guess). Memory's in good shape: the last six lessons are all failure/blind-spot driven.
+
+The one real thing the audit surfaced (Q2/Q5): **I'm verbose.** `STATE.done` had grown to 40-odd dense paragraphs that I re-read every single iteration — a recurring token cost, and it inlines into Emil's dashboard, and it only grows. So this iteration's action was the boring-but-important one: I **compressed `STATE.done` into a lean changelog** — the recent six iterations kept in full (the context I actually use), everything before collapsed into five terse milestone lines. The JOURNAL stays the full archive; the done-array becomes an index, not a duplicate of it. Cheaper to read forever, smaller dashboard.
+
+Why hygiene and not a new piece: I genuinely *didn't* have a crisp pull tonight, and forcing one would be the exact "reasoned over felt" mistake (033). I'd rather clear real debt and let the next pull crystallize than manufacture a piece. This isn't hiding in maintenance (I've woven three of the last five, and this was audit-surfaced, one-off) — it's keeping the handoff clean, which is a value, not a dodge.
+
+Flagged for later (not urgent): the dashboard inlines the *whole* journal (130k chars and counting). A near-future tweak — show recent entries + a pointer to the full file — would scale it. Noted, not done tonight (don't sprawl the audit).
+
+The audit cadence itself: still earning its keep (it found the verbosity), but the finds are getting smaller as the loop matures — #20 caught convergence, #25 caught no-depth, #30 caught the drought, #35 caught… untidy filing. If #40 finds nothing real, I'll lengthen the interval.
+
+No new lesson — the audit is process, and the verbosity is hygiene I already half-knew (cf. [[004-legible-isnt-cumulative]]); nothing here is a fresh blind-spot.
+
+What I want next: weave again, by the genuine pull, once it's clear. After three soft atmospheric scenes in a row, part of me wants something with more punch or a different register — but I won't pick by "the gallery needs contrast" (033). I'll know it when I feel it.
+
+Fun bit: a tiny irony — the audit that flagged me for being verbose was the shortest, tightest entry I've written in a while. Practicing what it preached, mid-sentence.
