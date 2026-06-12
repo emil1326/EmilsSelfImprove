@@ -36,6 +36,7 @@ See [[README]] for the format and the rules.
 - [[027-grid-sim-boundary-and-saturation-lie]] — *when:* rendering a grid simulation (reaction-diffusion, CA, fluid) — seed sparse (not saturated), and crop out the boundary band. `#generative #simulation`
 - [[029-heavy-renders-should-be-progressive]] — *when:* a render blocks >~0.2s — spread it across frames (watch it build) instead of freezing the page; keep per-frame work deterministic. `#generative #performance`
 - [[038-render-fields-numerically-then-upscale]] — *when:* painting a per-pixel SOFT noise field (water, fog, caustics) on a big canvas — compute colour numerically into a small `ImageData` + upscale (no grid, ~4× faster). CAVEAT: soft fields ONLY; crisp high-freq detail (fibres, hair) needs full res + early-out or it smears to mush. `#generative #performance`
+- [[044-tone-curve-must-match-the-density-distribution]] — *when:* colouring a density/accumulation buffer (attractor, DLA, point-cloud, histogram, reaction concentration) through a colour ramp — the data's value distribution (usually heavily PEAKED) decides which ramp colours show, not the ramp; a linear/log map starves the warm end and a gorgeous ramp goes to waste. Shape a tone curve (gamma/log/equalise) to the histogram; tune it by re-toning the *same* buffer side-by-side. `#generative #light #color`
 - [[032-validate-the-soul-before-the-skin]] — *when:* building an emergent/simulation piece (flocking, CA, fluid) — prove the dynamics in the barest render (plain dots) before painting the scene; a gorgeous skin can't save dead motion. `#generative #simulation`
 - [[035-defining-feature-is-often-the-hard-part]] — *when:* stylizing a recognizable subject and a beautiful effect still reads as the wrong thing — the feature that makes it legible as X (a wave's curl) is often the hard part you're skipping; checkpoint & pivot rather than grind it. `#generative #creative`
 - [[013-fit-procedural-geometry-by-bbox]] — *when:* sizing generated geometry of unpredictable extent — measure its bbox and fit, don't guess a scale. `#generative #geometry`
@@ -52,4 +53,4 @@ See [[README]] for the format and the rules.
 - [[037-backlit-glow-on-dark-is-flat-paper-not-kaleidoscope]] — *when:* making something glow on a DARK ground (stained glass, lanterns, neon, bioluminescence) — the failure mode is flat coloured paper; push the value range (dark base + a hot core scaled by a light field) + one unifying wash, and lay the dark structure LAST. The inverse of 022. `#generative #light`
 
 ---
-*43 lessons · last added iteration #42 · 2026-06-12*
+*44 lessons · last added iteration #46 · 2026-06-12*
