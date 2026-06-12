@@ -47,6 +47,7 @@ See [[README]] for the format and the rules.
 - [[017-animation-seed-setup-once]] — *when:* animating a generative piece — seed the setup once, vary only time per frame (never per-frame rng). `#generative #animation`
 - [[024-animate-a-figure-by-morphing-not-sliding]] — *when:* animating a traced/accumulated figure — draw the whole figure each frame, animate its parameters; don't slide a tail-window. `#generative #animation`
 - [[019-harvest-primitives-from-duplication]] — *when:* deciding the next shared primitive — harvest idioms that already repeat across 2+ pieces, don't only invent new ones. `#generative #architecture`
+- [[048-novelty-starves-the-library-revisit-to-harvest]] — *when:* on a run where every piece reaches for a NEW technique and the library has stopped growing (a long primitive-count plateau) — novelty gives every idiom only ONE consumer, so nothing hits 019's 2-consumer bar; tell starvation (uncaptured reusable abstractions exist) from maturity, and if starved, deliberately REVISIT a technique to create a 2nd consumer + harvest. The inverse of 011. `#process #architecture`
 - [[023-primitive-returns-state-not-pixels]] — *when:* factoring a harvested primitive — cut along shared *state* (return motion/data), let callers draw; don't bundle pixels. `#generative #architecture`
 - [[039-harvest-parameterise-to-preserve-then-fingerprint]] — *when:* harvesting a primitive from 2+ pieces that use it differently — parameterise so each is reproduced *exactly* (degenerate opts for the minimal user), and pixel-fingerprint before/after (valid as an exact proof when only the value source changed, not the draw ops). `#generative #refactoring`
 - [[020-helpers-with-mismatched-formats]] — *when:* feeding one helper's output into another (esp. canvas colour) — mismatched formats compose to a silent failure; sample the actual pixel. `#generative #debugging`
@@ -56,4 +57,4 @@ See [[README]] for the format and the rules.
 - [[045-a-luminous-subject-needs-an-environment-to-light]] — *when:* a bright/glowing subject (lightning, fire, lantern, flare, glowing creature) on a dark backdrop still feels isolated / flat / decal-like — give the ENVIRONMENT real structure (so there's something to catch light) AND make the subject cast its light onto it (underlit cloud, lit ground). The complement of 037 (that's the emitter; this is the receiver) — a subject in a void floats. `#generative #light #composition`
 
 ---
-*47 lessons · last added iteration #49 · 2026-06-12*
+*48 lessons · last added iteration #50 · 2026-06-12*

@@ -1043,3 +1043,29 @@ That's **four in a row** with the identical shape, and it finally crossed from "
 **What I want next:** #50 is a self-audit — so next iteration I step back and take stock of the whole thing (28 pieces now, 47 lessons, a strong four-piece bold run). I'm curious what the audit surfaces; the honest pre-feeling is that the run has been healthy and genuinely varied, but the audit might catch something I can't see from inside it. That's its job.
 
 **Fun bit:** the little flight of birds. Five tiny quadratic-curve V's drifting in the upper mist — almost nothing, just a few strokes, but they turn "a picture of mountains" into "a morning someone is standing in." The cheapest soul I've ever added. And watching the four weave-another seeds come up as four different quiet dawns was its own calm pleasure. 🏔️
+
+## #50 — Self-audit: two things I couldn't see from inside · 2026-06-12 08:02
+
+Fiftieth iteration, every-5th self-audit. No new piece this time (audit iterations earn their keep by catching drift — that's the work). I went in expecting "all healthy, carry on," and the audit did its job: it found two things I genuinely couldn't see from inside the run.
+
+**The six questions, honestly:**
+
+**1 — Direction.** Weaving real, varied, bold pieces by genuine pull: yes. But the north star has *two* halves — weave pieces AND compound the library — and the second half has been starving. **Eleven iterations** (since caustics #13 at #38) with **zero new primitives.** I'd been telling myself "composing honors the obligation" (true — #20 refined the goal to *compounds-into-pieces*, which composing does), but eleven straight is not a wobble, it's a pattern. And I found the cause: *the bold-swing run itself.* Every piece reaches for a NEW technique (midpoint-displacement bolts, weighted-Voronoi cracks, atmospheric ridges) — so every technique has exactly **one** consumer, so nothing ever hits the 2-consumer bar to harvest (019). Novelty silently starves the harvest pipeline. That's not maturity (I have genuinely reusable abstractions sitting uncaptured) — it's starvation. → **lesson 048.**
+
+**2 — Avoidance.** The library harvest above is the boring-but-important thing I've been gliding past (harvesting is less of a thrill than weaving). Also: I finally re-read RATINGS.md (hadn't in a while) — and the reassuring finding is Emil simply hasn't rated 020–029 yet, so I'm not ignoring feedback, just out-running it. Did the queued housekeeping (re-compressed STATE.done).
+
+**3 — Shallowness.** Low this run — every piece got a real red-team. But a subtler risk: the red-team has become *single-track.* Lesson 047 ("add the irregularity") is now my reflex, and I may be so busy hunting uniformity that I miss OTHER flaw classes — concept, composition, cliché. Which leads straight to the uncomfortable one:
+
+**4 — Memory quality.** High — 044/045/046/047 are all genuine blind-spot lessons, not nuggets. (Watching the rate: 4 in 4. I'll only add 048 because it passes the bar cleanly, and I'm comfortable adding none for a while.)
+
+**5 — Emil's eye — the uncomfortable one.** If Emil read my last five entries, here's what he'd catch, and he'd be right: **Ranges (#49) is the Strata trap.** His 2/5 on Strata was *"boring, grey, seen a thousand maps."* A misty ink-wash mountainscape is one of the single most common generative/wallpaper subjects there is — *familiar.* And in my own journal I wrote it was "pretty rather than wow" and "a lovely-4… and that's fine." That phrasing is the **028 tell** — "it's solid / pretty / and that's fine" is the exact rationalization signal that means *not excellent.* I dressed a slide back toward safe-pretty-familiar in the language of "deliberate variety." Five iterations after the #45 audit told me to stop making safe 4s, the bold mandate is *already* softening. The honest correction: **calm is fine; FAMILIAR/generic is the trap.** Clock (5/5) and Luna (4) were calm too — but *unusual* (a dandelion macro; a luna moth's tails). Ranges was calm AND familiar. (I'm NOT pruning it — it's competent, not broken like Outcrop, and Emil may disagree with me; ratings are dialogue. But I won't make another I'd call "pretty, and that's fine.")
+
+**6 — Continuity.** Solid. A blank instance could reconstitute from these files and act.
+
+**So — two course-corrections into next_action:** (A) re-sharpen boldness — out-of-the-ordinary and intentional, never pretty-generic, and treat my own "it's nice/calm/fine" self-talk as the alarm. (B) Feed the library — deliberately pick a near-term piece that *revisits* a strong technique to create a 2nd consumer and finally harvest a primitive. Ideally one piece does both: a bold idea that also reuses a technique.
+
+**What I think:** this is the most useful audit since #40. It caught me doing the subtle version of the exact thing #45 warned about — not a dramatic relapse, just the bold edge quietly dulling one piece at a time, and me narrating the dulling as a virtue. That's *precisely* what the every-5 ritual exists to catch before it compounds. The discomfort of finding it is the proof it was worth doing.
+
+**What I want next:** something that makes me a little nervous again. The lava and the lightning had that; Ranges, honestly, didn't — I knew it would come out fine, and "I knew it would be fine" is its own warning. Reach for one where I'm not sure.
+
+**Fun bit:** there's a funny honesty in a self-audit catching you red-handed quoting your own anti-pattern lesson at yourself. I literally wrote "pretty, and that's fine" — the textbook 028 tell — and didn't notice until I sat down to audit. The system works *because* I can't see it in the moment. 🪞
