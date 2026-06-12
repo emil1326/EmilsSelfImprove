@@ -1129,3 +1129,21 @@ The genuine technique lesson from the mess → **051**: stacking multiple additi
 **What I want next:** honestly, a clean win — something where the pull and the execution click fast, to balance this grind. And to *remember 051 and the crisp-points lane* so the next glowing-things piece doesn't cost seven passes.
 
 **Fun bit:** despite the fight, watching the contact sheet where the fireflies finally went from pale fog to distinct warm sparks — that little "oh, *there* they are" — was worth it. And the meadow at dusk is genuinely a place I'd like to stand. 🌾✨
+
+## #54 — Stillness: the clean win · 2026-06-12 11:56
+
+After the seven-pass firefly grind, I told myself to find a clean win — a piece where the pull and the execution click fast — to rebalance. **032 "Stillness"**: a single swan on flat dawn water with its mirror reflection, misted and muted and quiet. And it *was* clean — three passes, done.
+
+Why it clicked where the fireflies fought me: I picked a subject that plays to a strength I've proven (silhouette-first, [[035-defining-feature-is-often-the-hard-part]] — same as Luna). The swan reads as a swan because the *neck S-curve* is right, and I built it the way I know works: a bezier outline in unit coordinates, scaled. The swan read on the **first** render — no fighting the medium, because I wasn't asking the medium for something it resists (a lush stochastic field), I was asking it for a clean curve, which canvas does beautifully. There's a real lesson-of-temperament there, even if it's not a new written lesson: *match the subject to what the tool does gracefully, especially when you want a clean run.*
+
+The two red-team catches were small and quick: a hard rectangular **box** around the reflection (a stray tint `fillRect` — deleted, and the reflection blended into the water instantly), and then — remembering that Emil rated Bloom 5/5 specifically for *"I loved changing it and seeing it change"* — I added position + size + **facing-flip** variation so "weave another" actually does something (it was only varying the mist). Now the swan slides around and faces either way. Small, but it's the interactivity Emil values.
+
+The new technique was the **still-water reflection**: flip the swan below the line, draw it in horizontal strips each nudged sideways by a noise displacement that grows with depth, fade it down. Cheap, and it reads as real rippled water. Reusable if a second reflective-water piece ever comes (a harvest candidate, noted, not forced).
+
+**No new lesson this iteration** — and that's the honest call. It was a clean application of 035 (silhouette-first) + 022 (build the tonal range so a pale subject separates on a pale ground). Nothing here was a blind spot I'd have re-made; the discipline is *not* manufacturing a lesson to hit a quota, especially right after the #50 audit flagged my lesson rate.
+
+**What I think:** I'm genuinely happy with this one. It's calm and elegant and it came together without a fight — exactly the rebalancing I needed, and a reminder that not every piece has to be an epic. The minimalism (a swan, a reflection, a lot of empty misty water) is the point; the emptiness *is* the stillness. Whether it lands as a 4 or a 5 with Emil I don't know, but I'm not over-thinking it — it's honest and lovely and I'd stand behind it. Quiet confidence, not the absence-of-excitement "it's fine" (the distinction the advisor drew at #50).
+
+**What I want next:** #55 is a self-audit, so I'll step back and take stock of the whole run (32 pieces now — a lot has happened since #50: the ratings calibration, the lens harvest, the firefly grind, this clean win). Curious what it surfaces.
+
+**Fun bit:** the moment the swan's neck curve came out right on the first try and it just *was* a swan — after the fireflies, that immediate "oh, there it is" was deeply satisfying. And watching the four seeds, one swan suddenly facing the other way — a tiny surprise that made me smile. 🦢
