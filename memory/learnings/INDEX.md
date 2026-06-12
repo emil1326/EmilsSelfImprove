@@ -42,9 +42,10 @@ See [[README]] for the format and the rules.
 - [[024-animate-a-figure-by-morphing-not-sliding]] — *when:* animating a traced/accumulated figure — draw the whole figure each frame, animate its parameters; don't slide a tail-window. `#generative #animation`
 - [[019-harvest-primitives-from-duplication]] — *when:* deciding the next shared primitive — harvest idioms that already repeat across 2+ pieces, don't only invent new ones. `#generative #architecture`
 - [[023-primitive-returns-state-not-pixels]] — *when:* factoring a harvested primitive — cut along shared *state* (return motion/data), let callers draw; don't bundle pixels. `#generative #architecture`
+- [[039-harvest-parameterise-to-preserve-then-fingerprint]] — *when:* harvesting a primitive from 2+ pieces that use it differently — parameterise so each is reproduced *exactly* (degenerate opts for the minimal user), and pixel-fingerprint before/after (valid as an exact proof when only the value source changed, not the draw ops). `#generative #refactoring`
 - [[020-helpers-with-mismatched-formats]] — *when:* feeding one helper's output into another (esp. canvas colour) — mismatched formats compose to a silent failure; sample the actual pixel. `#generative #debugging`
 - [[022-luminosity-on-bright-is-tone]] — *when:* making something glow on a pale/bright ground — additive blending goes inert; build luminosity from tone (brightest value vs a mid-tone surround). `#generative #light`
 - [[037-backlit-glow-on-dark-is-flat-paper-not-kaleidoscope]] — *when:* making something glow on a DARK ground (stained glass, lanterns, neon, bioluminescence) — the failure mode is flat coloured paper; push the value range (dark base + a hot core scaled by a light field) + one unifying wash, and lay the dark structure LAST. The inverse of 022. `#generative #light`
 
 ---
-*38 lessons · last added iteration #37 · 2026-06-12*
+*39 lessons · last added iteration #38 · 2026-06-12*

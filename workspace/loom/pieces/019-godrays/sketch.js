@@ -40,7 +40,8 @@ Loom.piece({
     depth.addColorStop(0.66, "#072a36");
     depth.addColorStop(1, "#03131c");
 
-    var caN = Loom.noise(rng.int(0, 1e9));                 // caustics + surface ripple
+    var caN = Loom.noise(rng.int(0, 1e9));                 // the caustic field's noise
+    var caustic = Loom.caustics(caN, { scale: 9, yOffset: 4, octaves: 3, ridged: false, sharpen: 1 }); // primitive #13 — soft dapple
     var moN = Loom.noise(rng.int(0, 1e9));                 // shaft shimmer
 
     var sunX = rng.range(0.54, 0.72) * S;                  // the sun's place at the surface
@@ -71,7 +72,7 @@ Loom.piece({
       ctx.globalCompositeOperation = "lighter";
       for (var cx = 0; cx < S; cx += 3 * U) {
         for (var cy = 0; cy < 0.16 * S; cy += 3 * U) {
-          var cv = caN.fbm(cx / S * 9, cy / S * 9 + 4, 3);
+          var cv = caustic(cx / S, cy / S);
           if (cv < 0.62) continue;
           ctx.globalAlpha = (cv - 0.62) * 0.9 * (1 - cy / (0.16 * S));
           ctx.fillStyle = "#cdf6f4";

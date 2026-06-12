@@ -42,14 +42,9 @@ Loom.piece({
     function depthAt(x, y) {
       return depthN.fbm(x / S * 2.2 + 3, y / S * 2.2 + 7, 3);
     }
-    // the caustic web: ridged, domain-warped noise → a net of bright veins (how focused sunlight reads)
-    function caustic(x, y) {
-      var wx = x / S * 5.5 + cauB.fbm(x / S * 3, y / S * 3, 2) * 1.6;
-      var wy = y / S * 5.5 + cauB.fbm(x / S * 3 + 5, y / S * 3 + 5, 2) * 1.6;
-      var n = cauA.fbm(wx, wy, 3);
-      var ridge = 1 - Math.abs(2 * n - 1);      // ridged → thin bright lines
-      return ridge * ridge;                      // sharpen the veins
-    }
+    // the caustic web — ridged, domain-warped noise into a net of bright veins (primitive #13).
+    // Takes NORMALISED coords; call it caustic(x/S, y/S).
+    var caustic = Loom.caustics(cauA, { scale: 5.5, octaves: 3, ridged: true, sharpen: 2, warp: 1.6, warpNoise: cauB, warpScale: 3 });
 
     // ---------- the koi ----------
     var SCHEMES = [
@@ -236,7 +231,7 @@ Loom.piece({
           var px = ox * k, py = oy * k;
           var d = depthAt(px, py);
           var col = lerp3(BED, DEEP, Math.min(1, d * 0.85 + bedN.fbm(px / S * 7, py / S * 7, 3) * 0.25));
-          var c = caustic(px, py);
+          var c = caustic(px / S, py / S);
           if (c > 0.42) col = lerp3(col, CAU, Math.min(0.85, (c - 0.42) * 2.0 * (1 - d * 0.7)));
           col = lerp3(col, WAT, 0.34);                                   // green water veil
           var rv = ripN.fbm(px / S * 9, py / S * 9, 3);
