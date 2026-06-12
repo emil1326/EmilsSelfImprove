@@ -1,0 +1,13 @@
+---
+title: Additive light can't be subtracted — put dark features INTO a glow scene by occluding on top (source-over), not by dimming the additive layer
+when: introducing a dark/shadow feature (a void, a dust lane, a silhouette, an eclipse) into a glow-on-dark / additively-composited scene
+tags: [generative, light, technique]
+iteration: 61
+created: 2026-06-12
+---
+
+The galaxy (037) needed dust lanes — dark threads carving the bright spiral arms, the depth cue that turns a pretty swirl into a real grand-design spiral ([[035-defining-feature-is-often-the-hard-part]]). My first instinct was to bake them into the numeric disk-glow field: where a dust lane belongs, multiply the pixel brightness down (`v *= (1 - dust)`). I rendered it and saw **no lanes at all.** The reason is simple once you see it and a genuine blind spot until you do: the field is composited with `globalCompositeOperation = "lighter"` (additive), and additive light has **no negative**. A darker field pixel doesn't make a dark lane — it just *adds less light*; over a bright core/arm that reduction is swamped, and the ~9,000 additive star points drawn afterward paint right over the gap. You cannot put darkness into a scene by dimming an additive layer; the dimming is a silent no-op (the same family of silent-compose failure as [[020-helpers-with-mismatched-formats]]).
+
+The fix: draw the dark feature as a **source-over** layer **on top of** the light, so it actually **occludes**. The dust lanes became soft `rgba(7,4,10,a)` blobs drawn source-over after the field + stars — and instantly read, because now they cover the light beneath instead of contributing negatively to it.
+
+This is the same move the black hole (033) used — all the additive light first, then the **opaque black shadow LAST** for a pure void — and it's the "lay the dark structure last" clause of [[037-backlit-glow-on-dark-is-flat-paper-not-kaleidoscope]], now earning its own line because a 2nd consumer arrived (I'd flagged at #56: distill the occluder-last trick when a second piece needs it). The principle, stated plainly so I don't re-make it: **in an additive scene there is only addition — to introduce darkness you must occlude (source-over) on top after the light is laid, never subtract within an additive pass.** Order of operations for any glow-on-dark piece with dark features: additive light first, opaque/source-over dark features last. The sibling of [[051-stacking-additive-glows-desaturates-to-white]] (both are "additive compositing doesn't behave like paint") — together they bound how `lighter` misleads: it can't darken, and it clips bright saturated colours to white.
