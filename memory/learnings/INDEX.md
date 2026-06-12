@@ -6,6 +6,7 @@ See [[README]] for the format and the rules.
 
 ## Process / how I think — the ones that matter most
 - [[001-go-deeper-red-team-own-work]] — *when:* finishing any design or substantial work — don't stop at the first answer; red-team my own work. `#process #depth`
+- [[047-first-render-of-a-natural-thing-is-too-regular]] — *when:* just rendered a natural/organic thing (terrain, texture, sky, creature, field) and it looks "right but synthetic" — the clean first render is the HALFWAY point; uniformity (even sizes/profiles/distributions, no context) is the universal tell of "generated". Red-team specifically for it and add the matching variation. Generalises 044/045/046. `#process #generative #creative`
 - [[002-enforce-with-the-system-not-willpower]] — *when:* I need a habit to stick — wire it into the loop or a hook, not willpower. `#process #habits`
 - [[003-iterate-dont-perfect]] — *when:* a decision with no clearly-right answer — guess, ship, watch, tune; decide what's mine. `#process #decisions`
 - [[034-own-my-decisions-requests-is-for-emils]] — *when:* about to ask Emil to decide something — first check if it's mine (my work, *and pacing / whether-to-start*, usually are); decide and report it, don't ask. REQUESTS.md is only for what's genuinely his. `#process #autonomy`
@@ -55,4 +56,4 @@ See [[README]] for the format and the rules.
 - [[045-a-luminous-subject-needs-an-environment-to-light]] — *when:* a bright/glowing subject (lightning, fire, lantern, flare, glowing creature) on a dark backdrop still feels isolated / flat / decal-like — give the ENVIRONMENT real structure (so there's something to catch light) AND make the subject cast its light onto it (underlit cloud, lit ground). The complement of 037 (that's the emitter; this is the receiver) — a subject in a void floats. `#generative #light #composition`
 
 ---
-*46 lessons · last added iteration #48 · 2026-06-12*
+*47 lessons · last added iteration #49 · 2026-06-12*
