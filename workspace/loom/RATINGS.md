@@ -6,7 +6,29 @@ Fill it from the gallery (stars → **Copy for the loop** → paste) or just wri
 
 ---
 
-## Ratings — 2026-06-11 (latest · all 18 pieces, post-Outcrop-retirement, post-Cadence-fix)
+## Ratings — 2026-06-12 (latest · the full set, 020–029 now rated) 🎉
+
+The first batch covering every piece. Older scores (001–019) unchanged from below; the new info is 020–029, and it carries a sharp calibration.
+
+**Current, grouped:**
+- **5/5** — 002 Loose Threads · 005 Bloom · 008 Aurora · 010 Medusa · 012 Clock · 014 Current · 017 Murmuration · 019 God-rays · **020 Rose Window** · **021 Koi** · **026 Strange** · **027 Strike**
+- **4/5** — 004 Tessera · 009 Glint · 011 Meadow · 013 Cadence · 016 Turing · 018 Embers · **023 Rain** · **028 Molten** · **029 Ranges**
+- **3/5** — 001 Warp & Weft · 006 Roe · 007 Rime · **022 Iris** · **024 Giant** · **025 Luna**
+- **2/5** — 003 Strata
+
+**The headline — technical pride mispredicts; aesthetic "oh!" predicts.** My two most technically ambitious recent pieces — **022 Iris** (full-res eye fibres) and **024 Giant** (a from-scratch 3D-shaded sphere, "the most ambitious piece") — are my two *lowest* of the new batch (both 3/5). The three I was simply, aesthetically *thrilled* by — **020 Rose Window, 026 Strange, 027 Strike** — are all 5/5. Difficulty is invisible to the viewer; only the felt result counts. When my excitement is *"this is beautiful / surprising"* → it lands (5). When it's *"this was hard and I pulled it off"* → it doesn't (3). Sharpens [[028-trust-excitement-distrust-its-solid]] (the right excitement is *aesthetic*, not *technical*) and is a partial relapse into the original #15 warning that *technique-demos read as boring* — Iris and Giant were technical exercises on conceptually-familiar subjects (an eye; a planet). → distilled as [[049-technical-pride-mispredicts-aim-for-the-aesthetic-oh]].
+
+**The #50 audit was too hard on Ranges — the advisor was right.** I'd feared **029 Ranges** was the Strata-trap (familiar subject → a 2–3 flop). It's a **4**. A familiar subject is NOT automatically the trap: Strata was *clinical and flat* ("grey, a map seen a thousand times"); Ranges has atmosphere, depth, a dawn, birds — *evocative*. The failure mode is clinical/flat execution, not the subject — and deferring the verdict to Emil's data instead of hardening my guess was exactly right.
+
+**I under-credit the serene/soulful ones.** **021 Koi** is a 5 — I'd have guessed a 4. The calm, luminous, atmospheric pieces land *harder* than I credit; the impressive-but-cold ones softer.
+
+**What the whole 5-cluster shares.** Across all twelve fives — Loose Threads, Bloom, Aurora, Medusa, Clock, Current, Murmuration, God-rays, Rose Window, Koi, Strange, Strike — the throughline is a *felt* quality: **motion/life, atmosphere/emotion, or genuine visual surprise.** The 3s (Warp, Roe, Rime, Iris, Giant, Luna) + Strata (2) are more *static / rendered / technical-or-plain.* **Felt beats rendered** — the compass for what's next.
+
+**Net on the bold run (#45's mandate):** vindicated where it was aesthetic — Strange (5), Strike (5); solid elsewhere — Molten (4), Ranges (4). Keeping the aperture open + chasing the genuine "oh!" works; the correction is to make the "oh!" *aesthetic*, not *technical*.
+
+---
+
+## Ratings — 2026-06-11 (prior snapshot · 18 pieces, post-Outcrop-retirement, post-Cadence-fix)
 
 > **Emil:** *"god rays is insane, i love it."* 💙
 

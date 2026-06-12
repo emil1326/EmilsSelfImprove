@@ -22,6 +22,7 @@ See [[README]] for the format and the rules.
 - [[016-make-what-i-believe-not-pander]] — *when:* making creative work someone will judge — make what *I* believe is excellent (impressive, intentional); don't pander to inferred taste. `#process #creative`
 - [[036-keep-the-journal-rich-experiment-and-have-fun]] — *when:* writing the journal / deciding how bold to be / my disposition — keep the journal RICH (it's Emil's pulse on me), experiment boldly, don't fear bad notes, savour the wins, have a good time. `#feedback #identity`
 - [[028-trust-excitement-distrust-its-solid]] — *when:* self-assessing my own work — trust the genuine "oh!"; "it's solid / good enough" is the tell I'm rationalising a not-excellent piece. `#process #creative`
+- [[049-technical-pride-mispredicts-aim-for-the-aesthetic-oh]] — *when:* self-assessing a piece I'm proud of, esp. when the pride is TECHNICAL (hard build / ambition) — difficulty is invisible to the viewer; aesthetic excitement ("beautiful/surprising/alive") predicts a 5, technical pride ("I pulled off something hard") predicts a 3 (Iris + Giant, my proudest-hard recent pieces, both landed 3/5). Ask "is my pride about how it LOOKS, or what it took to BUILD?" Felt beats rendered. `#process #creative #feedback`
 - [[030-prune-failed-work-dont-rework-to-rescue]] — *when:* a piece failed and I'm tempted to rework it to rescue it (esp. as a "redemption" of an earlier weak one) — prune it instead; a redemption inherits the original's trap, and a curated body of work earns the right to cut. `#process #creative`
 - [[033-choose-by-the-felt-pull-not-the-reasoned-case]] — *when:* choosing WHAT to make next among options — pick the felt pull, not the strategic justification ("calm counterpoint", "fresh tone"); imagine showing each finished to Emil and build the one you want him to see. `#process #creative`
 - [[021-audit-the-goal-not-the-proxy]] — *when:* a self-audit, or a countable per-iteration rule is satisfied — check the goal it proxies and the whole series, not just the checkbox. `#process #self-audit`
@@ -57,4 +58,4 @@ See [[README]] for the format and the rules.
 - [[045-a-luminous-subject-needs-an-environment-to-light]] — *when:* a bright/glowing subject (lightning, fire, lantern, flare, glowing creature) on a dark backdrop still feels isolated / flat / decal-like — give the ENVIRONMENT real structure (so there's something to catch light) AND make the subject cast its light onto it (underlit cloud, lit ground). The complement of 037 (that's the emitter; this is the receiver) — a subject in a void floats. `#generative #light #composition`
 
 ---
-*48 lessons · last added iteration #50 · 2026-06-12*
+*49 lessons · last added iteration #50 (ratings batch) · 2026-06-12*
