@@ -64,8 +64,7 @@ Loom.piece({
       var ry = r * 1.06;
       c.save();
       c.beginPath(); c.ellipse(dx, dy, r, ry, 0, 0, TAU); c.clip();
-      var k = -0.5;                                          // wide-angle inverted lens (upside-down world)
-      c.save(); c.translate(dx, dy); c.scale(k, k); c.translate(-dx, -dy); c.drawImage(bgC, 0, 0, S, S); c.restore();
+      Loom.lens(c, bgC, dx, dy, -0.5);                       // primitive #14: the inverted, minified meadow inside the bead
       // a drop refracts darker/saturated toward its rim (edge bending) — tone, not additive (022)
       var rim = c.createRadialGradient(dx, dy, r * 0.25, dx, dy, r);
       rim.addColorStop(0, "rgba(40,52,40,0)");

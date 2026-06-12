@@ -62,12 +62,11 @@ Loom.piece({
       // the lens: a WIDE-ANGLE inverted view of the scene behind (the classic droplet-full-of-lights),
       // gathered from a region ~2.4× the drop's size so it catches NEARBY lights, not just dead-dark.
       var k = -0.42;
-      c.save(); c.translate(dx, dy); c.scale(k, k); c.translate(-dx, -dy); c.drawImage(bgC, 0, 0, S, S); c.restore();
-      // intensify the gathered lights (a drop concentrates them) — a second additive pass + a soft lift,
-      // so a drop reads as luminous wet glass, never an opaque bead.
+      Loom.lens(c, bgC, dx, dy, k);                          // primitive #14 (harvested from this + Dew)
+      // intensify the gathered lights (a drop concentrates them) — a second additive pass at low alpha +
+      // a soft lift, so a drop reads as luminous wet glass, never an opaque bead.
       c.globalCompositeOperation = "lighter";
-      c.save(); c.globalAlpha = 0.5; c.translate(dx, dy); c.scale(k, k); c.translate(-dx, -dy); c.drawImage(bgC, 0, 0, S, S); c.restore();
-      c.globalAlpha = 1;
+      c.globalAlpha = 0.5; Loom.lens(c, bgC, dx, dy, k); c.globalAlpha = 1;
       var br = c.createRadialGradient(dx, dy - ry * 0.18, 0, dx, dy, rr * 1.15);
       br.addColorStop(0, "rgba(255,248,232,0.2)"); br.addColorStop(1, "rgba(255,248,232,0)");
       c.fillStyle = br; c.fillRect(dx - rr, dy - ry, 2 * rr, 2 * ry);
