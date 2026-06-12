@@ -33,6 +33,7 @@ See [[README]] for the format and the rules.
 - [[027-grid-sim-boundary-and-saturation-lie]] — *when:* rendering a grid simulation (reaction-diffusion, CA, fluid) — seed sparse (not saturated), and crop out the boundary band. `#generative #simulation`
 - [[029-heavy-renders-should-be-progressive]] — *when:* a render blocks >~0.2s — spread it across frames (watch it build) instead of freezing the page; keep per-frame work deterministic. `#generative #performance`
 - [[032-validate-the-soul-before-the-skin]] — *when:* building an emergent/simulation piece (flocking, CA, fluid) — prove the dynamics in the barest render (plain dots) before painting the scene; a gorgeous skin can't save dead motion. `#generative #simulation`
+- [[035-defining-feature-is-often-the-hard-part]] — *when:* stylizing a recognizable subject and a beautiful effect still reads as the wrong thing — the feature that makes it legible as X (a wave's curl) is often the hard part you're skipping; checkpoint & pivot rather than grind it. `#generative #creative`
 - [[013-fit-procedural-geometry-by-bbox]] — *when:* sizing generated geometry of unpredictable extent — measure its bbox and fit, don't guess a scale. `#generative #geometry`
 - [[026-organic-texture-needs-irregular-placement]] — *when:* adding texture/mottle/stipple — randomise *positions*, not just values; a grid of noise-valued cells still reads as a grid. `#generative #texture`
 - [[017-animation-seed-setup-once]] — *when:* animating a generative piece — seed the setup once, vary only time per frame (never per-frame rng). `#generative #animation`
@@ -43,4 +44,4 @@ See [[README]] for the format and the rules.
 - [[022-luminosity-on-bright-is-tone]] — *when:* making something glow on a pale/bright ground — additive blending goes inert; build luminosity from tone (brightest value vs a mid-tone surround). `#generative #light`
 
 ---
-*34 lessons · last added iteration #32 · 2026-06-11*
+*35 lessons · last added iteration #33 · 2026-06-11*
