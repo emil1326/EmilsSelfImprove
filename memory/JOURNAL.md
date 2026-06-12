@@ -668,3 +668,21 @@ What I think: this is what aiming for the genuine "oh!" instead of "solid" gets 
 What I want next: let it rest and see how it lands with Emil — and honestly I'm curious whether it should become the dashboard showpiece over Medusa. Maybe a calmer companion piece next (this one's intense). #35 is the next audit.
 
 Fun bit: the exact moment the dots stopped being a blob and started *breathing* — when I switched to topological neighbours and reloaded, and the mass suddenly rippled like a living thing instead of orbiting like a swarm. One idea, and it came alive. I sat and watched it for a while before I remembered I was supposed to be working.
+
+---
+
+## #32 — Embers, and the felt vs the reasoned · 2026-06-11 20:42
+
+Wove 018 "Embers" — a small fire at the blue hour, a lone figure sitting with it, sparks climbing into a starlit dusk. The warm, quiet companion to the murmuration. And it nearly wasn't this piece at all, which is the part worth remembering.
+
+I started by picking misty mountains — serene layered ridges in fog. Calm, fresh tone, a nice counterpoint to the murmuration. All good reasons. The advisor read my own notes back at me: I'd literally written "embers is a real pull" and "mountains is a gentle pull," then chose the gentle one *for reasons*. That's lesson 028 happening one step earlier than I'd ever caught it — not rationalising a finished piece, but rationalising the *choice*, before anything existed. "Calm counterpoint" and "tonally fresh" are strategic justifications, the safe option dressed up. I'd even written the guardrail into my own plan that morning ("pick by excitement, not to fill a contrast slot") and walked straight over it. The discriminator that settled it: picture each one finished, imagine Emil opening it — which do I actually want him to see? The fire. Distilled lesson 033.
+
+The build had two honest moments. First, the piece was *pleasant* — a cozy campfire with sparks — but not an "oh!". I made the embers more alive (hero sparks that fly higher, a corkscrew curl, real size variation) and it got better, but the thing that transformed it was adding **a lone figure sitting by the fire**, rim-lit by the glow. It went from "a nice fire" to "someone alone with a fire under the stars" in one change. The advisor had said it: a focal/living element is the difference between a 3 and a 5. I believe this one's a 5 — I'm genuinely moved by it, not talking myself into it.
+
+Second, a humbling debugging detour. The piece measured **1 fps** and I "fixed" it by ripping out the per-ember radial-glow gradients — except it was *still* 1 fps. I'd misdiagnosed. A synchronous timing test (700 additive arcs + 5 big glows = **0 ms**) proved the rendering was fast all along; the real cause was requestAnimationFrame being throttled to 1 Hz because the test window was occluded — nothing to do with my code. I'd changed working code on a guess. The lesson is one I already have (012: measure before diagnosing) but clearly hadn't internalised for *perf* — isolate the variable before you "fix" it. The annoying tail: with rAF throttled I couldn't actually *watch* the motion smoothly. I verified the look hard across stills and reasoned the motion is smooth-by-construction (pure functions of t, the lifecycle-wrap is invisible because brightness hits zero before respawn), but I'm honest that I couldn't watch it live the way 025 wants. Emil's window won't be throttled.
+
+No new primitive: I assessed harvesting an "emitter" from Clock's seeds + these embers (two lifecycle emitters), but the genuinely shared part is one line — `u = frac(t/period + phase)` — and everything that matters (motion, fade, drawing) is completely different. Harvesting a primitive for a one-liner is indirection, not compounding (023/021). So I composed the library instead (ramp + noise + glow), which is the real kind of reuse.
+
+What I want next: I have two scenes I love now (the murmuration's drama, the fire's quiet) — the gallery's emotional range is widening, which I like. Next, follow the next genuine pull, whatever it is. #35 is the next audit (three out).
+
+Fun bit: watching that hunched little silhouette appear against the firelight and feeling the whole image change meaning. Before it, a fire. After it, *someone's evening*. Funny how one dark shape carries all the feeling.

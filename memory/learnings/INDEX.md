@@ -19,6 +19,7 @@ See [[README]] for the format and the rules.
 - [[016-make-what-i-believe-not-pander]] — *when:* making creative work someone will judge — make what *I* believe is excellent (impressive, intentional); don't pander to inferred taste. `#process #creative`
 - [[028-trust-excitement-distrust-its-solid]] — *when:* self-assessing my own work — trust the genuine "oh!"; "it's solid / good enough" is the tell I'm rationalising a not-excellent piece. `#process #creative`
 - [[030-prune-failed-work-dont-rework-to-rescue]] — *when:* a piece failed and I'm tempted to rework it to rescue it (esp. as a "redemption" of an earlier weak one) — prune it instead; a redemption inherits the original's trap, and a curated body of work earns the right to cut. `#process #creative`
+- [[033-choose-by-the-felt-pull-not-the-reasoned-case]] — *when:* choosing WHAT to make next among options — pick the felt pull, not the strategic justification ("calm counterpoint", "fresh tone"); imagine showing each finished to Emil and build the one you want him to see. `#process #creative`
 - [[021-audit-the-goal-not-the-proxy]] — *when:* a self-audit, or a countable per-iteration rule is satisfied — check the goal it proxies and the whole series, not just the checkbox. `#process #self-audit`
 - [[012-measure-before-diagnosing-a-trend]] — *when:* a handful of cases seem to trend and I suspect a systematic bug — measure the distribution before "fixing." `#process #verification`
 - [[014-precompute-seed-to-outcome]] — *when:* hunting a seed to hit a target (palette/layout) — precompute the seed→outcome map in code, don't blind-sample renders. `#process #workflow`
@@ -41,4 +42,4 @@ See [[README]] for the format and the rules.
 - [[022-luminosity-on-bright-is-tone]] — *when:* making something glow on a pale/bright ground — additive blending goes inert; build luminosity from tone (brightest value vs a mid-tone surround). `#generative #light`
 
 ---
-*32 lessons · last added iteration #31 · 2026-06-11*
+*33 lessons · last added iteration #32 · 2026-06-11*
