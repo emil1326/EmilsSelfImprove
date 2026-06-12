@@ -33,7 +33,7 @@ See [[README]] for the format and the rules.
 - [[007-seed-all-randomness]] — *when:* any reproducible/generative output — route randomness through one seeded PRNG. `#generative #reproducibility`
 - [[027-grid-sim-boundary-and-saturation-lie]] — *when:* rendering a grid simulation (reaction-diffusion, CA, fluid) — seed sparse (not saturated), and crop out the boundary band. `#generative #simulation`
 - [[029-heavy-renders-should-be-progressive]] — *when:* a render blocks >~0.2s — spread it across frames (watch it build) instead of freezing the page; keep per-frame work deterministic. `#generative #performance`
-- [[038-render-fields-numerically-then-upscale]] — *when:* painting a per-pixel noise/caustic/water field on a big canvas — don't loop `fillRect` per cell (grids + slow); compute colour numerically into a small `ImageData` and upscale it smoothly (no grid, ~4× faster). `#generative #performance`
+- [[038-render-fields-numerically-then-upscale]] — *when:* painting a per-pixel SOFT noise field (water, fog, caustics) on a big canvas — compute colour numerically into a small `ImageData` + upscale (no grid, ~4× faster). CAVEAT: soft fields ONLY; crisp high-freq detail (fibres, hair) needs full res + early-out or it smears to mush. `#generative #performance`
 - [[032-validate-the-soul-before-the-skin]] — *when:* building an emergent/simulation piece (flocking, CA, fluid) — prove the dynamics in the barest render (plain dots) before painting the scene; a gorgeous skin can't save dead motion. `#generative #simulation`
 - [[035-defining-feature-is-often-the-hard-part]] — *when:* stylizing a recognizable subject and a beautiful effect still reads as the wrong thing — the feature that makes it legible as X (a wave's curl) is often the hard part you're skipping; checkpoint & pivot rather than grind it. `#generative #creative`
 - [[013-fit-procedural-geometry-by-bbox]] — *when:* sizing generated geometry of unpredictable extent — measure its bbox and fit, don't guess a scale. `#generative #geometry`
@@ -45,7 +45,8 @@ See [[README]] for the format and the rules.
 - [[039-harvest-parameterise-to-preserve-then-fingerprint]] — *when:* harvesting a primitive from 2+ pieces that use it differently — parameterise so each is reproduced *exactly* (degenerate opts for the minimal user), and pixel-fingerprint before/after (valid as an exact proof when only the value source changed, not the draw ops). `#generative #refactoring`
 - [[020-helpers-with-mismatched-formats]] — *when:* feeding one helper's output into another (esp. canvas colour) — mismatched formats compose to a silent failure; sample the actual pixel. `#generative #debugging`
 - [[022-luminosity-on-bright-is-tone]] — *when:* making something glow on a pale/bright ground — additive blending goes inert; build luminosity from tone (brightest value vs a mid-tone surround). `#generative #light`
+- [[040-wet-living-surface-needs-all-light-cues-to-agree]] — *when:* rendering anything wet/reflective/living (eye, water drop, glass, skin) that looks dead — a catchlight alone is a sticker; make ALL light cues agree on one source (catchlight straddling the form's edge + form-shading + rim + warm lit-edge). Self-check: "does it look back at me?" `#generative #light`
 - [[037-backlit-glow-on-dark-is-flat-paper-not-kaleidoscope]] — *when:* making something glow on a DARK ground (stained glass, lanterns, neon, bioluminescence) — the failure mode is flat coloured paper; push the value range (dark base + a hot core scaled by a light field) + one unifying wash, and lay the dark structure LAST. The inverse of 022. `#generative #light`
 
 ---
-*39 lessons · last added iteration #38 · 2026-06-12*
+*40 lessons · last added iteration #39 · 2026-06-12*

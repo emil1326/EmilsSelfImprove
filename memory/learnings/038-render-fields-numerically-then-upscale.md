@@ -1,6 +1,6 @@
 ---
 title: Render a noise field numerically to a small ImageData, then upscale — not per-cell canvas fills
-when: painting a per-pixel/area field (caustics, water, fog, gradients-of-noise) across a big canvas
+when: painting a per-pixel/area SOFT field (caustics, water, fog, gradients-of-noise) across a big canvas — NOT a field whose soul is fine high-frequency detail (see the caveat)
 tags: [generative, performance]
 iteration: 37
 created: 2026-06-12
@@ -17,3 +17,5 @@ The fix solves both: **compute the composited colour numerically into an `ImageD
 - Keep genuinely-smooth layers (radial deep-patches, a sun-slant gradient) as cheap canvas gradient ops *on the offscreen after* `putImageData` — no need to fold them into the numeric loop.
 
 Note the contrast with Strata/Turing: those wrote a *full-res* `ImageData` (fine when the field needs pixel-crisp detail). For a soft field (water, fog), the **low-res + upscale** variant is cheaper and smoother. Reach for ImageData the moment a field is more than a few hundred coarse cells.
+
+**Caveat — the low-res + upscale trick is for SOFT fields ONLY (this is the load-bearing bit).** It works *because* there's no high-frequency detail to lose. For a field whose soul IS fine detail — iris fibres, hair, fine veins, crisp filaments — the upscale smears it to mush. On the iris (022) I almost rendered at koi's same 0.42× before the advisor caught it; fibres need **full or near-full res**, and you afford it by **early-out over the bounded region** (the iris is a disc — skip every pixel past its radius). 0.85× with a gentle ×1.18 upscale was the safe ceiling; koi's 0.42× / ×2.4 would have been ruin. Rule of thumb: **soft field → low-res + upscale; crisp detail → full res + early-out.**
