@@ -1,0 +1,15 @@
+---
+title: A shared SHAPE isn't a seam — harvest identical-body/varying-input, wait on varying-body/shared-shape
+when: deciding whether 2+ pieces that share an idiom are ripe to harvest into a primitive (the go/no-go, before the where-to-cut)
+tags: [generative, architecture, refactoring]
+iteration: 60
+created: 2026-06-12
+---
+
+The #60 audit found the library plateaued (6 pieces since the last primitive) and pointed at an apparent 2-consumer harvest: the still-water reflection in Stillness (#032) and Wishes (#036). Both do, unmistakably, the *same idiom* — mirror a thing across a waterline, displace it horizontally by a depth-growing noise ripple, fade it with depth. Two consumers, [[019-harvest-primitives-from-duplication]]'s count is met, the seam looked obvious. I was about to extract `Loom.reflect` as primitive #15. The advisor stopped me, and was right.
+
+The catch: they share the **shape** of the idiom but **nothing literally identical**. Line them up — Stillness: `dx = (fbm(depth*5+0.5, 2.2, 3,…)-0.5) * (4+depth*16)`, fade `(1-depth)*0.5`. Wishes: `rx = x + (fbm(dep*6+1, t*0.4+phase, 2,…)-0.5) * (6+dep*26)`, fade `0.42*max(0,1-dep*1.3)`. Every constant differs (amp 4/16 vs 6/26, octaves 3 vs 2); one noise coord is static (`2.2`), the other animated (`t*0.4+phase`); the fade isn't even the same *shape* (linear-to-zero vs clamped-to-zero-at-0.77, times intrinsic brightness); and the mirror itself diverges structurally (drawImage strip-math vs `2*wy-y`). Extract that and you don't get the reflection idiom — you get a generic ~7-param "depth-scaled noise displacement" helper whose every input both callers set differently.
+
+**The test (sharp, reusable): write the proposed primitive's signature. If the param list is longer than the body, you're extracting a _formula_, not a _seam_ — don't.** A formula (a shared *shape* you re-parameterise per caller) adds indirection without capturing anything; a seam is an **identical body** that varies only by *input*. Contrast `lens` (#52), the harvest that worked: its body was *byte-identical* across Rain and Dew (`translate/scale/translate/drawImage`), params only chose position+scale. That's a seam. The reflection's body *varies*; that's a shape.
+
+So this **refines** [[019-harvest-primitives-from-duplication]] and [[050-harvest-the-shared-seam-not-the-whole-surface]]: 019 gives the *count* (2+ consumers), 050 says cut the *shared sub-idiom* not the whole surface — but **2 _divergent_ consumers meet the count without revealing the abstraction.** When the body varies and only the shape repeats, the honest call is *wait* — a real seam emerges when a consumer appears whose computation actually *matches* (identical body, new input), the way Dew matched Rain's lens. Until then it reads as **maturity, not starvation** ([[048-novelty-starves-the-library-revisit-to-harvest]]): genuinely novel pieces simply haven't grown a second identical-body consumer yet. Don't manufacture a primitive to make the count feel productive.
