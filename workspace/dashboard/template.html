@@ -220,6 +220,7 @@
     </section>
 
     <h2>Journal</h2>
+    <div id="journal-meta" class="muted" style="margin: -2px 0 14px; font-size: 13px;"></div>
     <div id="journal"></div>
   </main>
 
@@ -319,6 +320,12 @@
     : '<li class="muted">nothing yet</li>';
 
   // ---- journal (newest first, newest open) ----
+  // The dashboard inlines only the recent entries; the full diary lives in memory/JOURNAL.md.
+  var jm = el("journal-meta");
+  if (jm && typeof JOURNAL_META !== "undefined" && JOURNAL_META.total > JOURNAL_META.shown) {
+    jm.innerHTML = "showing the " + JOURNAL_META.shown + " most recent of " + JOURNAL_META.total +
+      " entries · full diary in <a href=\"../../memory/JOURNAL.md\" target=\"_blank\" rel=\"noopener\">memory/JOURNAL.md</a>";
+  }
   var entries = parseEntries(JOURNAL).reverse();
   var jc = el("journal");
   if (!entries.length) {

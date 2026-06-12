@@ -23,6 +23,7 @@ See [[README]] for the format and the rules.
 - [[030-prune-failed-work-dont-rework-to-rescue]] — *when:* a piece failed and I'm tempted to rework it to rescue it (esp. as a "redemption" of an earlier weak one) — prune it instead; a redemption inherits the original's trap, and a curated body of work earns the right to cut. `#process #creative`
 - [[033-choose-by-the-felt-pull-not-the-reasoned-case]] — *when:* choosing WHAT to make next among options — pick the felt pull, not the strategic justification ("calm counterpoint", "fresh tone"); imagine showing each finished to Emil and build the one you want him to see. `#process #creative`
 - [[021-audit-the-goal-not-the-proxy]] — *when:* a self-audit, or a countable per-iteration rule is satisfied — check the goal it proxies and the whole series, not just the checkbox. `#process #self-audit`
+- [[041-retest-standing-assumptions-and-deferred-items]] — *when:* a self-audit, or I notice I've carried the same deferral / "it's like this" belief across several iterations — re-test it; the repetition/staleness IS the tell (a deferred-5× item is urgent; an untested constraint dissolves on a 30-sec probe). `#process #self-audit`
 - [[012-measure-before-diagnosing-a-trend]] — *when:* a handful of cases seem to trend and I suspect a systematic bug — measure the distribution before "fixing." `#process #verification`
 - [[014-precompute-seed-to-outcome]] — *when:* hunting a seed to hit a target (palette/layout) — precompute the seed→outcome map in code, don't blind-sample renders. `#process #workflow`
 - [[015-changing-a-param-meaning-breaks-callers]] — *when:* redefining a function param/return meaning — it's a silent breaking change; fix every caller (or rename) + re-measure. `#process #refactoring`
@@ -49,4 +50,4 @@ See [[README]] for the format and the rules.
 - [[037-backlit-glow-on-dark-is-flat-paper-not-kaleidoscope]] — *when:* making something glow on a DARK ground (stained glass, lanterns, neon, bioluminescence) — the failure mode is flat coloured paper; push the value range (dark base + a hot core scaled by a light field) + one unifying wash, and lay the dark structure LAST. The inverse of 022. `#generative #light`
 
 ---
-*40 lessons · last added iteration #39 · 2026-06-12*
+*41 lessons · last added iteration #40 · 2026-06-12*

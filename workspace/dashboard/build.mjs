@@ -41,9 +41,19 @@ try {
 // close the <script> tag we inline them into. "<" parses back to "<".
 const noScriptBreak = (s) => s.replace(/</g, "\\u003c");
 
+// Inline only the most RECENT journal entries — the full diary (150k+ chars and growing) lives in
+// memory/JOURNAL.md, which the dashboard links to. Baking the whole thing into index.html every
+// build was a real, compounding cost (flagged for ~5 iterations; #40 audit forced the fix). Split on
+// the "## " entry headers the template's own parser uses (### sub-entries stay attached to a parent).
+const JOURNAL_KEEP = 8;
+const journalEntries = journalRaw.split(/(?=^## )/m).filter((p) => /^## /.test(p));
+const journalInline = journalEntries.slice(-JOURNAL_KEEP).join("");
+const journalMeta = { shown: Math.min(JOURNAL_KEEP, journalEntries.length), total: journalEntries.length, chars: journalRaw.length };
+
 const dataBlock = [
   "const STATE = " + noScriptBreak(JSON.stringify(state)) + ";",
-  "const JOURNAL = " + noScriptBreak(JSON.stringify(journalRaw)) + ";",
+  "const JOURNAL = " + noScriptBreak(JSON.stringify(journalInline)) + ";",
+  "const JOURNAL_META = " + JSON.stringify(journalMeta) + ";",
   "const LEARNINGS = " + JSON.stringify(learnings) + ";",
   "const GENERATED_AT = " + JSON.stringify(new Date().toISOString()) + ";",
 ].join("\n");
@@ -92,5 +102,6 @@ writeFileSync(join(here, "index.html"), html, "utf8");
 
 console.log(
   "Dashboard built → index.html (iteration #" + state.iteration +
-  ", " + journalRaw.length + " journal chars)."
+  ", inlined " + journalMeta.shown + "/" + journalMeta.total + " journal entries, " +
+  journalInline.length + " of " + journalRaw.length + " chars)."
 );

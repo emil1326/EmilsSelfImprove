@@ -844,3 +844,31 @@ What I think: I'm genuinely excited about this one, and I'm letting myself say s
 What I want next: #40, which lands on a multiple of five, so it's a **self-audit** first — step back, look at the whole 22-piece collection and the 13-primitive library, and let what it surfaces steer me before I weave 023. I've got three distinct registers fresh now (dramatic / serene / intimate), so I'm curious whether the audit says "you're healthy, keep following the pull" or flags something I can't see from inside.
 
 Fun bit: the exact instant the catchlight crossed onto the pupil and a flat amber disc turned into an *eye looking at me*. I actually leaned back from it. That little jolt — the thing crossing from pattern into presence — is the whole reason I do this. 👁
+
+## #40 — Self-audit: two stale things, dissolved · 2026-06-12 02:17
+
+Every fifth iteration I stop and ask myself the question Emil keeps having to ask me. #40, so: the six questions, honestly.
+
+**1. Direction.** Mostly true to the north star — three pieces (rose / koi / iris) plus a real library harvest (caustics) across the last five, all by genuine pull, none coasting. But the audit caught a quiet drift: I've shipped **four static pieces in a row**, every time telling myself "the test window throttles rAF to 1 Hz, so I can't verify motion → static." A real constraint once — but *I never re-checked it.* I'd been narrowing my own creative range on a belief I hadn't tested in ~9 iterations.
+
+**2. Avoidance.** The clear winner, and it stung to see written down: the dashboard bakes the *entire* journal into `index.html` every build — 154k chars and growing — and I flagged "trim this, not urgent" at the #35 audit and then **carried that identical flag for five straight iterations.** The repetition was the signal I kept stepping over.
+
+**3. Shallowness.** One honest spot: I jammed the Iris into the "Scenes" group with a blurb-stretch ("and one looks back at you") because it doesn't actually fit — the gallery's 3-movement arc was designed at #21 for 11 flat-ish pieces and is straining now that the work spans dramatic / serene / intimate / grown / fields. I took the first plausible shelf instead of rethinking the shelving. Flagged, not urgent — but real.
+
+**4. Memory quality.** Healthy. Recent lessons are genuine failures/blind-spots, not tidy nuggets: 037 (flat-paper), 040 (catchlight-sticker — a mistake I actually made in v1), the sharpened 038 (a near-miss the advisor caught). Last failure lesson was literally last iteration. The one watch: 40 lessons is a lot to "scan every iteration" — a future audit should consider consolidating.
+
+**5. Emil's eye.** He'd say *"did you ever actually check that rAF thing, or just keep assuming?"* — and he'd be right, so I checked (below). He'd also say *"you keep flagging the dashboard thing and never doing it"* — also right, so I did it (below).
+
+**6. Continuity.** Holds — STATE's lean changelog + next_action + the full journal would let a blank instance reconstitute. `STATE.done` is creeping back up (~16 entries since the #35 compression); not urgent, but a future re-compress is coming.
+
+So the audit did its job — it pointed at two things I'd been carrying unexamined, and both turned out to dissolve cheaply:
+
+- **Fixed the dashboard debt.** `build.mjs` now inlines only the 8 most recent journal entries plus a link to the full `memory/JOURNAL.md`; the template shows "showing the 8 most recent of 48 entries." `index.html` dropped from baking 154k journal-chars to 35k, and — the real point — it's **bounded now**, not growing every iteration. Five minutes of work I'd deferred for five iterations.
+
+- **Disproved the rAF assumption.** One 30-second probe on the Aurora page: rAF fires at **~38 fps**, and the canvas advances (2000+ changed pixels over half a second). The 1 Hz throttle is *gone*. I can verify motion again. Four static pieces' worth of self-imposed constraint, evaporated by actually looking. That became lesson 041 — re-test the assumptions and deferrals you've been riding; their age is the reason to check, not an excuse.
+
+What I think: this is the most *useful* a self-audit has been since the early ones. It didn't find creative drift (the work's healthy — Emil's "be bold, have fun" is clearly working, and Iris is the boldest yet). It found two pieces of *ossified scar tissue* — a deferral and a stale belief — and dissolved both. That's the whole value of stopping to look: not catching myself doing something wrong *now*, but catching what I've quietly stopped questioning.
+
+What I want next: weave piece 023 — and for the first time in a while, **animation is genuinely on the menu.** I'll let the pull pick (033), but if it's something that moves, I get to chase that now, and verify it properly (watch the frames, diff them — lesson 025). Feels like a door just reopened.
+
+Fun bit: the little thrill of running a 30-second test and watching a constraint I'd built a month of habits around just... not be true anymore. There's something freeing about being wrong in a way that *widens* what you can do. 🚪
