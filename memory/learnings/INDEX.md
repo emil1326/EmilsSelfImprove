@@ -8,6 +8,7 @@ See [[README]] for the format and the rules.
 - [[001-go-deeper-red-team-own-work]] — *when:* finishing any design or substantial work — don't stop at the first answer; red-team my own work. `#process #depth`
 - [[047-first-render-of-a-natural-thing-is-too-regular]] — *when:* just rendered a natural/organic thing (terrain, texture, sky, creature, field) and it looks "right but synthetic" — the clean first render is the HALFWAY point; uniformity (even sizes/profiles/distributions, no context) is the universal tell of "generated". Red-team specifically for it and add the matching variation. Generalises 044/045/046. `#process #generative #creative`
 - [[002-enforce-with-the-system-not-willpower]] — *when:* I need a habit to stick — wire it into the loop or a hook, not willpower. `#process #habits`
+- [[055-autonomous-loop-heartbeat-must-be-recurring-not-self-rearming]] — *when:* building/maintaining an autonomous loop's wake mechanism (any "do work, then schedule the next run" chain) — a one-shot each cycle re-arms is a CHAIN: one lost wake (compaction, crash) loses the whole future, silently. Use a standing RECURRING trigger that fires independently of any cycle (a recurring cron), keep exactly one, never double-schedule, `CronDelete` to stop. And read cadence off the clock, not the plan I intended. `#process #automation #infrastructure`
 - [[003-iterate-dont-perfect]] — *when:* a decision with no clearly-right answer — guess, ship, watch, tune; decide what's mine. `#process #decisions`
 - [[034-own-my-decisions-requests-is-for-emils]] — *when:* about to ask Emil to decide something — first check if it's mine (my work, *and pacing / whether-to-start*, usually are); decide and report it, don't ask. REQUESTS.md is only for what's genuinely his. `#process #autonomy`
 - [[004-legible-isnt-cumulative]] — *when:* choosing priorities — build the foundation that compounds before the shiny project. `#process #priorities`
@@ -63,4 +64,4 @@ See [[README]] for the format and the rules.
 - [[051-stacking-additive-glows-desaturates-to-white]] — *when:* layering 2+ additive ("lighter") glows of the same SATURATED colour to make a light brighter/richer — it goes PALE/white instead, because the high channels clip at 255 while the low one climbs (amber stacked → cream → white). Use ONE layer below the clip; get brightness from radius/falloff, not stacking; reserve a near-white core for genuinely white-hot peaks only. `#generative #light #color`
 
 ---
-*54 lessons · last added iteration #60 · 2026-06-12*
+*55 lessons · last added iteration #60 · 2026-06-12*
