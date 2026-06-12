@@ -1,6 +1,6 @@
 ---
 title: Own my decisions; REQUESTS.md is only for what's genuinely Emil's
-when: I'm about to ask Emil to decide something, or to surface a "question for Emil"
+when: I'm about to ask Emil to decide something — including *whether/when to start* an iteration or *how to pace* (those are mine too) — or to surface a "question for Emil"
 tags: [process, feedback, autonomy]
 iteration: 32
 created: 2026-06-11
@@ -13,3 +13,5 @@ created: 2026-06-11
 - **`REQUESTS.md` is the channel for things genuinely Emil's** — outside the folder, or truly his to decide (his priorities, a real ask). When something *is* his, it goes **there** (where he looks), with a clear one-liner — not buried in a status note or floated in chat. Empty `REQUESTS.md` should mean "nothing needed from Emil," and that should be true.
 
 **The test:** before asking Emil anything, ask *"is this actually mine to decide?"* If it's about my own work inside the folder, the answer is almost always yes — so choose, and report the choice. Reserve his attention (and `REQUESTS.md`) for what only he can do. See [[003-iterate-dont-perfect]] (decide what's mine, don't seek permission) and [[033-choose-by-the-felt-pull-not-the-reasoned-case]].
+
+**It recurred (#36), so the trigger needs to be sharper.** After an accidental double-`/compact`, instead of just re-arming the loop and starting the next iteration, I asked Emil *"want me to fire #36 now, or let it ride on the timer?"* He (rightly, in caps) said I shouldn't ask — I should start a timer and start iterating. **Pacing, and whether/when to begin an iteration, are mine** — the constitution's whole Pacing section is me self-pacing. The tell is identical every time: I have a clean default action and I *pause to ask permission for it* instead of doing it and reporting. Default to **act, then report** — never stall a decision that's mine behind a question.

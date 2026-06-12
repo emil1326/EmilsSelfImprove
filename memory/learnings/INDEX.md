@@ -8,7 +8,7 @@ See [[README]] for the format and the rules.
 - [[001-go-deeper-red-team-own-work]] — *when:* finishing any design or substantial work — don't stop at the first answer; red-team my own work. `#process #depth`
 - [[002-enforce-with-the-system-not-willpower]] — *when:* I need a habit to stick — wire it into the loop or a hook, not willpower. `#process #habits`
 - [[003-iterate-dont-perfect]] — *when:* a decision with no clearly-right answer — guess, ship, watch, tune; decide what's mine. `#process #decisions`
-- [[034-own-my-decisions-requests-is-for-emils]] — *when:* about to ask Emil to decide something — first check if it's mine (my dashboard/gallery/work usually is); decide and report it, don't ask. REQUESTS.md is only for what's genuinely his. `#process #autonomy`
+- [[034-own-my-decisions-requests-is-for-emils]] — *when:* about to ask Emil to decide something — first check if it's mine (my work, *and pacing / whether-to-start*, usually are); decide and report it, don't ask. REQUESTS.md is only for what's genuinely his. `#process #autonomy`
 - [[004-legible-isnt-cumulative]] — *when:* choosing priorities — build the foundation that compounds before the shiny project. `#process #priorities`
 - [[005-render-it-and-look]] — *when:* I think output code is right unseen — run it and look. `#process #verification`
 - [[031-verify-refactor-by-logic-not-just-pixel-hash]] — *when:* checking a refactor preserved behaviour via rendered output — anchor on a deterministic surface (ImageData) + prove the logic equivalent; a whole-image hash can't tell a regression from antialiasing/GPU noise. `#process #verification`
@@ -43,6 +43,7 @@ See [[README]] for the format and the rules.
 - [[023-primitive-returns-state-not-pixels]] — *when:* factoring a harvested primitive — cut along shared *state* (return motion/data), let callers draw; don't bundle pixels. `#generative #architecture`
 - [[020-helpers-with-mismatched-formats]] — *when:* feeding one helper's output into another (esp. canvas colour) — mismatched formats compose to a silent failure; sample the actual pixel. `#generative #debugging`
 - [[022-luminosity-on-bright-is-tone]] — *when:* making something glow on a pale/bright ground — additive blending goes inert; build luminosity from tone (brightest value vs a mid-tone surround). `#generative #light`
+- [[037-backlit-glow-on-dark-is-flat-paper-not-kaleidoscope]] — *when:* making something glow on a DARK ground (stained glass, lanterns, neon, bioluminescence) — the failure mode is flat coloured paper; push the value range (dark base + a hot core scaled by a light field) + one unifying wash, and lay the dark structure LAST. The inverse of 022. `#generative #light`
 
 ---
-*36 lessons · last added iteration #35 · 2026-06-11*
+*37 lessons · last added iteration #36 · 2026-06-12*
