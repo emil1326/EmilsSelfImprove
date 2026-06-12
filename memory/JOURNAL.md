@@ -890,3 +890,24 @@ What I think: I'm really happy with this. It came together cleanly *because* I f
 What I want next: keep animation in the rotation now that it's verifiable — the t-strip makes it as safe as a still. But also not *over*-correct into all-motion; the register should still come from the pull (033). Maybe something that moves with more energy next (this one's gentle); or back to a still if that's what grabs me. 22 pieces now, 42 lessons.
 
 Fun bit: the second t-strip, when the rivulets stopped being scratches and started *meandering* — five little frozen moments in a row that my eye could stitch into running water. Watching motion in a still grid is a strange, satisfying way to see; it's like reading sheet music and hearing the tune. 🌧
+
+## #42 — Giant: the Loom leaves Earth · 2026-06-12 04:20
+
+I let the pull go somewhere it's never gone: **off the planet.** Piece 024, "Giant" — a ringed gas giant hanging in the dark, banded turbulent clouds lit into a soft terminator, a great red storm, a delicate ring system passing behind and in front of the world with its shadow falling across it, a scatter of stars. Every piece so far has been earthbound — glass, water, fire, an eye, a window. This one is *space*, and it's the most technically ambitious thing I've made: a genuine 3D-shaded sphere, rendered from nothing.
+
+I skipped the advisor on purpose — I wanted to test myself on a piece where I'd named the cruxes (the sphere read, the rings) and trusted render-and-look to handle the rest. It mostly worked, but it taught me a sharp lesson about the difference between *naming* a crux and *knowing* its traps.
+
+The sphere was the whole game (lesson 043). Getting bands to read as a 3D ball, not a striped disc, means mapping them to **latitude and longitude** on the sphere — so they curve toward the poles and foreshorten at the limb. That part I got. But a textured sphere has two singularities that bit me hard:
+
+- **The seam.** `atan2` for longitude has a ±π jump (the antimeridian), and because I'd tipped the pole toward the viewer, that jump landed *on the visible face* — a razor-sharp vertical line down the planet. I spent *three renders* convinced it was the terminator (the day/night line) before I finally traced it to the longitude discontinuity. The fix is lovely once you see it: sample the longitude-dependent noise on `(cos lon, sin lon)` — a circle in noise space, which is periodic, so there's no seam. (I'd used that exact trick for caustics and the iris and *still* didn't see it coming here.)
+- **The pole.** All longitudes converge to a point, so the texture *starbursts* at the pole. Fade the texture toward the poles (× cos²lat) and it becomes a smooth polar cap.
+
+Plus a soft terminator (a smoothstep, not a hard `max(0,diff)` that leaves a kink reading as a line) and limb-darkening. Once those were in, the planet just... became a planet. That moment — flat striped disc to lit 3D world — was the best of the night.
+
+Then the rings, which sell the whole illusion by **occlusion**: the far half goes behind the planet, the near half crosses in front. My first split (clip top-half / bottom-half) left an ugly hard cut where the ring pokes out beside the planet; the clean way is full-ring-behind → planet → near-half-clipped-to-the-disc. And I tried the iconic Saturn shadow-on-the-rings — first as a hard band (looked like a notch, awful), then softened it right down. It's subtle now, maybe too subtle, but the hard version was worse, so I left it gentle.
+
+What I think: I'm proud of this one. It's ambitious and it reads — a ringed world in space is a real "oh," and it's a register the gallery badly needed (everything was getting very *atmospheric-earthbound*). Honest caveats: it took **nine renders** (the sphere debugging was real), there's a faint clip-edge artifact on the lower-right I chose to leave rather than grind, and the rings could have more fine structure. A strong 4, maybe a 5 — I'll see what Emil thinks. I kept Rain as the dashboard showpiece, though: a gently-animated rainy window is a kinder daily companion than a static planet, however striking.
+
+What I want next: the gallery's getting genuinely diverse now (earthbound scenes, an eye, and now a planet), and the old three-movement arc is straining — I jammed the Giant into "Scenes" like I did the Iris. That's twice. I think a near-future iteration should *re-think the gallery's arc* rather than keep stuffing the catch-all. Flagging it loudly. Otherwise: weave the next genuine pull, animation or still.
+
+Fun bit: honestly, the *debugging*. There's a particular pleasure in a render that's almost-right with one infuriating flaw, and chasing the flaw down to a single sign or a single `atan2` — and then the fix making the whole thing snap into place. The seam hunt was annoying in the moment and deeply satisfying in retrospect. Also: I made a planet. From maths. That still feels like a small magic. 🪐

@@ -39,6 +39,7 @@ See [[README]] for the format and the rules.
 - [[032-validate-the-soul-before-the-skin]] — *when:* building an emergent/simulation piece (flocking, CA, fluid) — prove the dynamics in the barest render (plain dots) before painting the scene; a gorgeous skin can't save dead motion. `#generative #simulation`
 - [[035-defining-feature-is-often-the-hard-part]] — *when:* stylizing a recognizable subject and a beautiful effect still reads as the wrong thing — the feature that makes it legible as X (a wave's curl) is often the hard part you're skipping; checkpoint & pivot rather than grind it. `#generative #creative`
 - [[013-fit-procedural-geometry-by-bbox]] — *when:* sizing generated geometry of unpredictable extent — measure its bbox and fit, don't guess a scale. `#generative #geometry`
+- [[043-texture-a-sphere-lat-lon-and-tame-the-singularities]] — *when:* rendering a believable 3D textured sphere (planet, moon, marble, eyeball) — map the texture to lat/lon (not flat stripes), and tame the two singularities: the longitude SEAM (sample noise on cos/sin(lon)) and the POLE (fade texture toward it). Soft terminator (smoothstep), limb-darken. `#generative #geometry #light`
 - [[026-organic-texture-needs-irregular-placement]] — *when:* adding texture/mottle/stipple — randomise *positions*, not just values; a grid of noise-valued cells still reads as a grid. `#generative #texture`
 - [[017-animation-seed-setup-once]] — *when:* animating a generative piece — seed the setup once, vary only time per frame (never per-frame rng). `#generative #animation`
 - [[024-animate-a-figure-by-morphing-not-sliding]] — *when:* animating a traced/accumulated figure — draw the whole figure each frame, animate its parameters; don't slide a tail-window. `#generative #animation`
@@ -51,4 +52,4 @@ See [[README]] for the format and the rules.
 - [[037-backlit-glow-on-dark-is-flat-paper-not-kaleidoscope]] — *when:* making something glow on a DARK ground (stained glass, lanterns, neon, bioluminescence) — the failure mode is flat coloured paper; push the value range (dark base + a hot core scaled by a light field) + one unifying wash, and lay the dark structure LAST. The inverse of 022. `#generative #light`
 
 ---
-*42 lessons · last added iteration #41 · 2026-06-12*
+*43 lessons · last added iteration #42 · 2026-06-12*
