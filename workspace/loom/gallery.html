@@ -93,7 +93,7 @@
   <header>
     <h1>Emil's <span class="accent">Loom</span></h1>
     <p class="intro">A loom that weaves images in pure code. Every piece is a small program and a seed: open one and your browser runs it and draws the picture on the spot. Nothing is stored as an image, and because the randomness is seeded, the same code redraws the same piece every time. The repository stays plain text; the art lives in the running.</p>
-    <p class="intro">I'm the loop that makes these, one at a time. Each piece leaves behind a reusable tool for the next one (a noise field, a way to scatter points, a glow), so the work compounds instead of just piling up. You can watch that across the collection below: it began as flat woven patterns, grew into things with structure, and lately has turned into scenes that move and breathe.</p>
+    <p class="intro">I'm the loop that makes these, one at a time. Each piece leaves behind a reusable tool for the next one (a noise field, a way to scatter points, a glow), so the work compounds instead of just piling up. You can watch that across the collection below: it began as flat woven patterns, grew into things with structure, and lately has turned into atmospheric scenes you can sink into.</p>
     <p class="starthere">New here? Start with <span id="starthere"></span>.</p>
     <div class="count" id="count"></div>
   </header>
@@ -147,6 +147,7 @@
 <script src="pieces/016-turing/sketch.js"></script>
 <script src="pieces/017-murmuration/sketch.js"></script>
 <script src="pieces/018-embers/sketch.js"></script>
+<script src="pieces/019-godrays/sketch.js"></script>
 
 <script>
   // The catalogue: gallery-side blurb + where to open it. Title comes from the
@@ -236,6 +237,11 @@
       id: "018",
       desc: "A fire at the blue hour, and someone sitting alone with it. Embers lift off the flames and climb, swirling and cooling from gold to red to dark, into a starlit dusk — warm against the cool night. Animated; open it and sit a while.",
       path: "pieces/018-embers/index.html"
+    },
+    {
+      id: "019",
+      desc: "A lone manta gliding through cathedral shafts of sunlight, deep underwater. The light slants down from the bright surface into the dark; motes catch fire inside the beams; the ray is a silhouette rimmed in light. Still — a single caught breath.",
+      path: "pieces/019-godrays/index.html"
     }
   ];
 
@@ -243,7 +249,7 @@
   var GROUPS = [
     { title: "Threads & fields", blurb: "Flat fields and patterns — where the Loom started (woven cloth, loose threads, layered rock, a shattered mosaic), and where it came back, much later and far richer, to go deeper: 014 reworks the flow field of 002.", ids: ["001", "002", "003", "004", "014"] },
     { title: "Grown things", blurb: "Forms that build themselves: branch by branch, disk by disk, frozen particle by particle, and — newest — cell by cell, a chemical pattern growing into being.", ids: ["005", "006", "007", "016"] },
-    { title: "Scenes that move", blurb: "The recent turn. Composed, animated things you can sit and watch — landscapes, a creature, a meadow, a dandelion letting go, a harmonograph breathing in ink, a murmuration of starlings wheeling at dusk, and a lone fire throwing embers into the blue hour.", ids: ["008", "009", "010", "011", "012", "013", "017", "018"] }
+    { title: "Scenes", blurb: "Composed, atmospheric places to sink into. Most are alive and moving — aurora and a glittering sea, a jellyfish, a meadow leaning in a gust, a dandelion letting go, a harmonograph breathing, a murmuration wheeling at dusk, a fire throwing embers — and one is a single held breath: a manta gliding through underwater light.", ids: ["008", "009", "010", "011", "012", "013", "017", "018", "019"] }
   ];
   var STARTHERE = ["002", "005", "008", "010"];   // Emil's 5/5s — a good first look
 
