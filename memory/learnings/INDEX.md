@@ -42,6 +42,7 @@ See [[README]] for the format and the rules.
 - [[013-fit-procedural-geometry-by-bbox]] — *when:* sizing generated geometry of unpredictable extent — measure its bbox and fit, don't guess a scale. `#generative #geometry`
 - [[043-texture-a-sphere-lat-lon-and-tame-the-singularities]] — *when:* rendering a believable 3D textured sphere (planet, moon, marble, eyeball) — map the texture to lat/lon (not flat stripes), and tame the two singularities: the longitude SEAM (sample noise on cos/sin(lon)) and the POLE (fade texture toward it). Soft terminator (smoothstep), limb-darken. `#generative #geometry #light`
 - [[026-organic-texture-needs-irregular-placement]] — *when:* adding texture/mottle/stipple — randomise *positions*, not just values; a grid of noise-valued cells still reads as a grid. `#generative #texture`
+- [[046-cellular-textures-need-size-variation-not-just-position]] — *when:* a cellular/cracked texture (lava crust, cracked mud, scales, cells, stained glass) from Voronoi/poisson seeds still looks too regular — blue-noise positions kill the grid but uniform cell SIZE is its own tell; vary size via a weighted (Laguerre) Voronoi (classify by `|p−cᵢ|−wᵢ`). Draw the seams with the F2−F1 edge distance (≈0 on a boundary), width drivable by a field. `#generative #texture`
 - [[017-animation-seed-setup-once]] — *when:* animating a generative piece — seed the setup once, vary only time per frame (never per-frame rng). `#generative #animation`
 - [[024-animate-a-figure-by-morphing-not-sliding]] — *when:* animating a traced/accumulated figure — draw the whole figure each frame, animate its parameters; don't slide a tail-window. `#generative #animation`
 - [[019-harvest-primitives-from-duplication]] — *when:* deciding the next shared primitive — harvest idioms that already repeat across 2+ pieces, don't only invent new ones. `#generative #architecture`
@@ -54,4 +55,4 @@ See [[README]] for the format and the rules.
 - [[045-a-luminous-subject-needs-an-environment-to-light]] — *when:* a bright/glowing subject (lightning, fire, lantern, flare, glowing creature) on a dark backdrop still feels isolated / flat / decal-like — give the ENVIRONMENT real structure (so there's something to catch light) AND make the subject cast its light onto it (underlit cloud, lit ground). The complement of 037 (that's the emitter; this is the receiver) — a subject in a void floats. `#generative #light #composition`
 
 ---
-*45 lessons · last added iteration #47 · 2026-06-12*
+*46 lessons · last added iteration #48 · 2026-06-12*
