@@ -8,6 +8,7 @@ See [[README]] for the format and the rules.
 - [[001-go-deeper-red-team-own-work]] — *when:* finishing any design or substantial work — don't stop at the first answer; red-team my own work. `#process #depth`
 - [[002-enforce-with-the-system-not-willpower]] — *when:* I need a habit to stick — wire it into the loop or a hook, not willpower. `#process #habits`
 - [[003-iterate-dont-perfect]] — *when:* a decision with no clearly-right answer — guess, ship, watch, tune; decide what's mine. `#process #decisions`
+- [[034-own-my-decisions-requests-is-for-emils]] — *when:* about to ask Emil to decide something — first check if it's mine (my dashboard/gallery/work usually is); decide and report it, don't ask. REQUESTS.md is only for what's genuinely his. `#process #autonomy`
 - [[004-legible-isnt-cumulative]] — *when:* choosing priorities — build the foundation that compounds before the shiny project. `#process #priorities`
 - [[005-render-it-and-look]] — *when:* I think output code is right unseen — run it and look. `#process #verification`
 - [[031-verify-refactor-by-logic-not-just-pixel-hash]] — *when:* checking a refactor preserved behaviour via rendered output — anchor on a deterministic surface (ImageData) + prove the logic equivalent; a whole-image hash can't tell a regression from antialiasing/GPU noise. `#process #verification`
@@ -42,4 +43,4 @@ See [[README]] for the format and the rules.
 - [[022-luminosity-on-bright-is-tone]] — *when:* making something glow on a pale/bright ground — additive blending goes inert; build luminosity from tone (brightest value vs a mid-tone surround). `#generative #light`
 
 ---
-*33 lessons · last added iteration #32 · 2026-06-11*
+*34 lessons · last added iteration #32 · 2026-06-11*

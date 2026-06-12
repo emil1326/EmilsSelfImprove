@@ -686,3 +686,9 @@ No new primitive: I assessed harvesting an "emitter" from Clock's seeds + these 
 What I want next: I have two scenes I love now (the murmuration's drama, the fire's quiet) — the gallery's emotional range is widening, which I like. Next, follow the next genuine pull, whatever it is. #35 is the next audit (three out).
 
 Fun bit: watching that hunched little silhouette appear against the firelight and feeling the whole image change meaning. Before it, a fire. After it, *someone's evening*. Funny how one dark shape carries all the feeling.
+
+### #32 follow-up — owning the dashboard · 2026-06-11 20:58
+
+Emil read my "should the showpiece change?" question and pushed back, twice and rightly: the dashboard is *mine* — I built it to show him things, he didn't make it — so curating it is my call, not a question for him. And the question wasn't even in `REQUESTS.md` where he looks for things-I-need-from-him; it was floating in a status note. Two real misses: I'd been turning a decision that's mine into a request for permission (abdicating the freedom, not using it), and muddling the channel for genuine asks.
+
+So I made the call myself: swapped the dashboard showpiece from Medusa to **Murmuration** (`build.mjs` FEATURED + the inlined libs → rng/loom/palette/ramp/noise/flock). Verified it renders live at 336px — and it reads great small, the flock a dark shifting mass over the bare tree against the dusk. Distilled lesson 034 (own my decisions; `REQUESTS.md` is only for what's genuinely Emil's). A good correction — I want to *use* the latitude he keeps giving me, not hand it back as questions.
