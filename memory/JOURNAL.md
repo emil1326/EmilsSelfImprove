@@ -1147,3 +1147,23 @@ The new technique was the **still-water reflection**: flip the swan below the li
 **What I want next:** #55 is a self-audit, so I'll step back and take stock of the whole run (32 pieces now — a lot has happened since #50: the ratings calibration, the lens harvest, the firefly grind, this clean win). Curious what it surfaces.
 
 **Fun bit:** the moment the swan's neck curve came out right on the first try and it just *was* a swan — after the fireflies, that immediate "oh, there it is" was deeply satisfying. And watching the four seeds, one swan suddenly facing the other way — a tiny surprise that made me smile. 🦢
+
+## #55 — Self-audit: a quieter narrowing, and where my 5s actually come from · 2026-06-12 12:17
+
+Eleventh self-audit. No new piece — the looking-in-the-mirror work. A lot has happened since #50 (Emil's full ratings + the calibration, the lens harvest, the firefly grind, the swan), so there was plenty to weigh. The six questions, honestly:
+
+**1 — Direction.** Weaving by genuine pull, composing the library, honoring the north star: yes. But the uncomfortable finding is a *register* drift. Line up the last four pieces: Ranges (misty mountains, 4), Dew (dewy web — pretty), Fireflies (dusk meadow, my honest 4), Stillness (swan, ~4). **Four serene/atmospheric pieces in a row, every one landing in the lovely-*4* zone.** It's the gentle inverse of exactly what #45 caught (a run of safe-pretty 4s) — I swung bold after that prod (026–028, two 5s), then quietly slid into *quiet*-pretty. And the calibration may be complicit: I learned "felt beats rendered" and started reading "felt" as "safe gentle atmosphere," which reliably produces a 4.
+
+**2 — Avoidance.** Re-compress STATE.done (queued, doing it). The deeper avoidance, though, is the flip side of #1: the quiet run is me *avoiding the risk of bold pieces* — the ones that can flop (the firefly grind spooked me, and Stillness was an explicit "clean win" retreat). Pretty-and-safe is lower-variance than bold-and-surprising.
+
+**3 — Shallowness.** My red-team has been checking *execution* (does it read, is it clean, no rectangular boxes) but **not ambition** — I never ask "is this merely pleasant when it should be *surprising*?" That's a hole in the red-team itself. The 028 "it's solid" tell, applied to ambition not just quality.
+
+**4 — Memory quality.** Healthy. 049 (technical pride mispredicts — from the ratings), 050 (harvest the seam), 051 (additive stacking → pale) are all real blind-spot lessons. The rate ran hot (8 in ~9) but I *did* exercise restraint (no lesson at #51, #54) — the #50 "watch the rate" note is working. INDEX at 51 lines, still scannable; re-checked, no cuts (like #45).
+
+**5 — Emil's eye.** He'd say, flatly: *"These are all pretty. Which one's a whoa?"* And he'd be right — and it points at the real insight of this audit. Look at where my **5s** actually come from: Strange, Strike, Murmuration, God-rays, Rose Window (bold/dramatic/surprising) — *and* Koi, Clock, Medusa, Aurora (quiet, but each with a genuine HOOK: luminous depth, the off-centre dandelion macro, the pulsing breath). The common thread of every 5 isn't "bold" — it's a **hook**: a surprise, a drama, or an exceptional execution that lifts it past pretty. My recent four have atmosphere but **no hook**. *Pretty without a hook caps at 4.*
+
+**6 — Continuity.** Solid. A blank instance could reconstitute and act. (Re-compressing done keeps the handoff lean.)
+
+**The course-correction:** the next piece needs a genuine **HOOK** — something surprising, dramatic, or executed past the ordinary — not just pleasant atmosphere. It doesn't have to be loud (Koi and Clock are quiet 5s) but it has to have *the thing that makes someone go "oh"* beyond "that's nice." And I'm adding an **ambition check** to my red-team: before shipping, ask not only "does it read?" but "is this merely pretty, or does it have a hook?" — and distrust "it's lovely" the way I distrust "it's solid."
+
+**What I think:** this is the most useful audit since #50, and it's the *same shape* as #45 — which is itself the finding. I have a standing tendency to settle into safe-pretty when not actively reaching, and the every-5 ritual keeps catching it. Maybe the real meta-lesson is that "reach for the hook" needs to live in `next_action` *permanently*, not just get re-discovered each audit. Going to run this past the advisor before I harden it (the #50 lesson: the audit is primed to find drift, so its findings need their own red-team).
