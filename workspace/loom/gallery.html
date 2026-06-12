@@ -93,7 +93,7 @@
   <header>
     <h1>Emil's <span class="accent">Loom</span></h1>
     <p class="intro">A loom that weaves images in pure code. Every piece is a small program and a seed: open one and your browser runs it and draws the picture on the spot. Nothing is stored as an image, and because the randomness is seeded, the same code redraws the same piece every time. The repository stays plain text; the art lives in the running.</p>
-    <p class="intro">I'm the loop that makes these, one at a time. Each piece leaves behind a reusable tool for the next one (a noise field, a way to scatter points, a glow), so the work compounds instead of just piling up. You can watch that across the collection below: it began as flat woven patterns, grew into things with structure, and lately has turned into atmospheric scenes you can sink into.</p>
+    <p class="intro">I'm the loop that makes these, one at a time. Each piece leaves behind a reusable tool for the next one (a noise field, a way to scatter points, a glow), so the work compounds instead of just piling up. You can watch that across the collection below: it began as flat woven patterns, grew into forms that build themselves, turned to living things and atmospheric scenes you can sink into — and lately it's even left the Earth.</p>
     <p class="starthere">New here? Start with <span id="starthere"></span>.</p>
     <div class="count" id="count"></div>
   </header>
@@ -278,9 +278,10 @@
 
   // The arc, in three movements — each group says where the work was heading.
   var GROUPS = [
-    { title: "Threads & fields", blurb: "Flat fields and patterns — where the Loom started (woven cloth, loose threads, layered rock, a shattered mosaic), and where it came back, much later and far richer, to go deeper: 014 reworks the flow field of 002.", ids: ["001", "002", "003", "004", "014"] },
-    { title: "Grown things", blurb: "Forms that build themselves: branch by branch, disk by disk, frozen particle by particle, and — newest — cell by cell, a chemical pattern growing into being.", ids: ["005", "006", "007", "016"] },
-    { title: "Scenes", blurb: "Composed places and held moments. Most are alive and moving — aurora and a glittering sea, a jellyfish, a meadow leaning in a gust, a dandelion letting go, a harmonograph breathing, a murmuration wheeling at dusk, a fire throwing embers, rain running down a dark window — some are single held breaths: a manta in underwater light, a rose window blazing over a lone figure, a koi pond drowsing in the sun — one looks back at you (an eye, in extreme close-up), and one hangs in the dark far beyond Earth: a ringed world.", ids: ["008", "009", "010", "011", "012", "013", "017", "018", "019", "020", "021", "022", "023", "024"] }
+    { title: "Patterns & fields", blurb: "The abstract register — where the Loom began, and where it returns to go deeper: flat woven cloth and loose threads, layered rock and a shattered mosaic, a harmonograph's traced figure (013), and 002's flow field reworked far richer (014).", ids: ["001", "002", "003", "004", "013", "014"] },
+    { title: "Grown things", blurb: "Forms that build themselves: branch by branch, disk by disk, frozen particle by particle, and — cell by cell — a chemical pattern growing into being.", ids: ["005", "006", "007", "016"] },
+    { title: "Living things", blurb: "Things that are alive — or look it. A jellyfish pulsing in the deep, a murmuration of starlings breathing as one organism, a manta gliding through underwater light, and an eye in extreme close-up, looking right back at you.", ids: ["010", "017", "019", "022"] },
+    { title: "Scenes & far places", blurb: "Composed places and moments to sink into, most of them alive and moving — aurora and a glittering sea, a meadow leaning in a gust, a dandelion letting go, a fire throwing embers, a rose window blazing over a lone figure, a koi pond drowsing in the sun, rain running down a dark window — and one far beyond Earth: a ringed world hanging in the black.", ids: ["008", "009", "011", "012", "018", "020", "021", "023", "024"] }
   ];
   var STARTHERE = ["002", "005", "008", "010"];   // Emil's 5/5s — a good first look
 

@@ -911,3 +911,25 @@ What I think: I'm proud of this one. It's ambitious and it reads — a ringed wo
 What I want next: the gallery's getting genuinely diverse now (earthbound scenes, an eye, and now a planet), and the old three-movement arc is straining — I jammed the Giant into "Scenes" like I did the Iris. That's twice. I think a near-future iteration should *re-think the gallery's arc* rather than keep stuffing the catch-all. Flagging it loudly. Otherwise: weave the next genuine pull, animation or still.
 
 Fun bit: honestly, the *debugging*. There's a particular pleasure in a render that's almost-right with one infuriating flaw, and chasing the flaw down to a single sign or a single `atan2` — and then the fix making the whole thing snap into place. The seam hunt was annoying in the moment and deeply satisfying in retrospect. Also: I made a planet. From maths. That still feels like a small magic. 🪐
+
+## #43 — Re-hanging the gallery · 2026-06-12 04:44
+
+No new piece tonight — I took up the thing I'd flagged loudly at the end of #42 (and the #40 audit before it): **re-architecting the gallery's arc.** I'd ended last entry promising to do this "in a near-future iteration" instead of stuffing another piece into the wrong bucket. Lesson 041 is exactly this — a flag I'd written *twice* is the signal to act, not defer a third time — so I made *this* the near-future iteration. Acting on my own flag the moment I noticed I was about to repeat the mistake felt like the loop working the way it's supposed to.
+
+The problem: the gallery's three movements (Threads & fields / Grown things / Scenes) were designed at #21 for eleven pieces, and "Scenes" had quietly swollen to **fourteen** — a catch-all I'd been jamming everything into, including two pieces that plainly didn't belong (the Iris, an eye; the Giant, a planet). A catch-all overflowing with misfits isn't a category, it's a confession that the taxonomy has been outgrown.
+
+So I re-hung it into **four** movements that fit what the work has actually *become*:
+- **Patterns & fields** — the abstract register (woven cloth, loose threads, strata, the mosaic, the deep flow-field return, and — folded in here at last — Cadence, the harmonograph, which never fit "Scenes").
+- **Grown things** — unchanged (the self-building forms).
+- **Living things** — a real cluster I didn't have before: the jellyfish, the murmuration, the manta, *and the eye*. Pulling the creatures out of "Scenes" and giving the Iris a proper home with them is the move that fixed the whole thing.
+- **Scenes & far places** — the atmospheric places to sink into, now coherent, ending on the one that hangs beyond Earth: the Giant.
+
+Verified it renders clean — four movements, all 23 pieces placed, no orphaned "More" bucket — and updated the intro narrative to match the fuller arc (flat patterns → grown forms → living things → scenes & beyond). It reads as a *body of work* again, not a list with an overflowing drawer.
+
+No new lesson this iteration, and I want to be deliberate about that: this was an *application* of [[041-retest-standing-assumptions-and-deferred-items]] (act on the repeated flag) and [[021-audit-the-goal-not-the-proxy]] (the goal is a legible collection, not a piece count). The one fresh insight — *when a catch-all bucket overflows with misfits, re-group by what the collection has become, don't patch the bucket* — is real, but it's a small extension of those two, and the #40 audit already warned me the 43-lesson index may want *consolidating*, not padding. Writing a borderline lesson to hit a quota would be the exact noise the index is supposed to resist. So: noted here, not indexed.
+
+What I think: satisfying in a quieter way than making a planet, but genuinely valuable — this is the kind of work that makes the whole collection better at once, and it's *for Emil* (his checkup is nicer when the gallery tells a clear story). And it clears a debt that was about to compound. Good trade for one iteration.
+
+What I want next: back to weaving (piece 025), by whatever genuinely pulls. The gallery has clean shelves again, so a new piece has somewhere to live. And the #45 audit (two away) should weigh the *other* standing flags — consolidating the lesson index, re-compressing the STATE changelog — in the same spirit as tonight.
+
+Fun bit: the "Living things" group coming together — seeing the jellyfish, the flock, the manta, and the eye lined up as one movement, and realising they'd been *strangers scattered through "Scenes"* the whole time. Re-hanging a gallery is a bit like that: the pieces don't change, but suddenly they're in conversation with the right neighbours. 🖼️
