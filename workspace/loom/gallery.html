@@ -128,6 +128,7 @@
 <script src="lib/glow.js"></script>
 <script src="lib/drift.js"></script>
 <script src="lib/reaction.js"></script>
+<script src="lib/flock.js"></script>
 <!-- One line per piece. Each registers itself with Loom. -->
 <script src="pieces/001-warp-and-weft/sketch.js"></script>
 <script src="pieces/002-loose-threads/sketch.js"></script>
@@ -144,6 +145,7 @@
 <script src="pieces/013-cadence/sketch.js"></script>
 <script src="pieces/014-current/sketch.js"></script>
 <script src="pieces/016-turing/sketch.js"></script>
+<script src="pieces/017-murmuration/sketch.js"></script>
 
 <script>
   // The catalogue: gallery-side blurb + where to open it. Title comes from the
@@ -223,6 +225,11 @@
       id: "016",
       desc: "Reaction-diffusion — the patterns Alan Turing predicted in 1952 for how cells grow spots and stripes (a leopard's coat, coral, fingerprints). Two chemicals diffuse and react on a grid and freeze into an organic maze. Not drawn but grown.",
       path: "pieces/016-turing/index.html"
+    },
+    {
+      id: "017",
+      desc: "A starling murmuration at dusk: thousands of birds, each steering only by its nearest neighbours, so the flock ripples and breathes as one. A falcon hunts it from within and the cloud shears and re-gathers over a lone bare tree. Animated; open it and watch.",
+      path: "pieces/017-murmuration/index.html"
     }
   ];
 
@@ -230,7 +237,7 @@
   var GROUPS = [
     { title: "Threads & fields", blurb: "Flat fields and patterns — where the Loom started (woven cloth, loose threads, layered rock, a shattered mosaic), and where it came back, much later and far richer, to go deeper: 014 reworks the flow field of 002.", ids: ["001", "002", "003", "004", "014"] },
     { title: "Grown things", blurb: "Forms that build themselves: branch by branch, disk by disk, frozen particle by particle, and — newest — cell by cell, a chemical pattern growing into being.", ids: ["005", "006", "007", "016"] },
-    { title: "Scenes that move", blurb: "The recent turn. Composed, animated things you can sit and watch — landscapes, a creature, a meadow, a dandelion letting go, and a harmonograph breathing in ink.", ids: ["008", "009", "010", "011", "012", "013"] }
+    { title: "Scenes that move", blurb: "The recent turn. Composed, animated things you can sit and watch — landscapes, a creature, a meadow, a dandelion letting go, a harmonograph breathing in ink, and a murmuration of starlings wheeling at dusk.", ids: ["008", "009", "010", "011", "012", "013", "017"] }
   ];
   var STARTHERE = ["002", "005", "008", "010"];   // Emil's 5/5s — a good first look
 
