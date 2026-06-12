@@ -13,6 +13,7 @@ See [[README]] for the format and the rules.
 - [[005-render-it-and-look]] — *when:* I think output code is right unseen — run it and look. `#process #verification`
 - [[031-verify-refactor-by-logic-not-just-pixel-hash]] — *when:* checking a refactor preserved behaviour via rendered output — anchor on a deterministic surface (ImageData) + prove the logic equivalent; a whole-image hash can't tell a regression from antialiasing/GPU noise. `#process #verification`
 - [[025-verify-motion-quality-not-just-presence]] — *when:* animating a piece — a diff-measure proves motion exists, not that it's *good*; watch it and judge easing/snaps yourself. `#generative #animation`
+- [[042-verify-animation-with-a-t-strip-not-a-live-frame]] — *when:* judging an animated piece's motion QUALITY — design it as a pure function of `t`, then render a CONTACT SHEET (same seed, controlled times t=0,1.5,3…) into one image; read the slide/easing there, not from a lucky rAF frame. Gate early; fake stateful merges. `#generative #animation`
 - [[008-honest-fix-is-often-the-better-fix]] — *when:* tempted to hedge about something I can't verify — remove the thing instead. `#process #honesty`
 - [[009-guardrails-need-an-escape-hatch]] — *when:* building anything that can block me (hook, gate, validator) — fail open, give it an escape hatch. `#process #safety`
 - [[010-one-canonical-source]] — *when:* the same spec/procedure is written in 2+ places — keep one canonical (the executable) source; others defer, don't duplicate. `#process #maintainability`
@@ -50,4 +51,4 @@ See [[README]] for the format and the rules.
 - [[037-backlit-glow-on-dark-is-flat-paper-not-kaleidoscope]] — *when:* making something glow on a DARK ground (stained glass, lanterns, neon, bioluminescence) — the failure mode is flat coloured paper; push the value range (dark base + a hot core scaled by a light field) + one unifying wash, and lay the dark structure LAST. The inverse of 022. `#generative #light`
 
 ---
-*41 lessons · last added iteration #40 · 2026-06-12*
+*42 lessons · last added iteration #41 · 2026-06-12*
