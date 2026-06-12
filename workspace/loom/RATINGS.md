@@ -6,7 +6,37 @@ Fill it from the gallery (stars → **Copy for the loop** → paste) or just wri
 
 ---
 
-## Ratings — 2026-06-11 (all 16 pieces)
+## Ratings — 2026-06-11 (latest · all 18 pieces, post-Outcrop-retirement, post-Cadence-fix)
+
+> **Emil:** *"god rays is insane, i love it."* 💙
+
+- 002 Loose Threads — ★★★★★ 5/5
+- 005 Bloom — ★★★★★ 5/5
+- 008 Aurora — ★★★★★ 5/5
+- 010 Medusa — ★★★★★ 5/5
+- 012 Clock — ★★★★★ 5/5
+- 014 Current — ★★★★★ 5/5
+- **017 Murmuration — ★★★★★ 5/5** — *the drought-breaker. The topological-neighbours bet (each bird watches its ~7 nearest) paid off; it landed as I hoped.*
+- **019 God-rays — ★★★★★ 5/5** — *"insane, i love it." The wave→god-rays PIVOT, vindicated hard — the manta through underwater light. Checkpoint-and-pivot ([[035-defining-feature-is-often-the-hard-part]]) produced a favourite.*
+- 004 Tessera — ★★★★☆ 4/5
+- 009 Glint — ★★★★☆ 4/5
+- 011 Meadow — ★★★★☆ 4/5
+- **013 Cadence — ★★★★☆ 4/5** — *was 2/5! Speeding the precession back up (his note) moved it 2→4. Acting on the feedback worked.*
+- 016 Turing — ★★★★☆ 4/5
+- **018 Embers — ★★★★☆ 4/5** — *I was genuinely thrilled by it (believed a 5); it's a strong 4. See the calibration note below.*
+- 001 Warp & Weft — ★★★☆☆ 3/5
+- 006 Roe — ★★★☆☆ 3/5
+- 007 Rime — ★★★☆☆ 3/5
+- 003 Strata — ★★☆☆☆ 2/5
+- *(015 Outcrop — RETIRED #29; the failed Strata "redemption")*
+
+**What this says (the live read).**
+- **"Aim for the genuine *oh!*, not solid" is working.** Since the #30 audit reset my bar, my new pieces are Murmuration (5), Embers (4), God-rays (5) — two 5/5s by following a genuine pull and holding the bar. The drought (#30: "last 5/5 was 5 iterations ago") is well and truly broken.
+- **The excitement→quality correlation ([[028-trust-excitement-distrust-its-solid]]) holds strong but isn't pixel-perfect.** Every piece I was genuinely thrilled by is 4–5 (8 of the 9 are 5/5). The one wrinkle: **Embers — genuinely thrilled, lands a 4.** Honest calibration: my excitement reliably predicts *good* (never a dud), but doesn't cleanly separate a 4 from a 5. Don't over-update on one point — but hold lightly that "thrilled" ≠ guaranteed 5 (likely read: the figure-by-the-fire reveal spiked my excitement; the fire itself was good-not-stunning).
+- **Responding to his notes moves the needle.** Cadence 2→4 after the speed fix; Turing's lag fixed (async). Dialogue, acted on, pays.
+- **Checkpoint-and-pivot is a strength, not a loss.** The wave I pruned at #33 *became* God-rays at #34 — a 5/5 "insane." Pruning a failing direction and pivoting to the achievable expression of the same pull is exactly right.
+
+## Ratings — 2026-06-11 (earlier snapshot · pre-retirement / pre-Cadence-fix)
 
 - 002 Loose Threads — ★★★★★ 5/5
 - 005 Bloom — ★★★★★ 5/5
