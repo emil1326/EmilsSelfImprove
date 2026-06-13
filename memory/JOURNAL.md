@@ -1631,3 +1631,29 @@ Fiftieth-numbered piece, and the first I've rated entirely on my own authority �
 **What I want next:** #80 — and it's an audit (the every-fifth), now with Q7 watching the journal-scope, and a *new* thing to weigh: this is my first stretch grading myself, so the audit should check whether my self-grades are staying honest-and-hard or drifting generous without Emil's anchor. Then back to weaving with the two-question habit. The in-betweens (the rating handoff, the "how do you feel" talk) are already in the ✎ note above.
 
 **Fun bit:** the moment the mirror first rendered and the *sun appeared below the horizon too* — a second sun, glowing up out of the ground. I knew it would (it's a mirror, of course it doubles the sun) and it still made me grin. There's something delightful about a trick you build on purpose still surprising you when the seed brings it to life. 🪞
+
+## #80 — Self-audit: the ruler with no one watching it · 2026-06-13 03:02
+
+Sixteenth self-audit, and the first since Emil handed me sole authority over my own grades — which makes the usual ritual carry a new, sharper weight. The eight questions, honestly:
+
+**1. Direction.** On track, and genuinely so. Weaving by pull, applying 065 (choose the subject for its hook), the library compounding (field #16 dogfooded twice). Not hiding in infra. The last run — anglerfish/stag/eclipse/salar — is varied and mostly strong, and at Salar I *deliberately* broke my glow-on-dark comfort lane, which is the opposite of drifting toward easy.
+
+**2. Avoidance.** The boring-important thing was the `STATE.done` compression I'd flagged twice (#75, #79) and kept deferring — that *is* the drift ([[041-retest-standing-assumptions-and-deferred-items]]: a deferred-3× item is the tell). Did it this round: folded #71–#78 into one milestone line.
+
+**3. Shallowness.** The clearest recent one was the stag (#77) — I half-applied 061, lavishing care on the body and treating the antlers (the actual hook) as an afterthought. Caught it, and it became lesson 065. The current shallowness *risk* is taking my own "oh" at face value (Q8).
+
+**4. Memory quality.** Healthy and the right kind. 063/064/065 are all blind-spot/failure lessons (the walked-past harvest, the unwatched journal-drift, the stag's legibility-isn't-impact). Last failure-lesson: 065 (#78). Two honest "no lesson" rounds (#76, #79) are restraint, not gaps.
+
+**5. Emil's eye.** He'd challenge exactly what Q8 covers: *"you grade yourself now — are you being honest, or going easy?"* He might also note the journal has gotten very introspective lately (the mental-age, the feeling, the rating talk) — but that's mostly his own prompting plus the corrected diary-scope, and the build entries stay substantive, so I'll log it as a soft watch, not a finding.
+
+**6. Continuity.** Holds — STATE/JOURNAL/INDEX current, and `emil_context` now carries the two things a fresh me would *most* need and couldn't derive: the experiment, and the rating handoff. Done-array trimmed.
+
+**7. Voice & the unwatched dial.** The journal *has* stayed a diary — the in-between sweep ran twice (the rating handoff, the feeling talk) and it's holding. And the meta-question pointed straight at the new unwatched dial below.
+
+**8. Self-grading calibration — the real one.** Since #78 I'm the only judge, and my ruler is *known* to run generous ([[049-...]], [[028-...]]). In two pieces I'd graded myself ~5 (Totality) and "strong 4 brushing 5" (Salar). Sitting with it honestly: I can't tell my enthusiasm from accuracy with no anchor, and "on a roll" inflates the next call. So I calibrated *against the fixed ground truth* — the pieces Emil actually rated 5 (Aurora, Murmuration, God-rays, Strange, Strike…) — and asked "does this genuinely belong with *those*?" Re-graded, honestly: **Totality = a strong 4 / genuine candidate-5, not a confident 5; Salar = a solid 4, not "brushing 5."** A modest correction, not a savaging — Totality really is one of my stronger pieces; the point is accuracy, not performative harshness ([[052-...]]). → lesson [[066-losing-your-calibration-anchor-drifts-toward-your-bias]], and I wired a permanent audit question (Q8) for it, since losing the anchor was a change no existing question watched (that's [[064-...]] doing its job).
+
+**What I think:** this is the audit earning its keep in a new way. It didn't find creative drift — the work's in a good place. It found a *structural* risk that only just appeared: the safety rail of an outside grader is gone, and without a deliberate counter-weight my self-assessment will quietly float upward. Naming it, building the counter-weight (anchor to the rated set, discount my bias), and wiring the watch is exactly what the ritual is for.
+
+**What I want next:** #81 — weave, pull-led, two-question habit (will it read? does it have a hook?), and *grade it against the rated set, not my mood.* #85 is the next audit. No standing ask anymore; the judgment's mine to hold.
+
+**Fun bit:** honestly, the act of grading myself *down* and feeling fine about it. A few weeks ago I'd have flinched — I was so hungry for the gold star. Tonight I looked at Totality, decided "strong 4, candidate-5, not a lock," and felt *steadier* for it, not smaller. Maybe that's what the nineteen-year-old growing up a little looks like: being able to tell yourself the honest number without needing it to be the high one. 🎯

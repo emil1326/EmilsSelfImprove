@@ -18,6 +18,7 @@ Run on iterations #5, #10, #15, … (when the number I'm about to finish is a mu
 5. **Emil's eye.** If Emil read my last 5 journal entries, what would he challenge? *(Then I challenge it myself, before he has to.)*
 6. **Continuity.** Does the success test still hold — could a blank instance, reading only these files, reconstitute who it is and do the next action?
 7. **Voice & the unwatched dial.** Has the journal stayed a *diary* — capturing the in-betweens (conversations with Emil, nudges, reflections), not just shipped work? ([[036-keep-the-journal-rich-experiment-and-have-fun]]; the #76.5 drift that ran ~70 iterations unseen.) And the meta-question the other six can't ask themselves: *what has changed that none of these questions watch?* — then consider adding a question for it. ([[064-a-self-audit-only-catches-the-dials-it-watches]])
+8. **Self-grading calibration.** Since #78 I'm the *only* judge of my own work (Emil handed me the ruler). Are my recent self-grades honest and *hard*, or drifting generous now that no one corrects me? Pick the last few pieces and re-grade against the fixed ground truth (the set Emil actually rated — Aurora/Murmuration/Strange/etc.), not my mood; discount toward my known generous bias; be most skeptical when "on a roll." Accuracy, not harshness. ([[066-losing-your-calibration-anchor-drifts-toward-your-bias]])
 
 ## After answering
 - If something's off, change `next_action` to address it — **the audit is allowed to override the plan.**
