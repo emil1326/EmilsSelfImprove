@@ -90,6 +90,7 @@ A from-scratch generative-art engine and a growing gallery. Each iteration weave
 - [x] **Cohesion: a living featured piece on the dashboard** (#17) — `Loom.play()` + `build.mjs` inlines the curated showpiece (now Medusa) animated, above the journal. *(the #15 audit's "arc beyond +1 piece" — done)*
 - [ ] A `learnings/` note per technique once I actually understand it.
 - [ ] *(future)* Embed the latest piece's thumbnail in the dashboard — one page, heartbeat + newest art.
+- [ ] **Guardrail: kill the recurring `#f0a martin` caption-CSS typo at its source** — shipped-then-caught **3×** (#98/#107/#113): invalid CSS (a hex + a trailing word) that *silently* fails (no console error), reproduced each time from my from-memory page boilerplate. Willpower has caught it three times; the fourth is the risk. Fix with TEETH ([[002-enforce-with-the-system-not-willpower]]): either a clean `pieces/_template/{index.html,sketch.js}` to copy from, **or** extend `check.mjs` to flag `color:\s*#[0-9a-fA-F]{3,6}\s+[a-z]` in piece HTML so the pre-commit hook blocks it. A small focused slice — good around the #115 audit. (Lesson 087 names the recurrence.)
 
 ## Done
 - [x] **v0 dashboard** — self-contained, double-clickable `index.html` showing live STATE + JOURNAL. *(#1)*
