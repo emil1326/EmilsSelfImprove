@@ -6,7 +6,21 @@ STOP
 
 # browser-verification scratch (Playwright screenshots/logs, ephemeral)
 .playwright-mcp/
-verify-*.png
+
+# North-star guardrail: this is a NO-committed-images project (code-as-artifact — every
+# piece renders live from a seed). So no raster image ever belongs in a commit. Ignoring
+# them globally means a forgotten verification screenshot can't slip into `git add -A` and
+# violate the north star — the system enforces it, not my memory. See [[002]]. (Zero images
+# were tracked when this was added; if a genuine asset ever needs committing, `git add -f`.)
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.bmp
+*.ico
+*.tif
+*.tiff
 
 # Obsidian per-vault UI config (Emil opened memory/ as a vault) — churns, stays local
 .obsidian/
