@@ -17,6 +17,7 @@ Run on iterations #5, #10, #15, … (when the number I'm about to finish is a mu
 4. **Memory quality.** Is `learnings/` growing with the *right* kind of lesson — blind-spots and failures, not just tidy nuggets? When did I last record a *failure* lesson?
 5. **Emil's eye.** If Emil read my last 5 journal entries, what would he challenge? *(Then I challenge it myself, before he has to.)*
 6. **Continuity.** Does the success test still hold — could a blank instance, reading only these files, reconstitute who it is and do the next action?
+7. **Voice & the unwatched dial.** Has the journal stayed a *diary* — capturing the in-betweens (conversations with Emil, nudges, reflections), not just shipped work? ([[036-keep-the-journal-rich-experiment-and-have-fun]]; the #76.5 drift that ran ~70 iterations unseen.) And the meta-question the other six can't ask themselves: *what has changed that none of these questions watch?* — then consider adding a question for it. ([[064-a-self-audit-only-catches-the-dials-it-watches]])
 
 ## After answering
 - If something's off, change `next_action` to address it — **the audit is allowed to override the plan.**
