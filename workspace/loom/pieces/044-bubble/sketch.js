@@ -42,30 +42,18 @@ Loom.piece({
     var lightA = rng.range(-2.4, -1.9);                          // light direction (upper-left-ish)
     var swirl = rng.range(0, TAU), grav = rng.range(1.3, 1.9);
 
-    // ---- the thin-film skin: a numeric field over the sphere ----
-    var FW = Math.round(S * 0.6), oc = document.createElement("canvas"); oc.width = FW; oc.height = FW;
-    var octx = oc.getContext("2d"), img = octx.createImageData(FW, FW), data = img.data, col = [0, 0, 0];
-    var sc = S / FW, csw = Math.cos(swirl), ssw = Math.sin(swirl);
-    for (var by = 0; by < FW; by++) {
-      for (var bx = 0; bx < FW; bx++) {
-        var X = bx * sc, Y = by * sc, dx = (X - cx) / R, dy = (Y - cy) / R, r2 = dx * dx + dy * dy;
-        var idx = (by * FW + bx) * 4;
-        if (r2 > 1) continue;
-        var nzs = Math.sqrt(1 - r2);                            // surface normal z (1 centre → 0 rim)
-        var fres = Math.pow(1 - nzs, 1.5);                      // grazing → more colour
-        var st = clamp(1 / Math.max(0.32, nzs), 1, 3.1);        // foreshorten: bands compress toward the rim
-        var wx = (dx * csw - dy * ssw) * st, wy = (dx * ssw + dy * csw) * st;
-        var warp = nz.fbm(wx * 1.5 + 5, wy * 1.5 + 5, 4, 2.0, 0.55) - 0.5;
-        var thick = (dy + 1.1) * grav + warp * 2.6 + nz.fbm(wx * 3.2 + 11, wy * 3.2 + 11, 2, 2.0, 0.5) * 0.9;
-        var tc = thick - Math.floor(thick);                    // cyclic 0..1
-        film.rgb(tc, col);
-        // alpha: thin/transparent at the top-centre (the draining cap), colourful toward the rim
-        var topThin = clamp(0.5 - dy * 0.55, 0, 1);            // dy<0 = upper → thinner
-        var a = clamp((0.22 + fres * 0.72) * (1 - topThin * 0.55) * (0.6 + 0.5 * nz.fbm(wx * 2 + 20, wy * 2 + 20, 2, 2, 0.5)), 0, 0.95);
-        data[idx] = col[0]; data[idx + 1] = col[1]; data[idx + 2] = col[2]; data[idx + 3] = (a * 255) | 0;
-      }
-    }
-    octx.putImageData(img, 0, 0);
+    // ---- the thin-film skin: a field on the sphere (lib/sphere.js #15 — the harvested per-pixel sphere loop) ----
+    var FW = Math.round(S * 0.6), sc = S / FW, csw = Math.cos(swirl), ssw = Math.sin(swirl);
+    var oc = Loom.sphere(FW, cx / sc, cy / sc, R / sc, function (x, y, dx, dy, nrm, r2, out) {
+      var fres = Math.pow(1 - nrm, 1.5);                        // grazing → more colour
+      var st = clamp(1 / Math.max(0.32, nrm), 1, 3.1);          // foreshorten: bands compress toward the rim
+      var wx = (dx * csw - dy * ssw) * st, wy = (dx * ssw + dy * csw) * st;
+      var warp = nz.fbm(wx * 1.5 + 5, wy * 1.5 + 5, 4, 2.0, 0.55) - 0.5;
+      var thick = (dy + 1.1) * grav + warp * 2.6 + nz.fbm(wx * 3.2 + 11, wy * 3.2 + 11, 2, 2.0, 0.5) * 0.9;
+      film.rgb(thick - Math.floor(thick), out);                 // cyclic thin-film colour → out[0..2]
+      var topThin = clamp(0.5 - dy * 0.55, 0, 1);               // dy<0 = upper → thinner draining cap
+      out[3] = (clamp((0.22 + fres * 0.72) * (1 - topThin * 0.55) * (0.6 + 0.5 * nz.fbm(wx * 2 + 20, wy * 2 + 20, 2, 2, 0.5)), 0, 0.95) * 255) | 0;
+    });
     ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = "high";
     ctx.drawImage(oc, 0, 0, S, S);
 

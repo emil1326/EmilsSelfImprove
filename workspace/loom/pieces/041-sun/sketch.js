@@ -59,41 +59,32 @@ Loom.piece({
       spots.push({ x: gxs + rng.range(-0.16, 0.16) * Rsun, y: gys + rng.range(-0.12, 0.12) * Rsun, r: rng.range(0.02, 0.07) * Rsun });
     }
 
-    // ---- the photosphere: a half-res numeric field (granulation + limb-darkening + sunspots) ----
-    var FW = Math.round(S * 0.55), oc = document.createElement("canvas"); oc.width = FW; oc.height = FW;
-    var octx = oc.getContext("2d"), img = octx.createImageData(FW, FW), data = img.data, col = [0, 0, 0];
-    var sc = S / FW;
-    for (var by = 0; by < FW; by++) {
-      for (var bx = 0; bx < FW; bx++) {
-        var X = bx * sc, Y = by * sc, ddx = X - cx, ddy = Y - cy, r = Math.hypot(ddx, ddy);
-        if (r > Rsun) continue;
-        var rn = r / Rsun, mu = Math.sqrt(Math.max(0, 1 - rn * rn));    // limb darkening: dim toward edge
-        var ld = 0.46 + 0.54 * mu;
-        // granulation: a fine cellular boil + a larger active-region mottle, with a gentle domain warp
-        var wx = X + (nz.fbm(X * 0.006 + 3, Y * 0.006 + 3, 2, 2.0, 0.5) - 0.5) * 40 * U;
-        var wy = Y + (nz.fbm(X * 0.006 + 9, Y * 0.006 + 9, 2, 2.0, 0.5) - 0.5) * 40 * U;
-        var gFine = nz.fbm(wx * 0.05, wy * 0.05, 4, 2.2, 0.55);
-        gFine = 1 - Math.abs(gFine * 2 - 1);                            // ridge it → bright cells, dark lanes
-        var gCoarse = nz.fbm(X * 0.012 + 20, Y * 0.012 + 20, 3, 2.0, 0.5);
-        var gran = (gFine - 0.5) * 0.8 + (gCoarse - 0.5) * 0.42;
-        var v = ld * (0.58 + gran * 0.7);
-        // sunspots: dark umbra + filamentary penumbra
-        for (var s = 0; s < spots.length; s++) {
-          var sd = Math.hypot(X - spots[s].x, Y - spots[s].y), sr = spots[s].r;
-          if (sd < sr) {
-            var fil = 0.6 + 0.4 * nz.fbm(Math.atan2(Y - spots[s].y, X - spots[s].x) * 6, sd * 0.1, 2, 2, 0.5);
-            var spotMul = sd < sr * 0.45 ? 0.14 : 0.14 + (sd - sr * 0.45) / (sr * 0.55) * (0.86 * fil);
-            v *= clamp(spotMul, 0.1, 1);
-          }
+    // ---- the photosphere: a field on the sphere (lib/sphere.js #15 — the harvested per-pixel sphere loop) ----
+    var FW = Math.round(S * 0.55), sc = S / FW;
+    var oc = Loom.sphere(FW, cx / sc, cy / sc, Rsun / sc, function (x, y, dx, dy, nrm, r2, out) {
+      var X = x * sc, Y = y * sc;
+      var ld = 0.46 + 0.54 * nrm;                                    // limb darkening: nrm (the normal z) dims toward the edge
+      // granulation: a fine cellular boil + a larger active-region mottle, with a gentle domain warp
+      var wx = X + (nz.fbm(X * 0.006 + 3, Y * 0.006 + 3, 2, 2.0, 0.5) - 0.5) * 40 * U;
+      var wy = Y + (nz.fbm(X * 0.006 + 9, Y * 0.006 + 9, 2, 2.0, 0.5) - 0.5) * 40 * U;
+      var gFine = nz.fbm(wx * 0.05, wy * 0.05, 4, 2.2, 0.55);
+      gFine = 1 - Math.abs(gFine * 2 - 1);                            // ridge it → bright cells, dark lanes
+      var gCoarse = nz.fbm(X * 0.012 + 20, Y * 0.012 + 20, 3, 2.0, 0.5);
+      var gran = (gFine - 0.5) * 0.8 + (gCoarse - 0.5) * 0.42;
+      var v = ld * (0.58 + gran * 0.7);
+      // sunspots: dark umbra + filamentary penumbra
+      for (var s = 0; s < spots.length; s++) {
+        var sd = Math.hypot(X - spots[s].x, Y - spots[s].y), sr = spots[s].r;
+        if (sd < sr) {
+          var fil = 0.6 + 0.4 * nz.fbm(Math.atan2(Y - spots[s].y, X - spots[s].x) * 6, sd * 0.1, 2, 2, 0.5);
+          var spotMul = sd < sr * 0.45 ? 0.14 : 0.14 + (sd - sr * 0.45) / (sr * 0.55) * (0.86 * fil);
+          v *= clamp(spotMul, 0.1, 1);
         }
-        v = clamp(v, 0, 1.1);
-        hot.rgb(clamp(v, 0, 1), col);
-        if (v > 1.02) { var e = (v - 1.02) * 0.6; col[0] = clamp(col[0] + e * 255, 0, 255); col[1] = clamp(col[1] + e * 235, 0, 255); col[2] = clamp(col[2] + e * 210, 0, 255); }
-        var idx = (by * FW + bx) * 4;
-        data[idx] = col[0]; data[idx + 1] = col[1]; data[idx + 2] = col[2]; data[idx + 3] = 255;
       }
-    }
-    octx.putImageData(img, 0, 0);
+      v = clamp(v, 0, 1.1);
+      hot.rgb(clamp(v, 0, 1), out);
+      if (v > 1.02) { var e = (v - 1.02) * 0.6; out[0] = clamp(out[0] + e * 255, 0, 255); out[1] = clamp(out[1] + e * 235, 0, 255); out[2] = clamp(out[2] + e * 210, 0, 255); }
+    });
     // clip to the disc and draw the upscaled surface
     ctx.save();
     ctx.beginPath(); ctx.arc(cx, cy, Rsun, 0, TAU); ctx.clip();
