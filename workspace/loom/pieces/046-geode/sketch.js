@@ -84,30 +84,25 @@ Loom.piece({
     ctx.fillStyle = rl; ctx.fillRect(0, 0, S, S); ctx.restore();
 
     // ---- the AGATE bands: a numeric field over the cavity, upscaled ----
-    var FW = Math.round(S * 0.66), sc = S / FW, oc = document.createElement("canvas");
-    oc.width = FW; oc.height = FW;
-    var octx = oc.getContext("2d"), img = octx.createImageData(FW, FW), data = img.data, col = [0, 0, 0];
+    var FW = Math.round(S * 0.66), sc = S / FW, col = [0, 0, 0];
     var Rcr = Rcav0 * rng.range(0.24, 0.32);                     // crystal-centre radius (bands fade into it)
-    for (var by = 0; by < FW; by++) {
-      for (var bx = 0; bx < FW; bx++) {
-        var X = bx * sc, Y = by * sc, ddx = X - cx, ddy = Y - cy, r = Math.sqrt(ddx * ddx + ddy * ddy);
-        var ang = Math.atan2(ddy, ddx), Rc = lut(rcav, ang);
-        if (r > Rc) continue;                                    // outside the cavity → rock shows through
-        var t = r / Rc;                                          // 0 centre → 1 rim
-        var warp = nz.fbm(X * 0.009 + 5, Y * 0.009 + 5, 4, 2.1, 0.55) - 0.5;
-        var tw = clamp(t + warp * wob, 0, 1);
-        // a fine stripe modulation on top of the banded ramp (crisper agate layering, finer toward the rim)
-        var stripe = Math.sin(tw * TAU * 9 * (0.5 + tw) + bandPhase + warp * 2);
-        var tc = clamp(tw + stripe * 0.018, 0, 1);
-        agate.rgb(tc, col);
-        var lite = 1 + stripe * 0.07;                            // subtle band relief
-        var i2 = (by * FW + bx) * 4;
-        data[i2] = clamp(col[0] * lite, 0, 255); data[i2 + 1] = clamp(col[1] * lite, 0, 255); data[i2 + 2] = clamp(col[2] * lite, 0, 255);
-        // fade the innermost bands toward the crystal centre so the druse reads as the core
-        data[i2 + 3] = 255 * clamp((r - Rcr * 0.7) / (Rcr * 0.5), 0, 1);
-      }
-    }
-    octx.putImageData(img, 0, 0);
+    // the agate bands are a per-pixel field over the cavity (lib/field.js #16), then upscaled
+    var oc = Loom.field(FW, function (bx, by, out) {
+      var X = bx * sc, Y = by * sc, ddx = X - cx, ddy = Y - cy, r = Math.sqrt(ddx * ddx + ddy * ddy);
+      var ang = Math.atan2(ddy, ddx), Rc = lut(rcav, ang);
+      if (r > Rc) { out[3] = 0; return; }                       // outside the cavity → transparent (rock shows through)
+      var t = r / Rc;                                           // 0 centre → 1 rim
+      var warp = nz.fbm(X * 0.009 + 5, Y * 0.009 + 5, 4, 2.1, 0.55) - 0.5;
+      var tw = clamp(t + warp * wob, 0, 1);
+      // a fine stripe modulation on top of the banded ramp (crisper agate layering, finer toward the rim)
+      var stripe = Math.sin(tw * TAU * 9 * (0.5 + tw) + bandPhase + warp * 2);
+      var tc = clamp(tw + stripe * 0.018, 0, 1);
+      agate.rgb(tc, col);
+      var lite = 1 + stripe * 0.07;                             // subtle band relief
+      out[0] = clamp(col[0] * lite, 0, 255); out[1] = clamp(col[1] * lite, 0, 255); out[2] = clamp(col[2] * lite, 0, 255);
+      // fade the innermost bands toward the crystal centre so the druse reads as the core
+      out[3] = 255 * clamp((r - Rcr * 0.7) / (Rcr * 0.5), 0, 1);
+    });
     ctx.save(); ctx.clip(blob(rcav, 1));
     ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = "high";
     ctx.drawImage(oc, 0, 0, S, S);

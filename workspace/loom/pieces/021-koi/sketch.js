@@ -218,30 +218,23 @@ Loom.piece({
       // ---- the water (bed + caustics + depth veil + surface ripple) is rendered into a half-res
       //      offscreen and smoothly upscaled, so the per-cell field work can't leave a grid ([[026]]). ----
       var OS = Math.round(S * 0.42), k = S / OS;
-      var oc = document.createElement("canvas"); oc.width = OS; oc.height = OS;
-      var o = oc.getContext("2d");
-      // The whole water field is composited NUMERICALLY into an ImageData (no per-pixel canvas ops —
-      // that was a 0.4s freeze) and then smoothly upscaled. bed -> caustics -> green veil -> ripple.
       function rgb(h) { var c = Loom.hexToRgb(h); return [c.r, c.g, c.b]; }
       function lerp3(a, b, t) { return [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t, a[2] + (b[2] - a[2]) * t]; }
       var BED = rgb(bedBase), DEEP = rgb(bedDeep), WAT = rgb(waterTint), CAU = rgb(causticCol), SKY = rgb(sky), TRO = [12, 58, 48];
-      var img = o.createImageData(OS, OS), data = img.data;
-      for (var oy = 0; oy < OS; oy++) {
-        for (var ox = 0; ox < OS; ox++) {
-          var px = ox * k, py = oy * k;
-          var d = depthAt(px, py);
-          var col = lerp3(BED, DEEP, Math.min(1, d * 0.85 + bedN.fbm(px / S * 7, py / S * 7, 3) * 0.25));
-          var c = caustic(px / S, py / S);
-          if (c > 0.42) col = lerp3(col, CAU, Math.min(0.85, (c - 0.42) * 2.0 * (1 - d * 0.7)));
-          col = lerp3(col, WAT, 0.34);                                   // green water veil
-          var rv = ripN.fbm(px / S * 9, py / S * 9, 3);
-          if (rv > 0.62) col = lerp3(col, SKY, Math.min(0.3, (rv - 0.62) * 0.5));
-          else if (rv < 0.3) col = lerp3(col, TRO, Math.min(0.18, (0.3 - rv) * 0.4));
-          var idx = (oy * OS + ox) * 4;
-          data[idx] = col[0]; data[idx + 1] = col[1]; data[idx + 2] = col[2]; data[idx + 3] = 255;
-        }
-      }
-      o.putImageData(img, 0, 0);
+      // the water (bed → caustics → green veil → ripple) is a per-pixel field (lib/field.js #16), then upscaled
+      var oc = Loom.field(OS, function (ox, oy, out) {
+        var px = ox * k, py = oy * k;
+        var d = depthAt(px, py);
+        var col = lerp3(BED, DEEP, Math.min(1, d * 0.85 + bedN.fbm(px / S * 7, py / S * 7, 3) * 0.25));
+        var c = caustic(px / S, py / S);
+        if (c > 0.42) col = lerp3(col, CAU, Math.min(0.85, (c - 0.42) * 2.0 * (1 - d * 0.7)));
+        col = lerp3(col, WAT, 0.34);                                   // green water veil
+        var rv = ripN.fbm(px / S * 9, py / S * 9, 3);
+        if (rv > 0.62) col = lerp3(col, SKY, Math.min(0.3, (rv - 0.62) * 0.5));
+        else if (rv < 0.3) col = lerp3(col, TRO, Math.min(0.18, (0.3 - rv) * 0.4));
+        out[0] = col[0]; out[1] = col[1]; out[2] = col[2];
+      });
+      var o = oc.getContext("2d");                                     // keep painting onto the buffer before the upscale
       // soft deep patches + a sense of sun from the upper-left, as cheap smooth gradients on top
       for (var i = 0; i < 7; i++) {
         var bx = rng.range(0.1, 0.9), by = rng.range(0.1, 0.9), dd = depthAt(bx * S, by * S), br = rng.range(0.18, 0.34) * OS;

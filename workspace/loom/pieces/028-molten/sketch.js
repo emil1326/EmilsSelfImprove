@@ -46,54 +46,48 @@ Loom.piece({
 
     // black crust → deep red → orange → gold → white-hot
     var ramp = Loom.ramp(["#070302", "#140805", "#2a0d04", "#5c1905", "#992806", "#d6450a", "#f47512", "#ffae3a", "#ffe7b0"]);
-    var oc = document.createElement("canvas"); oc.width = W; oc.height = H;
-    var o = oc.getContext("2d");
-    var img = o.createImageData(W, H), data = img.data, col = [0, 0, 0];
-
-    for (var y = 0; y < H; y++) {
+    var col = [0, 0, 0];                             // reused by the shade (closed over)
+    // the crust is a per-pixel field (lib/field.js #16 — the harvested flat field-render loop)
+    var oc = Loom.field(W, function (x, y, out) {
       var cyc = Math.min(gh - 1, Math.floor(y / cs));
-      for (var x = 0; x < W; x++) {
-        var cxc = Math.min(gw - 1, Math.floor(x / cs));
-        // nearest two plate centres by WEIGHTED distance (5×5 cell neighbourhood)
-        var v1 = 1e9, v2 = 1e9;
-        for (var yy = Math.max(0, cyc - 2); yy <= Math.min(gh - 1, cyc + 2); yy++) {
-          for (var xx = Math.max(0, cxc - 2); xx <= Math.min(gw - 1, cxc + 2); xx++) {
-            var bucket = grid[yy * gw + xx];
-            for (var bi = 0; bi < bucket.length; bi++) {
-              var id0 = bucket[bi], pp = pts[id0];
-              var ddx = pp[0] - x, ddy = pp[1] - y;
-              var val = Math.sqrt(ddx * ddx + ddy * ddy) - wt[id0];
-              if (val < v1) { v2 = v1; v1 = val; } else if (val < v2) { v2 = val; }
-            }
+      var cxc = Math.min(gw - 1, Math.floor(x / cs));
+      // nearest two plate centres by WEIGHTED distance (5×5 cell neighbourhood)
+      var v1 = 1e9, v2 = 1e9;
+      for (var yy = Math.max(0, cyc - 2); yy <= Math.min(gh - 1, cyc + 2); yy++) {
+        for (var xx = Math.max(0, cxc - 2); xx <= Math.min(gw - 1, cxc + 2); xx++) {
+          var bucket = grid[yy * gw + xx];
+          for (var bi = 0; bi < bucket.length; bi++) {
+            var id0 = bucket[bi], pp = pts[id0];
+            var ddx = pp[0] - x, ddy = pp[1] - y;
+            var val = Math.sqrt(ddx * ddx + ddy * ddy) - wt[id0];
+            if (val < v1) { v2 = v1; v1 = val; } else if (val < v2) { v2 = val; }
           }
         }
-        var edge = v2 - v1;                          // ~0 on a plate boundary (a crack)
-
-        var nx = x / W, ny = y / H;
-        var hv = heat.fbm(nx * 2.2 + 5, ny * 2.2, 4, 2.0, 0.55);
-        hv = Math.max(0, Math.min(1, (hv - 0.32) * 2.1));           // punchy hot/cool composition (a molten heart, cooled edges)
-        var crackW = r * (0.13 + 0.22 * hv);          // hairline seams where cool, a wide molten river where hot
-        var crack = 1 - Math.min(1, edge / crackW);
-        crack = crack * crack;                       // sharpen the seam (hot centre, soft shoulders)
-        var open = 0.35 + 0.65 * fine.fbm(nx * 4.5 + 2, ny * 4.5 + 7, 3, 2.0, 0.5);  // some seams open, some healed
-
-        var baseHeat = hv * hv * 0.26;               // thin crust over the hottest lava glows dull-red
-        var t = baseHeat + crack * open * (0.5 + 0.5 * hv);
-        t += (fine.fbm(nx * 9 + 1, ny * 9 + 3, 2, 2.0, 0.5) - 0.5) * 0.05;          // crust micro-texture
-        t = Math.max(0, Math.min(1, t));
-
-        ramp.rgb(t, col);
-        // rough basalt texture on the cooled crust so the plates read as solid rock, not flat black gaps
-        if (t < 0.22) {
-          var rock = fine.fbm(nx * 17 + 20, ny * 17 + 4, 3, 2.0, 0.5);
-          var g = (rock - 0.32) * 30 * (1 - t / 0.22);   // dim grey flecks, fading as the lava rises
-          if (g > 0) { col[0] += g * 0.85; col[1] += g * 0.92; col[2] += g; }
-        }
-        var idx = (y * W + x) * 4;
-        data[idx] = col[0]; data[idx + 1] = col[1]; data[idx + 2] = col[2]; data[idx + 3] = 255;
       }
-    }
-    o.putImageData(img, 0, 0);
+      var edge = v2 - v1;                            // ~0 on a plate boundary (a crack)
+
+      var nx = x / W, ny = y / H;
+      var hv = heat.fbm(nx * 2.2 + 5, ny * 2.2, 4, 2.0, 0.55);
+      hv = Math.max(0, Math.min(1, (hv - 0.32) * 2.1));           // punchy hot/cool composition (a molten heart, cooled edges)
+      var crackW = r * (0.13 + 0.22 * hv);            // hairline seams where cool, a wide molten river where hot
+      var crack = 1 - Math.min(1, edge / crackW);
+      crack = crack * crack;                         // sharpen the seam (hot centre, soft shoulders)
+      var open = 0.35 + 0.65 * fine.fbm(nx * 4.5 + 2, ny * 4.5 + 7, 3, 2.0, 0.5);  // some seams open, some healed
+
+      var baseHeat = hv * hv * 0.26;                 // thin crust over the hottest lava glows dull-red
+      var t = baseHeat + crack * open * (0.5 + 0.5 * hv);
+      t += (fine.fbm(nx * 9 + 1, ny * 9 + 3, 2, 2.0, 0.5) - 0.5) * 0.05;            // crust micro-texture
+      t = Math.max(0, Math.min(1, t));
+
+      ramp.rgb(t, col);
+      // rough basalt texture on the cooled crust so the plates read as solid rock, not flat black gaps
+      if (t < 0.22) {
+        var rock = fine.fbm(nx * 17 + 20, ny * 17 + 4, 3, 2.0, 0.5);
+        var g = (rock - 0.32) * 30 * (1 - t / 0.22); // dim grey flecks, fading as the lava rises
+        if (g > 0) { col[0] += g * 0.85; col[1] += g * 0.92; col[2] += g; }
+      }
+      out[0] = col[0]; out[1] = col[1]; out[2] = col[2];
+    });
 
     ctx.globalCompositeOperation = "source-over"; ctx.globalAlpha = 1;
     ctx.fillStyle = "#070302"; ctx.fillRect(0, 0, S, S);
