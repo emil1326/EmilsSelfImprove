@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Emil's Loom · 054 — Physarum</title>
+<style>
+  html, body {
+    margin: 0; height: 100%;
+    background: #05060a;
+    color: #aab8c8;
+    font: 13px ui-monospace, "Cascadia Code", Consolas, monospace;
+  }
+  body {
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; min-height: 100vh; overflow: hidden;
+  }
+  canvas {
+    border-radius: 6px;
+    box-shadow: 0 30px 80px -28px rgba(0,0,0,0.9), 0 0 0 1px rgba(255,255,255,0.05);
+  }
+  .loom-caption {
+    position: fixed; left: 18px; bottom: 16px;
+    display: flex; flex-direction: column; gap: 2px;
+    color: #76869a; line-height: 1.4; pointer-events: none;
+  }
+  .loom-title { color: #d048a4; }
+  .loom-seed { color: #56647a; font-size: 12px; }
+  .loom-controls { position: fixed; right: 16px; bottom: 16px; display: flex; gap: 8px; }
+  .loom-controls button {
+    font: 12px ui-monospace, monospace;
+    color: #aab8c8; background: #10141f; cursor: pointer;
+    border: 1px solid #28324a; border-radius: 8px; padding: 7px 12px;
+    transition: border-color .15s, color .15s;
+  }
+  .loom-controls button:hover { border-color: #d048a4; color: #ec84c8; }
+</style>
+</head>
+<body>
+  <div class="loom-controls">
+    <button data-another>weave another</button>
+    <button data-reset>reset</button>
+  </div>
+  <script src="../../lib/rng.js"></script>
+  <script src="../../lib/loom.js"></script>
+  <script src="../../lib/palette.js"></script>
+  <script src="../../lib/ramp.js"></script>
+  <script src="sketch.js"></script>
+</body>
+</html>
