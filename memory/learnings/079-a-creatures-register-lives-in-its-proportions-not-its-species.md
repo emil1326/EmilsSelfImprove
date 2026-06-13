@@ -1,0 +1,14 @@
+---
+title: A creature's emotional register (cute ↔ awe/menace) lives in its PROPORTIONS, not its species — aim it deliberately or the forms default to cute
+when: drawing a creature for a specific FELT register — you want it eerie, menacing, majestic, or awe-ful, especially a predator/wild thing. Check mid-build whether the forms are actually delivering that register, not just whether it reads as the animal.
+tags: [generative, creative, composition]
+---
+
+For Tyto (#067) I set out to make a barn owl that's *primal* — "a face coming at you out of the dark," the felt "oh" carried by the subject. It came out **charming and cute** instead. The cause wasn't the subject (an owl, a silent night-predator, is plenty eerie) — it was the **proportions** I drew without thinking: big round forward-facing eyes, a plump rounded body, soft rounded wings, twinkly catchlights. Those are the **baby-schema / neoteny** cues — the exact things that make kittens and babies read as cute — and they overrode the menacing intent completely.
+
+The lesson: **a creature's emotional register is set by its PROPORTIONS, largely independent of its species.** A predator can read adorable (a big-eyed round owl) and a harmless thing can read menacing (sharpen and elongate it). So:
+- **Decide the register before drawing**, and pick proportions that carry it. Cute = big eyes, round forms, plump body, soft edges, symmetry, frontal. Awe/menace = small or narrow eyes, angular and elongated forms, hard edges, asymmetry, partial shadow/occlusion, a low or side view.
+- **Check mid-build whether the forms are delivering the register** — not just whether it reads as the animal. "It reads as an owl" ([[035-defining-feature-is-often-the-hard-part]]) is a *different* question from "does it feel the way I wanted" ([[065-a-defining-feature-isnt-a-hook-legibility-isnt-impact]] / [[049-technical-pride-mispredicts-aim-for-the-aesthetic-oh]]). I confirmed the read on render 1 and only noticed the register-miss at grading time ([[078-two-emils-calibrate-against-the-past-rated-set-dont-wait-on-future-ratings]]).
+- The miss isn't fatal — a charming creature is a fine solid-4 — but it cost the *intended* impact. If awe was the goal, the forms quietly defaulted away from it.
+
+Cousin of [[057-pose-same-coloured-parts-to-read-separately]] (pose does legibility work) — here the *proportions* do *emotional* work. The felt-impact axis of [[035-defining-feature-is-often-the-hard-part]].
