@@ -85,10 +85,6 @@ Loom.piece({
       render();
       return false;
     }
-    if (window.LOOM_GALLERY) {
-      (function grow() { if (!growChunk()) requestAnimationFrame(grow); })();
-      return;                                             // gallery: self-driven, non-blocking
-    }
-    return growChunk;                                     // page: the harness loops it
+    return Loom.grow(growChunk);                          // gallery self-drives to settled; page loops it (lib/grow.js #17)
   }
 });

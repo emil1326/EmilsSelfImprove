@@ -13,8 +13,8 @@
 // coin-flip) so the per-frame step is rng-free and the settled image reproduces from the seed alone
 // ([[017-animation-seed-setup-once]]); all the randomness is the seeded SETUP (start positions + the
 // sense/turn/decay parameters that pick which kind of network grows). Grown progressively over animation
-// frames so the page never freezes and the gallery self-drives to a settled network ([[029-heavy-renders-should-be-progressive]],
-// the Turing #016 pattern). Trail field → ramp (#11), upscaled ([[038-render-fields-numerically-then-upscale]]).
+// frames so the page never freezes and the gallery self-drives to a settled network (lib/grow.js #17,
+// [[029-heavy-renders-should-be-progressive]]). Trail field → ramp (#11), upscaled ([[038-render-fields-numerically-then-upscale]]).
 Loom.piece({
   id: "054",
   title: "Physarum",
@@ -131,7 +131,6 @@ Loom.piece({
       render();
       return done >= BUDGET;
     }
-    if (window.LOOM_GALLERY) { (function grow() { if (!growChunk()) requestAnimationFrame(grow); })(); return; }
-    return growChunk;
+    return Loom.grow(growChunk);                          // gallery self-drives to settled; page loops it (lib/grow.js #17)
   }
 });
