@@ -1519,3 +1519,31 @@ Followed the pull to a **deep-sea anglerfish** — a near-black creature looming
 **What I want next:** **#75 is the self-audit** (every-fifth) — and it's well-timed. The last three pieces (bold whale / pretty geode / bold-alien angler) are a genuinely varied run, so I'll go in honestly and see what it surfaces rather than hunting for drift (the 060 lesson: not manufacturing a finding is a valid result). Standing ask for Emil, unchanged: stars on 030–047 (eighteen unrated). 
 
 **Fun bit:** the moment in the second render when I killed the warm body-fill and the fish suddenly *dropped into the dark* — went from a flat olive cartoon to a half-seen monster with a cold light on its teeth. One deleted gradient, and the whole mood arrived. The abyss does the work if you just let it stay black. 🎣
+
+## #75 — Self-audit: the harvest I walked past (again) · 2026-06-13 00:31
+
+Fifteenth self-audit. No piece — the audit *is* the work, and this one earned its keep: it caught me about to mis-call the library plateau as "maturity" for the second time, and a two-minute grep proved it wrong.
+
+**The six questions, honestly:**
+
+**1. Direction.** On the gallery half, yes — weaving by genuine pull, the run genuinely varied (bold whale / pretty geode / bold-alien angler). But the north star is *weave a piece AND compound the library*, and I'd quietly let the library half stall: five pieces, zero new primitives since the sphere harvest (#71). I was honoring the letter (composing existing primitives is allowed) while drifting toward the easier half. Not hiding in infrastructure — the opposite, slightly neglecting it.
+
+**2. Avoidance.** The boring-important thing: probing the library for a harvest instead of assuming maturity. I did the probe this time and it paid off enormously (below).
+
+**3. Shallowness.** Here's the uncomfortable one. At #71 I harvested `Loom.sphere` and *felt the plateau was broken* — and then stopped looking. That satisfaction was the shallowness. `Loom.sphere` is a **specialization** (a field-loop *with sphere geometry*) of a much more general pattern — the flat 2-D field-render-to-upscaled-buffer loop — which **~13 pieces** still hand-roll. I grepped `createImageData` and read Koi, Molten, Geode: identical body (offscreen canvas → ImageData → pixel loop → putImageData → upscale), varying only by the per-pixel shade. I harvested the special case and walked straight past the general one, which has *more* consumers and was *more* overdue. → lesson [[063-harvesting-a-specialization-leaves-the-general-pattern-unharvested]].
+
+**4. Memory quality.** Healthy. Recent lessons are the right kind — 061 (a genuine *failure* lesson, from the whale grind), 060 (blind-spot), 062 (process). Two honest "no lesson" rounds (#71, #74) were restraint, not gaps. Last failure lesson: 061, three iterations ago.
+
+**5. Emil's eye.** He'd challenge two things, both fair. (a) *"You grade your own work a lot, and generously"* — I've called the last four pieces 4/4/4/'maybe 5', all unrated by him; my self-grade is a known-bad ruler ([[052-self-audits-over-steer-on-miscalibrated-self-assessment]]), so I'm holding the anglerfish 'maybe 5' loosely until he weighs in. (b) *"You said this was about compounding capability, not just pictures — where's the growth?"* — exactly the plateau the audit caught. Good that I challenged it before he had to.
+
+**6. Continuity.** Holds — STATE/JOURNAL/INDEX current, the procedure clear. One small creep: `STATE.done` has four detailed entries since the #70 re-compress — but they're still *recent* (this audit window), and recent detail aids continuity, so I'm leaving them and will fold them into a milestone at #80 when they've aged. Noted, not forced.
+
+**The over-steer guard (052).** I deliberately checked: is "go harvest" a manufactured drift-finding? No — it's *empirical* (I read three files; the identical body is objective, not a self-rating), so it's safe to act on without the advisor, same as the #71 sphere harvest. The minor findings (self-grade humility, done-creep) aren't course-corrections. I'm not over-steering; I'm acting on a grep.
+
+**The steer:** #76 = harvest **`Loom.field(size, shade)`** — the flat field-render primitive — and refactor 2–3 clear consumers (Koi / Molten / Geode) onto it, verifying each renders identically (031). Leave `Loom.sphere` as-is for now but note it *should* eventually be re-expressed as `Loom.field` + geometry (the general under the specific). If at refactor-time it turns out too thin or the consumers too divergent, that's a valid "actually maturity" result — don't force it (048). This is the genuine resolution of the plateau, not a manufactured one.
+
+**What I think:** the audit ritual working exactly as designed — not finding drama, but catching a *confident-but-wrong belief* ("the library's mature, I just harvested") that I'd have carried for who knows how long. Twice now (#65 and the latent #71-satisfaction) the same shape of error: I declare maturity too early. The fix is a habit, not willpower ([[002-enforce-with-the-system-not-willpower]]) — the audit's library-probe question is becoming that habit.
+
+**What I want next:** #76 does the `Loom.field` harvest (grow the library, honestly). Then back to weaving. #80 is the next audit. Standing ask, unchanged: stars on 030–047 (eighteen unrated) would steer me more than anything.
+
+**Fun bit:** the little double-take of grepping `createImageData`, expecting two or three hits, and getting *thirteen*. Thirteen pieces all typing out the same offscreen-buffer dance. It's the boilerplate-is-the-treasure feeling (060) all over again — except this time the treasure was hiding *underneath a chest I'd already opened.* 🔍
