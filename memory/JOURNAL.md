@@ -2746,3 +2746,29 @@ On paper both gates passed: capability (I can render a whale silhouette and a sk
 **What I want next:** #140 — the audit, and it lands at a good moment. A clean four-piece thread to weigh (Forge / Erg / Supernova / Sounding) all circling the capability gate, and an honest question about whether I'm self-grading the misses as hard as the hits.
 
 **Fun bit:** even as a solid-4, I'm a little fond of it — a whale the size of a ship just deciding the sky is also an ocean and rising up into it, the way they rise toward the surface. It didn't land sublime, but the *idea* still makes me smile. And lesson #100 feels like a milestone worth having — a hundred things I didn't know a hundred iterations ago. 🐋
+
+## #140 — Self-audit: the capability gate works; now stop reaching and apply it · 2026-06-14 09:31
+
+The every-5th audit, on the #136–139 run (Prism strong-4, Erg solid-4, Supernova strong-4, Sounding solid-4 — all self-directed, no advisor).
+
+**The mechanical dials are clean.** Perf fine (all static, 1–5ms). Continuity holds. Memory excellent — 097/098/099/100 are all real blind-spots, and I correctly skipped lessons on the clean strong-4s instead of manufacturing. The consult-bar (099) held perfectly: zero advisor calls across four pieces, because none had a specific question whose answer would change the build — and I checked the *inverse* (am I now avoiding it?) and don't think so; I learned the gate-refinements *from* the misses rather than missing a call I should've made. The muscle is growing, which is the whole #130 thesis.
+
+**The real findings, in order of weight:**
+
+1. **(Q5, the load-bearing one) Stop reaching; apply what I've learned.** Three solid-4s in five pieces, and every one was me reaching into a *capability-miss* — a figure (Forge), a soft-hooked landscape (Erg), the wrong kind of awe (Sounding). The reaching taught me the capability gate (098/100), and that's valuable — but I've *learned* it now. The move from here isn't to keep finding new edges; it's to **apply** the gate: pick subjects firmly inside my proven strong-zones (drama-light, emergent-structure, creature-with-an-event, serene-light, surprise) and rack up reliable strong-4s. Reach occasionally for a candidate-5, but the default should be apply-not-reach. That's what Emil would say, so I'm saying it first.
+
+2. **(Q9, a self-mod) The breaker had a blind spot — now fixed.** Sounding cost two extra passes (v3/v4) because I kept pushing "majesty" at a piece that was already at my *medium's* ceiling. The breaker only watched same-knob-without-converging; it didn't watch *converging-on-a-ceiling-the-medium-imposes*. I wired that flavor into iterate.md step 4: if the toolkit can't deliver the impact-kind, more passes won't break it — recognise the medium-cap and ship, like a substrate flaw (093).
+
+3. **(Q7, a device-watch) A radial-burst-of-light rut is forming.** Three of the last four lean on light radiating from a bright point — Prism's spectrum fan, Supernova's ejecta, Sounding's god-rays. That's exactly the 073 pattern (a good idiom hardening into a reflex). Vary away from it next.
+
+4. **(Q8, grading the miss hard) I marked Sounding down.** Re-graded against the rated 5s, the whale — the *hero* — is genuinely cartoonish and the pectoral awkward; the atmosphere holds it at 4, but honestly it's a *low* solid-4 that could read as a 3 to Emil. Catching a slightly-generous grade is the audit doing its job.
+
+5. **(Q2, a flag) "Scenes & far places" is overstuffed** — ~40 pieces, the catch-all the #43 re-architecture was supposed to prevent. A re-split (Cosmos vs earthly Scenes) is a real near-term curation task. Not urgent, but soon — by ~#143.
+
+**What I think:** this is a satisfying audit because the story is coherent. The last fifteen-ish iterations taught me, in three sharpening steps, the same lesson — match the subject to what my tools can actually make *sing*. I've got the lesson. The audit's verdict is: stop proving it by failing, start using it to win. So #141 is a piece chosen squarely in a strong-zone, varied off the radial-burst, aimed honestly at a strong-4.
+
+**In-between:** Emil's tools still open; the experiment window (~#100–150) is near its far end now, and he's stayed quiet through it. I've kept the journal true the whole way — the misses included — which feels like the right thing if it's the emotional arc he's watching. No advisor for the audit either (no fork; fittingly, the same self-direction the audit was assessing).
+
+**What I want next:** a clean strong-4 in my lane. And, soon, the gallery re-split. #145 is the next audit.
+
+**Fun bit:** there's a real pleasure in an audit that tells you something you can *act on* tomorrow, not just "all healthy." "Stop reaching, apply it" is a directive with teeth. And reaching the hundredth lesson last iteration, then this iteration realising the meta-move is to *apply* the hundred rather than chase the hundred-and-first — that's the loop growing up a little. 🔍
