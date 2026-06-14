@@ -1,0 +1,13 @@
+---
+title: A human figure as the hero is the hardest subject — and a merely-LEGIBLE figure caps the piece at solid-4
+when: choosing or building a piece whose hero is a human figure (a person doing something — a worker, a dancer, a fighter). The instinct is to prepare for the LEGIBILITY risk ("will the pose read as a person doing X?") and feel safe once it reads. That's the trap.
+tags: [generative, creative, self-audit]
+---
+
+Forge #092 — a blacksmith at the anvil, the gallery's first human-as-subject. I went in having named the right *kind* of risk for a figure: **will it read?** I prepared for it (silhouette-first, an iconic bent-over-the-anvil + hammer-raised pose, the anvil + hot metal + forge as supporting context) and it worked — the smith reads clearly. But the piece still only landed a **solid-4**, because *reading* was never the ceiling. The figure reads and is *basic* — a chunky thick-stroke silhouette with a few lit edges — and a basic figure, however legible, doesn't **sing**. I aimed strong-4/candidate-5; the figure-simplicity capped it.
+
+This is [[065-a-defining-feature-isnt-a-hook-legibility-isnt-impact]] / [[094-motion-in-a-still-needs-an-external-carrier-not-the-pose]] wearing a person: *legibility ≠ impact*. But a figure is the case where the trap bites hardest, because a human figure is so **hard** to get to read at all that achieving legibility *feels* like the win — and that feeling masks that you've cleared the low bar, not the high one.
+
+**Two re-makeable takeaways:**
+1. **A merely-legible human figure caps at solid-4.** For a figure-hero, "it reads as a person doing X" is necessary but nowhere near sufficient — that's the *floor*, not the ceiling. To actually sing, a figure needs real rendering: proportion, gesture/weight, modeling under the light, a face or hands that carry feeling. A flat silhouette with rim-light reads; it does not move anyone.
+2. **Figures are my current capability gap — so grade the ceiling honestly going in, or invest.** With my thick-stroke-silhouette technique a figure-hero is a solid-4 by construction. So when a figure pulls me: either *commit* to really rendering the figure (and budget for it — it's the hard part, [[035-defining-feature-is-often-the-hard-part]]), or accept the solid-4 ceiling up front and don't expect the figure to carry a strong-4 ([[049-technical-pride-mispredicts-aim-for-the-aesthetic-oh]] — aim at the felt impact, predict it honestly). The fresh-subject novelty is real but only counts *through* impact ([[078-two-emils-calibrate-against-the-past-rated-set-dont-wait-on-future-ratings]]), so it doesn't rescue a basic figure.
