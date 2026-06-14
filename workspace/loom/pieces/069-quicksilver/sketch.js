@@ -25,7 +25,7 @@ Loom.piece({
     // ---- the school: flock.js (#12) tuned AGAINST its grain into a tight BAIT BALL ----
     var boxW = S * 0.74, boxH = S * 0.74, boxD = S * 0.58;
     var fl = Loom.flock(rng, {
-      n: 2800, w: boxW, h: boxH, d: boxD,
+      n: 2200, w: boxW, h: boxH, d: boxD,
       k: 7, sepDist: S * 0.026, sep: 1.7, coh: 1.2, ali: 1.0,
       wander: 0.06, margin: 0.34, center: 2.2,
       predator: { radius: S * 0.085, force: 0.0014 * boxW * 5 }   // gentle: dimples the ball, doesn't scatter it
@@ -71,7 +71,7 @@ Loom.piece({
         binA.push((0.30 + 0.64 * f0) * (0.45 + 0.55 * depth0));     // dim-but-present → bright: shimmer modulates a ball that stays dense
       }
     }
-    var binOf = new Int16Array(fl.n);
+    var buckets = []; for (var bb0 = 0; bb0 < ND * NF; bb0++) buckets.push([]);   // reused across frames (O(n) render)
 
     function render() {
       bg();
@@ -79,21 +79,22 @@ Loom.piece({
       // framed and filling regardless of where the flock wanders in its box (the predator darts in from the edge)
       var mx = 0, my = 0; for (var c = 0; c < fl.n; c++) { mx += fl.x[c]; my += fl.y[c]; } mx /= fl.n; my /= fl.n;
       var camX = S * 0.5, camY = S * 0.47, DS = 1.35;
+      for (var bb = 0; bb < buckets.length; bb++) buckets[bb].length = 0;       // bucket each fish ONCE by depth×flash
       for (var i = 0; i < fl.n; i++) {
         var depth = clamp(fl.z[i] / boxD, 0, 1);
         var vx = fl.vx[i], vy = fl.vy[i], vz = fl.vz[i], sp = Math.sqrt(vx * vx + vy * vy + vz * vz) || 1e-4;
         var broad = 1 - Math.abs(vz) / sp;                      // 0 end-on → 1 broadside
         var f = clamp(broad * broad * 1.15, 0, 1);
         var db = clamp((depth * ND) | 0, 0, ND - 1), fb = clamp((f * NF) | 0, 0, NF - 1);
-        binOf[i] = db * NF + fb;
+        buckets[db * NF + fb].push(i);
       }
-      for (var bn = 0; bn < ND * NF; bn++) {                    // far→near (depth is the outer index in bn)
+      for (var bn = 0; bn < ND * NF; bn++) {                    // far→near (depth is the outer index), one fill per bin
+        var bk = buckets[bn]; if (!bk.length) continue;
         ctx.fillStyle = binCol[bn]; ctx.globalAlpha = binA[bn];
         var L = binL[bn] * DS, W = binW[bn] * DS;
         ctx.beginPath();
-        for (var p = 0; p < fl.n; p++) {
-          if (binOf[p] !== bn) continue;
-          var ux = fl.vx[p], uy = fl.vy[p], m = Math.sqrt(ux * ux + uy * uy) || 1e-4, dx = ux / m, dy = uy / m, ex = -dy, ey = dx;
+        for (var j = 0; j < bk.length; j++) {
+          var p = bk[j], ux = fl.vx[p], uy = fl.vy[p], m = Math.sqrt(ux * ux + uy * uy) || 1e-4, dx = ux / m, dy = uy / m, ex = -dy, ey = dx;
           var x = camX + (fl.x[p] - mx) * DS, y = camY + (fl.y[p] - my) * DS;
           ctx.moveTo(x + dx * L, y + dy * L); ctx.lineTo(x + ex * W, y + ey * W);
           ctx.lineTo(x - dx * L, y - dy * L); ctx.lineTo(x - ex * W, y - ey * W); ctx.closePath();
@@ -120,13 +121,15 @@ Loom.piece({
     }
 
     // ---- animation: warm pre-roll → a formed ball at t=0; deterministic, frame-rate independent ----
-    var WARM = 90;
+    var WARM = 60;        // form a dense ball before t=0 (one-time setup ~1.5s, vs the old 90-step/2800 = 4.1s)
     for (var w0 = 0; w0 < WARM; w0++) fl.step();
-    var STEP_RATE = 38;
+    var STEP_RATE = 24;   // a calm 24-steps/sec swirl (dense ball stays dense; fewer sim-steps/frame = smooth)
     function advanceTo(t) { var target = WARM + Math.floor(t * STEP_RATE), g = 0; while (fl.steps < target && g < 6) { fl.step(); g++; } render(); }
 
     render();
-    if (window.LOOM_GALLERY) { var t0 = performance.now(); (function loop() { advanceTo((performance.now() - t0) / 1000); requestAnimationFrame(loop); })(); return; }
+    // Static frame(0) in the gallery (a formed ball), animate only on the piece's own page. The old
+    // self-drive ran the full flock sim live in every gallery tile -> the lag Emil flagged (#120). The own
+    // page stays smooth via fewer fish + the O(n) bucketed render above.
     return function (t) { advanceTo(t); };
   }
 });
