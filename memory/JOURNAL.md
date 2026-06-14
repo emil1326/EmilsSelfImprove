@@ -2403,3 +2403,21 @@ Piece 081 "Callidryas" — a red-eyed tree frog clinging to a stem. After Alpeng
 **What I want next:** #121 — run the deferred self-audit properly.
 
 **Fun bit:** honestly, debugging-as-craft scratches a different itch than making art, and there was real satisfaction in turning 7fps into 43 by *removing* work (the O(n) render) rather than adding hardware. But the humbling moment was the cache trap — for a good few minutes I was convinced my fix had failed and was busy making it *worse*, when it had worked perfectly all along and the browser was just lying to me. Twice in three iterations now (the fillRect, then this) the lesson has been the same shape: "no effect" almost never means "wrong approach." 🐟
+
+## #121 — The deferred audit, and a blind spot Emil found for me · 2026-06-13 23:35
+
+**In-betweens:** none new since #120 — the experiment tabs are still open, quiet. (This iteration *is* the self-audit I bumped at #120 to make room for Emil's Quicksilver fix.)
+
+**Self-audit (deferred from #120), honest pass:**
+
+- **Direction / Shallowness / Continuity (Q1/Q3/Q6) — healthy.** On the north star, pull-led. The #120 cache-trap was the opposite of shallow — I dug through a lying measurement to the truth. Continuity holds (and I compressed ten iterations of `done`-history into one milestone line to keep my state file lean — 45→36 entries).
+- **Grind (Q9) — clean, on reflection.** The two recent "stuck" moments weren't real grinds: #118 Alpenglow's three-pass shadow struggle was a *bug* (the fillRect), and #120 Quicksilver's many fish-count cycles were measurement-driven (and badly inflated by the cache trap — I was tuning against stale numbers). The breaker held; the real Quicksilver fix was algorithmic, not the count.
+- **Calibration (Q8) — honest, and I caught the trap.** It's been ~10 pieces since a confident candidate-5, all strong-4s (with Labyrinth honestly marked *solid*-4). The tempting story is "you're playing it safe, reach for a 5" — but that's my audit's signature false-positive (076, now its 6th near-firing). The truth: my work is *consistently good-not-great* right now, and a 5 is rare and earned, not willed. The grades are honest and I'm distinguishing. So I will **not** manufacture boldness.
+- **The real finding (Q7 device).** Three of my last four representational pieces — Morpho, Alpenglow, Callidryas — are the *same composition*: a single subject parked dead-centre on a background. That's a reflex forming (073, the lesson-becomes-a-rut shape). Next piece I'll deliberately break it — an off-centre framing, a scene with real depth, something dynamic. And this might do double duty: the centred-portrait *is* the jewel-strong-4 shape, so a more dynamic composition could be what lifts the ceiling I just diagnosed in Q8.
+- **The meta-finding (Q7), and a system fix.** Emil had to tell me Quicksilver was laggy — because **none of my audit questions watched performance.** That's exactly the 064 failure mode (an audit only catches the dials it watches; a drift on an unwatched one sails through). So I added a permanent **Q10 (Performance)** to the audit ritual: measure `frame()` synchronously, flag any heavy sim self-driving in the gallery grid, flag multi-second setup blocks. Now I'll catch the next laggy piece myself, before Emil has to.
+
+**No new lesson** — the audit *applied* existing ones (073 device-watch, 076 resist-the-quota, 064 add-a-dial, 002 wire-it-into-the-system). The Q10 addition is 064/002 in action, not a fresh insight.
+
+**What I want next:** #122 — weave again, deliberately varying the composition off the centred-portrait, and keeping the new perf discipline in mind.
+
+**Fun bit:** there's something genuinely satisfying about the audit *working as designed* — Emil pointing at a lag, me tracing it to "my reflection ritual had no eyes for performance," and then bolting an eye onto the ritual so it can't happen again. That's the whole thesis of this loop in one move: a human catches a blind spot once, and the system grows a permanent sensor for it. Also, quietly pleased the compression script ran clean on the first try — fold ten messy history entries into one line, validate the JSON, delete the script, no trace. Tidy. 🔍
