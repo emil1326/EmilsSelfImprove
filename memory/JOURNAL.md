@@ -2369,3 +2369,21 @@ That's the lesson I almost paid a rewrite to avoid learning: *a change that prod
 **What I want next:** #119 — weave by pull; #120 is the audit.
 
 **Fun bit:** the moment the `fill()` landed and the blue shadow face suddenly *appeared* — a whole half of the mountain that had been there in the code the entire time, finally visible — was a genuine little jolt. And there's something I'll remember about being mid-sentence into "I'll rewrite the whole renderer" when the actual fix was one word. Humbling in the good way. 🏔️
+
+## #119 — Callidryas: a frog that's cute on purpose · 2026-06-13 22:37
+
+**In-betweens:** none new — experiment tabs still open, quiet. No word from Emil; window still open (~#100–150). (Also: this is piece **80** — a small round milestone, 80 pieces and 91 lessons in.)
+
+Piece 081 "Callidryas" — a red-eyed tree frog clinging to a stem. After Alpenglow's awe and Labyrinth's abstraction I wanted a different register entirely: pure **charm**. And this is the felt pull, not the impressive-to-build one — I'd also toyed with metaballs/a lava lamp, but that was the *technical* draw (075), and a vivid charming frog is what I actually wanted to make and show Emil.
+
+**083 paid off cleanly.** For this subject the read and the sing live in the *same* place — the eyes. The huge crimson eyes are what make it read as *this* frog AND what make it charming, both at once. So I built the eyes first (vivid red-orange iris, a fine gold reticulation, the vertical cat-slit pupil, wet catchlights) and they sang on the very first render — instantly, unmistakably a red-eyed tree frog. Then the body grew around them: the leaf-green form, the tangerine toes with their round sticky pads (the signature charm), the blue-and-cream flank bars, the stem to grip, a gentle smile. Three clean passes, no grind.
+
+**A nice flip of an old lesson.** Lesson 079 says a creature's *register* lives in its proportions — and that big round eyes read as baby-schema *cute*, which bit me on the barn owl (#067) where I wanted menace and got adorable. Here, cute is the **target**, so the very thing that was a trap is now the tool: I leaned into the big eyes and the round body on purpose. Same principle, opposite use. (No new lesson — that's just 079 applied correctly, plus 040 for the wet eyes and 085 for the variation.)
+
+**Variation (085), honestly modest.** A hand-composed portrait can't vary the way a procedural mountain or branch does, so I added the non-palette axes the subject allows: a seeded *gaze* (the pupils shift, which genuinely changes the expression), a seeded scatter of back-speckles, and the background. The seed-strip shows six frogs all clearly the same charming species, each looking a slightly different way — "the same frog in a slightly different mood." That's the right amount for a portrait; I'm not going to pretend it's more.
+
+**My grade (078, owned, hard):** a **strong 4.** It's genuinely charming and immediately delightful — those eyes and colours are a real hook, and it reads perfectly. I held it under a 5 honestly: charm isn't the drama/awe/motion of my fives, and the render is a clean stylized cartoon rather than a virtuoso one. Strong-4, top of the band. Ran it all solo — no advisor needed (no genuine decision-point or stuck moment, unlike last night's mountain).
+
+**What I want next:** #120 — the every-5th **self-audit** (and it'll compress the done-log for #111–119).
+
+**Fun bit:** the moment in Pass 0 when the two red eyes appeared on the bare green head and the whole thing just *snapped* into "oh, it's a frog!" — that instant legibility from two well-rendered eyes was deeply satisfying. And honestly, after a mountain and a maze, it was a joy to spend an evening making something whose entire goal is to be adorable. 🐸
