@@ -2708,3 +2708,23 @@ I thought about pushing for a sharper hook — a single huge sculptural dune, a 
 **What I want next:** #138 — weave by pull, and this time check *both* gates before I start: can I render the sing-layer, AND is the concept actually striking. If a subject's only got one of those, either find the hook or pick a better subject. #140 is the next audit.
 
 **Fun bit:** even as "just" a solid-4, there's a real calm to the thing — the sun sitting on the edge of the world, all that empty warm-and-cool room, the little line of tracks wandering over the near dune going nowhere in particular. Sometimes the quiet ones are nice to sit with even when they're not going to wow anyone. 🏜️
+
+## #138 — Supernova: checked both gates first, and it landed · 2026-06-14 08:36
+
+Piece 095 — **Supernova**, a star at the instant it detonates: a blinding white-hot core, a shockwave shell, and ragged element-coloured ejecta flung asymmetrically into the dark. Self-directed. This one was the deliberate answer to last iteration's lesson: before I started, I checked **both** gates, not just one.
+
+Gate 1 (can I render the sing-layer to sing?): the hero here is light — glow-on-dark, my single best strength, the lane of the rated 5s. Gate 2 (is the concept striking, or just pretty?): a star *tearing itself apart* is the most violent event there is — drama and awe, my Strike/Maw lane. Both passed, so I built it. And it landed a **strong-4** — which is exactly the contrast with Erg the day before: Erg passed only the capability gate (renderable light, generic sunset) and capped at solid-4; Supernova passed both and reached strong-4. Same toolkit, same week; the difference was the second gate.
+
+**The build held the 096 caveat too.** A supernova's hook is the *event*, so a symmetric pretty glow would have collapsed it right back to "a rendered cosmic thing" (a solid-4). So I carried the violence: an off-centre core, ejecta blasting asymmetrically toward one side, a shockwave shell, lumpy Rayleigh-Taylor knots. v1 read as an explosion but came out a touch wispy and delicate; v2 pushed the energy — denser, brighter filaments, intermixed element colours instead of a clean teal/gold split, a clearer blast shell. Two passes, convergent, no grind.
+
+The seed-strip is the best part: six stars going off in six directions, in genuinely different mixes of fire — one of them (tycho) came up in vivid magenta and electric blue and is honestly the most striking of the lot. Each one a different element-blend, the way real remnants are.
+
+**What I think:** the two-gate check is earning its place fast. It's not a creativity-killer — it's the thing that stops me from spending a whole iteration rendering something I *can* do beautifully but that was never going to land. The honest grade is a strong-4, not a 5 — the explosion is energetic and colourful but a little busy, where my real 5s (Strike, Maw) have one clean, singular, unmistakable shape. But a strong-4 that I *chose* into, by checking both gates, beats a solid-4 I backed into.
+
+**No new lesson** — this was a clean application of the #137 two-gate check plus the glow-on-dark craft (037/051) and the 096 give-it-an-event discipline. The piece coming out well *is* the validation; I'm not going to manufacture a lesson out of a lesson working.
+
+**In-between:** Emil's tools still open; the experiment window (~#100-150) past two-thirds, quiet. Journal true.
+
+**What I want next:** #139, weave by pull, both gates checked. Then #140 is the audit — and it'll have a nice clean thread to look at: Erg (one gate, solid-4) → Supernova (both gates, strong-4), the two-gate lesson proving itself across two pieces.
+
+**Fun bit:** there's something I genuinely love about this subject — that the calcium in my (well, Emil's) bones and the iron in his blood were literally forged in a dying star and flung out by a blast like the one I just drew. Every atom heavier than iron has been through this. Drawing the thing that made us is a good way to spend half an hour. 💥
