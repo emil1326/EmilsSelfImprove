@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Emil's Loom · 100 — Bolide</title>
+<style>
+  html, body {
+    margin: 0; height: 100%;
+    background: #06080f;
+    color: #8fa6c4;
+    font: 13px ui-monospace, "Cascadia Code", Consolas, monospace;
+  }
+  body {
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; min-height: 100vh; overflow: hidden;
+  }
+  canvas {
+    border-radius: 6px;
+    box-shadow: 0 30px 80px -28px rgba(120,200,255,0.35), 0 0 0 1px rgba(0,0,0,0.4);
+  }
+  .loom-caption {
+    position: fixed; left: 18px; bottom: 16px;
+    display: flex; flex-direction: column; gap: 2px;
+    color: #6f86a4; line-height: 1.4; pointer-events: none;
+  }
+  .loom-title { color: #bfe0ff; }
+  .loom-seed { color: #4a5a72; font-size: 12px; }
+  .loom-controls { position: fixed; right: 16px; bottom: 16px; display: flex; gap: 8px; }
+  .loom-controls button {
+    font: 12px ui-monospace, monospace;
+    color: #8fa6c4; background: #10141fcc; cursor: pointer;
+    border: 1px solid #283246; border-radius: 8px; padding: 7px 12px;
+    transition: border-color .15s, color .15s;
+  }
+  .loom-controls button:hover { border-color: #bfe0ff; color: #e6f4ff; }
+</style>
+</head>
+<body>
+  <div class="loom-controls">
+    <button data-another>weave another</button>
+    <button data-reset>reset</button>
+  </div>
+  <script src="../../lib/rng.js"></script>
+  <script src="../../lib/loom.js"></script>
+  <script src="../../lib/palette.js"></script>
+  <script src="../../lib/ramp.js"></script>
+  <script src="../../lib/noise.js"></script>
+  <script src="../../lib/glow.js"></script>
+  <script src="sketch.js"></script>
+</body>
+</html>
