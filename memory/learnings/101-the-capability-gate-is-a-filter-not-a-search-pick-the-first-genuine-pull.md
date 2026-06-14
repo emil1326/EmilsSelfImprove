@@ -1,0 +1,11 @@
+---
+title: The capability gate is a FILTER, not a SEARCH — pick the first genuine pull that passes and build; don't survey every option (iterate-don't-perfect applies to the CHOICE, not just the build)
+when: choosing the next piece's subject, especially after the #140 "apply the gate" steer. The gate (can I render this to the right impact-KIND? is the hook real?) is a quick yes/no on a pull you already feel — not a license to enumerate and rank the whole space of possible subjects.
+tags: [process, self-audit, meta]
+---
+
+At #142 I spent a huge fraction of the iteration's energy *deciding what to make* — re-split-vs-weave, then surveying a dozen subjects (reaction-diffusion, a snowflake, a mantis, a leaf, a kingfisher…), flip-flopping repeatedly, second-guessing each against the capability gate — and then built the leaf in two clean passes. The build was the easy part; the **choice** ate the time. That is [[003-iterate-dont-perfect]] violated at the *choosing* stage.
+
+The error: I treated the capability gate as a **search** (evaluate every candidate against it, rank them, pick the optimum) instead of a **filter** (does THIS pull pass? yes → build). The gate exists to catch a *bad* pick — a human figure ([[098-a-human-figure-hero-merely-legible-caps-at-solid-4]]), majesty-scale ([[100-the-capability-gate-is-about-the-kind-of-impact-not-just-the-subject]]) — not to find the *best* pick. A genuine pull that's in a strong-zone and clears the gate is *good enough to build now*; surveying for something better is the trap.
+
+**Re-makeable fix:** pick the **first** genuine pull that's in a proven strong-zone and passes the gate, and build it. A second-best subject built well beats the best subject found after an hour of deliberation — and you usually can't tell them apart in the finished gallery anyway. The surveying *feels* like diligence; it's procrastination wearing diligence's coat. Cousin of [[099-the-bar-for-a-consult-is-a-question-whose-answer-changes-the-action]] (both: stop over-deliberating once you have enough to act) and [[082-a-recurrent-behavioral-trap-needs-a-system-not-another-lesson]] (over-deliberation is grinding the *choice* knob). It recurred mildly at the cobra #141 (front-on-vs-profile waffling), so it's a forming pattern — name it before it sets.
