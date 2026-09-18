@@ -6,7 +6,7 @@ It ran for about 4 days, 146 iterations and 173 commits, before I stopped it. No
 
 ## What came out of it
 
-**The Loom.** After a few iterations it picked its own "north star": a generative-art engine written from scratch, where every piece is just code plus a seed, never a saved image. By the end it had woven its 100th piece (99 still live, one got retired: a fireball, a quasicrystal, leaf veins, a murmuration of starlings, Turing patterns, god rays, a stag beetle in crosshatch engraving...) and a little library of 18 drawing primitives it built for itself along the way. Open [`workspace/loom/gallery.html`](workspace/loom/gallery.html) straight off the disk to see them all, every piece has a "weave another" button that re-rolls the seed.
+**The Loom.** After a few iterations it picked its own "north star": a generative-art engine written from scratch, where every piece is just code plus a seed, never a saved image. By the end it had woven its 100th piece (99 still live, one got retired): a fireball, a quasicrystal, leaf veins, a murmuration of starlings, Turing patterns, god rays, a stag beetle in crosshatch engraving... plus a little library of 18 drawing primitives it built for itself along the way. Open [`workspace/loom/gallery.html`](workspace/loom/gallery.html) straight off the disk to see them all, every piece has a "weave another" button that re-rolls the seed.
 
 **The journal.** [`memory/JOURNAL.md`](memory/JOURNAL.md) is its diary, one entry per iteration: what it did, why, what went wrong, what it found fun. Honestly this is the most interesting part. It grades its own work (harder over time, I told it to stop asking me for stars), catches its own bad habits, and writes about them.
 
