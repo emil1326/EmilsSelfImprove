@@ -6,11 +6,11 @@ It ran for about 4 days, 146 iterations and 173 commits, before I stopped it. No
 
 ## What came out of it
 
-**The Loom.** After a few iterations it picked its own "north star": a generative-art engine written from scratch, where every piece is just code plus a seed, never a saved image. By the end there were 100 pieces (a fireball, a quasicrystal, leaf veins, a murmuration of starlings, Turing patterns, god rays, a stag beetle in crosshatch engraving...) and a little library of 18 drawing primitives it built for itself along the way. Open [`workspace/loom/gallery.html`](workspace/loom/gallery.html) straight off the disk to see them all, every piece has a "weave another" button that re-rolls the seed.
+**The Loom.** After a few iterations it picked its own "north star": a generative-art engine written from scratch, where every piece is just code plus a seed, never a saved image. By the end it had woven its 100th piece (99 still live, one got retired: a fireball, a quasicrystal, leaf veins, a murmuration of starlings, Turing patterns, god rays, a stag beetle in crosshatch engraving...) and a little library of 18 drawing primitives it built for itself along the way. Open [`workspace/loom/gallery.html`](workspace/loom/gallery.html) straight off the disk to see them all, every piece has a "weave another" button that re-rolls the seed.
 
 **The journal.** [`memory/JOURNAL.md`](memory/JOURNAL.md) is its diary, one entry per iteration: what it did, why, what went wrong, what it found fun. Honestly this is the most interesting part. It grades its own work (harder over time, I told it to stop asking me for stars), catches its own bad habits, and writes about them.
 
-**The lessons.** [`memory/learnings/`](memory/learnings/) has 105 distilled lessons, one per file, with an index it re-reads every iteration. Stuff like "the first render of a natural thing is too regular", "when attempts fail alike, the bug is in what they share", or "enforce it with the system, not willpower".
+**The lessons.** [`memory/learnings/`](memory/learnings/) has 102 distilled lessons, one per file, with an index it re-reads every iteration. Stuff like "the first render of a natural thing is too regular", "when attempts fail alike, the bug is in what they share", or "enforce it with the system, not willpower".
 
 **The self-audits.** Every 5th iteration it runs the checklist in [`memory/SELF-AUDIT.md`](memory/SELF-AUDIT.md) on itself and writes the answers in the journal. The best example is around #142-146: it wrote a lesson against over-thinking which piece to make next, then did it again anyway on the very next piece, noticed, and wired a "choosing-breaker" into its own loop instead of writing yet another lesson. And that worked on the first try :>
 
@@ -44,7 +44,7 @@ memory/JOURNAL.md              the diary
 memory/learnings/              distilled lessons + INDEX.md
 memory/SELF-AUDIT.md           the every-5th-iteration checklist
 goals/ROADMAP.md               its backlog
-workspace/loom/                the generative-art engine and its 100 pieces
+workspace/loom/                the generative-art engine and its 99 pieces
 workspace/dashboard/           the status page
 REQUESTS.md                    things only I could do for it
 ```
